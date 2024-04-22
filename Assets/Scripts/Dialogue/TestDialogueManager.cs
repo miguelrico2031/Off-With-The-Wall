@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
+
 public class TestDialogueManager : MonoBehaviour
 {
     [SerializeField] private Dialogues _dialogues;
@@ -53,7 +54,7 @@ public class TestDialogueManager : MonoBehaviour
         foreach (var c in phrase.Text)
         {
             _dialogueText.text += c;
-            if(!_skip) yield return new WaitForSeconds(_typeDelay);
+            if (!_skip) yield return new WaitForSeconds(_typeDelay);
         }
 
         _skip = false;

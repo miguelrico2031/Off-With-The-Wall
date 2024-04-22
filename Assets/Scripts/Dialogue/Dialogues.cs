@@ -2,12 +2,17 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
 //[CreateAssetMenu(menuName = "ScriptableObjects/Dialogues")]
 public class Dialogues : ScriptableObject
 {
     public enum Speaker
     {
-        Juan, Pedro, Podemita1, Podemita2
+        Juan,
+        Pedro,
+        Podemita1,
+        Podemita2
     }
 
     [Serializable]
@@ -17,9 +22,20 @@ public class Dialogues : ScriptableObject
         [SerializeField] private string _name;
         [SerializeField] private Sprite _sprite;
 
-        public Speaker Speaker { get => _speaker; }
-        public string Name { get => _name; }
-        public Sprite Sprite { get => _sprite; }
+        public Speaker Speaker
+        {
+            get => _speaker;
+        }
+
+        public string Name
+        {
+            get => _name;
+        }
+
+        public Sprite Sprite
+        {
+            get => _sprite;
+        }
     }
 
 
@@ -34,18 +50,18 @@ public class Dialogues : ScriptableObject
         if (_dialoguesDict == null)
         {
             _dialoguesDict = new();
-            foreach(var d in _dialogues) _dialoguesDict.Add(d.Key, d);
+            foreach (var d in _dialogues) _dialoguesDict.Add(d.Key, d);
         }
 
         return _dialoguesDict.GetValueOrDefault(key); //devuelve null si no encuentra la key en el dict
     }
-        
+
     public SpeakerData GetSpeakerData(Speaker speaker)
     {
         if (_speakersDict == null)
         {
             _speakersDict = new();
-            foreach(var spk in _speakers) _speakersDict.Add(spk.Speaker, spk);
+            foreach (var spk in _speakers) _speakersDict.Add(spk.Speaker, spk);
         }
 
         return _speakersDict.GetValueOrDefault(speaker);
