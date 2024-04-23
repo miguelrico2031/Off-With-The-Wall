@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdd265020ef25cb4ba21101e48e4c405, type: 3}
   m_Name: GameInfo
   m_EditorClassIdentifier: 
-  _initialPeople: 5
+  <InitialPeople>k__BackingField: 5
+  <InitialPedestrians>k__BackingField: 15
+  <DespawnProbability>k__BackingField: 0.9
+  <MinAgentSpeed>k__BackingField: 0.4
+  <MaxAgentSpeed>k__BackingField: 1.3
