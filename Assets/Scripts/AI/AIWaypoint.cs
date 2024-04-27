@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class AIWaypoint : MonoBehaviour
 {
+    [field:SerializeField] public bool IsOnlyWaypoint { get; private set; } //por si queremos que algunos wps no puedan spawnear/despawnear
+    
     private IAIService _aiService;
     
     private void Start()

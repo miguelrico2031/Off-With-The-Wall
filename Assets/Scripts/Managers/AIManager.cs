@@ -55,7 +55,7 @@ public class AIManager : MonoBehaviour, IAIService
         AIWaypoint spawnPoint, target;
             
         do spawnPoint = GetRandomWaypoint();
-        while (spawnPoint == _lastSpawnPoint || spawnPoint == _lastTarget);
+        while (spawnPoint == _lastSpawnPoint || spawnPoint == _lastTarget || spawnPoint.IsOnlyWaypoint);
         _lastSpawnPoint = spawnPoint;
             
         do target = GetRandomWaypoint();
@@ -69,8 +69,7 @@ public class AIManager : MonoBehaviour, IAIService
     private void SpawnPedestrian(AIWaypoint spawnPoint, AIWaypoint target)
     {
         var pedestrian = _objectPool.Get();
-        pedestrian.Spawn(spawnPoint, Random.Range(_gameInfo.MinAgentSpeed, _gameInfo.MaxAgentSpeed));
-        pedestrian.SetTarget(target);
+        StartCoroutine(pedestrian.Spawn(spawnPoint, target, Random.Range(_gameInfo.MinAgentSpeed, _gameInfo.MaxAgentSpeed)));
         pedestrian.OnTargetReached.AddListener(OnTargetReached);
     }
 
@@ -80,9 +79,11 @@ public class AIManager : MonoBehaviour, IAIService
         if (Random.Range(0f, 1f) <= _gameInfo.DespawnProbability)
         { //despawn y spawn en otro sitio
             pedestrian.OnTargetReached.RemoveListener(OnTargetReached);
-            pedestrian.Despawn();
-            _objectPool.Return(pedestrian);
-            StartCoroutine(SpawnPedestrians(1));
+            StartCoroutine(pedestrian.Despawn(() =>
+            {
+                _objectPool.Return(pedestrian);
+                StartCoroutine(SpawnPedestrians(1));
+            }));
         }
         else
         { //solo cambiar target sin despawnearlo

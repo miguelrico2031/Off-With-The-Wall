@@ -1,6 +1,9 @@
+using System.Collections;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.AI;
+
+using System;
 
 public class PedestrianAI : MonoBehaviour, IPoolObject
 {
@@ -11,6 +14,8 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
     public readonly UnityEvent<PedestrianAI> OnTargetReached = new();
     private bool _pathEnded = true;
     private NavMeshAgent _agent;
+    private Animator _animator;
+    private int _spawnAnim, _walkAnim, _despawnAnim;
     
     #endregion
     
@@ -21,13 +26,15 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
         _agent.updateRotation = false;
         _agent.updateUpAxis = false;
         _agent.avoidancePriority = 99;
+        _animator = GetComponentInChildren<Animator>();
+        _spawnAnim = Animator.StringToHash("Spawn");
+        _walkAnim = Animator.StringToHash("Walk");
+        _despawnAnim = Animator.StringToHash("Despawn");
     }
 
     private void Update()
     {
-        // if (Target is not null && !_agent.pathPending && 
-        //     _agent.hasPath && _agent.remainingDistance <= _agent.stoppingDistance &&
-        //     _agent.velocity.sqrMagnitude <= .01f)
+
         if(!_pathEnded && Vector2.Distance(transform.position, Target.transform.position) <= .05f)
         {
             _pathEnded = true;
@@ -37,10 +44,17 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
 
     #endregion
 
-    public void Spawn(AIWaypoint spawnPoint, float agentSpeed)
+    public IEnumerator Spawn(AIWaypoint spawnPoint, AIWaypoint target, float agentSpeed)
     {
         transform.position = spawnPoint.transform.position;
         _agent.speed = agentSpeed;
+        _animator.Play(_spawnAnim);
+        yield return null;
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        Target = target;
+        _agent.SetDestination(Target.transform.position);
+        _pathEnded = false;
+        _animator.Play(_walkAnim);
     }
 
     public void SetTarget(AIWaypoint target)
@@ -50,11 +64,14 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
         _pathEnded = false;
     }
 
-    public void Despawn()
+    public IEnumerator Despawn(Action callback)
     {
-        
+        _animator.Play(_despawnAnim);
+        yield return null;
+        yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        callback();
     }
-
+    
 
     public void Clean()
     {
