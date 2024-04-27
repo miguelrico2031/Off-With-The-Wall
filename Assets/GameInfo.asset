@@ -17,5 +17,4 @@ MonoBehaviour:
   <DespawnProbability>k__BackingField: 0.9
   <MinAgentSpeed>k__BackingField: 0.4
   <MaxAgentSpeed>k__BackingField: 1.3
-  <PedestrianSpawnTime>k__BackingField: 0
-  <PedestrianDespawnTime>k__BackingField: 0
+  <PopUpPoolSize>k__BackingField: 10

@@ -44,6 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8d636056f3eb4f5095ccc60c851e6eeb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <IsOnlyWaypoint>k__BackingField: 0
 --- !u!1 &7001301059132716335
 GameObject:
   m_ObjectHideFlags: 0
@@ -144,6 +145,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 86fec8d7857c496cbda171ed0c9a7ff9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  <PopUpOffset>k__BackingField: {x: 0, y: 0.9, z: 0}
   _type: 1
 --- !u!61 &5454780296540634043
 BoxCollider2D:

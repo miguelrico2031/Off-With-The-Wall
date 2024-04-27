@@ -11,4 +11,8 @@ public class GameInfo : ScriptableObject
     [field:SerializeField][field:Range(0f, 1f)] public float DespawnProbability { get; private set; }
     [field:SerializeField] public float MinAgentSpeed { get; private set; }
     [field:SerializeField] public float MaxAgentSpeed { get; private set; }
+    
+    [field:Header("Pop Ups")]
+    [field:SerializeField] public int PopUpPoolSize { get; private set; }
+    
 }

@@ -8,10 +8,12 @@ public class House : MonoBehaviour, IBuilding
     
     public IBuilding.State CurrentState { get; private set; }
     public IBuilding.BuildingType Type { get => _type; }
+    [field:SerializeField] public Vector3 PopUpOffset { get; private set; }
 
     [SerializeField] private IBuilding.BuildingType _type;
 
     private uint _currentReward;
+    private IPopUpService _popUpService;
     private IPeopleService _peopleService;
     private IBuildingService _buildingService;
     
@@ -19,8 +21,9 @@ public class House : MonoBehaviour, IBuilding
 
     #region Unity Callbacks
 
-    private void Start()
+    private void Awake()
     {
+        _popUpService = GameManager.Instance.Get<IPopUpService>();
         _peopleService = GameManager.Instance.Get<IPeopleService>();
         _buildingService = GameManager.Instance.Get<IBuildingService>();
         _buildingService.AddBuilding(this);
@@ -32,6 +35,8 @@ public class House : MonoBehaviour, IBuilding
     { //actualiza su estado y reward
         CurrentState = IBuilding.State.HasReward;
         _currentReward = reward;
+        _popUpService.ShowPopUp(this);
+        
     }
 
     public void SetEvent(object buildingEvent) //tipo object a cambiar luego
@@ -51,22 +56,30 @@ public class House : MonoBehaviour, IBuilding
 
     public void OnPointerClick(PointerEventData eventData)
     {
+        Debug.Log("CLICK");
         switch (CurrentState)
         {
             case IBuilding.State.Idle:
                 //animacion o no hacer nada
                 break;
             case IBuilding.State.HasReward:
-                //llamar al manager que corresponda para sumar la reward
-                _peopleService.AddPeople(_currentReward);
-                _currentReward = 0;
-                CurrentState = IBuilding.State.Idle;
+                CollectReward();
                 break;
             case IBuilding.State.HasEvent:
                 //llamar al manager que sea para triggerear el evento
                 CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
                 break;
         }
+
+    }
+
+    public void CollectReward()
+    {
+        //llamar al manager que corresponda para sumar la reward
+        _peopleService.AddPeople(_currentReward);
+        _currentReward = 0;
+        CurrentState = IBuilding.State.Idle;   
+        _popUpService.HidePopUp(this);
 
     }
 }

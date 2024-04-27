@@ -1,6 +1,8 @@
 using System;
 using System.Collections.Generic;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 
 public class GameManager : MonoBehaviour
@@ -24,6 +26,16 @@ public class GameManager : MonoBehaviour
         if(Instance is not null && Instance != this) Destroy(gameObject);
         Instance = this;
         GetComponent<ServicesBootstrapper>().Bootstrap();
+    }
+
+    private IEnumerator Start()
+    {
+        var t = true;
+        for (int i = 0; i < 20 && t; i++)
+        {
+            t = Get<IBuildingService>().SetReward(5);
+            yield return new WaitForSeconds(2);
+        }
     }
 
     #endregion
