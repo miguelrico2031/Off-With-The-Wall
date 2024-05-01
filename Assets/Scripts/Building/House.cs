@@ -33,6 +33,7 @@ public class House : MonoBehaviour, IBuilding
     
     public void SetReward(uint reward)
     { //actualiza su estado y reward
+        Debug.Log("PopUP");
         CurrentState = IBuilding.State.HasReward;
         _currentReward = reward;
         _popUpService.ShowPopUp(this);

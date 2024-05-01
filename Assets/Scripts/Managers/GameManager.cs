@@ -30,17 +30,26 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator Start()
     {
-        var t = true;
-        for (int i = 0; i < 20 && t; i++)
-        {
-            t = Get<IBuildingService>().SetReward(5);
-            yield return new WaitForSeconds(2);
-        }
+        //var t = true;
+        //for (int i = 0; i < 20 && t; i++)
+        //{
+        //    t = Get<IBuildingService>().SetReward(5);
+        //    yield return new WaitForSeconds(2);
+        //}
+
+        yield return new WaitForEndOfFrame();
+        CurrentGameState = GameState.OnPlay;
     }
 
     #endregion
 
-
+    public enum GameState
+    {
+        OnEvent,
+        OnPlay,
+        OnPause
+    }
+    public GameState CurrentGameState { get; private set; }
     public T Get<T>() where T : IService //Para acceder a los servicios (managers)
     {
         _services ??= new();

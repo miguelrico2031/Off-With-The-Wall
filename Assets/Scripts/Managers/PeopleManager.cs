@@ -20,7 +20,7 @@ public class PeopleManager : IPeopleService
     public void AddPeople(uint people)
     {
         float total = _multipliers.Values.Aggregate(1f, (current, m) => current * m);
-        People = people * (uint) Mathf.RoundToInt(total);
+        People += people * (uint) Mathf.RoundToInt(total);
         OnPeopleChanged.Invoke(People);
     }
 
