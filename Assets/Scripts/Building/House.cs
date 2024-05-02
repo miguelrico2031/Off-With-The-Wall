@@ -16,7 +16,9 @@ public class House : MonoBehaviour, IBuilding
     private IPopUpService _popUpService;
     private IPeopleService _peopleService;
     private IBuildingService _buildingService;
-    
+    private IEventService _eventService;
+
+    private Event _currentEvent;
     #endregion
 
     #region Unity Callbacks
@@ -26,6 +28,7 @@ public class House : MonoBehaviour, IBuilding
         _popUpService = GameManager.Instance.Get<IPopUpService>();
         _peopleService = GameManager.Instance.Get<IPeopleService>();
         _buildingService = GameManager.Instance.Get<IBuildingService>();
+        _eventService = GameManager.Instance.Get<IEventService>();
         _buildingService.AddBuilding(this);
     }
 
@@ -40,11 +43,14 @@ public class House : MonoBehaviour, IBuilding
         
     }
 
-    public void SetEvent(object buildingEvent) //tipo object a cambiar luego
+    public void SetEvent(Event _event) //tipo object a cambiar luego
     {
         CurrentState = IBuilding.State.HasEvent; //falta implementar la logica de los eventos
+        _currentEvent = _event;
+        _popUpService.ShowPopUp(this);
+
     }
-    
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         //animacion guapa
@@ -68,7 +74,10 @@ public class House : MonoBehaviour, IBuilding
                 break;
             case IBuilding.State.HasEvent:
                 //llamar al manager que sea para triggerear el evento
+                _eventService.StartEvent(_currentEvent);
                 CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
+                _popUpService.HidePopUp(this);
+                print("evento");
                 break;
         }
 

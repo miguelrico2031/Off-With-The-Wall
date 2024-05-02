@@ -11,5 +11,10 @@ public class ServicesBootstrapper : MonoBehaviour
         GameManager.Instance.Register<IHUDService>(FindObjectOfType<HUDManager>());
         GameManager.Instance.Register<IAIService>(FindObjectOfType<AIManager>());
         GameManager.Instance.Register<IPopUpService>(FindObjectOfType<PopUpManager>());
+        GameManager.Instance.Register<ITextDialogService>(FindObjectOfType<TestDialogueManager>());
+        GameManager.Instance.Register<IEventSpawnService>(FindObjectOfType<EventSpawner>());
+        GameManager.Instance.Register<IEventService>(FindObjectOfType<EventManager>());
+
+
     }
 }

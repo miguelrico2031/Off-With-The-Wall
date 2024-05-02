@@ -1,22 +1,31 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
-[CreateAssetMenu(menuName = "ScriptableObjects/Event")]
-
+using System;
 public class Event : ScriptableObject
 {
+    [Serializable]
+    public class EventReward
+    {
+        [field: SerializeField] public RewardType _type { get; private set; }
 
-    [SerializeField] private Dialogue startDialogue;
-    [SerializeField] private Dialogue endDialogue;
-    [field:SerializeField] public EventType _eventtype { get; private set; }
+        //[Header("Personas o Multiplicador")]
+        [field: SerializeField] public float Valor{ get; private set; }
+
+        [field: SerializeField] public float Time { get; private set; }
+        [field: SerializeField] public bool Infinite { get; private set; }
+
+
+    }
+
+    public enum RewardType
+    {
+        AddPeople,
+        PopUpMultiplier,
+        RewardMultiplier,
+        CritMultiplier,
+    }
     [field:SerializeField] public IBuilding.BuildingType _buildingtype { get; private set; }
 
-
-    public enum EventType
-    {
-        ChoiceEvent, //Dos Opciones
-        PassiveEvent, //Simplemente te dan algo pasivo (mas personas por x tiempo, mas pop-ups etc..)
-        ChanceEvent, //Tirar la ruleta o no
-    }
+    [field: SerializeField] public string _startDialogueKey { get; private set; }
 }

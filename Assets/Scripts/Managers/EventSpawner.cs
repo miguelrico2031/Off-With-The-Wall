@@ -27,7 +27,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     void Start()
     {
         _buildingService = GameManager.Instance.Get<IBuildingService>();
-
+        DoneEvents = new HashSet<Event>();
     }
 
     // Update is called once per frame
@@ -56,9 +56,11 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     {
         int i = 0;
         Event _newEvent = null;
+        print("bum");
         while((_newEvent == null || !DoneEvents.Contains(_newEvent)) && i < 50)
         {
             _newEvent = AllEvents[Random.Range(0, AllEvents.Count)];
+            i++;
         }
         if(i == 50)
         {

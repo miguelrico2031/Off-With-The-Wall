@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IEventService : IService
 {
-    public void CreateReward();
-    public void CreateEvent();
+    public void StartEvent(Event _event);
+    public void GiveReward(Event.EventReward _reward);
 
     //public uint RewardMaxWait { get; }
 
