@@ -15,4 +15,9 @@ public class GameInfo : ScriptableObject
     [field:Header("Pop Ups")]
     [field:SerializeField] public int PopUpPoolSize { get; private set; }
     
+    [field:Header("Events")]
+    [field:SerializeField] public float RewardWaitTime { get; private set; }
+    [field:SerializeField] public float EventWaitTime { get; private set; }
+    [field:SerializeField] public uint RewardValue { get; private set; }
+
 }

@@ -1,3 +1,4 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
@@ -49,6 +50,27 @@ public class PeopleManager : IPeopleService
             Debug.LogError($"Multiplier with key = {key} already exists.");
     }
 
+    public void AddMultiplier(string key, float multiplier, float duration)
+    {
+        AddMultiplier(key, multiplier);
+        //esto lo hago porque solo se pueden llamar coroutines en monobehaviors
+        GameManager.Instance.StartCoroutine(RemoveMultiplierAfterDuration(key, duration));
+    }
+
     public bool RemoveMultiplier(string key) => _multipliers.Remove(key);
+
+    private IEnumerator RemoveMultiplierAfterDuration(string key, float duration)
+    {
+        while(duration > 0)
+        {
+            yield return new WaitForSeconds(.5f);
+            duration -= .5f;
+            if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
+                yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
+        }
+
+        RemoveMultiplier(key);
+
+    }
     
 }

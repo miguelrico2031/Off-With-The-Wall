@@ -4,26 +4,18 @@ using UnityEngine;
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Events/ChoiceEvent")]
 
-public class ChoiceEvent : Event
+public class ChoiceEvent : ScriptableObject, IGameEvent
 {
-    [field: SerializeField] public string _choiceTextA { get; private set; }
-    [field: SerializeField] public string _choiceTextB {get; private set; }
+    [field:SerializeField] public IBuilding.BuildingType BuildingType { get; private set; }
+    [field: SerializeField] public string StartDialogueKey { get; private set; }
+    
+    [field: SerializeField] public string ChoiceTextA { get; private set; }
+    [field: SerializeField] public string ChoiceTextB {get; private set; }
 
-[field: SerializeField] public string _endDialogueAKey {get;private set;}
-    [field: SerializeField] public string _endDialogueBKey {get;private set;}
+    [field: SerializeField] public string EndDialogueAKey {get;private set;}
+    [field: SerializeField] public string EndDialogueBKey {get;private set;}
 
-    [field: SerializeField] public EventReward _rewardA{get;private set;}
-    [field: SerializeField] public EventReward _rewardB{get;private set;}
+    [field: SerializeField] public Outcomes OutcomesA {get;private set;}
+    [field: SerializeField] public Outcomes OutcomesB {get;private set;}
 
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

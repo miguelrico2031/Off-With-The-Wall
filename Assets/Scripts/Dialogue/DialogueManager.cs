@@ -6,7 +6,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 
-public class TestDialogueManager : MonoBehaviour, ITextDialogService
+public class DialogueManager : MonoBehaviour, IDialogueService
 {
     [SerializeField] private Dialogues _dialogues;
     [SerializeField] private TextMeshProUGUI _dialogueText;
@@ -28,7 +28,7 @@ public class TestDialogueManager : MonoBehaviour, ITextDialogService
         //DisplayNextPhrase();
     }
 
-    public void SendDialog(string _key,Action _nextAction)
+    public void SendDialogue(string _key,Action _nextAction)
     {
         _testDialogue = _dialogues.GetDialogue(_key);
         if(_testDialogue != null)

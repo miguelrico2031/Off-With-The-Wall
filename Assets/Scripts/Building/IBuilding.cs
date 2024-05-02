@@ -21,5 +21,5 @@ public interface IBuilding : IPointerEnterHandler, IPointerExitHandler, IPointer
     public BuildingType Type { get; }
 
     public void SetReward(uint reward); //a acambiar por el tipo que corresponda
-    public void SetEvent(Event _event); //a acambiar por el tipo que corresponda
+    public void SetEvent(IGameEvent _event); //a acambiar por el tipo que corresponda
 }

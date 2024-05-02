@@ -18,7 +18,7 @@ public class House : MonoBehaviour, IBuilding
     private IBuildingService _buildingService;
     private IEventService _eventService;
 
-    private Event _currentEvent;
+    private IGameEvent _currentEvent;
     #endregion
 
     #region Unity Callbacks
@@ -43,7 +43,7 @@ public class House : MonoBehaviour, IBuilding
         
     }
 
-    public void SetEvent(Event _event) //tipo object a cambiar luego
+    public void SetEvent(IGameEvent _event) //tipo object a cambiar luego
     {
         CurrentState = IBuilding.State.HasEvent; //falta implementar la logica de los eventos
         _currentEvent = _event;

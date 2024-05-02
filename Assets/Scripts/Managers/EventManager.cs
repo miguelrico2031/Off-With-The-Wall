@@ -1,60 +1,73 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class EventManager : MonoBehaviour,IEventService
+public class EventManager : MonoBehaviour, IEventService
 {
     [SerializeField] private CanvasGroup _buttonsCanvas;
-private ITextDialogService _textService;
-    private IPeopleService _peopleService;
+    private IDialogueService _dialogueService;
 
-    Event.EventReward _setReward;
+    private string _currentKeyA, _currentKeyB;
+    private Action _currentActionA, _currentActionB;
+
     private void Start()
     {
-        _textService = GameManager.Instance.Get<ITextDialogService>();
-        _peopleService = GameManager.Instance.Get<IPeopleService>();
-
+        _dialogueService = GameManager.Instance.Get<IDialogueService>();
+        _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(OnAButtonClick);
+        _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(OnBButtonClick);
     }
 
-    public void StartEvent(Event _event)
+    private void OnDestroy()
     {
-        if(_event as ChoiceEvent)
-        {
-            print("es Choice");
-            ChoiceEvent _chEvent = _event as ChoiceEvent;
-            _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate {_setReward = _chEvent._rewardA; _textService.SendDialog(_chEvent._endDialogueAKey, GiveRewardSet); });
-            _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(delegate { _setReward = _chEvent._rewardB; _textService.SendDialog(_chEvent._endDialogueAKey, GiveRewardSet); });
-            _textService.SendDialog(_chEvent._startDialogueKey,ShowButton);
-        }
-        if (_event as PassiveEvent)
-        {
-            print("es pasivo");
-            PassiveEvent _pEvent = _event as PassiveEvent;
-            _setReward = _pEvent._reward;
-            _textService.SendDialog(_pEvent._startDialogueKey, GiveRewardSet) ;
-
-        }
-
+        foreach(var b in _buttonsCanvas.GetComponentsInChildren<Button>()) b.onClick.RemoveAllListeners();
     }
-    public void ShowButton()
+
+    public void StartEvent(IGameEvent e)
+    {
+        switch (e)
+        {
+            case ChoiceEvent choiceEvent:
+                // _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate 
+                //     { _dialogueService.SendDialogue(choiceEvent.EndDialogueAKey, () => ResolveOutcomes(choiceEvent.OutcomesA)); });
+                // _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(delegate 
+                //     { _dialogueService.SendDialogue(choiceEvent.EndDialogueBKey, () => ResolveOutcomes(choiceEvent.OutcomesB)); });
+                //
+
+                _currentKeyA = choiceEvent.EndDialogueAKey;
+                _currentKeyB = choiceEvent.EndDialogueBKey;
+                _currentActionA = () => ResolveOutcomes(choiceEvent.OutcomesA);
+                _currentActionB = () => ResolveOutcomes(choiceEvent.OutcomesB);
+                
+                _dialogueService.SendDialogue(choiceEvent.StartDialogueKey,ShowButton);
+                break;
+            
+            case PassiveEvent passiveEvent:
+                _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, () => ResolveOutcomes(passiveEvent.Outcomes)) ;
+                break;
+        }
+    }
+
+    private void OnAButtonClick()
+    {
+        _dialogueService.SendDialogue(_currentKeyA, _currentActionA);
+    }
+
+    private void OnBButtonClick()
+    {
+        _dialogueService.SendDialogue(_currentKeyB, _currentActionB);
+    }
+    
+    private void ShowButton()
     {
         _buttonsCanvas.alpha = 1;
         _buttonsCanvas.blocksRaycasts = true;
     }
-    public void GiveReward(Event.EventReward _reward)
+    
+    private void ResolveOutcomes(Outcomes outcomes)
     {
         _buttonsCanvas.alpha = 0;
         _buttonsCanvas.blocksRaycasts = false;
-        switch (_reward._type)
-        {
-            case Event.RewardType.AddPeople:
-                _peopleService.AddPeople((uint)Mathf.RoundToInt(_reward.Valor));
-                break;
-        }
-    }
-    public void GiveRewardSet()
-    {
-        GiveReward(_setReward);
-        
+        foreach(var outcome in outcomes.Get()) outcome.Execute();
     }
 }

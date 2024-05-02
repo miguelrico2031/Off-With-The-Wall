@@ -12,19 +12,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b7993c619dbc2064bb05906398f12c07, type: 3}
   m_Name: ChoiceEventGeneric
   m_EditorClassIdentifier: 
-  <_buildingtype>k__BackingField: 0
-  <_startDialogueKey>k__BackingField: prieba
-  <_choiceTextA>k__BackingField: ganar
-  <_choiceTextB>k__BackingField: perrder
-  <_endDialogueAKey>k__BackingField: prieba
-  <_endDialogueBKey>k__BackingField: prieba
-  <_rewardA>k__BackingField:
-    <_type>k__BackingField: 0
-    <Valor>k__BackingField: 10
-    <Time>k__BackingField: 0
-    <Infinite>k__BackingField: 0
-  <_rewardB>k__BackingField:
-    <_type>k__BackingField: 0
-    <Valor>k__BackingField: 10
-    <Time>k__BackingField: 0
-    <Infinite>k__BackingField: 0
+  <BuildingType>k__BackingField: 1
+  <StartDialogueKey>k__BackingField: 
+  <ChoiceTextA>k__BackingField: 
+  <ChoiceTextB>k__BackingField: 
+  <EndDialogueAKey>k__BackingField: 
+  <EndDialogueBKey>k__BackingField: 
+  <OutcomesA>k__BackingField:
+    _peopleIncreases:
+    - <DisplayText>k__BackingField: ganaste 3 manes
+      People: 3
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _popUpMultipliers:
+    - <DisplayText>k__BackingField: Multiplicate popup anda
+      Multiplier: 0.67
+      MultiplierName: hola
+      IsPermanent: 1
+      Duration: 0
+  <OutcomesB>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - <DisplayText>k__BackingField: te jodiste pierdes 80
+      People: 7
+    _rewardMultipliers: []
+    _popUpMultipliers: []

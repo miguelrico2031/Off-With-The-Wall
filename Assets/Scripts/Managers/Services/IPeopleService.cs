@@ -8,6 +8,7 @@ public interface IPeopleService : IService
     public void AddPeople(uint people);
     public void RemovePeople(uint people);
     public void AddMultiplier(string key, float multiplier);
+    public void AddMultiplier(string key, float multiplier, float duration);
     public bool RemoveMultiplier(string key);
     public UnityEvent<uint> OnPeopleChanged { get; }
     public UnityEvent OnZeroPeople { get; }

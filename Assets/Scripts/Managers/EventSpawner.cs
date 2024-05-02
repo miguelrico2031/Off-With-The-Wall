@@ -1,71 +1,95 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 public class EventSpawner : MonoBehaviour, IEventSpawnService
 {
-
-  [SerializeField] private List<Event> AllEvents;
-  private HashSet<Event> DoneEvents;
-
+    private readonly List<IGameEvent> _availableEvents = new();
+    private readonly HashSet<IGameEvent> _doneEvents = new();
 
     private IBuildingService _buildingService;
+    private GameInfo _gameInfo;
 
-    [field:SerializeField] public float RewardWaitTime { get; private set; }
-    [SerializeField] float _currentRewardWaitTime;
+    private Coroutine _rewardCountdown, _eventCountdown;
 
-    [field:SerializeField] public float EventWaitTime { get; private set; }
-    [SerializeField] float _currentEventWaitTime;
-
-
-   [field:SerializeField] public uint _rewardValue { get; private set; }
-
-    [SerializeField] private Event _emergencyEvent; //En el caso imposible de que se acaben los eventos cuando no deben saldrá este evento. 
-    [SerializeField] private int _eventSearchThreshold; //Cuantas veces busca el evento hasta que se cansa
-
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
         _buildingService = GameManager.Instance.Get<IBuildingService>();
-        DoneEvents = new HashSet<Event>();
+        _gameInfo = GameManager.Instance.GameInfo;
+
+        _rewardCountdown = StartCoroutine(RewardCountdown());
+        _eventCountdown = StartCoroutine(EventCountdown());
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        print("update");
-        if(GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay)
+        // if(GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay)
+        // {
+        //     _currentRewardWaitTime -= Time.deltaTime;
+        //     _currentEventWaitTime -= Time.deltaTime;
+        //     if(_currentRewardWaitTime<= 0)
+        //     {
+        //         _buildingService.SetReward(RewardValue);
+        //         _currentRewardWaitTime = RewardWaitTime;
+        //     }
+        //     if (_currentEventWaitTime <= 0)
+        //     {
+        //         Event _sendEvent = GetEvent();
+        //         _buildingService.SetEvent(_sendEvent,_sendEvent._buildingtype);
+        //         _currentEventWaitTime = EventWaitTime;
+        //     }
+        // }
+    }
+
+    private IEnumerator RewardCountdown()
+    {
+        while (true)
         {
-            print("play");
-            _currentRewardWaitTime -= Time.deltaTime;
-            _currentEventWaitTime -= Time.deltaTime;
-            if(_currentRewardWaitTime<= 0)
+            for (int i = 0; i < 10; i++)
             {
-                _buildingService.SetReward(_rewardValue);
-                _currentRewardWaitTime = RewardWaitTime;
+                yield return new WaitForSeconds(_gameInfo.RewardWaitTime / 10f);
+                if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
+                    yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
             }
-            if (_currentEventWaitTime <= 0)
+            _buildingService.SetReward(_gameInfo.RewardValue);
+        }
+
+    }
+
+    private IEnumerator EventCountdown()
+    {
+        while (true)
+        {
+            for (int i = 0; i < 10; i++)
             {
-                Event _sendEvent = getEvent();
-                _buildingService.SetEvent(_sendEvent,_sendEvent._buildingtype);
-                _currentEventWaitTime = EventWaitTime;
+                yield return new WaitForSeconds(_gameInfo.EventWaitTime / 10f);
+                if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
+                    yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
             }
+            IGameEvent sendEvent = GetEvent();
+            _buildingService.SetEvent(sendEvent);
         }
     }
-    Event getEvent()
+    
+    private IGameEvent GetEvent()
     {
-        int i = 0;
-        Event _newEvent = null;
-        print("bum");
-        while((_newEvent == null || !DoneEvents.Contains(_newEvent)) && i < 50)
+        //int i = 0;
+        int randomIdx = -1;
+        IGameEvent newEvent = null;
+        do
         {
-            _newEvent = AllEvents[Random.Range(0, AllEvents.Count)];
-            i++;
-        }
-        if(i == 50)
-        {
-            _newEvent = _emergencyEvent;
-        }
-        return _newEvent;
+            randomIdx = Random.Range(0, _availableEvents.Count);
+            newEvent = _availableEvents[randomIdx];
+            //i++;
+        } while (_doneEvents.Contains(newEvent)/* && i < 50*/);
+        _availableEvents.RemoveAt(randomIdx);
+        _doneEvents.Add(newEvent);
+
+        // if(i == 50)
+        // {
+        //     _newEvent = _emergencyEvent;
+        // }
+        return newEvent;
     }
 }

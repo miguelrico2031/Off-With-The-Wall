@@ -32,9 +32,9 @@ public class BuildingManager : IBuildingService
         return true;
     }
 
-    public bool SetEvent(Event buildingEvent, IBuilding.BuildingType target)
+    public bool SetEvent(IGameEvent buildingEvent)
     {
-        var availables = GetAvailableBuildings(target);
+        var availables = GetAvailableBuildings(buildingEvent.BuildingType);
         if (availables is null) return false;
         availables[Random.Range(0, availables.Count)].SetEvent(buildingEvent); //elijo uno random
         return true;

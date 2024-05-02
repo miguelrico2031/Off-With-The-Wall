@@ -123,55 +123,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &56206501
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 56206503}
-  - component: {fileID: 56206502}
-  m_Layer: 0
-  m_Name: TextManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &56206502
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56206501}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19582ab54ef5ef742a60bc72f2b2cf94, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _dialogues: {fileID: 11400000, guid: 8877a1b1a6034e547a06b877f1acafe9, type: 2}
-  _dialogueText: {fileID: 1963975389}
-  _speakerImg: {fileID: 2082625161}
-  _typeSpeed: 1000
-  _canvasGroup: {fileID: 2028638719}
---- !u!4 &56206503
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56206501}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1456.5935, y: 723.0318, z: 1.2764463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &229895332
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -234,51 +185,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 9198821849213003418, guid: 9dba7f7c030c8364da3e6e485abfe717, type: 3}
   m_PrefabInstance: {fileID: 229895332}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &286777660
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 286777662}
-  - component: {fileID: 286777661}
-  m_Layer: 0
-  m_Name: EventManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &286777661
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286777660}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 94496be3a568413499931bb8a0ff0d3e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _buttonsCanvas: {fileID: 630662109}
---- !u!4 &286777662
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 286777660}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1456.5935, y: 723.0318, z: 1.2764463}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &294848227
 GameObject:
   m_ObjectHideFlags: 0
@@ -1141,59 +1047,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 0
   m_IgnoreParentGroups: 0
---- !u!1 &749653560
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 749653562}
-  - component: {fileID: 749653561}
-  m_Layer: 0
-  m_Name: EventSpawner
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &749653561
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749653560}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd4c7241ffc1d24393cb0881e7eccc0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  AllEvents:
-  - {fileID: 11400000, guid: 3875c94cf25b5cf47b2d1f48919762d2, type: 2}
-  <RewardWaitTime>k__BackingField: 5
-  _currentRewardWaitTime: 100000000
-  <EventWaitTime>k__BackingField: 20
-  _currentEventWaitTime: 1
-  <_rewardValue>k__BackingField: 10
-  _emergencyEvent: {fileID: 11400000, guid: 3875c94cf25b5cf47b2d1f48919762d2, type: 2}
-  _eventSearchThreshold: 30
---- !u!4 &749653562
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 749653560}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &962757511
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2407,8 +2260,10 @@ GameObject:
   - component: {fileID: 1692323425}
   - component: {fileID: 1692323424}
   - component: {fileID: 1692323423}
+  - component: {fileID: 1692323428}
+  - component: {fileID: 1692323427}
   m_Layer: 5
-  m_Name: EventCanvas
+  m_Name: Events UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2498,6 +2353,31 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &1692323427
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692323422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7cd4c7241ffc1d24393cb0881e7eccc0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1692323428
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1692323422}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94496be3a568413499931bb8a0ff0d3e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _buttonsCanvas: {fileID: 630662109}
 --- !u!1001 &1711089636
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2944,8 +2824,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2028638720}
   - component: {fileID: 2028638719}
+  - component: {fileID: 2028638721}
   m_Layer: 5
-  m_Name: TextCanvas
+  m_Name: Dialogue UI
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2984,6 +2865,23 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2028638721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2028638718}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19582ab54ef5ef742a60bc72f2b2cf94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dialogues: {fileID: 11400000, guid: 8877a1b1a6034e547a06b877f1acafe9, type: 2}
+  _dialogueText: {fileID: 1963975389}
+  _speakerImg: {fileID: 2082625161}
+  _typeSpeed: 1000
+  _canvasGroup: {fileID: 2028638719}
 --- !u!1 &2082625158
 GameObject:
   m_ObjectHideFlags: 0
@@ -3136,7 +3034,4 @@ SceneRoots:
   - {fileID: 1410589912}
   - {fileID: 1614320053}
   - {fileID: 1595078100}
-  - {fileID: 749653562}
   - {fileID: 1692323426}
-  - {fileID: 286777662}
-  - {fileID: 56206503}
