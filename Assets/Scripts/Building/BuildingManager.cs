@@ -32,7 +32,7 @@ public class BuildingManager : IBuildingService
         return true;
     }
 
-    public bool SetEvent(object buildingEvent, IBuilding.BuildingType target)
+    public bool SetEvent(Event buildingEvent, IBuilding.BuildingType target)
     {
         var availables = GetAvailableBuildings(target);
         if (availables is null) return false;
