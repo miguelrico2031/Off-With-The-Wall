@@ -20,4 +20,9 @@ public class GameInfo : ScriptableObject
     [field:SerializeField] public float EventWaitTime { get; private set; }
     [field:SerializeField] public uint RewardValue { get; private set; }
 
+    [field: Header("Events custom stuff")]
+    public string OrgName { get; set; }
+    public string OrgSlogan { get; set; }
+    public Sprite OrgBanner { get; set; }
+
 }
