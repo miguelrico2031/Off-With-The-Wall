@@ -5,7 +5,8 @@ using UnityEngine.Serialization;
 
 public class EventSpawner : MonoBehaviour, IEventSpawnService
 {
-    private readonly List<IGameEvent> _availableEvents = new();
+   [field: SerializeField] private readonly HashSet<IGameEvent> _eventPool = new();
+
     private readonly HashSet<IGameEvent> _doneEvents = new();
 
     private IBuildingService _buildingService;
@@ -20,6 +21,13 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
 
         _rewardCountdown = StartCoroutine(RewardCountdown());
         _eventCountdown = StartCoroutine(EventCountdown());
+        _eventPool.Clear();
+        foreach (IGameEvent gEvent in GameManager.Instance.GameInfo.getInitEvents())
+        {
+            addEvent(gEvent);
+        }
+
+
     }
 
     private void Update()
@@ -68,28 +76,41 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
                     yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
             }
             IGameEvent sendEvent = GetEvent();
+            if(sendEvent != null)
             _buildingService.SetEvent(sendEvent);
         }
     }
     
     private IGameEvent GetEvent()
-    {
-        //int i = 0;
-        int randomIdx = -1;
+    { 
         IGameEvent newEvent = null;
+        int tries = 0;
         do
         {
-            randomIdx = Random.Range(0, _availableEvents.Count);
-            newEvent = _availableEvents[randomIdx];
-            //i++;
-        } while (_doneEvents.Contains(newEvent)/* && i < 50*/);
-        _availableEvents.RemoveAt(randomIdx);
-        _doneEvents.Add(newEvent);
-
-        // if(i == 50)
-        // {
-        //     _newEvent = _emergencyEvent;
-        // }
+            tries++;
+            int r = Random.Range(0, _eventPool.Count);
+            int i = 0;
+            foreach (var e in _eventPool)
+            {
+                if (i++ != r) continue;
+                _eventPool.Remove(e);
+                newEvent = e;
+                break;
+            }
+            if (_doneEvents.Contains(newEvent))
+            {
+                newEvent = null;
+            }
+            _doneEvents.Add(newEvent);
+        } while (newEvent != null && tries < _doneEvents.Count + _eventPool.Count);
         return newEvent;
+    }
+    public bool addEvent(IGameEvent _event)
+    {
+        if (_doneEvents.Contains(_event))
+        {
+            return false;
+        }
+        return _eventPool.Add(_event);
     }
 }

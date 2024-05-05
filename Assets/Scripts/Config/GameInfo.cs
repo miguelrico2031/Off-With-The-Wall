@@ -1,5 +1,6 @@
 
 using UnityEngine;
+using UnityEngine.Assertions;
 
 // [CreateAssetMenu(menuName = "ScriptableObjects/GameInfo")]
 public class GameInfo : ScriptableObject
@@ -20,4 +21,21 @@ public class GameInfo : ScriptableObject
     [field:SerializeField] public float EventWaitTime { get; private set; }
     [field:SerializeField] public uint RewardValue { get; private set; }
 
+    [SerializeField] private ScriptableObject[] _initialEvents;
+
+    private IGameEvent[] _initEvents;
+
+    public IGameEvent[] getInitEvents()
+    {
+        if(_initEvents == null)
+        {
+            _initEvents = new IGameEvent[_initialEvents.Length];
+            for (int i = 0; i < _initEvents.Length; i++)
+            {
+                _initEvents[i] = _initialEvents[i] as IGameEvent;
+                Assert.IsNotNull(_initEvents[i], "Espina");
+            }
+        }
+        return _initEvents;
+    }
 }

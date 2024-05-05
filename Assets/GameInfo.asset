@@ -18,3 +18,8 @@ MonoBehaviour:
   <MinAgentSpeed>k__BackingField: 0.4
   <MaxAgentSpeed>k__BackingField: 1.3
   <PopUpPoolSize>k__BackingField: 10
+  <RewardWaitTime>k__BackingField: 0
+  <EventWaitTime>k__BackingField: 0
+  <RewardValue>k__BackingField: 0
+  _initialEvents:
+  - {fileID: 11400000, guid: 3875c94cf25b5cf47b2d1f48919762d2, type: 2}

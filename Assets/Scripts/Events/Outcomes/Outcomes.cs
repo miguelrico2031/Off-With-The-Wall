@@ -77,3 +77,15 @@ public class PeopleDecrease : IOutcome
         GameManager.Instance.Get<IPeopleService>().RemovePeople(People);
     }
 }
+
+[Serializable]
+public class EventAdd : IOutcome
+{
+    [field: SerializeField] public string DisplayText { get; private set; }
+    public IGameEvent gameEvent;
+    public uint People;
+    public void Execute()
+    {
+        GameManager.Instance.Get<IEventSpawnService>().addEvent(gameEvent);
+    }
+}

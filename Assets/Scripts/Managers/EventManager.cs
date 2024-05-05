@@ -11,11 +11,16 @@ public class EventManager : MonoBehaviour, IEventService
     private string _currentKeyA, _currentKeyB;
     private Action _currentActionA, _currentActionB;
 
+    [SerializeField] private GameObject _wheel;
     private void Start()
     {
+        print("hsdh");
         _dialogueService = GameManager.Instance.Get<IDialogueService>();
         _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(OnAButtonClick);
         _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(OnBButtonClick);
+        _buttonsCanvas.GetComponentsInChildren<Button>()[2].onClick.AddListener(OnCButtonClick);
+
+
     }
 
     private void OnDestroy()
@@ -45,6 +50,13 @@ public class EventManager : MonoBehaviour, IEventService
             case PassiveEvent passiveEvent:
                 _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, () => ResolveOutcomes(passiveEvent.Outcomes)) ;
                 break;
+
+            case RouletteEvent rouletteEvent:
+              //_currentKeyA = choiceEvent.EndDialogueAKey;
+                _currentKeyB = rouletteEvent.RefuseDialogueKey;
+
+
+                break;
         }
     }
 
@@ -57,7 +69,10 @@ public class EventManager : MonoBehaviour, IEventService
     {
         _dialogueService.SendDialogue(_currentKeyB, _currentActionB);
     }
-    
+    private void OnCButtonClick()
+    {
+        _dialogueService.SendDialogue(_currentKeyB, _currentActionB);
+    }
     private void ShowButton()
     {
         _buttonsCanvas.alpha = 1;
@@ -69,5 +84,44 @@ public class EventManager : MonoBehaviour, IEventService
         _buttonsCanvas.alpha = 0;
         _buttonsCanvas.blocksRaycasts = false;
         foreach(var outcome in outcomes.Get()) outcome.Execute();
+    }
+
+    public int spinWheel(int[] chance,out int val)
+    {
+
+        int maxValue = 0;
+        for (int i = 0; i < chance.Length; i++)
+        {
+            maxValue += chance[i];
+        }
+        int rval = UnityEngine.Random.Range(0, 360);
+        val = rval;
+        for (int i = 0; i < chance.Length; i++)
+        {
+            if (rval < (360 * chance[i]/maxValue) )
+            {
+                return i;
+            }
+            else
+            {
+                rval -= chance[i];
+            }
+        }
+        return chance.Length - 1;
+    }
+
+    public void visualSpin(int value)
+    {
+        print("value: " + value);
+        _wheel.transform.rotation = Quaternion.Euler(0, 0, value);
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            print(spinWheel(new int[] { 100, 150, 110 }, out int val));
+            visualSpin(val);
+        }
     }
 }
