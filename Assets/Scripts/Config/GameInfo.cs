@@ -23,6 +23,12 @@ public class GameInfo : ScriptableObject
 
     [SerializeField] private ScriptableObject[] _initialEvents;
 
+    [field: Header("Events custom stuff")]
+    public string OrgName { get; set; }
+    public string OrgSlogan { get; set; }
+    public Sprite OrgBanner { get; set; }
+
+
     private IGameEvent[] _initEvents;
 
     public IGameEvent[] getInitEvents()
@@ -38,4 +44,6 @@ public class GameInfo : ScriptableObject
         }
         return _initEvents;
     }
+
+
 }
