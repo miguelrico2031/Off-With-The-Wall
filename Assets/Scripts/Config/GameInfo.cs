@@ -1,4 +1,5 @@
 
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Assertions;
 
@@ -31,7 +32,7 @@ public class GameInfo : ScriptableObject
 
     private IGameEvent[] _initEvents;
 
-    public IGameEvent[] getInitEvents()
+    public IEnumerable<IGameEvent> GetInitEvents()
     {
         if(_initEvents == null)
         {

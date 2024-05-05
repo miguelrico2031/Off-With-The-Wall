@@ -22,9 +22,9 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
         _rewardCountdown = StartCoroutine(RewardCountdown());
         _eventCountdown = StartCoroutine(EventCountdown());
         _eventPool.Clear();
-        foreach (IGameEvent gEvent in GameManager.Instance.GameInfo.getInitEvents())
+        foreach (IGameEvent gEvent in GameManager.Instance.GameInfo.GetInitEvents())
         {
-            addEvent(gEvent);
+            AddEvent(gEvent);
         }
 
 
@@ -77,7 +77,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
             }
             IGameEvent sendEvent = GetEvent();
             if(sendEvent != null)
-            _buildingService.SetEvent(sendEvent);
+                _buildingService.SetEvent(sendEvent);
         }
     }
     
@@ -105,7 +105,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
         } while (newEvent != null && tries < _doneEvents.Count + _eventPool.Count);
         return newEvent;
     }
-    public bool addEvent(IGameEvent _event)
+    public bool AddEvent(IGameEvent _event)
     {
         if (_doneEvents.Contains(_event))
         {

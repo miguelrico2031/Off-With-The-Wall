@@ -86,6 +86,6 @@ public class EventAdd : IOutcome
     public uint People;
     public void Execute()
     {
-        GameManager.Instance.Get<IEventSpawnService>().addEvent(gameEvent);
+        GameManager.Instance.Get<IEventSpawnService>().AddEvent(gameEvent);
     }
 }

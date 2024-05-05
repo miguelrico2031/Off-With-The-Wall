@@ -20,7 +20,9 @@ public class RouletteEvent : ScriptableObject, IGameEvent
     [field: SerializeField] public Outcomes OutcomesWin { get; private set; }
     [field: SerializeField] public Outcomes OutcomesLose { get; private set; }
     [field: SerializeField] public Outcomes OutcomesCrit { get; private set; }
+    [field: SerializeField] public Outcomes OutcomesRefuse { get; private set; }
 
+    //no deberian ser floats?
     [field: SerializeField] public uint WinChance { get; private set; }
     [field: SerializeField] public uint LoseChance { get; private set; }
     [field: SerializeField] public uint CritChance { get; private set; }

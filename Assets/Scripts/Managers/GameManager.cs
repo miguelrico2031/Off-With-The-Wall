@@ -17,7 +17,7 @@ public class GameManager : MonoBehaviour
         OnPause
     }
 
-    public GameState CurrentGameState { get; private set; } = GameState.OnPlay;
+    public GameState CurrentGameState { get; set; } = GameState.OnPlay;
     public GameInfo GameInfo { get => _gameInfo; } //archivo de config del juego (ScriptableObject)
     
     [SerializeField] private GameInfo _gameInfo;

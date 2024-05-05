@@ -6,6 +6,10 @@ using UnityEngine.UI;
 public class EventManager : MonoBehaviour, IEventService
 {
     [SerializeField] private CanvasGroup _buttonsCanvas;
+    [SerializeField] private DrawManager _drawUI;
+    [SerializeField] private TextInputUIManager _textInputUI;
+    
+    
     private IDialogueService _dialogueService;
 
     private string _currentKeyA, _currentKeyB;
@@ -14,13 +18,10 @@ public class EventManager : MonoBehaviour, IEventService
     [SerializeField] private GameObject _wheel;
     private void Start()
     {
-        print("hsdh");
         _dialogueService = GameManager.Instance.Get<IDialogueService>();
         _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(OnAButtonClick);
         _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(OnBButtonClick);
         _buttonsCanvas.GetComponentsInChildren<Button>()[2].onClick.AddListener(OnCButtonClick);
-
-
     }
 
     private void OnDestroy()
@@ -30,6 +31,7 @@ public class EventManager : MonoBehaviour, IEventService
 
     public void StartEvent(IGameEvent e)
     {
+        GameManager.Instance.CurrentGameState = GameManager.GameState.OnEvent;
         switch (e)
         {
             case ChoiceEvent choiceEvent:
@@ -56,6 +58,35 @@ public class EventManager : MonoBehaviour, IEventService
                 _currentKeyB = rouletteEvent.RefuseDialogueKey;
 
 
+                break;
+            
+            case DrawEvent drawEvent: //joder como me pone la programacion asincrona joder que bonito y poco mantenible
+                _dialogueService.SendDialogue(drawEvent.StartDialogueKey, () =>
+                {
+                    _drawUI.Display(() => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
+                });
+                break;
+            
+            case ChooseNameEvent chooseNameEvent:
+                _dialogueService.SendDialogue(chooseNameEvent.StartDialogueKey, () =>
+                {
+                    _textInputUI.Display(chooseNameEvent.RequestPhrase, (chosenName) =>
+                    {
+                        GameManager.Instance.GameInfo.OrgName = chosenName;
+                        GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+                    });
+                });
+                break;
+            
+            case ChooseSloganEvent chooseSloganEvent:
+                _dialogueService.SendDialogue(chooseSloganEvent.StartDialogueKey, () =>
+                {
+                    _textInputUI.Display(chooseSloganEvent.RequestPhrase, (chosenSlogan) =>
+                    {
+                        GameManager.Instance.GameInfo.OrgSlogan = chosenSlogan;
+                        GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+                    });
+                });
                 break;
         }
     }
@@ -84,9 +115,10 @@ public class EventManager : MonoBehaviour, IEventService
         _buttonsCanvas.alpha = 0;
         _buttonsCanvas.blocksRaycasts = false;
         foreach(var outcome in outcomes.Get()) outcome.Execute();
+        GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
 
-    public int spinWheel(int[] chance,out int val)
+    public int SpinWheel(int[] chance,out int val)
     {
 
         int maxValue = 0;
@@ -110,7 +142,7 @@ public class EventManager : MonoBehaviour, IEventService
         return chance.Length - 1;
     }
 
-    public void visualSpin(int value)
+    public void VisualSpin(int value)
     {
         print("value: " + value);
         _wheel.transform.rotation = Quaternion.Euler(0, 0, value);
@@ -120,8 +152,8 @@ public class EventManager : MonoBehaviour, IEventService
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            print(spinWheel(new int[] { 100, 150, 110 }, out int val));
-            visualSpin(val);
+            print(SpinWheel(new int[] { 100, 150, 110 }, out int val));
+            VisualSpin(val);
         }
     }
 }
