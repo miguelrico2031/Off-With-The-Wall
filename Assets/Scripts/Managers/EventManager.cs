@@ -38,7 +38,7 @@ public class EventManager : MonoBehaviour, IEventService
         foreach(var b in _buttonsCanvas.GetComponentsInChildren<Button>()) b.onClick.RemoveAllListeners();
     }
 
-    public void StartEvent(IGameEvent e)
+    public void StartEvent(IGameEvent e, IBuilding building)
     {
         GameManager.Instance.CurrentGameState = GameManager.GameState.OnEvent;
         switch (e)
@@ -52,28 +52,28 @@ public class EventManager : MonoBehaviour, IEventService
 
                 _currentKeyA = choiceEvent.EndDialogueAKey;
                 _currentKeyB = choiceEvent.EndDialogueBKey;
-                _currentActionA = () => ResolveOutcomes(choiceEvent.OutcomesA);
-                _currentActionB = () => ResolveOutcomes(choiceEvent.OutcomesB);
+                _currentActionA = () => ResolveOutcomes(choiceEvent.OutcomesA, building);
+                _currentActionB = () => ResolveOutcomes(choiceEvent.OutcomesB, building);
                 
                 _dialogueService.SendDialogue(choiceEvent.StartDialogueKey,ShowButton);
-                setUpButtons(new bool[] { true, true, false, false });
+                SetUpButtons(new bool[] { true, true, false, false });
                 break;
             
             case PassiveEvent passiveEvent:
-                _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, () => ResolveOutcomes(passiveEvent.Outcomes)) ;
+                _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, () => ResolveOutcomes(passiveEvent.Outcomes, building));
                 break;
 
             case RouletteEvent rouletteEvent:
               //_currentKeyA = choiceEvent.EndDialogueAKey;
                 _currentKeyB = rouletteEvent.RefuseDialogueKey;
-                _currentActionB = () => ResolveOutcomes(rouletteEvent.OutcomesRefuse);
+                _currentActionB = () => ResolveOutcomes(rouletteEvent.OutcomesRefuse, building);
                 _currentResult = SpinWheel(new uint[] { rouletteEvent.WinChance, rouletteEvent.LoseChance, rouletteEvent.CritChance }, out int val);
                 _currentSpin = val;
                 Outcomes[] newoutcomes = new  Outcomes[] { rouletteEvent.OutcomesWin, rouletteEvent.OutcomesLose, rouletteEvent.OutcomesCrit };
-                _currentActionC = () => ResolveOutcomes(newoutcomes[_currentResult]);
+                _currentActionC = () => ResolveOutcomes(newoutcomes[_currentResult], building);
                 string[] newkeys = new string[] { rouletteEvent.EndDialogueWinKey, rouletteEvent.EndDialogueLoseKey, rouletteEvent.EndDialogueCritKey };
                 _currentKeyC = newkeys[_currentResult];
-                setUpButtons(new bool[] { false, true, true, false });
+                SetUpButtons(new bool[] { false, true, true, false });
                 _dialogueService.SendDialogue(rouletteEvent.StartDialogueKey, ShowButton);
                 break;
             
@@ -135,7 +135,7 @@ public class EventManager : MonoBehaviour, IEventService
         HideButton();
 
     }
-    private void setUpButtons(bool[] setUps)
+    private void SetUpButtons(bool[] setUps)
     {
         return;
         for (int i = 0; i < setUps.Length; i++)
@@ -160,12 +160,12 @@ public class EventManager : MonoBehaviour, IEventService
         _buttonsCanvas.alpha = 0;
         _buttonsCanvas.blocksRaycasts = false;
     }
-    private void ResolveOutcomes(Outcomes outcomes)
+    private void ResolveOutcomes(Outcomes outcomes, IBuilding building)
     {
         _buttonsCanvas.alpha = 0;
         _buttonsCanvas.blocksRaycasts = false;
         print("resolveOutcomes");
-        foreach(var outcome in outcomes.Get()) outcome.Execute();
+        foreach(var outcome in outcomes.Get()) outcome.Execute(building);
         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
 

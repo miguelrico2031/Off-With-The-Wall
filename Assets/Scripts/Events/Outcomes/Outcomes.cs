@@ -30,7 +30,7 @@ public class PeopleIncrease : IOutcome
 {
     [field:SerializeField] public string DisplayText { get; private set; }
     public uint People;
-    public void Execute()
+    public void Execute(IBuilding building = null)
     {
         GameManager.Instance.Get<IPeopleService>().AddPeople(People);
     }
@@ -44,7 +44,7 @@ public class RewardMultiplier : IOutcome
     public string MultiplierName;
     public bool IsPermanent;
     public float Duration;
-    public void Execute()
+    public void Execute(IBuilding building = null)
     {
         var peopleService = GameManager.Instance.Get<IPeopleService>();
         if (IsPermanent) peopleService.AddMultiplier(MultiplierName, Multiplier);
@@ -61,7 +61,7 @@ public class PopUpMultiplier : IOutcome
     public bool IsPermanent;
     public float Duration;
 
-    public void Execute()
+    public void Execute(IBuilding building = null)
     {
         
     }
@@ -72,7 +72,7 @@ public class PeopleDecrease : IOutcome
 {
     [field:SerializeField] public string DisplayText { get; private set; }
     public uint People;
-    public void Execute()
+    public void Execute(IBuilding building = null)
     {
         GameManager.Instance.Get<IPeopleService>().RemovePeople(People);
     }
@@ -84,7 +84,7 @@ public class EventAdd : IOutcome
     [field: SerializeField] public string DisplayText { get; private set; }
     public IGameEvent gameEvent;
     public uint People;
-    public void Execute()
+    public void Execute(IBuilding building = null)
     {
         GameManager.Instance.Get<IEventSpawnService>().AddEvent(gameEvent);
     }

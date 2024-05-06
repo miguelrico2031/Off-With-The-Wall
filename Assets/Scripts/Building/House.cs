@@ -92,7 +92,7 @@ public class House : MonoBehaviour, IBuilding
     }
     public void StartEvent()
     {
-        _eventService.StartEvent(_currentEvent);
+        _eventService.StartEvent(_currentEvent, this);
         CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
         _buildingService.removeEventCount();
         _popUpService.HidePopUp(this);
