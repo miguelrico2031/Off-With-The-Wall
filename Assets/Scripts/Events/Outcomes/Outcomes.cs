@@ -10,6 +10,8 @@ public class Outcomes //clase serializable para agrupar outcomes
     [SerializeField] private PeopleDecrease[] _peopleDecreases;
     [SerializeField] private RewardMultiplier[] _rewardMultipliers;
     [SerializeField] private PopUpMultiplier[] _popUpMultipliers;
+    [SerializeField] private HouseBurn[] _houseBurns;
+
 
     private IOutcome[] _outcomes;
     
@@ -20,6 +22,7 @@ public class Outcomes //clase serializable para agrupar outcomes
         l.AddRange(_peopleDecreases.Cast<IOutcome>());
         l.AddRange(_rewardMultipliers.Cast<IOutcome>());
         l.AddRange(_popUpMultipliers.Cast<IOutcome>());
+        l.AddRange(_houseBurns.Cast<IOutcome>());
         _outcomes = l.ToArray();
         return _outcomes;
     }
@@ -89,3 +92,15 @@ public class EventAdd : IOutcome
         GameManager.Instance.Get<IEventSpawnService>().AddEvent(gameEvent);
     }
 }
+
+[Serializable]
+public class HouseBurn : IOutcome
+{
+    [field: SerializeField] public string DisplayText { get; private set; }
+    public void Execute(IBuilding building = null)
+    {
+        building.GetBurned();
+    }
+}
+
+

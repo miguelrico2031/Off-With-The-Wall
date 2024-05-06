@@ -10,4 +10,5 @@ public interface IBuildingService : IService
     public void removeEventCount();
 
     public bool eventLimitReached();
+
 }

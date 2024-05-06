@@ -30,6 +30,8 @@ MonoBehaviour:
       MultiplierName: hola
       IsPermanent: 1
       Duration: 0
+    _houseBurns:
+    - <DisplayText>k__BackingField: 
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
@@ -37,3 +39,4 @@ MonoBehaviour:
       People: 7
     _rewardMultipliers: []
     _popUpMultipliers: []
+    _houseBurns: []

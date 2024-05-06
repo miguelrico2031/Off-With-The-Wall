@@ -97,5 +97,9 @@ public class House : MonoBehaviour, IBuilding
         _buildingService.removeEventCount();
         _popUpService.HidePopUp(this);
     }
-
+    public void GetBurned()
+    {
+        CurrentState = IBuilding.State.Burned;
+        _currentReward = 0;
+    }
 }
