@@ -5,15 +5,22 @@ using UnityEngine;
 using UnityEngine.UI;
 public class EventManager : MonoBehaviour, IEventService
 {
-    [SerializeField] private CanvasGroup _buttonsCanvas;
+    [SerializeField] private CanvasGroup _buttonsCanvas,_wheelCanvas;
+    [SerializeField] private Button[] _buttons;
     [SerializeField] private DrawManager _drawUI;
     [SerializeField] private TextInputUIManager _textInputUI;
     
     
     private IDialogueService _dialogueService;
 
-    private string _currentKeyA, _currentKeyB;
-    private Action _currentActionA, _currentActionB;
+    private string _currentKeyA, _currentKeyB, _currentKeyC;
+    private Action _currentActionA, _currentActionB, _currentActionC;
+
+    //private uint[] _currentChances; //Para la ruleta
+    //private Outcomes[] _currentOutcomes; 
+    //private string[] _currentKeys;
+    private int _currentResult;
+    private int _currentSpin;
 
     [SerializeField] private GameObject _wheel;
     private void Start()
@@ -22,6 +29,8 @@ public class EventManager : MonoBehaviour, IEventService
         _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(OnAButtonClick);
         _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(OnBButtonClick);
         _buttonsCanvas.GetComponentsInChildren<Button>()[2].onClick.AddListener(OnCButtonClick);
+        _buttonsCanvas.GetComponentsInChildren<Button>()[3].onClick.AddListener(OnDButtonClick);
+
     }
 
     private void OnDestroy()
@@ -47,6 +56,7 @@ public class EventManager : MonoBehaviour, IEventService
                 _currentActionB = () => ResolveOutcomes(choiceEvent.OutcomesB);
                 
                 _dialogueService.SendDialogue(choiceEvent.StartDialogueKey,ShowButton);
+                setUpButtons(new bool[] { true, true, false, false });
                 break;
             
             case PassiveEvent passiveEvent:
@@ -56,8 +66,15 @@ public class EventManager : MonoBehaviour, IEventService
             case RouletteEvent rouletteEvent:
               //_currentKeyA = choiceEvent.EndDialogueAKey;
                 _currentKeyB = rouletteEvent.RefuseDialogueKey;
-
-
+                _currentActionB = () => ResolveOutcomes(rouletteEvent.OutcomesRefuse);
+                _currentResult = SpinWheel(new uint[] { rouletteEvent.WinChance, rouletteEvent.LoseChance, rouletteEvent.CritChance }, out int val);
+                _currentSpin = val;
+                Outcomes[] newoutcomes = new  Outcomes[] { rouletteEvent.OutcomesWin, rouletteEvent.OutcomesLose, rouletteEvent.OutcomesCrit };
+                _currentActionC = () => ResolveOutcomes(newoutcomes[_currentResult]);
+                string[] newkeys = new string[] { rouletteEvent.EndDialogueWinKey, rouletteEvent.EndDialogueLoseKey, rouletteEvent.EndDialogueCritKey };
+                _currentKeyC = newkeys[_currentResult];
+                setUpButtons(new bool[] { false, true, true, false });
+                _dialogueService.SendDialogue(rouletteEvent.StartDialogueKey, ShowButton);
                 break;
             
             case DrawEvent drawEvent: //joder como me pone la programacion asincrona joder que bonito y poco mantenible
@@ -94,37 +111,71 @@ public class EventManager : MonoBehaviour, IEventService
     private void OnAButtonClick()
     {
         _dialogueService.SendDialogue(_currentKeyA, _currentActionA);
+        HideButton();
     }
 
     private void OnBButtonClick()
     {
         _dialogueService.SendDialogue(_currentKeyB, _currentActionB);
+        HideButton();
+
     }
     private void OnCButtonClick()
     {
-        _dialogueService.SendDialogue(_currentKeyB, _currentActionB);
+        VisualSpin(_currentSpin);
+        //HideButton();
+
+    }
+    private void OnDButtonClick()
+    {
+        print("ey");
+        _dialogueService.SendDialogue(_currentKeyC, _currentActionC);
+        _wheelCanvas.alpha = 0;
+        _wheelCanvas.blocksRaycasts = false;
+        HideButton();
+
+    }
+    private void setUpButtons(bool[] setUps)
+    {
+        return;
+        for (int i = 0; i < setUps.Length; i++)
+        {
+            if (i < _buttons.Length)
+            {
+                _buttons[i].enabled = setUps[i];
+            }
+            else
+            {
+                break;
+            }
+        }
     }
     private void ShowButton()
     {
         _buttonsCanvas.alpha = 1;
         _buttonsCanvas.blocksRaycasts = true;
     }
-    
+    private void HideButton()
+    {
+        _buttonsCanvas.alpha = 0;
+        _buttonsCanvas.blocksRaycasts = false;
+    }
     private void ResolveOutcomes(Outcomes outcomes)
     {
         _buttonsCanvas.alpha = 0;
         _buttonsCanvas.blocksRaycasts = false;
+        print("resolveOutcomes");
         foreach(var outcome in outcomes.Get()) outcome.Execute();
         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
 
-    public int SpinWheel(int[] chance,out int val)
+    public int SpinWheel(uint[] chance,out int val)
     {
-
+      
         int maxValue = 0;
         for (int i = 0; i < chance.Length; i++)
         {
-            maxValue += chance[i];
+            maxValue += (int)chance[i];
         }
         int rval = UnityEngine.Random.Range(0, 360);
         val = rval;
@@ -136,7 +187,7 @@ public class EventManager : MonoBehaviour, IEventService
             }
             else
             {
-                rval -= chance[i];
+                rval -= (int)chance[i];
             }
         }
         return chance.Length - 1;
@@ -144,15 +195,18 @@ public class EventManager : MonoBehaviour, IEventService
 
     public void VisualSpin(int value)
     {
+        _wheelCanvas.alpha = 1;
+        _wheelCanvas.blocksRaycasts = true;
         print("value: " + value);
         _wheel.transform.rotation = Quaternion.Euler(0, 0, value);
+        ShowButton();
     }
 
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.L))
         {
-            print(SpinWheel(new int[] { 100, 150, 110 }, out int val));
+            print(SpinWheel(new uint[] { 100, 150, 110 }, out int val));
             VisualSpin(val);
         }
     }

@@ -22,6 +22,9 @@ public class GameInfo : ScriptableObject
     [field:SerializeField] public float EventWaitTime { get; private set; }
     [field:SerializeField] public uint RewardValue { get; private set; }
 
+    [field: SerializeField] public uint MaxEventCount { get; private set; }
+
+
     [SerializeField] private ScriptableObject[] _initialEvents;
 
     [field: Header("Events custom stuff")]

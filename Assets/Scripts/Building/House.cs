@@ -74,9 +74,7 @@ public class House : MonoBehaviour, IBuilding
                 break;
             case IBuilding.State.HasEvent:
                 //llamar al manager que sea para triggerear el evento
-                _eventService.StartEvent(_currentEvent);
-                CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
-                _popUpService.HidePopUp(this);
+                StartEvent();
                 print("evento");
                 break;
         }
@@ -92,4 +90,12 @@ public class House : MonoBehaviour, IBuilding
         _popUpService.HidePopUp(this);
 
     }
+    public void StartEvent()
+    {
+        _eventService.StartEvent(_currentEvent);
+        CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
+        _buildingService.removeEventCount();
+        _popUpService.HidePopUp(this);
+    }
+
 }

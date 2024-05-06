@@ -76,13 +76,20 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
                     yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
             }
             IGameEvent sendEvent = GetEvent();
-            if(sendEvent != null)
-                _buildingService.SetEvent(sendEvent);
+            if (sendEvent != null)
+            {
+                if (_buildingService.SetEvent(sendEvent))
+                {
+                    RemoveEvent(sendEvent);
+                }
+            }
         }
     }
     
     private IGameEvent GetEvent()
-    { 
+    {
+        if (_buildingService.eventLimitReached())
+            return null;
         IGameEvent newEvent = null;
         int tries = 0;
         do
@@ -93,7 +100,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
             foreach (var e in _eventPool)
             {
                 if (i++ != r) continue;
-                _eventPool.Remove(e);
+                //_eventPool.Remove(e);
                 newEvent = e;
                 break;
             }
@@ -101,9 +108,13 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
             {
                 newEvent = null;
             }
-            _doneEvents.Add(newEvent);
+            //_doneEvents.Add(newEvent);
         } while (newEvent != null && tries < _doneEvents.Count + _eventPool.Count);
         return newEvent;
+    }
+    public bool RemoveEvent(IGameEvent _event)
+    {
+        return (_eventPool.Remove(_event) || _doneEvents.Add(_event));
     }
     public bool AddEvent(IGameEvent _event)
     {

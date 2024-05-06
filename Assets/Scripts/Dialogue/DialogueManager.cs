@@ -30,6 +30,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     public void SendDialogue(string _key,Action _nextAction)
     {
+        print("dialog");
         _testDialogue = _dialogues.GetDialogue(_key);
         if(_testDialogue != null)
         {

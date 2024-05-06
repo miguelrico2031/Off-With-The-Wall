@@ -13,11 +13,11 @@ MonoBehaviour:
   m_Name: ChoiceEventGeneric
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 1
-  <StartDialogueKey>k__BackingField: 
-  <ChoiceTextA>k__BackingField: 
-  <ChoiceTextB>k__BackingField: 
-  <EndDialogueAKey>k__BackingField: 
-  <EndDialogueBKey>k__BackingField: 
+  <StartDialogueKey>k__BackingField: test
+  <ChoiceTextA>k__BackingField: A
+  <ChoiceTextB>k__BackingField: B
+  <EndDialogueAKey>k__BackingField: test
+  <EndDialogueBKey>k__BackingField: test
   <OutcomesA>k__BackingField:
     _peopleIncreases:
     - <DisplayText>k__BackingField: ganaste 3 manes

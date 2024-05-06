@@ -1,0 +1,51 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588fed65d614b7249a83c801ade8ad3a, type: 3}
+  m_Name: New Roulette Event
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 0
+  <StartDialogueKey>k__BackingField: prieba
+  <ChoiceTextA>k__BackingField: Rule
+  <ChoiceTextB>k__BackingField: No
+  <EndDialogueWinKey>k__BackingField: prieba
+  <EndDialogueLoseKey>k__BackingField: prieba
+  <EndDialogueCritKey>k__BackingField: prieba
+  <RefuseDialogueKey>k__BackingField: prieba
+  <OutcomesWin>k__BackingField:
+    _peopleIncreases:
+    - <DisplayText>k__BackingField: Cocinaste
+      People: 10
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _popUpMultipliers: []
+  <OutcomesLose>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - <DisplayText>k__BackingField: Ayunaste
+      People: 5
+    _rewardMultipliers: []
+    _popUpMultipliers: []
+  <OutcomesCrit>k__BackingField:
+    _peopleIncreases:
+    - <DisplayText>k__BackingField: Devoraste
+      People: 100
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _popUpMultipliers: []
+  <OutcomesRefuse>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _popUpMultipliers: []
+  <WinChance>k__BackingField: 30
+  <LoseChance>k__BackingField: 10
+  <CritChance>k__BackingField: 5
