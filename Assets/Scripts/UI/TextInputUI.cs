@@ -5,30 +5,33 @@ using UnityEngine.UI;
 using System;
 using TMPro;
 
-public class TextInputUIManager : MonoBehaviour
+public class TextInputUI : MonoBehaviour
 {
     [SerializeField] private TMP_InputField _input;
     [SerializeField] private TextMeshProUGUI _requestText;
-    
-    private GameObject _uIGroup;
+
+    private CanvasGroup _group;
     private Action<string> _callback;
 
     private void Awake()
     {
-        _uIGroup = transform.GetChild(0).gameObject;
-        _uIGroup.SetActive(false);
+        _group = GetComponent<CanvasGroup>();
+        _group.alpha = 0;
+        _group.blocksRaycasts = false;
     }
 
     public void Display(string request, Action<string> callback)
     {
-        _uIGroup.SetActive(true);
+        _group.alpha = 1;
+        _group.blocksRaycasts = true;
         _requestText.text = request;
         _callback = callback;
     }
 
     public void EnterButton()
     {
-        _uIGroup.SetActive(false);
+        _group.alpha = 0;
+        _group.blocksRaycasts = false;
         _requestText.text = "";
         _callback(_input.text);
     }

@@ -13,8 +13,8 @@ public class ChoiceEvent : ScriptableObject, IGameEvent
     [field: SerializeField] public string ChoiceTextA { get; private set; }
     [field: SerializeField] public string ChoiceTextB { get; private set; }
 
-    [field: SerializeField] public string EndDialogueAKey { get; private set; }
-    [field: SerializeField] public string EndDialogueBKey { get; private set; }
+    [field: SerializeField] public string EndDialogueKeyA { get; private set; }
+    [field: SerializeField] public string EndDialogueKeyB { get; private set; }
 
     [field: SerializeField] public Outcomes OutcomesA { get; private set; }
     [field: SerializeField] public Outcomes OutcomesB { get; private set; }

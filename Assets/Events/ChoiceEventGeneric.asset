@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 1
   <StartDialogueKey>k__BackingField: test
-  <ChoiceTextA>k__BackingField: A
-  <ChoiceTextB>k__BackingField: B
-  <EndDialogueAKey>k__BackingField: test
-  <EndDialogueBKey>k__BackingField: test
+  <ChoiceTextA>k__BackingField: eligeA
+  <ChoiceTextB>k__BackingField: elige B
+  <EndDialogueKeyA>k__BackingField: prueba1
+  <EndDialogueKeyB>k__BackingField: prueba2
   <OutcomesA>k__BackingField:
     _peopleIncreases:
     - <DisplayText>k__BackingField: ganaste 3 manes
@@ -26,7 +26,7 @@ MonoBehaviour:
     _rewardMultipliers: []
     _popUpMultipliers:
     - <DisplayText>k__BackingField: Multiplicate popup anda
-      Multiplier: 0.67
+      Multiplier: 0.4
       MultiplierName: hola
       IsPermanent: 1
       Duration: 0
@@ -36,7 +36,7 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases:
     - <DisplayText>k__BackingField: te jodiste pierdes 80
-      People: 7
+      People: 1
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []

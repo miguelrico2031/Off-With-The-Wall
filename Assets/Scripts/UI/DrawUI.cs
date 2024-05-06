@@ -5,17 +5,20 @@ using FreeDraw;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class DrawManager : MonoBehaviour
+public class DrawUI : MonoBehaviour
 {
     [SerializeField] private Button[] _colors;
+    [SerializeField] private GameObject _draw;
 
-    private GameObject _group;
+    private CanvasGroup _group;
     private Action _callback;
     
     private void Start()
     {
-        _group = transform.GetChild(0).gameObject;
-        _group.SetActive(false);
+        _group = GetComponent<CanvasGroup>();
+        _group.alpha = 0;
+        _group.blocksRaycasts = false;
+        _draw.SetActive(false);
         foreach (Button b in _colors)
         {
             var c = b.GetComponent<Image>().color;
@@ -27,14 +30,18 @@ public class DrawManager : MonoBehaviour
 
     public void Display(Action callback)
     {
-        _group.SetActive(false);
+        _group.alpha = 1;
+        _group.blocksRaycasts = true;
+        _draw.SetActive(true);
         _callback = callback;
     }
     public void SetThickness(float t) => Drawable.Pen_Width = Mathf.RoundToInt(t);
 
     public void DrawDone()
     {
-        _group.SetActive(false);
+        _group.alpha = 0;
+        _group.blocksRaycasts = false;
+        _draw.SetActive(false);
         _callback();
     }
 
