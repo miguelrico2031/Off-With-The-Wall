@@ -13,25 +13,30 @@ MonoBehaviour:
   m_Name: New Roulette Event
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
-  <StartDialogueKey>k__BackingField: prieba
-  <ChoiceTextA>k__BackingField: Rule
-  <ChoiceTextB>k__BackingField: No
-  <EndDialogueWinKey>k__BackingField: prieba
-  <EndDialogueLoseKey>k__BackingField: prieba
-  <EndDialogueCritKey>k__BackingField: prieba
-  <RefuseDialogueKey>k__BackingField: prieba
-  <OutcomesWin>k__BackingField:
-    _peopleIncreases:
-    - <DisplayText>k__BackingField: Cocinaste
-      People: 10
+  <StartDialogueKey>k__BackingField: ruletai
+  <ChoiceTextAccept>k__BackingField: aceptaLO
+  <ChoiceTextRefuse>k__BackingField: refusa manin
+  <EndDialogueKeyRefuse>k__BackingField: ruletarefuse
+  <EndDialogueKeyLose>k__BackingField: ruletafail
+  <EndDialogueKeyWin>k__BackingField: ruletasuc
+  <EndDialogueKeyCrit>k__BackingField: ruletacrit
+  <OutcomesRefuse>k__BackingField:
+    _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
     _popUpMultipliers: []
   <OutcomesLose>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
-    - <DisplayText>k__BackingField: Ayunaste
+    - <DisplayText>k__BackingField: joder
       People: 5
+    _rewardMultipliers: []
+    _popUpMultipliers: []
+  <OutcomesWin>k__BackingField:
+    _peopleIncreases:
+    - <DisplayText>k__BackingField: joyisima
+      People: 10
+    _peopleDecreases: []
     _rewardMultipliers: []
     _popUpMultipliers: []
   <OutcomesCrit>k__BackingField:
@@ -41,11 +46,5 @@ MonoBehaviour:
     _peopleDecreases: []
     _rewardMultipliers: []
     _popUpMultipliers: []
-  <OutcomesRefuse>k__BackingField:
-    _peopleIncreases: []
-    _peopleDecreases: []
-    _rewardMultipliers: []
-    _popUpMultipliers: []
-  <WinChance>k__BackingField: 30
-  <LoseChance>k__BackingField: 10
-  <CritChance>k__BackingField: 5
+  <CritChance>k__BackingField: 0.3
+  <SucessChance>k__BackingField: 0.3

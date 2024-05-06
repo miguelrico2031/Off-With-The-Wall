@@ -1,24 +1,23 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 public class EventManager : MonoBehaviour, IEventService
 {
-    [SerializeField] private CanvasGroup _buttonsCanvas,_wheelCanvas;
-    [SerializeField] private Button[] _buttons;
-    [SerializeField] private DrawManager _drawUI;
-    [SerializeField] private TextInputUIManager _textInputUI;
-    
+    [SerializeField] private CanvasGroup _choiceButtonsCanvas;
+    [SerializeField] private Button _buttonA, _buttonB;
+    [SerializeField] private CanvasGroup _wheelCanvas;
+    [SerializeField] private DrawUI _drawUI;
+    [SerializeField] private TextInputUI _textInputUI;
+    [SerializeField] private RouletteUI _rouletteUI;
     
     private IDialogueService _dialogueService;
 
-    private string _currentKeyA, _currentKeyB, _currentKeyC;
-    private Action _currentActionA, _currentActionB, _currentActionC;
-
-    //private uint[] _currentChances; //Para la ruleta
-    //private Outcomes[] _currentOutcomes; 
-    //private string[] _currentKeys;
+    private Dictionary<Button, Action>_buttonActions;
+    
     private int _currentResult;
     private int _currentSpin;
 
@@ -26,16 +25,14 @@ public class EventManager : MonoBehaviour, IEventService
     private void Start()
     {
         _dialogueService = GameManager.Instance.Get<IDialogueService>();
-        _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(OnAButtonClick);
-        _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(OnBButtonClick);
-        _buttonsCanvas.GetComponentsInChildren<Button>()[2].onClick.AddListener(OnCButtonClick);
-        _buttonsCanvas.GetComponentsInChildren<Button>()[3].onClick.AddListener(OnDButtonClick);
 
-    }
-
-    private void OnDestroy()
-    {
-        foreach(var b in _buttonsCanvas.GetComponentsInChildren<Button>()) b.onClick.RemoveAllListeners();
+        _buttonActions = new()
+        {
+            { _buttonA, null },
+            { _buttonB, null }
+        };
+        
+        HideChoiceButtons();
     }
 
     public void StartEvent(IGameEvent e, IBuilding building)
@@ -44,48 +41,42 @@ public class EventManager : MonoBehaviour, IEventService
         switch (e)
         {
             case ChoiceEvent choiceEvent:
-                // _buttonsCanvas.GetComponentsInChildren<Button>()[0].onClick.AddListener(delegate 
-                //     { _dialogueService.SendDialogue(choiceEvent.EndDialogueAKey, () => ResolveOutcomes(choiceEvent.OutcomesA)); });
-                // _buttonsCanvas.GetComponentsInChildren<Button>()[1].onClick.AddListener(delegate 
-                //     { _dialogueService.SendDialogue(choiceEvent.EndDialogueBKey, () => ResolveOutcomes(choiceEvent.OutcomesB)); });
-                //
-
-                _currentKeyA = choiceEvent.EndDialogueAKey;
-                _currentKeyB = choiceEvent.EndDialogueBKey;
-                _currentActionA = () => ResolveOutcomes(choiceEvent.OutcomesA, building);
-                _currentActionB = () => ResolveOutcomes(choiceEvent.OutcomesB, building);
                 
-                _dialogueService.SendDialogue(choiceEvent.StartDialogueKey,ShowButton);
-                SetUpButtons(new bool[] { true, true, false, false });
+                _dialogueService.SendDialogue(choiceEvent.StartDialogueKey, false, ShowChoiceButtons);
+                SetChoiceToButton(_buttonA, choiceEvent.ChoiceTextA, choiceEvent.EndDialogueKeyA, 
+                    () => ResolveOutcomes(choiceEvent.OutcomesA, building));
+                SetChoiceToButton(_buttonB, choiceEvent.ChoiceTextB, choiceEvent.EndDialogueKeyB, 
+                    () => ResolveOutcomes(choiceEvent.OutcomesB, building));
+                
                 break;
             
             case PassiveEvent passiveEvent:
-                _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, () => ResolveOutcomes(passiveEvent.Outcomes, building));
+                
+                _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, true, () => ResolveOutcomes(passiveEvent.Outcomes, building));
+                
                 break;
 
             case RouletteEvent rouletteEvent:
-              //_currentKeyA = choiceEvent.EndDialogueAKey;
-                _currentKeyB = rouletteEvent.RefuseDialogueKey;
-                _currentActionB = () => ResolveOutcomes(rouletteEvent.OutcomesRefuse, building);
-                _currentResult = SpinWheel(new uint[] { rouletteEvent.WinChance, rouletteEvent.LoseChance, rouletteEvent.CritChance }, out int val);
-                _currentSpin = val;
-                Outcomes[] newoutcomes = new  Outcomes[] { rouletteEvent.OutcomesWin, rouletteEvent.OutcomesLose, rouletteEvent.OutcomesCrit };
-                _currentActionC = () => ResolveOutcomes(newoutcomes[_currentResult], building);
-                string[] newkeys = new string[] { rouletteEvent.EndDialogueWinKey, rouletteEvent.EndDialogueLoseKey, rouletteEvent.EndDialogueCritKey };
-                _currentKeyC = newkeys[_currentResult];
-                SetUpButtons(new bool[] { false, true, true, false });
-                _dialogueService.SendDialogue(rouletteEvent.StartDialogueKey, ShowButton);
+                
+                _dialogueService.SendDialogue(rouletteEvent.StartDialogueKey, false, ShowChoiceButtons);
+                SetRouletteToButton(_buttonA, rouletteEvent, building);
+                SetChoiceToButton(_buttonB, rouletteEvent.ChoiceTextRefuse, rouletteEvent.EndDialogueKeyRefuse, 
+                    () => ResolveOutcomes(rouletteEvent.OutcomesRefuse, building));
+              
                 break;
             
             case DrawEvent drawEvent: //joder como me pone la programacion asincrona joder que bonito y poco mantenible
-                _dialogueService.SendDialogue(drawEvent.StartDialogueKey, () =>
+                
+                _dialogueService.SendDialogue(drawEvent.StartDialogueKey, true, () =>
                 {
                     _drawUI.Display(() => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
                 });
+                
                 break;
             
             case ChooseNameEvent chooseNameEvent:
-                _dialogueService.SendDialogue(chooseNameEvent.StartDialogueKey, () =>
+                
+                _dialogueService.SendDialogue(chooseNameEvent.StartDialogueKey, true, () =>
                 {
                     _textInputUI.Display(chooseNameEvent.RequestPhrase, (chosenName) =>
                     {
@@ -93,10 +84,12 @@ public class EventManager : MonoBehaviour, IEventService
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
                     });
                 });
+                
                 break;
             
             case ChooseSloganEvent chooseSloganEvent:
-                _dialogueService.SendDialogue(chooseSloganEvent.StartDialogueKey, () =>
+                
+                _dialogueService.SendDialogue(chooseSloganEvent.StartDialogueKey, true, () =>
                 {
                     _textInputUI.Display(chooseSloganEvent.RequestPhrase, (chosenSlogan) =>
                     {
@@ -104,71 +97,79 @@ public class EventManager : MonoBehaviour, IEventService
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
                     });
                 });
+                
                 break;
         }
     }
 
-    private void OnAButtonClick()
+    private void SetChoiceToButton(Button button, string choice, string dialogueKey, Action onDialogueFinish)
     {
-        _dialogueService.SendDialogue(_currentKeyA, _currentActionA);
-        HideButton();
-    }
-
-    private void OnBButtonClick()
-    {
-        _dialogueService.SendDialogue(_currentKeyB, _currentActionB);
-        HideButton();
-
-    }
-    private void OnCButtonClick()
-    {
-        VisualSpin(_currentSpin);
-        //HideButton();
-
-    }
-    private void OnDButtonClick()
-    {
-        print("ey");
-        _dialogueService.SendDialogue(_currentKeyC, _currentActionC);
-        _wheelCanvas.alpha = 0;
-        _wheelCanvas.blocksRaycasts = false;
-        HideButton();
-
-    }
-    private void SetUpButtons(bool[] setUps)
-    {
-        return;
-        for (int i = 0; i < setUps.Length; i++)
+        button.GetComponentInChildren<TextMeshProUGUI>().text = choice;
+        _buttonActions[button] = () =>
         {
-            if (i < _buttons.Length)
-            {
-                _buttons[i].enabled = setUps[i];
-            }
-            else
-            {
-                break;
-            }
-        }
+            _dialogueService.SendDialogue(dialogueKey, true, onDialogueFinish);
+        };
     }
-    private void ShowButton()
+
+    private void SetRouletteToButton(Button button, RouletteEvent rEvent, IBuilding building)
     {
-        _buttonsCanvas.alpha = 1;
-        _buttonsCanvas.blocksRaycasts = true;
+        button.GetComponentInChildren<TextMeshProUGUI>().text = rEvent.ChoiceTextAccept;
+        _buttonActions[button] = () =>
+        {
+            _dialogueService.Hide();
+            _rouletteUI.Display(rEvent, (result) => OnRouletteResolved(rEvent, result, building));
+        };
     }
-    private void HideButton()
+
+    private void OnRouletteResolved(RouletteEvent rouletteEvent, RouletteUI.Result result, IBuilding building)
     {
-        _buttonsCanvas.alpha = 0;
-        _buttonsCanvas.blocksRaycasts = false;
+        (string key, Outcomes outcomes) = result switch
+        {
+            RouletteUI.Result.Crit => (rouletteEvent.EndDialogueKeyCrit, rouletteEvent.OutcomesCrit),
+            RouletteUI.Result.Success => (rouletteEvent.EndDialogueKeyWin, rouletteEvent.OutcomesWin),
+            RouletteUI.Result.Fail => (rouletteEvent.EndDialogueKeyLose, rouletteEvent.OutcomesLose),
+            _ => (null, null)
+        };
+        _dialogueService.SendDialogue(key, true, () => ResolveOutcomes(outcomes, building));
     }
+
+    public void AButtonClick()
+    {
+        HideChoiceButtons();
+        _buttonActions[_buttonA]();
+        
+    }
+
+    public void BButtonClick()
+    {
+        HideChoiceButtons();
+        _buttonActions[_buttonB]();
+    }
+    
+    private void ShowChoiceButtons()
+    {
+        _choiceButtonsCanvas.alpha = 1;
+        _choiceButtonsCanvas.blocksRaycasts = true;
+    }
+    
+    private void HideChoiceButtons()
+    {
+        _choiceButtonsCanvas.alpha = 0;
+        _choiceButtonsCanvas.blocksRaycasts = false;
+    }
+    
     private void ResolveOutcomes(Outcomes outcomes, IBuilding building)
     {
-        _buttonsCanvas.alpha = 0;
-        _buttonsCanvas.blocksRaycasts = false;
-        print("resolveOutcomes");
+        HideChoiceButtons();
         foreach(var outcome in outcomes.Get()) outcome.Execute(building);
         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
 
+    
+    
+    
+    
+    
     public int SpinWheel(uint[] chance,out int val)
     {
       
@@ -199,15 +200,7 @@ public class EventManager : MonoBehaviour, IEventService
         _wheelCanvas.blocksRaycasts = true;
         print("value: " + value);
         _wheel.transform.rotation = Quaternion.Euler(0, 0, value);
-        ShowButton();
+        ShowChoiceButtons();
     }
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            print(SpinWheel(new uint[] { 100, 150, 110 }, out int val));
-            VisualSpin(val);
-        }
-    }
 }

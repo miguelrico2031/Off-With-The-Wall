@@ -24,13 +24,24 @@ public class GameInfo : ScriptableObject
 
     [field: SerializeField] public uint MaxEventCount { get; private set; }
 
-
     [SerializeField] private ScriptableObject[] _initialEvents;
 
     [field: Header("Events custom stuff")]
     public string OrgName { get; set; }
     public string OrgSlogan { get; set; }
     public Sprite OrgBanner { get; set; }
+    
+    [field:Header("Roulette")]
+    [field: SerializeField] public float RouletteSpinSpeed { get; private set; }
+    [field: SerializeField] public float RouletteHideDelay { get; private set; }
+    
+    
+    
+    
+    
+    
+    
+    
 
 
     private IGameEvent[] _initEvents;

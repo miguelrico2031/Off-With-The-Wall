@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 public interface IDialogueService :IService
 {
-    public void SendDialogue(string _key, Action _nextAction);
+    public void SendDialogue(string key, bool hideOnFinish, Action nextAction);
     public void SkipOrContinue();
+    public void Hide();
 }

@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
-  m_Name: Dialogue test 1
+  m_Name: rule2 3
   m_EditorClassIdentifier: 
-  _key: prueba1
+  _key: ruletacrit
   _phrases:
   - _speaker: 0
-    _text: Adios A
-  - _speaker: 0
-    _text: chaoo tal
+    _text: critico yea
+  - _speaker: 2
+    _text: durisimo
