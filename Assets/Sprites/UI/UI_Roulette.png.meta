@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5c52e342ed1c7de428290c5415ca4bfe
+guid: b952b485aa7921a4c968a5ee914b2db2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,7 +108,112 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: UI_Roulette_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 193
+        height: 246
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4965354d7900b3949bd5a2e533a14d98
+      internalID: -1197253051
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Roulette_1
+      rect:
+        serializedVersion: 2
+        x: 207
+        y: 176
+        width: 18
+        height: 46
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9996b6bac0344e043a7f9084ac3ac123
+      internalID: -205193644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Roulette_2
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 178
+        width: 28
+        height: 28
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b736ca30248dcdf42b61cbb4d788bf23
+      internalID: -1164992750
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Roulette_3
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 96
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76f5d6e4c77c40d4bb52796fa5e20cdb
+      internalID: 1871667194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: UI_Roulette_4
+      rect:
+        serializedVersion: 2
+        x: 208
+        y: 16
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 04b1401069733de49b053e55052a6bdd
+      internalID: -1404290581
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     physicsShape: []
     bones: []
@@ -119,7 +224,12 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      UI_Roulette_0: -1197253051
+      UI_Roulette_1: -205193644
+      UI_Roulette_2: -1164992750
+      UI_Roulette_3: 1871667194
+      UI_Roulette_4: -1404290581
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
