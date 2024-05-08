@@ -16,7 +16,9 @@ public class House : MonoBehaviour, IBuilding
     private IPopUpService _popUpService;
     private IPeopleService _peopleService;
     private IBuildingService _buildingService;
-    
+    private IEventService _eventService;
+
+    private IGameEvent _currentEvent;
     #endregion
 
     #region Unity Callbacks
@@ -26,6 +28,7 @@ public class House : MonoBehaviour, IBuilding
         _popUpService = GameManager.Instance.Get<IPopUpService>();
         _peopleService = GameManager.Instance.Get<IPeopleService>();
         _buildingService = GameManager.Instance.Get<IBuildingService>();
+        _eventService = GameManager.Instance.Get<IEventService>();
         _buildingService.AddBuilding(this);
     }
 
@@ -33,17 +36,21 @@ public class House : MonoBehaviour, IBuilding
     
     public void SetReward(uint reward)
     { //actualiza su estado y reward
+        Debug.Log("PopUP");
         CurrentState = IBuilding.State.HasReward;
         _currentReward = reward;
         _popUpService.ShowPopUp(this);
         
     }
 
-    public void SetEvent(object buildingEvent) //tipo object a cambiar luego
+    public void SetEvent(IGameEvent _event) //tipo object a cambiar luego
     {
         CurrentState = IBuilding.State.HasEvent; //falta implementar la logica de los eventos
+        _currentEvent = _event;
+        _popUpService.ShowPopUp(this);
+
     }
-    
+
     public void OnPointerEnter(PointerEventData eventData)
     {
         //animacion guapa
@@ -67,7 +74,8 @@ public class House : MonoBehaviour, IBuilding
                 break;
             case IBuilding.State.HasEvent:
                 //llamar al manager que sea para triggerear el evento
-                CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
+                StartEvent();
+                print("evento");
                 break;
         }
 
@@ -81,5 +89,17 @@ public class House : MonoBehaviour, IBuilding
         CurrentState = IBuilding.State.Idle;   
         _popUpService.HidePopUp(this);
 
+    }
+    public void StartEvent()
+    {
+        _eventService.StartEvent(_currentEvent, this);
+        CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
+        _buildingService.removeEventCount();
+        _popUpService.HidePopUp(this);
+    }
+    public void GetBurned()
+    {
+        CurrentState = IBuilding.State.Burned;
+        _currentReward = 0;
     }
 }

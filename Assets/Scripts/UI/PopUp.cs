@@ -20,7 +20,16 @@ public class PopUp : MonoBehaviour, IPoolObject
 
     public void ClickPopUp()
     {
-        _activeHouse.CollectReward();
+        if (_activeHouse.CurrentState == IBuilding.State.HasReward)
+        {
+            _activeHouse.CollectReward();
+        }
+        else if(_activeHouse.CurrentState == IBuilding.State.HasEvent)
+        {
+            _activeHouse.StartEvent();
+
+        }
+
     }
 
     public void SetHouse(House house)

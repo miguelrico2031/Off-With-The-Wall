@@ -1,0 +1,42 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7993c619dbc2064bb05906398f12c07, type: 3}
+  m_Name: ChoiceEventGeneric
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 1
+  <StartDialogueKey>k__BackingField: test
+  <ChoiceTextA>k__BackingField: eligeA
+  <ChoiceTextB>k__BackingField: elige B
+  <EndDialogueKeyA>k__BackingField: prueba1
+  <EndDialogueKeyB>k__BackingField: prueba2
+  <OutcomesA>k__BackingField:
+    _peopleIncreases:
+    - <DisplayText>k__BackingField: ganaste 3 manes
+      People: 3
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _popUpMultipliers:
+    - <DisplayText>k__BackingField: Multiplicate popup anda
+      Multiplier: 0.4
+      MultiplierName: hola
+      IsPermanent: 1
+      Duration: 0
+    _houseBurns:
+    - <DisplayText>k__BackingField: 
+  <OutcomesB>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - <DisplayText>k__BackingField: te jodiste pierdes 80
+      People: 1
+    _rewardMultipliers: []
+    _popUpMultipliers: []
+    _houseBurns: []

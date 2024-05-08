@@ -21,3 +21,10 @@ MonoBehaviour:
     _sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
   _dialogues:
   - {fileID: 11400000, guid: 2f60ee69a18dacd4da5ee5eea196f7a1, type: 2}
+  - {fileID: 11400000, guid: 71aa12c0fa1b1d94283c1ab271751e15, type: 2}
+  - {fileID: 11400000, guid: 7849a4631a055e245b6164cd4d57bd0f, type: 2}
+  - {fileID: 11400000, guid: 379b7ca77ef2eef4fb11b607f6cf5d19, type: 2}
+  - {fileID: 11400000, guid: 09b7cab6e2f5a9f4db2d455acd0ce16c, type: 2}
+  - {fileID: 11400000, guid: 3c9d6655652a4fd4f85b7ae7df6b3c38, type: 2}
+  - {fileID: 11400000, guid: c02ae06fdd5b17245b07793aefaeebe9, type: 2}
+  - {fileID: 11400000, guid: ce0bad70677b258449446010e32b2761, type: 2}

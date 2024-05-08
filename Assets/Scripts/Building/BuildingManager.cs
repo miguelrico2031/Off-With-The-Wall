@@ -9,10 +9,13 @@ public class BuildingManager : IBuildingService
     
     private readonly Dictionary<IBuilding.BuildingType, List<IBuilding>> _buildings;
 
+    private uint EventCount,maxCount;
+    
     public BuildingManager()
     {
         //inicializar diccionario donde guardo los edificios segun su tipo
         _buildings = new();
+        maxCount = GameManager.Instance.GameInfo.MaxEventCount;
         foreach (IBuilding.BuildingType t in Enum.GetValues(typeof(IBuilding.BuildingType)))
             _buildings[t] = new();
     }
@@ -32,11 +35,13 @@ public class BuildingManager : IBuildingService
         return true;
     }
 
-    public bool SetEvent(object buildingEvent, IBuilding.BuildingType target)
+    public bool SetEvent(IGameEvent buildingEvent)
     {
-        var availables = GetAvailableBuildings(target);
+        if (eventLimitReached()) return false;
+        var availables = GetAvailableBuildings(buildingEvent.BuildingType);
         if (availables is null) return false;
         availables[Random.Range(0, availables.Count)].SetEvent(buildingEvent); //elijo uno random
+        EventCount++;
         return true;
     }
 
@@ -47,5 +52,15 @@ public class BuildingManager : IBuildingService
         //filtro la lista para quedarme con los edificios que esten en idle
         availables = availables.Where(b => b.CurrentState is IBuilding.State.Idle).ToList();
         return availables.Any() ? availables : null; //devuelvo la lista si no esta vacia, sino null
+    }
+
+    public void removeEventCount()
+    {
+        EventCount--;
+    }
+    public bool eventLimitReached()
+    {
+
+        return EventCount >= maxCount;
     }
 }

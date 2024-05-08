@@ -6,5 +6,9 @@ public interface IBuildingService : IService
     //Asignar una recompensa a un edifico (pop up tal)
     public bool SetReward(uint reward, IBuilding.BuildingType target = IBuilding.BuildingType.Any);
     //asignar un evento a un edificio
-    public bool SetEvent(object buildingEvent, IBuilding.BuildingType target);
+    public bool SetEvent(IGameEvent buildingEvent);
+    public void removeEventCount();
+
+    public bool eventLimitReached();
+
 }

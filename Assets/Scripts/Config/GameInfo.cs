@@ -1,5 +1,7 @@
 
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Assertions;
 
 // [CreateAssetMenu(menuName = "ScriptableObjects/GameInfo")]
 public class GameInfo : ScriptableObject
@@ -15,4 +17,48 @@ public class GameInfo : ScriptableObject
     [field:Header("Pop Ups")]
     [field:SerializeField] public int PopUpPoolSize { get; private set; }
     
+    [field:Header("Events")]
+    [field:SerializeField] public float RewardWaitTime { get; private set; }
+    [field:SerializeField] public float EventWaitTime { get; private set; }
+    [field:SerializeField] public uint RewardValue { get; private set; }
+
+    [field: SerializeField] public uint MaxEventCount { get; private set; }
+
+    [SerializeField] private ScriptableObject[] _initialEvents;
+
+    [field: Header("Events custom stuff")]
+    public string OrgName { get; set; }
+    public string OrgSlogan { get; set; }
+    public Sprite OrgBanner { get; set; }
+    
+    [field:Header("Roulette")]
+    [field: SerializeField] public float RouletteSpinSpeed { get; private set; }
+    [field: SerializeField] public float RouletteHideDelay { get; private set; }
+    
+    
+    
+    
+    
+    
+    
+    
+
+
+    private IGameEvent[] _initEvents;
+
+    public IEnumerable<IGameEvent> GetInitEvents()
+    {
+        if(_initEvents == null)
+        {
+            _initEvents = new IGameEvent[_initialEvents.Length];
+            for (int i = 0; i < _initEvents.Length; i++)
+            {
+                _initEvents[i] = _initialEvents[i] as IGameEvent;
+                Assert.IsNotNull(_initEvents[i], "Espina");
+            }
+        }
+        return _initEvents;
+    }
+
+
 }
