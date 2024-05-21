@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     private float _typeDelay;
     private Dialogue _currentDialogue;
     private int _phraseIndex = -1;
-    private bool _phraseFinished, _skip, _hideOnFinish = true;
+    private bool _phraseFinished, _skip, _hideOnFinish = true, _isInfo;
     private TextMeshProUGUI _continueButtonText;
 
     private Action _finishDialogueAction;
@@ -33,6 +33,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     public void SendDialogue(string key, bool hideOnFinish, Action nextAction)
     {
+        _isInfo = false;
         _hideOnFinish = hideOnFinish;
         _continueButton.gameObject.SetActive(true);
         _currentDialogue = _dialogues.GetDialogue(key);
@@ -49,6 +50,19 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         DisplayNextPhrase();
     }
 
+    public void SendInfoText(string text, Action nextAction)
+    {
+        _isInfo = true;
+        _hideOnFinish = true;
+        _continueButton.gameObject.SetActive(true);
+        _finishDialogueAction = nextAction;
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
+        _speakerImg.enabled = false;
+        var p = new Dialogue.Phrase { Speaker = Dialogues.Speaker.Info, Text = text };
+        StartCoroutine(TypePhrase(p));
+    }
+
     public void Hide()
     {
         _canvasGroup.alpha = 0;
@@ -57,17 +71,22 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     private void DisplayNextPhrase()
     {
-        if (++_phraseIndex >= _currentDialogue.Phrases.Length)
+        if (_isInfo || ++_phraseIndex >= _currentDialogue.Phrases.Length)
         {
             //dialogue finished
             _phraseIndex = -1;
-            _finishDialogueAction.Invoke();
             _continueButton.gameObject.SetActive(false);
-            
-            if (!_hideOnFinish) return;
+            _speakerImg.enabled = true;
+            _isInfo = false;
+            if (!_hideOnFinish)
+            {
+                _finishDialogueAction();
+                return;
+            }
             
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
+            _finishDialogueAction();
             return;
         }
 
@@ -76,7 +95,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     public void SkipOrContinue()
     {
-        if (_phraseIndex == -1) return;
+        if (_phraseIndex == -1 && !_isInfo) return;
         if (!_phraseFinished) _skip = true;
         else DisplayNextPhrase();
     }
@@ -85,9 +104,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     private IEnumerator TypePhrase(Dialogue.Phrase phrase)
     {
         _phraseFinished = false;
-        _continueButtonText.text = "Skip";
+        _continueButtonText.text = "Skip";  
         var sd = _dialogues.GetSpeakerData(phrase.Speaker);
-        _dialogueText.text = $"{sd.Name}:\n";
+        // _dialogueText.text = $"{sd.Name}:\n";
+        _dialogueText.text = "";
         _speakerImg.sprite = sd.Sprite;
 
         foreach (var c in phrase.Text)

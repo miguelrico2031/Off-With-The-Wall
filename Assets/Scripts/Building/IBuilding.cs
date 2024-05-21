@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
@@ -13,16 +14,18 @@ public interface IBuilding : IPointerEnterHandler, IPointerExitHandler, IPointer
     
     public enum BuildingType
     {
-        Any,
         House,
-        Church,
-        Park
+        Square,
+        School,
+        PoliceStation,
+        FuckDonalds,
+        Wall
     }
     public State CurrentState { get; }
     public BuildingType Type { get; }
 
-    public void SetReward(uint reward); //a acambiar por el tipo que corresponda
-    public void SetEvent(IGameEvent _event); //a acambiar por el tipo que corresponda
+    public void SetReward(uint reward, Action onCollected); //a acambiar por el tipo que corresponda
+    public void SetEvent(IGameEvent _event, Action onDispatched); //a acambiar por el tipo que corresponda
 
     public void GetBurned();
 }

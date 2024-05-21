@@ -56,11 +56,14 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
         {
             for (int i = 0; i < 10; i++)
             {
-                yield return new WaitForSeconds(_gameInfo.RewardWaitTime / 10f);
+                var delay = Random.Range(_gameInfo.RewardMinWaitTime, _gameInfo.RewardMaxWaitTime);
+                yield return new WaitForSeconds(delay / 10f);
                 if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
                     yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
             }
-            _buildingService.SetReward(_gameInfo.RewardValue);
+            if(_buildingService.HouseRewardLimitReached) continue;
+
+            _buildingService.SetHouseReward(_gameInfo.RewardValue);
         }
 
     }
@@ -71,25 +74,29 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
         {
             for (int i = 0; i < 10; i++)
             {
-                yield return new WaitForSeconds(_gameInfo.EventWaitTime / 10f);
+                var delay = Random.Range(_gameInfo.EventMinWaitTime, _gameInfo.EventMaxWaitTime);
+
+                yield return new WaitForSeconds(delay / 10f);
                 if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
                     yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
             }
+            if(_buildingService.EventLimitReached) continue;
             IGameEvent sendEvent = GetEvent();
-            if (sendEvent != null)
+            
+            if (sendEvent is null)
             {
-                if (_buildingService.SetEvent(sendEvent))
-                {
-                    RemoveEvent(sendEvent);
-                }
+                Debug.LogError("No hay eventos!! errorazo");
+                continue;
             }
+            
+            if (_buildingService.SetEvent(sendEvent)) RemoveEvent(sendEvent);
+  
         }
     }
     
     private IGameEvent GetEvent()
     {
-        if (_buildingService.eventLimitReached())
-            return null;
+
         IGameEvent newEvent = null;
         int tries = 0;
         do
@@ -106,22 +113,18 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
             }
             if (_doneEvents.Contains(newEvent))
             {
+                _eventPool.Remove(newEvent);
                 newEvent = null;
             }
             //_doneEvents.Add(newEvent);
         } while (newEvent != null && tries < _doneEvents.Count + _eventPool.Count);
         return newEvent;
     }
-    public bool RemoveEvent(IGameEvent _event)
+    private void RemoveEvent(IGameEvent _event)
     {
-        return (_eventPool.Remove(_event) || _doneEvents.Add(_event));
+        _eventPool.Remove(_event);
+        _doneEvents.Add(_event);
     }
-    public bool AddEvent(IGameEvent _event)
-    {
-        if (_doneEvents.Contains(_event))
-        {
-            return false;
-        }
-        return _eventPool.Add(_event);
-    }
+    public bool AddEvent(IGameEvent _event) => _eventPool.Add(_event);
+    
 }

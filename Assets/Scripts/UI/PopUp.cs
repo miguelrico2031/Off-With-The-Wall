@@ -9,7 +9,7 @@ public class PopUp : MonoBehaviour, IPoolObject
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
     private Button _button;
-    private House _activeHouse;
+    private Building _activeBuilding;
     private RectTransform _rectTransform;
 
     private void Awake()
@@ -20,35 +20,32 @@ public class PopUp : MonoBehaviour, IPoolObject
 
     public void ClickPopUp()
     {
-        if (_activeHouse.CurrentState == IBuilding.State.HasReward)
+        if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay) return;
+        if (_activeBuilding.CurrentState == IBuilding.State.HasReward)
         {
-            _activeHouse.CollectReward();
+            _activeBuilding.CollectReward();
         }
-        else if(_activeHouse.CurrentState == IBuilding.State.HasEvent)
+        else if(_activeBuilding.CurrentState == IBuilding.State.HasEvent)
         {
-            _activeHouse.StartEvent();
-
+            _activeBuilding.StartEvent();
         }
 
     }
 
-    public void SetHouse(House house)
+    public void SetHouse(Building building)
     {
-        _activeHouse = house;
-        _rectTransform.position = house.transform.position + house.PopUpOffset;
+        _activeBuilding = building;
+        _rectTransform.position = building.transform.position + building.PopUpOffset;
 
     }
 
     public void RemoveHouse()
     {
-        _activeHouse = null;
+        _activeBuilding = null;
     }
 
 
-    public void Clean()
-    {
-        
-    }
+    public void Clean() {}
 
     public IPoolObject Clone(Transform parent = null, bool active = false)
     {

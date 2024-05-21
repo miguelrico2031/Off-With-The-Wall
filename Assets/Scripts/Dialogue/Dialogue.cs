@@ -1,5 +1,6 @@
 using System;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 
 [CreateAssetMenu(menuName = "ScriptableObjects/Dialogue")]
@@ -8,18 +9,9 @@ public class Dialogue : ScriptableObject
     [Serializable]
     public class Phrase
     {
-        [SerializeField] private Dialogues.Speaker _speaker;
-        [SerializeField, TextArea] private string _text;
-
-        public Dialogues.Speaker Speaker
-        {
-            get => _speaker;
-        }
-
-        public string Text
-        {
-            get => _text;
-        }
+        [FormerlySerializedAs("_speaker")] [SerializeField] public Dialogues.Speaker Speaker;
+        [FormerlySerializedAs("_text")] 
+        [SerializeField, TextArea] public string Text;
     }
 
     [SerializeField] private string _key;

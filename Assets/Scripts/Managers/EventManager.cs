@@ -161,46 +161,18 @@ public class EventManager : MonoBehaviour, IEventService
     private void ResolveOutcomes(Outcomes outcomes, IBuilding building)
     {
         HideChoiceButtons();
-        foreach(var outcome in outcomes.Get()) outcome.Execute(building);
-        GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
-    }
-
-    
-    
-    
-    
-    
-    public int SpinWheel(uint[] chance,out int val)
-    {
-      
-        int maxValue = 0;
-        for (int i = 0; i < chance.Length; i++)
+        var outcomeList = outcomes.Get();
+        for (int i = 0; i < outcomeList.Length; i++)
         {
-            maxValue += (int)chance[i];
+            var outcome = outcomeList[i];
+            Action execution = () => outcome.Execute(building);
+            //si es el ultimo outcome, cuando acabe se reanuda el estado OnPlay
+            if(i == outcomeList.Length - 1) execution += () => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+            
+            if (outcome.DisplayText == "") execution();
+            else _dialogueService.SendInfoText(outcome.DisplayText, execution);
         }
-        int rval = UnityEngine.Random.Range(0, 360);
-        val = rval;
-        for (int i = 0; i < chance.Length; i++)
-        {
-            if (rval < (360 * chance[i]/maxValue) )
-            {
-                return i;
-            }
-            else
-            {
-                rval -= (int)chance[i];
-            }
-        }
-        return chance.Length - 1;
+        // GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
-
-    public void VisualSpin(int value)
-    {
-        _wheelCanvas.alpha = 1;
-        _wheelCanvas.blocksRaycasts = true;
-        print("value: " + value);
-        _wheel.transform.rotation = Quaternion.Euler(0, 0, value);
-        ShowChoiceButtons();
-    }
-
+    
 }

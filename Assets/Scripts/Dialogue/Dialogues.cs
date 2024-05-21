@@ -13,6 +13,7 @@ public class Dialogues : ScriptableObject
         Pedro,
         Podemita1,
         Podemita2,
+        Info,
         Clumsycop,
         ToughCop,
         FastFoodWorker,
@@ -43,10 +44,18 @@ public class Dialogues : ScriptableObject
             get => _sprite;
         }
     }
+    
+    [Serializable]
+    public struct DialoguePlaceholder
+    {
+        public string Placeholder;
+        public string Replace;
+    }
 
 
     [SerializeField] private SpeakerData[] _speakers;
     [SerializeField] private Dialogue[] _dialogues;
+    [SerializeField] private DialoguePlaceholder[] _placeholders;
 
     private Dictionary<string, Dialogue> _dialoguesDict;
     private Dictionary<Speaker, SpeakerData> _speakersDict;
@@ -59,7 +68,14 @@ public class Dialogues : ScriptableObject
             foreach (var d in _dialogues) _dialoguesDict.Add(d.Key, d);
         }
 
-        return _dialoguesDict.GetValueOrDefault(key); //devuelve null si no encuentra la key en el dict
+        var dialogue = _dialoguesDict.GetValueOrDefault(key);
+        if (dialogue is null) return null;
+
+        foreach (var phrase in dialogue.Phrases)
+            foreach(var placeholder in _placeholders)
+                phrase.Text = phrase.Text.Replace(placeholder.Placeholder, placeholder.Replace);
+        
+        return dialogue;
     }
 
     public SpeakerData GetSpeakerData(Speaker speaker)

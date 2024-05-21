@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class House : MonoBehaviour, IBuilding
+public class Building : MonoBehaviour, IBuilding
 {
     #region Attributes
     
@@ -17,8 +17,9 @@ public class House : MonoBehaviour, IBuilding
     private IPeopleService _peopleService;
     private IBuildingService _buildingService;
     private IEventService _eventService;
-
     private IGameEvent _currentEvent;
+    private Action _currentCallback;
+    
     #endregion
 
     #region Unity Callbacks
@@ -34,21 +35,20 @@ public class House : MonoBehaviour, IBuilding
 
     #endregion
     
-    public void SetReward(uint reward)
+    public void SetReward(uint reward, Action onCollected)
     { //actualiza su estado y reward
-        Debug.Log("PopUP");
         CurrentState = IBuilding.State.HasReward;
         _currentReward = reward;
         _popUpService.ShowPopUp(this);
-        
+        _currentCallback = onCollected;
     }
 
-    public void SetEvent(IGameEvent _event) //tipo object a cambiar luego
+    public void SetEvent(IGameEvent _event, Action onDispatched) //tipo object a cambiar luego
     {
         CurrentState = IBuilding.State.HasEvent; //falta implementar la logica de los eventos
         _currentEvent = _event;
         _popUpService.ShowPopUp(this);
-
+        _currentCallback = onDispatched;
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -63,7 +63,11 @@ public class House : MonoBehaviour, IBuilding
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log("CLICK");
+        // OnClick();
+    }
+    
+    public void OnClick()
+    {
         switch (CurrentState)
         {
             case IBuilding.State.Idle:
@@ -75,12 +79,9 @@ public class House : MonoBehaviour, IBuilding
             case IBuilding.State.HasEvent:
                 //llamar al manager que sea para triggerear el evento
                 StartEvent();
-                print("evento");
                 break;
         }
-
     }
-
     public void CollectReward()
     {
         //llamar al manager que corresponda para sumar la reward
@@ -88,18 +89,28 @@ public class House : MonoBehaviour, IBuilding
         _currentReward = 0;
         CurrentState = IBuilding.State.Idle;   
         _popUpService.HidePopUp(this);
-
+        _currentCallback();
+        _currentCallback = null;
     }
     public void StartEvent()
     {
         _eventService.StartEvent(_currentEvent, this);
+        _currentEvent = null;
         CurrentState = IBuilding.State.Idle; //no estoy seguro de ponerlo a idle aqui o cuando acabe el evento
-        _buildingService.removeEventCount();
         _popUpService.HidePopUp(this);
+        _currentCallback();
+        _currentCallback = null;
     }
     public void GetBurned()
     {
+        if (CurrentState is IBuilding.State.HasReward or IBuilding.State.HasEvent)
+        {
+            _popUpService.HidePopUp(this);
+            _currentCallback();
+            _currentCallback = null;
+            _currentReward = 0;
+            _currentEvent = null;
+        }
         CurrentState = IBuilding.State.Burned;
-        _currentReward = 0;
     }
 }

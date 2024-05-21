@@ -12,24 +12,24 @@ public class PopUpManager : MonoBehaviour, IPopUpService
     [SerializeField] private PopUp _popUpPrefab;
 
     private ObjectPool<PopUp> _objectPool;
-    private Dictionary<House, PopUp> _housePopUps = new();
+    private Dictionary<Building, PopUp> _housePopUps = new();
 
     private void Awake()
     {
         _objectPool = new(_popUpPrefab, GameManager.Instance.GameInfo.PopUpPoolSize, true, PopUpCanvas.transform);
     }
 
-    public void ShowPopUp(House house)
+    public void ShowPopUp(Building building)
     {
         var popUp = _objectPool.Get();
-        popUp.SetHouse(house);
-        _housePopUps.Add(house, popUp);    
+        popUp.SetHouse(building);
+        _housePopUps.Add(building, popUp);    
     }
 
-    public void HidePopUp(House house)
+    public void HidePopUp(Building building)
     {
-        var popUp = _housePopUps[house];
-        _housePopUps.Remove(house);
+        var popUp = _housePopUps[building];
+        _housePopUps.Remove(building);
         popUp.RemoveHouse();
         _objectPool.Return(popUp);
     }
