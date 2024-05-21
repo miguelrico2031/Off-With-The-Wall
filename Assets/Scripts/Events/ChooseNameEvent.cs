@@ -1,5 +1,6 @@
 using UnityEngine;
 
+[CreateAssetMenu(menuName = "ScriptableObjects/Events/ChooseNameEvent")]
 public class ChooseNameEvent : ScriptableObject, IGameEvent
 {
     [field:SerializeField] public IBuilding.BuildingType BuildingType { get; private set; }
