@@ -14,10 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: ruletai
   _phrases:
-  - _speaker: 0
+  - _speaker: 8
     _text: hola tira de la ruleta yeaaaa
-  - _speaker: 2
+  - _speaker: 9
     _text: y eso
-  - _speaker: 0
+  - _speaker: 7
     _text: hazte caso brou......... ........................... ..........................
       ...................... .............. ..............

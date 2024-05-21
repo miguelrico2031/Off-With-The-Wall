@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: ruletasuc
   _phrases:
-  - _speaker: 0
+  - _speaker: 8
     _text: que lujazo toma 10 euros
-  - _speaker: 2
+  - _speaker: 9
     _text: pog

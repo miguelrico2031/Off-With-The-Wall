@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: ruletarefuse
   _phrases:
-  - _speaker: 2
+  - _speaker: 5
     _text: "Nideco\xF1a chaoo"
-  - _speaker: 0
+  - _speaker: 8
     _text: ruina

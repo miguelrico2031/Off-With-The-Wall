@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5509db3ba009fa642a3cdb51ef0ddcc4
+guid: ba055ab1a4b101b4b8a08c4b96bac9d2
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -43,7 +43,7 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -108,91 +108,7 @@ TextureImporter:
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: UI_slider_0
-      rect:
-        serializedVersion: 2
-        x: 1
-        y: 40
-        width: 150
-        height: 22
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 8, y: 0, z: 48, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 63f07c7ca43ac4841b2adc3118521225
-      internalID: -1437459760
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_slider_1
-      rect:
-        serializedVersion: 2
-        x: 13
-        y: 0
-        width: 37
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: b3ca62f8ad0c3324b96cb2dfaca07aae
-      internalID: 1219326968
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_slider_2
-      rect:
-        serializedVersion: 2
-        x: 61
-        y: 0
-        width: 37
-        height: 37
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 5bed29707376c33468e07735db5c610e
-      internalID: 223323157
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: UI_slider_3
-      rect:
-        serializedVersion: 2
-        x: 119
-        y: 12
-        width: 16
-        height: 14
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 4, y: 0, z: 8, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f0a012813eeed2249a373f65074f76f7
-      internalID: 1844572165
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -203,11 +119,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      UI_slider_0: -1437459760
-      UI_slider_1: 1219326968
-      UI_slider_2: 223323157
-      UI_slider_3: 1844572165
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

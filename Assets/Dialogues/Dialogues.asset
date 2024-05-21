@@ -13,12 +13,24 @@ MonoBehaviour:
   m_Name: Dialogues
   m_EditorClassIdentifier: 
   _speakers:
-  - _speaker: 2
-    _name: Podemita 1
-    _sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
-  - _speaker: 0
-    _name: Juan
-    _sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  - _speaker: 6
+    _name: Fast Food Worker
+    _sprite: {fileID: 21300000, guid: 5c52e342ed1c7de428290c5415ca4bfe, type: 3}
+  - _speaker: 7
+    _name: Cayetano
+    _sprite: {fileID: 21300000, guid: a5a46f95663d15e48902badc0c968ad1, type: 3}
+  - _speaker: 4
+    _name: Clumpsy Cop
+    _sprite: {fileID: 21300000, guid: 225bfeabc20d10742bd352cbd3d6d91a, type: 3}
+  - _speaker: 5
+    _name: Tough Cop
+    _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
+  - _speaker: 8
+    _name: Salvi
+    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
+  - _speaker: 9
+    _name: Emily
+    _sprite: {fileID: 21300000, guid: ba055ab1a4b101b4b8a08c4b96bac9d2, type: 3}
   _dialogues:
   - {fileID: 11400000, guid: 2f60ee69a18dacd4da5ee5eea196f7a1, type: 2}
   - {fileID: 11400000, guid: 71aa12c0fa1b1d94283c1ab271751e15, type: 2}

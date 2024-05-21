@@ -14,15 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: test
   _phrases:
-  - _speaker: 0
+  - _speaker: 4
     _text: Hola Me llamo juan y tu?
-  - _speaker: 2
+  - _speaker: 5
     _text: Hola yo me llamo podemita uno y tu
-  - _speaker: 0
+  - _speaker: 4
     _text: Juan
-  - _speaker: 2
+  - _speaker: 5
     _text: Juan tu eres mas fife o potaxie
-  - _speaker: 0
+  - _speaker: 4
     _text: Por favor que vuelva la mili abascal solo quedas tu
-  - _speaker: 2
+  - _speaker: 5
     _text: No soportaste

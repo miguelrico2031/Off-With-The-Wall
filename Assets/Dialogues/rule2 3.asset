@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: ruletacrit
   _phrases:
-  - _speaker: 0
+  - _speaker: 6
     _text: critico yea
-  - _speaker: 2
+  - _speaker: 4
     _text: durisimo

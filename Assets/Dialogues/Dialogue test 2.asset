@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: prueba2
   _phrases:
-  - _speaker: 0
+  - _speaker: 7
     _text: 'Prubea 2 adios outcome: joya'

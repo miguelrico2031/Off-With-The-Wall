@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _key: prueba1
   _phrases:
-  - _speaker: 0
+  - _speaker: 6
     _text: Adios A
-  - _speaker: 0
+  - _speaker: 7
     _text: chaoo tal

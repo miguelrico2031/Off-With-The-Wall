@@ -12,7 +12,13 @@ public class Dialogues : ScriptableObject
         Juan,
         Pedro,
         Podemita1,
-        Podemita2
+        Podemita2,
+        Clumsycop,
+        ToughCop,
+        FastFoodWorker,
+        CenterRightGuy,
+        BandMemberSalvi,
+        CuteGirl
     }
 
     [Serializable]
