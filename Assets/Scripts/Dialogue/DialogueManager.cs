@@ -137,6 +137,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _newspaperCover.sprite = _currentCover;
         _newspaperCover.enabled = _currentCover is not null;
         _dialoguePanel.SetActive(false);
+        _speakerImg.enabled = false;
         _newspaperText.text = phrase.Text;
         _continueButton.gameObject.SetActive(false);
         
