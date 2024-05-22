@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: SQ2Start
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 14
+    Text: "Hey! So, guess what? We caught this undercover cop snooping around, pretending
+      to be one of us. We beat the shit out of him, and now he's being held in a
+      safe house. I was thinking, why not organize a protest in the square tonight?
+      And, when the cops show up, let's give them a little surprise. I don't want
+      to give away too much, but trust me on this one\u2026\r"

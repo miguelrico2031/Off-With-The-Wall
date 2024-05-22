@@ -13,11 +13,12 @@ MonoBehaviour:
   m_Name: School1E
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 2
-  <StartDialogueKey>k__BackingField: school1
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 0f099b4ef4c1f484e8e8ead14c10a9c1, type: 2}
   <Outcomes>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
     - People: 5
     _rewardMultipliers: []
     _houseBurns: []
-    _eventAdds: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: ca86e496660a7914a8f61966086ca2bc, type: 2}

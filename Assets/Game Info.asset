@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdd265020ef25cb4ba21101e48e4c405, type: 3}
-  m_Name: GameInfo
+  m_Name: Game Info
   m_EditorClassIdentifier: 
   <InitialPeople>k__BackingField: 5
   <InitialPedestrians>k__BackingField: 10
@@ -26,7 +26,7 @@ MonoBehaviour:
   <MaxEventCount>k__BackingField: 3
   <MaxHouseRewardCount>k__BackingField: 10
   _initialEvents:
-  - {fileID: 11400000, guid: 1f860d4b390a4ff4099dee7bc6e81e95, type: 2}
-  - {fileID: 11400000, guid: 79620460a39a70f47b78ef6818fbec9a, type: 2}
+  - {fileID: 11400000, guid: 8ac3d058511d4904b931e4f4363606e1, type: 2}
+  - {fileID: 11400000, guid: 9ba4ab266edcf2847b46a8319ce43542, type: 2}
   <RouletteSpinSpeed>k__BackingField: 260
   <RouletteHideDelay>k__BackingField: 1.5

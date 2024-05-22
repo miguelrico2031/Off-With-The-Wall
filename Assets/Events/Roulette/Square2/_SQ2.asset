@@ -1,0 +1,63 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588fed65d614b7249a83c801ade8ad3a, type: 3}
+  m_Name: _SQ2
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 0
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: a690d698744adde4c8b6c2a013ca0000, type: 2}
+  <ChoiceTextAccept>k__BackingField: Accept
+  <ChoiceTextRefuse>k__BackingField: Refuse
+  <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: 3f4b6f0f25730434884c5919323be330, type: 2}
+  <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: 0c8d068bea23aca44a8aee236b73370d, type: 2}
+  <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: 31972e8a86904904a8d259245e04acb8, type: 2}
+  <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: f1073e62010db6a40bccf2a0edff2db7, type: 2}
+  <OutcomesRefuse>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
+  <OutcomesLose>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
+  <OutcomesWin>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers:
+    - Multiplier: 1.3
+      MultiplierName: sq2sucess
+      IsPermanent: 0
+      Duration: 30
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
+  <OutcomesCrit>k__BackingField:
+    _peopleIncreases:
+    - People: 10
+    _peopleDecreases: []
+    _rewardMultipliers:
+    - Multiplier: 1.3
+      MultiplierName: sq2crit
+      IsPermanent: 0
+      Duration: 30
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
+  <CritChance>k__BackingField: 0.15
+  <SucessChance>k__BackingField: 0.2

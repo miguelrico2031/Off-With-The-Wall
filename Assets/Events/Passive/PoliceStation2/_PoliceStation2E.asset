@@ -10,14 +10,13 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: ea29524659d33024c889239b38a565e5, type: 3}
-  m_Name: House1E
+  m_Name: _PoliceStation2E
   m_EditorClassIdentifier: 
-  <BuildingType>k__BackingField: 0
-  <StartDialogueKey>k__BackingField: house1
+  <BuildingType>k__BackingField: 3
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: ca1dc73f328977e4992a4d841366c6be, type: 2}
   <Outcomes>k__BackingField:
     _peopleIncreases: []
-    _peopleDecreases:
-    - People: 10
+    _peopleDecreases: []
     _rewardMultipliers: []
     _houseBurns: []
     _eventAdds: []

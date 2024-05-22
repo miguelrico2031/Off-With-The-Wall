@@ -1,0 +1,55 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588fed65d614b7249a83c801ade8ad3a, type: 3}
+  m_Name: _FuckDonalds1E
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 4
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: c0e0b5fa7e8c9824184c059c4d87ec88, type: 2}
+  <ChoiceTextAccept>k__BackingField: Accept the plan
+  <ChoiceTextRefuse>k__BackingField: Reject the plan
+  <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: be03c56522d5d6a469518cbf8e456bf6, type: 2}
+  <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: d0686be0190347444972698e4c820b49, type: 2}
+  <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: 2e3e2bf7fa444db4a8e999fd4f81e2f8, type: 2}
+  <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: 2e3e2bf7fa444db4a8e999fd4f81e2f8, type: 2}
+  <OutcomesRefuse>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 48180b605a58a0647939a74879cdf756, type: 2}
+  <OutcomesLose>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 48180b605a58a0647939a74879cdf756, type: 2}
+  <OutcomesWin>k__BackingField:
+    _peopleIncreases:
+    - People: 10
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: d7b7a645134ee4d4c863731c324540d1, type: 2}
+  <OutcomesCrit>k__BackingField:
+    _peopleIncreases:
+    - People: 20
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: d7b7a645134ee4d4c863731c324540d1, type: 2}
+  <CritChance>k__BackingField: 0.1
+  <SucessChance>k__BackingField: 0.2

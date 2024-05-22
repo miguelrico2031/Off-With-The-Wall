@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: School1D
   m_EditorClassIdentifier: 
-  _key: school1
   _phrases:
   - Speaker: 13
     Text: '*Student Protesters Get What They Deserve* Yesterday''s student demonstration

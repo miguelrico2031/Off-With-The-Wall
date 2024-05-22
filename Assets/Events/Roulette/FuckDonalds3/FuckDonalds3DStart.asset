@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: FuckDonalds3DStart
+  m_EditorClassIdentifier: 
+  _key: fuckdonalds3start
+  _phrases:
+  - Speaker: 14
+    Text: ' Hey, folks! Just like all of you, I''m fucking sick and tired of that
+      damn Fuck Donalds and that piece of shit, that quirky guy that works there
+      who screwed us over big time. I suggest we plant a bomb inside and blow the
+      whole thing sky high, it would be rad! '
+  - Speaker: 14
+    Text: "Matter of fact, I spent the whole weekend learning and now I know how
+      to make a simple explosive using cornstarch. Leave it all to me, and soon you'll
+      hear a loud bang and it'll start smelling like burnt FuckNuggets\u2026"

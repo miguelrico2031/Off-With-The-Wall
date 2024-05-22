@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: PS1Start
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 14
+    Text: 'Good evening, good evening, good evening!! Hahahaha, I''ve been chatting
+      with my voices, and they''ve given me a fantastic idea: let''s go to the police
+      station, tonight, and cover it in graffiti! Tomorrow those pigs will wake up
+      to see a giant ACAB across the entrance!'

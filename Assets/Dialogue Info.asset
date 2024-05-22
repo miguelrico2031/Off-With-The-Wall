@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 20d42781cbe342a3a6df1d79a12f6a57, type: 3}
-  m_Name: _Dialogues
+  m_Name: Dialogue Info
   m_EditorClassIdentifier: 
   _speakers:
   - _speaker: 13
@@ -33,15 +33,23 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
   - _speaker: 12
     _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
-  _dialogues:
-  - {fileID: 11400000, guid: 2f60ee69a18dacd4da5ee5eea196f7a1, type: 2}
-  - {fileID: 11400000, guid: 71aa12c0fa1b1d94283c1ab271751e15, type: 2}
-  - {fileID: 11400000, guid: 7849a4631a055e245b6164cd4d57bd0f, type: 2}
-  - {fileID: 11400000, guid: 379b7ca77ef2eef4fb11b607f6cf5d19, type: 2}
-  - {fileID: 11400000, guid: 09b7cab6e2f5a9f4db2d455acd0ce16c, type: 2}
-  - {fileID: 11400000, guid: 3c9d6655652a4fd4f85b7ae7df6b3c38, type: 2}
-  - {fileID: 11400000, guid: c02ae06fdd5b17245b07793aefaeebe9, type: 2}
-  - {fileID: 11400000, guid: ce0bad70677b258449446010e32b2761, type: 2}
+  - _speaker: 20
+    _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
   _placeholders:
-  - Placeholder: PSOE
-    Replace: RUINONDEPARTIDO
+  - Placeholder: NOMBRECOSA
+    Replace: ORGANIZACION GUAPA
+  _newspaperCovers:
+  - Dialogue: {fileID: 11400000, guid: 5938816fea3215b468be3cbc37bb33dd, type: 2}
+    Cover: {fileID: -1941149344, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: -1816724566, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 1938038547, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 816329078, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 1658228356, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 1835658624, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 21300000, guid: 41c79f2d977ba294dba3c12dd874a798, type: 3}

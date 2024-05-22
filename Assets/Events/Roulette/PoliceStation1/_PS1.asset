@@ -1,0 +1,65 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 588fed65d614b7249a83c801ade8ad3a, type: 3}
+  m_Name: _PS1
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 0
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: c69ce17c148bded42831c4470b5af15e, type: 2}
+  <ChoiceTextAccept>k__BackingField: Accept
+  <ChoiceTextRefuse>k__BackingField: Refuse
+  <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: dcec95eaa775ae643b081ebcea4b35d9, type: 2}
+  <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: 419e9c7b13fad71469c64e6c94e9258d, type: 2}
+  <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: 71761b8880092ba4e8bef5894495406a, type: 2}
+  <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: 71761b8880092ba4e8bef5894495406a, type: 2}
+  <OutcomesRefuse>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: cc71f0488eeb2da4ca026770b4f53c18, type: 2}
+    - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
+  <OutcomesLose>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: cc71f0488eeb2da4ca026770b4f53c18, type: 2}
+    - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
+  <OutcomesWin>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers:
+    - Multiplier: 1.15
+      MultiplierName: ps1success
+      IsPermanent: 0
+      Duration: 35
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: cc71f0488eeb2da4ca026770b4f53c18, type: 2}
+    - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
+  <OutcomesCrit>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers:
+    - Multiplier: 1.3
+      MultiplierName: ps1crit
+      IsPermanent: 0
+      Duration: 45
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: cc71f0488eeb2da4ca026770b4f53c18, type: 2}
+    - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
+  <CritChance>k__BackingField: 0.1
+  <SucessChance>k__BackingField: 0.3

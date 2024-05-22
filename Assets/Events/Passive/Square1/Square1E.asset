@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Square1E
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 1
-  <StartDialogueKey>k__BackingField: square1
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 5938816fea3215b468be3cbc37bb33dd, type: 2}
   <Outcomes>k__BackingField:
     _peopleIncreases:
     - People: 10

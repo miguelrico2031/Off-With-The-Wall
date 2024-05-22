@@ -92,11 +92,11 @@ public class PeopleDecrease : IOutcome
 public class EventAdd : IOutcome
 {
     public string DisplayText { get => ""; }
-    public IGameEvent gameEvent;
-    public uint People;
+    [SerializeField] private ScriptableObject _gameEvent;
     public void Execute(IBuilding building = null)
     {
-        GameManager.Instance.Get<IEventSpawnService>().AddEvent(gameEvent);
+        if(_gameEvent is not IGameEvent) Debug.LogError("EVENTO INVALIDO EN OUTCOME DE ADDEVENT");
+        GameManager.Instance.Get<IEventSpawnService>().AddEvent(_gameEvent as IGameEvent);
     }
 }
 
