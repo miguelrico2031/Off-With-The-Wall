@@ -10,19 +10,10 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
-  m_Name: Dialogue test
+  m_Name: FuckDonalds2Dchoice2
   m_EditorClassIdentifier: 
-  _key: test
+  _key: fuckdonalds2choice2
   _phrases:
-  - Speaker: 5
-    Text: Hola Me llamo juan y tu? RUINONDEPARTIDO
-  - Speaker: 6
-    Text: Hola yo me llamo podemita uno y tu
-  - Speaker: 5
-    Text: Juan
-  - Speaker: 6
-    Text: Juan tu eres mas fife o potaxie
-  - Speaker: 4
-    Text: Por favor que vuelva la mili abascal solo quedas tu
-  - Speaker: 5
-    Text: No soportaste
+  - Speaker: 7
+    Text: "Such a shame... I guess not everyone will be happy about letting such
+      an opportunity slip away... Hehehe...\r"

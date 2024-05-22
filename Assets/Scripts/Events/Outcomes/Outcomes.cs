@@ -9,8 +9,9 @@ public class Outcomes //clase serializable para agrupar outcomes
     [SerializeField] private PeopleIncrease[] _peopleIncreases;
     [SerializeField] private PeopleDecrease[] _peopleDecreases;
     [SerializeField] private RewardMultiplier[] _rewardMultipliers;
-    [SerializeField] private PopUpMultiplier[] _popUpMultipliers;
+    //[SerializeField] private PopUpMultiplier[] _popUpMultipliers;
     [SerializeField] private HouseBurn[] _houseBurns;
+    [SerializeField] private EventAdd[] _eventAdds;
 
 
     private IOutcome[] _outcomes;
@@ -19,10 +20,11 @@ public class Outcomes //clase serializable para agrupar outcomes
     {
         if (_outcomes is not null) return _outcomes;
         var l = _peopleIncreases.Cast<IOutcome>().ToList();
-        l.AddRange(_peopleDecreases.Cast<IOutcome>());
-        l.AddRange(_rewardMultipliers.Cast<IOutcome>());
-        l.AddRange(_popUpMultipliers.Cast<IOutcome>());
-        l.AddRange(_houseBurns.Cast<IOutcome>());
+        l.AddRange(_peopleDecreases);
+        l.AddRange(_rewardMultipliers);
+        //l.AddRange(_popUpMultipliers);
+        l.AddRange(_houseBurns);
+        l.AddRange(_eventAdds);
         _outcomes = l.ToArray();
         return _outcomes;
     }
@@ -31,18 +33,22 @@ public class Outcomes //clase serializable para agrupar outcomes
 [Serializable]
 public class PeopleIncrease : IOutcome
 {
-    [field:SerializeField] public string DisplayText { get; private set; }
     public uint People;
+    public string DisplayText { get => $"{_people} people gained."; }
+    private uint _people;
     public void Execute(IBuilding building = null)
     {
-        GameManager.Instance.Get<IPeopleService>().AddPeople(People);
+        _people = GameManager.Instance.Get<IPeopleService>().AddPeople(People);
     }
 }
 
 [Serializable]
 public class RewardMultiplier : IOutcome
 {
-    [field:SerializeField] public string DisplayText { get; private set; }
+    public string DisplayText
+    {
+        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier.";
+    }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;
     public bool IsPermanent;
@@ -53,27 +59,28 @@ public class RewardMultiplier : IOutcome
         if (IsPermanent) peopleService.AddMultiplier(MultiplierName, Multiplier);
         else peopleService.AddMultiplier(MultiplierName, Multiplier, Duration);
     }
+
 }
 
-[Serializable]
-public class PopUpMultiplier : IOutcome
-{
-    [field:SerializeField] public string DisplayText { get; private set; }
-    [Range(.1f, 3f)] public float Multiplier;
-    public string MultiplierName;
-    public bool IsPermanent;
-    public float Duration;
-
-    public void Execute(IBuilding building = null)
-    {
-        
-    }
-}
+// [Serializable]
+// public class PopUpMultiplier : IOutcome
+// {
+//     [field:SerializeField] public string DisplayText { get; private set; }
+//     [Range(.1f, 3f)] public float Multiplier;
+//     public string MultiplierName;
+//     public bool IsPermanent;
+//     public float Duration;
+//
+//     public void Execute(IBuilding building = null)
+//     {
+//         
+//     }
+// }
 
 [Serializable]
 public class PeopleDecrease : IOutcome
 {
-    [field:SerializeField] public string DisplayText { get; private set; }
+    public string DisplayText { get => $"{People} people lost."; }
     public uint People;
     public void Execute(IBuilding building = null)
     {
@@ -84,7 +91,7 @@ public class PeopleDecrease : IOutcome
 [Serializable]
 public class EventAdd : IOutcome
 {
-    [field: SerializeField] public string DisplayText { get; private set; }
+    public string DisplayText { get => ""; }
     public IGameEvent gameEvent;
     public uint People;
     public void Execute(IBuilding building = null)

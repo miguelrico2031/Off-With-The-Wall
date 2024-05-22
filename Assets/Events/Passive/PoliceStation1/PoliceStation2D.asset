@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: PoliceStation2D
+  m_EditorClassIdentifier: 
+  _key: policestation2
+  _phrases:
+  - Speaker: 17
+    Text: "Hey\u2026 I shouldn\u2019t be here speaking to you, I hope the other cops
+      don\u2019t see us together. I just wanted to say I hate being a fucking pig,
+      I hate licking the boot of this oppressive government and abusing my authority
+      to torment the weak, unlike my colleagues who seem to love it."
+  - Speaker: 17
+    Text: "That makes me sick, goddamnit! You can count on me if you need eyes and
+      ears inside the police force. I want to help the cause, and I wish nothing
+      other than to see those motherfuckers in the same position they put innocent
+      people in day after day.\r"

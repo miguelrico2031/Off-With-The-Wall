@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: House1D
+  m_EditorClassIdentifier: 
+  _key: house1
+  _phrases:
+  - Speaker: 13
+    Text: " *City Treasury Plundered* This morning, the city woke up to the sad news
+      that half of the funds in the treasury have disappeared. Our beloved city treasurer
+      has refused to give a statement, and authorities have the known criminals of
+      NOMBRECOSA as the prime suspects. In other news, the city treasurer unveils
+      a new yacht, and a new security system in his mansion\u2026"
+  - Speaker: 14
+    Text: "That piece of shit! I told you, we should have killed him when we had
+      the chance. Now that guy is unreachable, and he's back to stealing from our
+      pockets again, to buy himself a big ass boat.\r"
+  - Speaker: 14
+    Text: "A lot of our people found out we had that bastard and let him go, and
+      believe me, they won't be happy to read the paper today....\r"

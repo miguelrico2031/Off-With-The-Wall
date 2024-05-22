@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -162,17 +163,20 @@ public class EventManager : MonoBehaviour, IEventService
     {
         HideChoiceButtons();
         var outcomeList = outcomes.Get();
-        for (int i = 0; i < outcomeList.Length; i++)
+        if (outcomeList is null || !outcomeList.Any())
         {
-            var outcome = outcomeList[i];
-            Action execution = () => outcome.Execute(building);
-            //si es el ultimo outcome, cuando acabe se reanuda el estado OnPlay
-            if(i == outcomeList.Length - 1) execution += () => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
-            
-            if (outcome.DisplayText == "") execution();
-            else _dialogueService.SendInfoText(outcome.DisplayText, execution);
+            GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+            return;
         }
-        // GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+        
+        string text = "";
+        foreach(var outcome in outcomeList)
+        {
+            outcome.Execute(building);
+            if (outcome.DisplayText != "") text += $"{outcome.DisplayText}\n";
+        }
+        if(text != "") _dialogueService.SendInfoText(text, () => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
+        else GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
     
 }

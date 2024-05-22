@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: School2Dstart
+  m_EditorClassIdentifier: 
+  _key: school2start
+  _phrases:
+  - Speaker: 15
+    Text: "We the students from NOMBRECOSA are fucking fed up with the school! We've
+      talked about it and we think we should burn it down. It's a factory of brainless
+      sheep without critical thinking where they only teach us capitalist ideas:
+      in economics they tell us that a company\u2019s value is created by  the entrepreneur,
+      not the workpower;"
+  - Speaker: 15
+    Text: " in history, they make us believe that we should be grateful to the government
+      because it provides a \u201Cwelfare state\u201D that protects everyone, when
+      we fucking know it only protects the interests of big companies. Burning down
+      the school and educating ourselves freely is the only option!\r"
+  - Speaker: 16
+    Text: "I am also from NOMBRECOSA, and burning the school would be a \u201Cruin\u201D,
+      as you youngsters say. We teachers would lose our jobs, and besides, there
+      are many of us who are aligned with the cause and are trying to teach students
+      about the system's flaws and promote critical thinking."

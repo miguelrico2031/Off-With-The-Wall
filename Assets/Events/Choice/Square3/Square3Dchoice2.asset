@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Square3Dchoice2
+  m_EditorClassIdentifier: 
+  _key: square3choice2
+  _phrases:
+  - Speaker: 19
+    Text: "NOOO PLEASE NOOO! I\u2019LL DO ANYTHING! PLEA-\r\r"
+  - Speaker: 18
+    Text: "*chomp*\r\r"
+  - Speaker: 14
+    Text: "Hell yeah!! Bon app\xE9tit my love!\r\r"
+  - Speaker: 14
+    Text: "Hell yeah!! Bon appetit my love!\r\r"
+  - Speaker: 13
+    Text: "*Treasurer loses his head* Yesterday, in the town square, a horrifying
+      guillotine decapitation took place, medieval style, with our beloved City Treasurer
+      as the victim, and the socialist psychopaths who call themselves NOMBRECOSA
+      the executioners. The police are investigating.\r\r"

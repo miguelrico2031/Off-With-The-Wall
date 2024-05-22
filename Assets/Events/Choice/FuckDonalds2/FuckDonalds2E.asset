@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7993c619dbc2064bb05906398f12c07, type: 3}
+  m_Name: FuckDonalds2E
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 4
+  <StartDialogueKey>k__BackingField: fuckdonalds2start
+  <ChoiceTextA>k__BackingField: Yes
+  <ChoiceTextB>k__BackingField: No
+  <EndDialogueKeyA>k__BackingField: fuckdonalds2choice1
+  <EndDialogueKeyB>k__BackingField: fuckdonalds2choice2
+  <OutcomesA>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds: []
+  <OutcomesB>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 3
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds: []

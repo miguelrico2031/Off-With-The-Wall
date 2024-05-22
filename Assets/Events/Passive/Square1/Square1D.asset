@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Square1D
+  m_EditorClassIdentifier: 
+  _key: square1
+  _phrases:
+  - Speaker: 10
+    Text: 'Hey, folks from NOMBRECOSA, tonight''s gig is by NOMBREVVV, our radical
+      electronic band!
+
+'
+  - Speaker: 12
+    Text: Let's fuck up the system with sick synthesizers!
+  - Speaker: 11
+    Text: 'All that''s left is to fucking explode, mates, and being wreckers ain''t
+      that bad when everything''s fucked to the max.
+
+'
+  - Speaker: 13
+    Text: "*So-called \"musicians\" incite violence and destruction* Last night,
+      an illegal underground concert by NOMBREVVV took place, a group attempting
+      to pose as musicians, presenting their incendiary propaganda as songs. Their
+      lyrics, such as \"Our last mission is to die killing, to murder the high command\"
+      or \u201CHow much the hood has changed, we ought to blow it up and build it
+      again on top of the blood of those who took it from us\u201D are deeply troubling
+      and horrendous. Despite this, their music appears to resonate with youth, who
+      seem to be keen on putting these songs into practice\u2026\r\n"

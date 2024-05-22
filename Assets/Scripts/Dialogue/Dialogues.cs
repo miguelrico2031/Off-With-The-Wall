@@ -14,35 +14,30 @@ public class Dialogues : ScriptableObject
         Podemita1,
         Podemita2,
         Info,
-        Clumsycop,
+        UndercoverCop,
         ToughCop,
-        FastFoodWorker,
+        FuckDonaldsGuy,
         CenterRightGuy,
+        CuteGirl,
         BandMemberSalvi,
-        CuteGirl
+        BandMemberAdri,
+        BandMemberEli,
+        Newspaper,
+        CrazyGuy,
+        Student,
+        Teacher,
+        GoodCop,
+        Guillotine,
+        Treasurer,
     }
 
     [Serializable]
     public class SpeakerData
     {
         [SerializeField] private Speaker _speaker;
-        [SerializeField] private string _name;
         [SerializeField] private Sprite _sprite;
-
-        public Speaker Speaker
-        {
-            get => _speaker;
-        }
-
-        public string Name
-        {
-            get => _name;
-        }
-
-        public Sprite Sprite
-        {
-            get => _sprite;
-        }
+        public Speaker Speaker { get => _speaker;  }
+        public Sprite Sprite { get => _sprite; }
     }
     
     [Serializable]

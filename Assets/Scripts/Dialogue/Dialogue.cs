@@ -11,7 +11,7 @@ public class Dialogue : ScriptableObject
     {
         [FormerlySerializedAs("_speaker")] [SerializeField] public Dialogues.Speaker Speaker;
         [FormerlySerializedAs("_text")] 
-        [SerializeField, TextArea] public string Text;
+        [SerializeField, TextArea(minLines:4, maxLines:6)] public string Text;
     }
 
     [SerializeField] private string _key;

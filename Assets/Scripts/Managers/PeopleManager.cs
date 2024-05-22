@@ -18,11 +18,12 @@ public class PeopleManager : IPeopleService
 
     #endregion
 
-    public void AddPeople(uint people)
+    public uint AddPeople(uint people)
     {
-        float total = _multipliers.Values.Aggregate(1f, (current, m) => current * m);
-        People += people * (uint) Mathf.RoundToInt(total);
+        uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current * m));
+        People += people * total;
         OnPeopleChanged.Invoke(People);
+        return people * total;
     }
 
     public void RemovePeople(uint people)
