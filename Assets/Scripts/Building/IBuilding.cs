@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public interface IBuilding : IPointerEnterHandler, IPointerExitHandler, IPointerClickHandler
+public interface IBuilding : IPointerClickHandler//, IPointerEnterHandler, IPointerExitHandler 
 {
     public enum State
     {
@@ -21,11 +21,5 @@ public interface IBuilding : IPointerEnterHandler, IPointerExitHandler, IPointer
         FuckDonalds,
         Wall
     }
-    public State CurrentState { get; }
-    public BuildingType Type { get; }
-
-    public void SetReward(uint reward, Action onCollected); //a acambiar por el tipo que corresponda
-    public void SetEvent(IGameEvent _event, Action onDispatched); //a acambiar por el tipo que corresponda
-
-    public void GetBurned();
+    
 }

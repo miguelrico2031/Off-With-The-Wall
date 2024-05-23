@@ -106,7 +106,7 @@ public class HouseBurn : IOutcome
     [field: SerializeField] public string DisplayText { get; private set; }
     public void Execute(IBuilding building)
     {
-        building.GetBurned();
+        (building as Building).GetBurned();
     }
 }
 

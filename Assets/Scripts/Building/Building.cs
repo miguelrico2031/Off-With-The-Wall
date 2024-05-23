@@ -54,15 +54,7 @@ public class Building : MonoBehaviour, IBuilding
         _currentCallback = onDispatched;
     }
 
-    public void OnPointerEnter(PointerEventData eventData)
-    {
-        //animacion guapa
-    }
 
-    public void OnPointerExit(PointerEventData eventData)
-    {
-        //deshacer animacion guapa (??)
-    }
 
     public void OnPointerClick(PointerEventData eventData)
     {

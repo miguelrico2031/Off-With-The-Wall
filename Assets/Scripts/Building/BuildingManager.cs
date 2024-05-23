@@ -9,7 +9,7 @@ public class BuildingManager : IBuildingService
     public bool EventLimitReached { get => _eventCount >= GameManager.Instance.GameInfo.MaxEventCount; }
     public bool HouseRewardLimitReached  { get => _houseRewardCount >= GameManager.Instance.GameInfo.MaxHouseRewardCount; }
     
-    private readonly Dictionary<IBuilding.BuildingType, List<IBuilding>> _buildings;
+    private readonly Dictionary<IBuilding.BuildingType, List<Building>> _buildings;
 
     private uint _eventCount = 0, _houseRewardCount = 0;
 
@@ -23,7 +23,7 @@ public class BuildingManager : IBuildingService
             _buildings[t] = new();
     }
     
-    public void AddBuilding(IBuilding building)
+    public void AddBuilding(Building building)
     {
         _buildings[building.Type].Add(building);
         //evito duplicados si el tipo fuera any
@@ -56,7 +56,7 @@ public class BuildingManager : IBuildingService
         _lastClicked = building;
     }
     
-    private List<IBuilding> GetAvailableBuildings(IBuilding.BuildingType target)
+    private List<Building> GetAvailableBuildings(IBuilding.BuildingType target)
     {
         //elijo la lista segun el tipo de edificio (any es todos los edificios)
         var availables = _buildings[target];

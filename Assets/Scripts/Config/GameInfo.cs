@@ -39,7 +39,8 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public float RouletteSpinSpeed { get; private set; }
     [field: SerializeField] public float RouletteHideDelay { get; private set; }
     
-    
+    [field: SerializeField] public uint WallFirstPeopleThreshold { get; private set; }
+    [field: SerializeField] public uint WallSecondPeopleThreshold { get; private set; }
     
     
     
