@@ -21,11 +21,11 @@ public class PopUp : MonoBehaviour, IPoolObject
     public void ClickPopUp()
     {
         if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay) return;
-        if (_activeBuilding.CurrentState == IBuilding.State.HasReward)
+        if (_activeBuilding.CurrentState is IBuilding.State.HasReward)
         {
             _activeBuilding.CollectReward();
         }
-        else if(_activeBuilding.CurrentState == IBuilding.State.HasEvent)
+        else if(_activeBuilding.CurrentState is IBuilding.State.HasEvent)
         {
             _activeBuilding.StartEvent();
         }

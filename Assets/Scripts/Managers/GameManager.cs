@@ -40,6 +40,7 @@ public class GameManager : MonoBehaviour
     {
         yield return null; //para que todos se inicialicen en el frame del start
         Get<IEventService>().StartEvent(GameInfo.GameStartEvent, null);
+        Get<IEventSpawnService>().StartSpawn();
     }
 
     #endregion

@@ -10,5 +10,7 @@ public interface IBuildingService : IService
     //asignar un evento a un edificio
     public bool SetEvent(IGameEvent buildingEvent);
 
+    public void RegisterBuildingClick(Building building);
+
 
 }

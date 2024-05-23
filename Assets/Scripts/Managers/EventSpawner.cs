@@ -18,17 +18,17 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     {
         _buildingService = GameManager.Instance.Get<IBuildingService>();
         _gameInfo = GameManager.Instance.GameInfo;
-
-        _rewardCountdown = StartCoroutine(RewardCountdown());
-        _eventCountdown = StartCoroutine(EventCountdown());
         _eventPool.Clear();
         foreach (IGameEvent gEvent in GameManager.Instance.GameInfo.GetInitEvents())
-        {
             AddEvent(gEvent);
-        }
-
-
     }
+
+    public void StartSpawn()
+    {
+        _rewardCountdown = StartCoroutine(RewardCountdown());
+        _eventCountdown = StartCoroutine(EventCountdown());
+    }
+    
 
     private IEnumerator RewardCountdown()
     {

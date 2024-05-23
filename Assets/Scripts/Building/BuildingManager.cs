@@ -12,6 +12,8 @@ public class BuildingManager : IBuildingService
     private readonly Dictionary<IBuilding.BuildingType, List<IBuilding>> _buildings;
 
     private uint _eventCount = 0, _houseRewardCount = 0;
+
+    private Building _lastClicked = null;
     
     public BuildingManager()
     {
@@ -47,6 +49,13 @@ public class BuildingManager : IBuildingService
         return true;
     }
 
+    public void RegisterBuildingClick(Building building)
+    {
+        if (_lastClicked is not null) _lastClicked.CanClick = true;
+        building.CanClick = false;
+        _lastClicked = building;
+    }
+    
     private List<IBuilding> GetAvailableBuildings(IBuilding.BuildingType target)
     {
         //elijo la lista segun el tipo de edificio (any es todos los edificios)

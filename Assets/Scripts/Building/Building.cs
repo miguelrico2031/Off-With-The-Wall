@@ -8,6 +8,7 @@ public class Building : MonoBehaviour, IBuilding
     
     public IBuilding.State CurrentState { get; private set; }
     public IBuilding.BuildingType Type { get => _type; }
+    public bool CanClick { get; set; } = true;
     [field:SerializeField] public Vector3 PopUpOffset { get; private set; }
 
     [SerializeField] private IBuilding.BuildingType _type;
@@ -19,6 +20,7 @@ public class Building : MonoBehaviour, IBuilding
     private IEventService _eventService;
     private IGameEvent _currentEvent;
     private Action _currentCallback;
+    private BuildingClick _buildingClick;
     
     #endregion
 
@@ -31,6 +33,7 @@ public class Building : MonoBehaviour, IBuilding
         _buildingService = GameManager.Instance.Get<IBuildingService>();
         _eventService = GameManager.Instance.Get<IEventService>();
         _buildingService.AddBuilding(this);
+        _buildingClick = GetComponentInChildren<BuildingClick>();
     }
 
     #endregion
@@ -63,25 +66,14 @@ public class Building : MonoBehaviour, IBuilding
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        // OnClick();
-    }
-    
-    public void OnClick()
-    {
-        switch (CurrentState)
+        if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay || !CanClick) return;
+        if (_buildingClick.Click())
         {
-            case IBuilding.State.Idle:
-                //animacion o no hacer nada
-                break;
-            case IBuilding.State.HasReward:
-                CollectReward();
-                break;
-            case IBuilding.State.HasEvent:
-                //llamar al manager que sea para triggerear el evento
-                StartEvent();
-                break;
+            _buildingService.RegisterBuildingClick(this); //para q no se pueda clickar 2 veces el mismo edificio
+            _peopleService.AddPeople(1);
         }
     }
+    
     public void CollectReward()
     {
         //llamar al manager que corresponda para sumar la reward
