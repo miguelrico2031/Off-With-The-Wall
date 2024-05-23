@@ -1,49 +1,56 @@
 using System;
 using UnityEngine;
-using FMODUnity;  // Importante para interactuar con FMOD
+using FMODUnity;
 
 public class AudioManager : MonoBehaviour, IAudioService
 {
-    private FMOD.Studio.EventInstance gameplayMusic; // Instancia para manejar la música de juego
-    private FMOD.Studio.Bus masterBus; // Para controlar el bus maestro, por ejemplo para pausas
+    private FMOD.Studio.EventInstance gameplayMusic;
+    private FMOD.Studio.Bus masterBus;
+
+    private uint maxGente = 100;
+
 
     private void Start()
     {
-        //GameManager.Instance.Get<IPeopleService>().OnPeopleChanged.AddListener(OnPeopleChanged);
-
-        masterBus = RuntimeManager.GetBus("bus:/"); // Asegúrate de poner la ruta correcta del bus en FMOD
+        masterBus = RuntimeManager.GetBus("bus:/");
         StartGameplayMusic();
-
-        //PlaySound("MUSIC/Credits");
     }
 
     private void OnDestroy()
     {
-        //GameManager.Instance.Get<IPeopleService>().OnPeopleChanged.RemoveListener(OnPeopleChanged);
         gameplayMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
         gameplayMusic.release();
     }
 
     public void PlaySound(string key)
     {
-        var sound = RuntimeManager.CreateInstance("event:/" + key); // Asegúrate que las rutas coincidan con tus eventos en FMOD
+        var sound = RuntimeManager.CreateInstance("event:/" + key);
         sound.start();
         sound.release();
     }
 
     public void StartGameplayMusic()
     {
-        gameplayMusic = RuntimeManager.CreateInstance("event:/MUSIC/Level");
-        gameplayMusic.start();
+        if (!gameplayMusic.isValid())
+        {
+            gameplayMusic = RuntimeManager.CreateInstance("event:/MUSIC/Level");
+            gameplayMusic.start();
+        }
     }
+
 
     public void ChangeMusic(string key)
     {
-        gameplayMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        gameplayMusic.release();
+        if (gameplayMusic.isValid())
+        {
+            gameplayMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            gameplayMusic.release();
+        }
+
         gameplayMusic = RuntimeManager.CreateInstance("event:/" + key);
         gameplayMusic.start();
     }
+
 
     public void StopMusic()
     {
@@ -57,6 +64,11 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     private void OnPeopleChanged(uint people)
     {
-        gameplayMusic.setParameterByName("PeopleCount", people);
+        float proportion = people / (float)maxGente;
+        if (gameplayMusic.isValid())
+        {
+            gameplayMusic.setParameterByName("seguidores", proportion);
+        }
     }
+
 }
