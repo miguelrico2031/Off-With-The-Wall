@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7993c619dbc2064bb05906398f12c07, type: 3}
+  m_Name: _FuckDonalds2E
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 4
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: a744b52f2806c7445a6d5f7809eb6fa8, type: 2}
+  <ChoiceTextA>k__BackingField: Yes
+  <ChoiceTextB>k__BackingField: No
+  <EndDialogueA>k__BackingField: {fileID: 11400000, guid: 9512b2db656854a42aa01bc4f298428d, type: 2}
+  <EndDialogueB>k__BackingField: {fileID: 11400000, guid: d125e8d4b5e89774ba643d310b2ecabe, type: 2}
+  <OutcomesA>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 48180b605a58a0647939a74879cdf756, type: 2}
+  <OutcomesB>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 3
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 48180b605a58a0647939a74879cdf756, type: 2}

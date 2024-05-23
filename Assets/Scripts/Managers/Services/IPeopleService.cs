@@ -5,7 +5,7 @@ using UnityEngine.Events;
 public interface IPeopleService : IService
 {
     public uint People { get; }
-    public void AddPeople(uint people);
+    public uint AddPeople(uint people);
     public void RemovePeople(uint people);
     public void AddMultiplier(string key, float multiplier);
     public void AddMultiplier(string key, float multiplier, float duration);

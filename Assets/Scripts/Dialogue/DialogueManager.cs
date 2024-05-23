@@ -3,23 +3,29 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Serialization;
 using UnityEngine.UI;
 
 
 public class DialogueManager : MonoBehaviour, IDialogueService
 {
-    [SerializeField] private Dialogues _dialogues;
-    [SerializeField] private TextMeshProUGUI _dialogueText;
-    [SerializeField] private Image _speakerImg;
+    [SerializeField] private DialogueInfo _dialogueInfo;
+    [SerializeField] private TextMeshProUGUI _dialogueText, _newspaperText;
+    [SerializeField] private Image _speakerImg, _newspaperCover;
     [SerializeField] private float _typeSpeed;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private Button _continueButton;
+    [FormerlySerializedAs("_newsPaper")] [SerializeField] private GameObject _newspaper;
+    [SerializeField] private GameObject _dialoguePanel;
+    [SerializeField] private float _newspaperEntryDuration;
+    
 
     private float _typeDelay;
     private Dialogue _currentDialogue;
     private int _phraseIndex = -1;
-    private bool _phraseFinished, _skip, _hideOnFinish = true;
+    private bool _phraseFinished, _skip, _hideOnFinish = true, _isInfo;
     private TextMeshProUGUI _continueButtonText;
+    private Sprite _currentCover = null;
 
     private Action _finishDialogueAction;
 
@@ -31,22 +37,30 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _continueButtonText = _continueButton.GetComponentInChildren<TextMeshProUGUI>();
     }
 
-    public void SendDialogue(string key, bool hideOnFinish, Action nextAction)
+    public void SendDialogue(Dialogue dialogue, bool hideOnFinish, Action nextAction)
     {
+        _isInfo = false;
+        _currentDialogue = dialogue;
+        _currentCover = _dialogueInfo.GetNewspaperCover(_currentDialogue);
         _hideOnFinish = hideOnFinish;
         _continueButton.gameObject.SetActive(true);
-        _currentDialogue = _dialogues.GetDialogue(key);
-
-        if (_currentDialogue is null)
-        {
-            Debug.LogError($"Dialogue key {key} not found.");
-            return;
-        }
-    
         _finishDialogueAction = nextAction;
         _canvasGroup.alpha = 1;
         _canvasGroup.blocksRaycasts = true;
         DisplayNextPhrase();
+    }
+
+    public void SendInfoText(string text, Action nextAction)
+    {
+        _isInfo = true;
+        _hideOnFinish = true;
+        _continueButton.gameObject.SetActive(true);
+        _finishDialogueAction = nextAction;
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
+        _speakerImg.enabled = false;
+        var p = new Dialogue.Phrase { Speaker = DialogueInfo.Speaker.Info, Text = text };
+        StartCoroutine(TypePhrase(p));
     }
 
     public void Hide()
@@ -57,17 +71,22 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     private void DisplayNextPhrase()
     {
-        if (++_phraseIndex >= _currentDialogue.Phrases.Length)
+        if (_isInfo || ++_phraseIndex >= _currentDialogue.Phrases.Length)
         {
             //dialogue finished
             _phraseIndex = -1;
-            _finishDialogueAction.Invoke();
             _continueButton.gameObject.SetActive(false);
-            
-            if (!_hideOnFinish) return;
+            _speakerImg.enabled = true;
+            _isInfo = false;
+            if (!_hideOnFinish)
+            {
+                _finishDialogueAction();
+                return;
+            }
             
             _canvasGroup.alpha = 0;
             _canvasGroup.blocksRaycasts = false;
+            _finishDialogueAction();
             return;
         }
 
@@ -76,7 +95,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     public void SkipOrContinue()
     {
-        if (_phraseIndex == -1) return;
+        if (_phraseIndex == -1 && !_isInfo) return;
         if (!_phraseFinished) _skip = true;
         else DisplayNextPhrase();
     }
@@ -84,10 +103,20 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     private IEnumerator TypePhrase(Dialogue.Phrase phrase)
     {
+        phrase = _dialogueInfo.ProcessPhrase(phrase);
+        if (phrase.Speaker is DialogueInfo.Speaker.Newspaper)
+        {
+            StartCoroutine(DisplayNewspaper(phrase));
+            yield break;
+        }
+        
+        _newspaper.SetActive(false);
+        _dialoguePanel.SetActive(true);
+        var sd = _dialogueInfo.GetSpeakerData(phrase.Speaker);
         _phraseFinished = false;
-        _continueButtonText.text = "Skip";
-        var sd = _dialogues.GetSpeakerData(phrase.Speaker);
-        _dialogueText.text = $"{sd.Name}:\n";
+        _continueButtonText.text = "Skip";  
+        // _dialogueText.text = $"{sd.Name}:\n";
+        _dialogueText.text = "";
         _speakerImg.sprite = sd.Sprite;
 
         foreach (var c in phrase.Text)
@@ -99,6 +128,28 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _skip = false;
         _phraseFinished = true;
         _continueButtonText.text = "Continue";
+
+    }
+
+    private IEnumerator DisplayNewspaper(Dialogue.Phrase phrase)
+    {
+        _phraseFinished = true;
+        _newspaper.SetActive(true);
+        _newspaperCover.sprite = _currentCover;
+        _newspaperCover.enabled = _currentCover is not null;
+        _dialoguePanel.SetActive(false);
+        _speakerImg.enabled = false;
+        _newspaperText.text = phrase.Text;
+        _continueButton.gameObject.SetActive(false);
+        
+        var anim = _newspaper.GetComponent<Animator>(); 
+        anim.Play("Entry");
+        
+        yield return new WaitForSeconds(_newspaperEntryDuration);
+        
+        _continueButton.gameObject.SetActive(true);
+        _continueButtonText.text = "Continue";
+        _skip = false;
 
     }
 }

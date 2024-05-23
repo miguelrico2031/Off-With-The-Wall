@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: FuckDonalds2Dchoice1
+  m_EditorClassIdentifier: 
+  _key: fuckdonalds2choice1
+  _phrases:
+  - Speaker: 13
+    Text: '*NOMBRECOSA criminals get what they deserve* A group of communist delinquents
+      attempted to hijack a Fuck Donalds truck, only to be surprised by a group of
+      law enforcement agents inside instead of burgers. It turned out to be an undercover
+      operation to arrest several members of this criminal anarchist group. Who knows
+      how they''ll fare in prison talking about revolutions.'
+  - Speaker: 7
+    Text: I'm sorry to have betrayed you, but who needs ideals when you can make
+      money!? In this cruel world, being individualistic is the only way to survive!
+      Hehehe... Until next time, comrade.

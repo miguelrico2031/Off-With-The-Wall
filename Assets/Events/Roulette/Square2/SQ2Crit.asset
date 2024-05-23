@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: SQ2Crit
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 14
+    Text: Hey, Mr. Undercover! Don't be shy, come a little closer...
+  - Speaker: 5
+    Text: ' AAAAAAAAAAAAAGGGHHH! PLEASE STOP! AAAAAAAAAAAAAAGH! I BEG YOU, PLEASE!
+      AAAAAAAAAAAAAGH!!'
+  - Speaker: 14
+    Text: Damn, it tasted better than I thought it would!
+  - Speaker: 13
+    Text: "*Brutal Protest Leads to Police Retreat: NOMBRECOSA Member's Act of Cannibalism
+      Shocks Authorities* In a shocking turn of events, a known member of NOMBRECOSA
+      was witnessed biting off a portion of an undercover officer's face during yesterday's
+      protest. This act deeply shook the morale of the police force, with many officers
+      abandoning their posts out of fear. However, some were so impressed by that
+      deranged man\u2019s determination that they resigned from the force and joined
+      NOMBRECOSA. It's a real shame that nowadays not even the police are trustworthy,
+      apparently."

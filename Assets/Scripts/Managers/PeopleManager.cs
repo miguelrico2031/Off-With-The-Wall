@@ -9,7 +9,7 @@ public class PeopleManager : IPeopleService
 {
     #region Attributes
     
-    public uint People { get; private set; } = GameManager.Instance.GameInfo.InitialPeople; //contador de la gente
+    public uint People { get; private set; } = 0; //contador de la gente
     //Eventos cuando cambia el contador y cuando llega a 0 (game over(?))
     public UnityEvent<uint> OnPeopleChanged { get; private set; } = new();
     public UnityEvent OnZeroPeople { get; private set; } = new();
@@ -18,11 +18,12 @@ public class PeopleManager : IPeopleService
 
     #endregion
 
-    public void AddPeople(uint people)
+    public uint AddPeople(uint people)
     {
-        float total = _multipliers.Values.Aggregate(1f, (current, m) => current * m);
-        People += people * (uint) Mathf.RoundToInt(total);
+        uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current * m));
+        People += people * total;
         OnPeopleChanged.Invoke(People);
+        return people * total;
     }
 
     public void RemovePeople(uint people)

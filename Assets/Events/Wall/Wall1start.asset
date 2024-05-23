@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Wall1start
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 21
+    Text: So you want to try to get all the NOMBRECOSA people together and try to
+      tear down the wall? I think it's pretty risky, actually. If it goes wrong,
+      the police will come and it will be a huge battle, we will lose a lot of people.
+      But it's up to you, if you want to take the risk now, or wait until we have
+      more people in the cause...

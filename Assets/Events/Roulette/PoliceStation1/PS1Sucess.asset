@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: PS1Sucess
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 13
+    Text: "*Anti-police graffiti inspires hatred on the streets* After the police
+      station was covered in anti-police graffiti overnight, the population has expressed
+      their support for the cause, with protests and demonstrations on the rise.
+      It's a shame they appreciate graffiti so much and books so little, if it were
+      the other way around, there wouldn't be any \u201Csocialcommunism\u201D in
+      this fine city."
+  - Speaker: 14
+    Text: Hell yeah!

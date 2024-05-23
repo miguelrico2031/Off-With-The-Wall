@@ -20,12 +20,13 @@ public class TextInputUI : MonoBehaviour
         _group.blocksRaycasts = false;
     }
 
-    public void Display(string request, Action<string> callback)
+    public void Display(string request, int charLimit, Action<string> callback)
     {
         _group.alpha = 1;
         _group.blocksRaycasts = true;
         _requestText.text = request;
         _callback = callback;
+        _input.characterLimit = charLimit;
     }
 
     public void EnterButton()

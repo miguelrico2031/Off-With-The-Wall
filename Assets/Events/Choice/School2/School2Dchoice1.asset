@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: School2Dchoice1
+  m_EditorClassIdentifier: 
+  _key: school2choice1
+  _phrases:
+  - Speaker: 13
+    Text: '*Indoctrinated students set fire to the school* The city''s only school
+      fell victim to a fire caused by a group of students from NOMBRECOSA. Once again,
+      it''s shown that the left hates intellectuality and critical thinking, and
+      only wants uneducated people who swallow their revolution lies.'

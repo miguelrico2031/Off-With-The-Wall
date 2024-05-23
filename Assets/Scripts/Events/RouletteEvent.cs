@@ -7,15 +7,15 @@ using UnityEngine;
 public class RouletteEvent : ScriptableObject, IGameEvent
 {
     [field: SerializeField] public IBuilding.BuildingType BuildingType { get; private set; }
-    [field: SerializeField] public string StartDialogueKey { get; private set; }
+    [field: SerializeField] public Dialogue StartDialogue { get; private set; }
 
     [field: SerializeField] public string ChoiceTextAccept { get; private set; }
     [field: SerializeField] public string ChoiceTextRefuse { get; private set; }
 
-    [field: SerializeField] public string EndDialogueKeyRefuse { get; private set; }
-    [field: SerializeField] public string EndDialogueKeyLose { get; private set; }
-    [field: SerializeField] public string EndDialogueKeyWin { get; private set; }
-    [field: SerializeField] public string EndDialogueKeyCrit { get; private set; }
+    [field: SerializeField] public Dialogue EndDialogueRefuse { get; private set; }
+    [field: SerializeField] public Dialogue EndDialogueLose { get; private set; }
+    [field: SerializeField] public Dialogue EndDialogueWin { get; private set; }
+    [field: SerializeField] public Dialogue EndDialogueCrit { get; private set; }
 
     [field: SerializeField] public Outcomes OutcomesRefuse { get; private set; }
     [field: SerializeField] public Outcomes OutcomesLose { get; private set; }

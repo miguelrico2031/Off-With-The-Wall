@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 20d42781cbe342a3a6df1d79a12f6a57, type: 3}
+  m_Name: Dialogue Info
+  m_EditorClassIdentifier: 
+  _speakers:
+  - _speaker: 13
+    _sprite: {fileID: 0}
+  - _speaker: 4
+    _sprite: {fileID: 0}
+  - _speaker: 7
+    _sprite: {fileID: 21300000, guid: 5c52e342ed1c7de428290c5415ca4bfe, type: 3}
+  - _speaker: 8
+    _sprite: {fileID: 21300000, guid: a5a46f95663d15e48902badc0c968ad1, type: 3}
+  - _speaker: 5
+    _sprite: {fileID: 21300000, guid: 225bfeabc20d10742bd352cbd3d6d91a, type: 3}
+  - _speaker: 6
+    _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
+  - _speaker: 9
+    _sprite: {fileID: 21300000, guid: ba055ab1a4b101b4b8a08c4b96bac9d2, type: 3}
+  - _speaker: 10
+    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
+  - _speaker: 11
+    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
+  - _speaker: 12
+    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
+  - _speaker: 20
+    _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
+  - _speaker: 21
+    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
+  _placeholders:
+  - Placeholder: NOMBREVVV
+    Replace: BBB [Tripin' them]
+  _movementNamePlaceholder: NOMBRECOSA
+  _movementSloganPlaceholder: SLOGAN
+  _newspaperCovers:
+  - Dialogue: {fileID: 11400000, guid: 5938816fea3215b468be3cbc37bb33dd, type: 2}
+    Cover: {fileID: -1941149344, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: -1816724566, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 1938038547, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 816329078, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 1658228356, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 1835658624, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}
+  - Dialogue: {fileID: 0}
+    Cover: {fileID: 21300000, guid: 41c79f2d977ba294dba3c12dd874a798, type: 3}

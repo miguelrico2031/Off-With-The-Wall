@@ -12,24 +12,42 @@ public class PopUpManager : MonoBehaviour, IPopUpService
     [SerializeField] private PopUp _popUpPrefab;
 
     private ObjectPool<PopUp> _objectPool;
-    private Dictionary<House, PopUp> _housePopUps = new();
+    private Dictionary<Building, PopUp> _housePopUps = new();
+
+    [SerializeField] private Sprite _rewardSprite;
+    [SerializeField] private Sprite _choiceEventSprite;
+    [SerializeField] private Sprite _chooseNameEventSprite;
+    [SerializeField] private Sprite _chooseSloganEventSprite;
+    [SerializeField] private Sprite _drawEventSprite;
+    [SerializeField] private Sprite _passiveEventSprite;
+    [SerializeField] private Sprite _rouletteEventSprite;
+
+    private readonly Dictionary<Type, Sprite> _eventTypeSprites = new();
 
     private void Awake()
     {
         _objectPool = new(_popUpPrefab, GameManager.Instance.GameInfo.PopUpPoolSize, true, PopUpCanvas.transform);
+        
+        _eventTypeSprites.Add(typeof(ChoiceEvent), _choiceEventSprite);
+        _eventTypeSprites.Add(typeof(ChooseNameEvent), _chooseNameEventSprite);
+        _eventTypeSprites.Add(typeof(ChooseSloganEvent), _chooseSloganEventSprite);
+        _eventTypeSprites.Add(typeof(DrawEvent), _drawEventSprite);
+        _eventTypeSprites.Add(typeof(PassiveEvent), _passiveEventSprite);
+        _eventTypeSprites.Add(typeof(RouletteEvent), _rouletteEventSprite);
     }
 
-    public void ShowPopUp(House house)
+    public void ShowPopUp(Building building, Type eventType = null)
     {
+        Sprite sprite = eventType is null ? _rewardSprite : _eventTypeSprites[eventType];
         var popUp = _objectPool.Get();
-        popUp.SetHouse(house);
-        _housePopUps.Add(house, popUp);    
+        popUp.SetHouse(building, sprite);
+        _housePopUps.Add(building, popUp);    
     }
 
-    public void HidePopUp(House house)
+    public void HidePopUp(Building building)
     {
-        var popUp = _housePopUps[house];
-        _housePopUps.Remove(house);
+        var popUp = _housePopUps[building];
+        _housePopUps.Remove(building);
         popUp.RemoveHouse();
         _objectPool.Return(popUp);
     }

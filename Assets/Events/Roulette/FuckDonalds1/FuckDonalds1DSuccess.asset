@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: FuckDonalds1DSuccess
+  m_EditorClassIdentifier: 
+  _key: fuckdonalds1success
+  _phrases:
+  - Speaker: 13
+    Text: "*Fuck Donalds Employees Turn Progressive* Recently, the fast-food restaurant
+      expanded its staff, and it seems that members of NOMBRECOSA managed to infiltrate,
+      poisoning the minds of the other employees, turning them into disgusting socialists,
+      ungrateful towards their employers...\r"
+  - Speaker: 7
+    Text: "Thanks for making me see reason! I was just another slave to the capital
+      and now I'm liberated. I want to burn dumpsters and beat the shit outta cops!\r\r"

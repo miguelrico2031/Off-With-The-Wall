@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Wall1fail
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 13
+    Text: "*NOMBRECOSA\u2019s attempt to tear down the wall is prevented by the police*
+      This well known group of terrorists attempted, as strange as it may sound,
+      to tear down the city wall. This act of vandalism and terrorism was, fortunately,
+      prevented by the police, who violently dispersed this act, causing casualties
+      on both sides, but ending in a clear defeat for NOMBRECOSA.\r"

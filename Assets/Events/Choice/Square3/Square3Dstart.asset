@@ -1,0 +1,59 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Square3Dstart
+  m_EditorClassIdentifier: 
+  _key: square3start
+  _phrases:
+  - Speaker: 14
+    Text: "What 's Up! I\u2019ve got some great news! Last night, my boys and I decided
+      to take a little trip to the other side of the wall, and pay a visit to the
+      city treasurer."
+  - Speaker: 14
+    Text: To our surprise, we discovered that his house had almost no security, despite
+      all the money he has stolen from our taxes! Hehehehehehehehe. So, we decided
+      to take him back here with us, as a souvenir of our short trip.
+  - Speaker: 19
+    Text: "Let me go, please! I have barely stolen from the city treasury\u2026 Besides,
+      anyone would have done it in my place, in order to give my family a better
+      life. Please understand me, I beg you."
+  - Speaker: 14
+    Text: "Hey, it\u2019s up to you, if you tell me to set him free I will, I lowkey
+      trust your judgment. Nonetheless\u2026 I\u2019ve been talking with my girl,
+      and she\u2019s mad hungry dude, she\u2019s begging me to feed her the treasurer.
+      And I\u2019m definitely vibing with that! I think it would be a fucking rad
+      statement, that will for sure freak out all those parasitic shits who call
+      themselves \u201Cpoliticians\u201D."
+  - Speaker: 19
+    Text: "PLEASE, PLEASE, TELL HIM TO LET ME GO! This lunatic calls that twisted
+      contraption his girl! For the love of god keep it away from me! If you let
+      me go, I swear I will help your cause from the other side of the wall. \r"
+  - Speaker: 19
+    Text: "After all, you know where I live, it would not be very wise to betray
+      you, and the information I could provide would be very valuable to you, I give
+      you my word\u2026\r"
+  - Speaker: 14
+    Text: "Hey, don\u2019t talk like that about my girl! She 's charming! Hey girl,
+      don't let him get to you, you are beautiful\u2026\r\n"
+  - Speaker: 18
+    Text: ...
+  - Speaker: 14
+    Text: 'I love you too, baby.
+
+'
+  - Speaker: 18
+    Text: ...
+  - Speaker: 14
+    Text: "Hey, don\u2019 t say those things in public, you\u2019ll make me blush\u2026
+      Sorry, I got a little carried away with my sweetheart. So, what\u2019s your
+      verdict? Will my girl have a proper meal today, or will that fucker go scot-free,
+      after robbing the people for years?\r"

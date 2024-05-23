@@ -5,4 +5,5 @@ using UnityEngine;
 public interface IEventSpawnService :IService
 {
    public bool AddEvent(IGameEvent _event);
+   public void StartSpawn();
 }

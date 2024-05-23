@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: SQ2Sucess
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 14
+    Text: Hey, Mr. Undercover! Don't be shy, come a little closer...
+  - Speaker: 5
+    Text: ' AAAAAAAAAAAAAGGGHHH! PLEASE STOP! AAAAAAAAAAAAAAGH! I BEG YOU, PLEASE!
+      AAAAAAAAAAAAAGH!!'
+  - Speaker: 14
+    Text: Damn, it tasted better than I thought it would!
+  - Speaker: 13
+    Text: '*Violent Protest Shocks City: Member of NOMBRECOSA Eats Part of Undercover
+      Officer''s Face* Yesterday''s protest took a gruesome turn as a known member
+      of NOMBRECOSA, was seen biting off a chunk of an undercover officer''s face
+      in front of the crowd. Police responded with force, resulting in numerous casualties
+      among the protesters. However, and unfortunately, this brutal act has inspired
+      many to join the cause.'

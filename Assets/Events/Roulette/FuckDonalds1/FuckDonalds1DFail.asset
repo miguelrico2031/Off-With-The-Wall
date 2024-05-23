@@ -1,0 +1,24 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: FuckDonalds1DFail
+  m_EditorClassIdentifier: 
+  _key: fuckdonalds1fail
+  _phrases:
+  - Speaker: 13
+    Text: "*Leftists See the Light after Working for the First Time* Recently, the
+      fast-food restaurant expanded its staff, and it seems that members of NOMBRECOSA
+      infiltrated, but they soon realized that being good employees and dropping
+      that communist crap was going to take them far in life...\r"
+  - Speaker: 7
+    Text: "Ha! Now the 'infiltrators' have better lives. They became loyal employees
+      of Fuck Donalds. Hehehe...\r\r"

@@ -18,12 +18,16 @@ public class GameInfo : ScriptableObject
     [field:SerializeField] public int PopUpPoolSize { get; private set; }
     
     [field:Header("Events")]
-    [field:SerializeField] public float RewardWaitTime { get; private set; }
-    [field:SerializeField] public float EventWaitTime { get; private set; }
+    [field:SerializeField] public float RewardMinWaitTime { get; private set; }
+    [field:SerializeField] public float RewardMaxWaitTime { get; private set; }
+    [field:SerializeField] public float EventMinWaitTime { get; private set; }
+    [field:SerializeField] public float EventMaxWaitTime { get; private set; }
     [field:SerializeField] public uint RewardValue { get; private set; }
 
     [field: SerializeField] public uint MaxEventCount { get; private set; }
+    [field: SerializeField] public uint MaxHouseRewardCount { get; private set; }
 
+    [field: SerializeField] public ChooseNameEvent GameStartEvent { get; private set; }
     [SerializeField] private ScriptableObject[] _initialEvents;
 
     [field: Header("Events custom stuff")]
@@ -35,7 +39,8 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public float RouletteSpinSpeed { get; private set; }
     [field: SerializeField] public float RouletteHideDelay { get; private set; }
     
-    
+    [field: SerializeField] public uint WallFirstPeopleThreshold { get; private set; }
+    [field: SerializeField] public uint WallSecondPeopleThreshold { get; private set; }
     
     
     

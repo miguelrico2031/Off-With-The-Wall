@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -42,32 +43,32 @@ public class EventManager : MonoBehaviour, IEventService
         {
             case ChoiceEvent choiceEvent:
                 
-                _dialogueService.SendDialogue(choiceEvent.StartDialogueKey, false, ShowChoiceButtons);
-                SetChoiceToButton(_buttonA, choiceEvent.ChoiceTextA, choiceEvent.EndDialogueKeyA, 
+                _dialogueService.SendDialogue(choiceEvent.StartDialogue, false, ShowChoiceButtons);
+                SetChoiceToButton(_buttonA, choiceEvent.ChoiceTextA, choiceEvent.EndDialogueA, 
                     () => ResolveOutcomes(choiceEvent.OutcomesA, building));
-                SetChoiceToButton(_buttonB, choiceEvent.ChoiceTextB, choiceEvent.EndDialogueKeyB, 
+                SetChoiceToButton(_buttonB, choiceEvent.ChoiceTextB, choiceEvent.EndDialogueB, 
                     () => ResolveOutcomes(choiceEvent.OutcomesB, building));
                 
                 break;
             
             case PassiveEvent passiveEvent:
                 
-                _dialogueService.SendDialogue(passiveEvent.StartDialogueKey, true, () => ResolveOutcomes(passiveEvent.Outcomes, building));
+                _dialogueService.SendDialogue(passiveEvent.StartDialogue, true, () => ResolveOutcomes(passiveEvent.Outcomes, building));
                 
                 break;
 
             case RouletteEvent rouletteEvent:
                 
-                _dialogueService.SendDialogue(rouletteEvent.StartDialogueKey, false, ShowChoiceButtons);
+                _dialogueService.SendDialogue(rouletteEvent.StartDialogue, false, ShowChoiceButtons);
                 SetRouletteToButton(_buttonA, rouletteEvent, building);
-                SetChoiceToButton(_buttonB, rouletteEvent.ChoiceTextRefuse, rouletteEvent.EndDialogueKeyRefuse, 
+                SetChoiceToButton(_buttonB, rouletteEvent.ChoiceTextRefuse, rouletteEvent.EndDialogueRefuse, 
                     () => ResolveOutcomes(rouletteEvent.OutcomesRefuse, building));
               
                 break;
             
             case DrawEvent drawEvent: //joder como me pone la programacion asincrona joder que bonito y poco mantenible
                 
-                _dialogueService.SendDialogue(drawEvent.StartDialogueKey, true, () =>
+                _dialogueService.SendDialogue(drawEvent.StartDialogue, true, () =>
                 {
                     _drawUI.Display(() => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
                 });
@@ -76,12 +77,14 @@ public class EventManager : MonoBehaviour, IEventService
             
             case ChooseNameEvent chooseNameEvent:
                 
-                _dialogueService.SendDialogue(chooseNameEvent.StartDialogueKey, true, () =>
+                _dialogueService.SendDialogue(chooseNameEvent.StartDialogue, true, () =>
                 {
-                    _textInputUI.Display(chooseNameEvent.RequestPhrase, (chosenName) =>
+                    _textInputUI.Display(chooseNameEvent.RequestPhrase, chooseNameEvent.CharLimit, (chosenName) =>
                     {
                         GameManager.Instance.GameInfo.OrgName = chosenName;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+                        GameManager.Instance.Get<IPeopleService>()
+                            .AddPeople(GameManager.Instance.GameInfo.InitialPeople);
                     });
                 });
                 
@@ -89,9 +92,9 @@ public class EventManager : MonoBehaviour, IEventService
             
             case ChooseSloganEvent chooseSloganEvent:
                 
-                _dialogueService.SendDialogue(chooseSloganEvent.StartDialogueKey, true, () =>
+                _dialogueService.SendDialogue(chooseSloganEvent.StartDialogue, true, () =>
                 {
-                    _textInputUI.Display(chooseSloganEvent.RequestPhrase, (chosenSlogan) =>
+                    _textInputUI.Display(chooseSloganEvent.RequestPhrase, chooseSloganEvent.CharLimit, (chosenSlogan) =>
                     {
                         GameManager.Instance.GameInfo.OrgSlogan = chosenSlogan;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
@@ -102,12 +105,12 @@ public class EventManager : MonoBehaviour, IEventService
         }
     }
 
-    private void SetChoiceToButton(Button button, string choice, string dialogueKey, Action onDialogueFinish)
+    private void SetChoiceToButton(Button button, string choice, Dialogue dialogue, Action onDialogueFinish)
     {
         button.GetComponentInChildren<TextMeshProUGUI>().text = choice;
         _buttonActions[button] = () =>
         {
-            _dialogueService.SendDialogue(dialogueKey, true, onDialogueFinish);
+            _dialogueService.SendDialogue(dialogue, true, onDialogueFinish);
         };
     }
 
@@ -123,14 +126,14 @@ public class EventManager : MonoBehaviour, IEventService
 
     private void OnRouletteResolved(RouletteEvent rouletteEvent, RouletteUI.Result result, IBuilding building)
     {
-        (string key, Outcomes outcomes) = result switch
+        (Dialogue dialogue, Outcomes outcomes) = result switch
         {
-            RouletteUI.Result.Crit => (rouletteEvent.EndDialogueKeyCrit, rouletteEvent.OutcomesCrit),
-            RouletteUI.Result.Success => (rouletteEvent.EndDialogueKeyWin, rouletteEvent.OutcomesWin),
-            RouletteUI.Result.Fail => (rouletteEvent.EndDialogueKeyLose, rouletteEvent.OutcomesLose),
+            RouletteUI.Result.Crit => (rouletteEvent.EndDialogueCrit, rouletteEvent.OutcomesCrit),
+            RouletteUI.Result.Success => (rouletteEvent.EndDialogueWin, rouletteEvent.OutcomesWin),
+            RouletteUI.Result.Fail => (rouletteEvent.EndDialogueLose, rouletteEvent.OutcomesLose),
             _ => (null, null)
         };
-        _dialogueService.SendDialogue(key, true, () => ResolveOutcomes(outcomes, building));
+        _dialogueService.SendDialogue(dialogue, true, () => ResolveOutcomes(outcomes, building));
     }
 
     public void AButtonClick()
@@ -161,46 +164,21 @@ public class EventManager : MonoBehaviour, IEventService
     private void ResolveOutcomes(Outcomes outcomes, IBuilding building)
     {
         HideChoiceButtons();
-        foreach(var outcome in outcomes.Get()) outcome.Execute(building);
-        GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
-    }
-
-    
-    
-    
-    
-    
-    public int SpinWheel(uint[] chance,out int val)
-    {
-      
-        int maxValue = 0;
-        for (int i = 0; i < chance.Length; i++)
+        var outcomeList = outcomes.Get();
+        if (outcomeList is null || !outcomeList.Any())
         {
-            maxValue += (int)chance[i];
+            GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+            return;
         }
-        int rval = UnityEngine.Random.Range(0, 360);
-        val = rval;
-        for (int i = 0; i < chance.Length; i++)
+        
+        string text = "";
+        foreach(var outcome in outcomeList)
         {
-            if (rval < (360 * chance[i]/maxValue) )
-            {
-                return i;
-            }
-            else
-            {
-                rval -= (int)chance[i];
-            }
+            outcome.Execute(building);
+            if (outcome.DisplayText != "") text += $"{outcome.DisplayText}\n";
         }
-        return chance.Length - 1;
+        if(text != "") _dialogueService.SendInfoText(text, () => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
+        else GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
-
-    public void VisualSpin(int value)
-    {
-        _wheelCanvas.alpha = 1;
-        _wheelCanvas.blocksRaycasts = true;
-        print("value: " + value);
-        _wheel.transform.rotation = Quaternion.Euler(0, 0, value);
-        ShowChoiceButtons();
-    }
-
+    
 }
