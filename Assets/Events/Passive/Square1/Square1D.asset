@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phrases:
   - Speaker: 10
-    Text: 'Hey, folks from ORGANIZACION GUAPA, tonight''s gig is by NOMBREVVV, our
-      radical electronic band!
+    Text: 'Hey, folks from NOMBRECOSA, tonight''s gig is by NOMBREVVV, our radical
+      electronic band!
 
 '
   - Speaker: 12

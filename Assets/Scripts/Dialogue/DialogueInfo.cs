@@ -29,7 +29,8 @@ public class DialogueInfo : ScriptableObject
         GoodCop,
         Guillotine,
         Treasurer,
-        EatenCop
+        EatenCop,
+        Pana
     }
 
     [Serializable]
@@ -58,28 +59,29 @@ public class DialogueInfo : ScriptableObject
 
     [SerializeField] private SpeakerData[] _speakers;
     [SerializeField] private DialoguePlaceholder[] _placeholders;
+    [SerializeField] private string _movementNamePlaceholder;
+    [SerializeField] private string _movementSloganPlaceholder;
     [SerializeField] private NewspaperCovers[] _newspaperCovers;
 
     private Dictionary<Speaker, SpeakerData> _speakersDict;
     private Dictionary<Dialogue, Sprite> _coversDict;
     
 
-    public Dialogue ProcessDialogue(Dialogue dialogue)
+    public Dialogue.Phrase ProcessPhrase(Dialogue.Phrase phrase)
     {
-        foreach (var phrase in dialogue.Phrases)
-        {
+        var newPhrase = new Dialogue.Phrase() { Speaker = phrase.Speaker, Text = phrase.Text};
             foreach(var placeholder in _placeholders)
-                phrase.Text = phrase.Text.Replace(placeholder.Placeholder, placeholder.Replace);
+                newPhrase.Text = newPhrase.Text.Replace(placeholder.Placeholder, placeholder.Replace);
 
-            if (phrase.Speaker is Speaker.Newspaper)
-            {
-                var split = phrase.Text.Split("*");
-                if (split.Length == 3) 
-                    phrase.Text = $"<size=125%><allcaps><b><i>{split[1]}</allcaps></b></i><size=100%>\n{split[2]}";
-            }
-        }
+            newPhrase.Text = newPhrase.Text.Replace(_movementNamePlaceholder, GameManager.Instance.GameInfo.OrgName);
+            newPhrase.Text = newPhrase.Text.Replace(_movementSloganPlaceholder, GameManager.Instance.GameInfo.OrgSlogan);
 
-        return dialogue;
+            if (newPhrase.Speaker is not Speaker.Newspaper) return newPhrase;
+            
+            var split = newPhrase.Text.Split("*");
+            if (split.Length == 3) 
+                newPhrase.Text = $"<size=125%><allcaps><b><i>{split[1]}</allcaps></b></i><size=100%>\n{split[2]}";
+            return newPhrase;
     }
 
     public SpeakerData GetSpeakerData(Speaker speaker)

@@ -35,9 +35,13 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
   - _speaker: 20
     _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
+  - _speaker: 21
+    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
   _placeholders:
-  - Placeholder: NOMBRECOSA
-    Replace: ORGANIZACION GUAPA
+  - Placeholder: NOMBREVVV
+    Replace: BBB [Tripin' them]
+  _movementNamePlaceholder: NOMBRECOSA
+  _movementSloganPlaceholder: SLOGAN
   _newspaperCovers:
   - Dialogue: {fileID: 11400000, guid: 5938816fea3215b468be3cbc37bb33dd, type: 2}
     Cover: {fileID: -1941149344, guid: 4b2948caecd574340b61e013ce2296f3, type: 3}

@@ -27,6 +27,7 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public uint MaxEventCount { get; private set; }
     [field: SerializeField] public uint MaxHouseRewardCount { get; private set; }
 
+    [field: SerializeField] public ChooseNameEvent GameStartEvent { get; private set; }
     [SerializeField] private ScriptableObject[] _initialEvents;
 
     [field: Header("Events custom stuff")]

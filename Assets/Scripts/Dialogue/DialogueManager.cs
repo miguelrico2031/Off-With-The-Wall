@@ -40,7 +40,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     public void SendDialogue(Dialogue dialogue, bool hideOnFinish, Action nextAction)
     {
         _isInfo = false;
-        _currentDialogue = _dialogueInfo.ProcessDialogue(dialogue);
+        _currentDialogue = dialogue;
         _currentCover = _dialogueInfo.GetNewspaperCover(_currentDialogue);
         _hideOnFinish = hideOnFinish;
         _continueButton.gameObject.SetActive(true);
@@ -103,6 +103,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     private IEnumerator TypePhrase(Dialogue.Phrase phrase)
     {
+        phrase = _dialogueInfo.ProcessPhrase(phrase);
         if (phrase.Speaker is DialogueInfo.Speaker.Newspaper)
         {
             StartCoroutine(DisplayNewspaper(phrase));

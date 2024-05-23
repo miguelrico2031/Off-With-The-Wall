@@ -35,7 +35,13 @@ public class GameManager : MonoBehaviour
         Instance = this;
         GetComponent<ServicesBootstrapper>().Bootstrap();
     }
-    
+
+    private IEnumerator Start()
+    {
+        yield return null; //para que todos se inicialicen en el frame del start
+        Get<IEventService>().StartEvent(GameInfo.GameStartEvent, null);
+    }
+
     #endregion
 
     public T Get<T>() where T : IService //Para acceder a los servicios (managers)

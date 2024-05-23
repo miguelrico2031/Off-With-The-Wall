@@ -30,26 +30,6 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
 
     }
 
-    private void Update()
-    {
-        // if(GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay)
-        // {
-        //     _currentRewardWaitTime -= Time.deltaTime;
-        //     _currentEventWaitTime -= Time.deltaTime;
-        //     if(_currentRewardWaitTime<= 0)
-        //     {
-        //         _buildingService.SetReward(RewardValue);
-        //         _currentRewardWaitTime = RewardWaitTime;
-        //     }
-        //     if (_currentEventWaitTime <= 0)
-        //     {
-        //         Event _sendEvent = GetEvent();
-        //         _buildingService.SetEvent(_sendEvent,_sendEvent._buildingtype);
-        //         _currentEventWaitTime = EventWaitTime;
-        //     }
-        // }
-    }
-
     private IEnumerator RewardCountdown()
     {
         while (true)
@@ -85,7 +65,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
             
             if (sendEvent is null)
             {
-                Debug.LogError("No hay eventos!! errorazo");
+                Debug.LogError("No hay eventos!!");
                 continue;
             }
             

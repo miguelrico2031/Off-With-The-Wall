@@ -47,7 +47,7 @@ public class Building : MonoBehaviour, IBuilding
     {
         CurrentState = IBuilding.State.HasEvent; //falta implementar la logica de los eventos
         _currentEvent = _event;
-        _popUpService.ShowPopUp(this);
+        _popUpService.ShowPopUp(this, _event.GetType());
         _currentCallback = onDispatched;
     }
 

@@ -79,7 +79,7 @@ public class EventManager : MonoBehaviour, IEventService
                 
                 _dialogueService.SendDialogue(chooseNameEvent.StartDialogue, true, () =>
                 {
-                    _textInputUI.Display(chooseNameEvent.RequestPhrase, (chosenName) =>
+                    _textInputUI.Display(chooseNameEvent.RequestPhrase, chooseNameEvent.CharLimit, (chosenName) =>
                     {
                         GameManager.Instance.GameInfo.OrgName = chosenName;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
@@ -92,7 +92,7 @@ public class EventManager : MonoBehaviour, IEventService
                 
                 _dialogueService.SendDialogue(chooseSloganEvent.StartDialogue, true, () =>
                 {
-                    _textInputUI.Display(chooseSloganEvent.RequestPhrase, (chosenSlogan) =>
+                    _textInputUI.Display(chooseSloganEvent.RequestPhrase, chooseSloganEvent.CharLimit, (chosenSlogan) =>
                     {
                         GameManager.Instance.GameInfo.OrgSlogan = chosenSlogan;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;

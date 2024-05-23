@@ -32,11 +32,11 @@ public class PopUp : MonoBehaviour, IPoolObject
 
     }
 
-    public void SetHouse(Building building)
+    public void SetHouse(Building building, Sprite sprite)
     {
         _activeBuilding = building;
         _rectTransform.position = building.transform.position + building.PopUpOffset;
-
+        _button.image.sprite = sprite;
     }
 
     public void RemoveHouse()

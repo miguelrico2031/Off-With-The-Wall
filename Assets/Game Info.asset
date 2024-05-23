@@ -18,13 +18,14 @@ MonoBehaviour:
   <MinAgentSpeed>k__BackingField: 0.4
   <MaxAgentSpeed>k__BackingField: 1.3
   <PopUpPoolSize>k__BackingField: 10
-  <RewardMinWaitTime>k__BackingField: 3
-  <RewardMaxWaitTime>k__BackingField: 6
+  <RewardMinWaitTime>k__BackingField: 1.5
+  <RewardMaxWaitTime>k__BackingField: 3.5
   <EventMinWaitTime>k__BackingField: 2
   <EventMaxWaitTime>k__BackingField: 5
   <RewardValue>k__BackingField: 5
   <MaxEventCount>k__BackingField: 3
   <MaxHouseRewardCount>k__BackingField: 10
+  <GameStartEvent>k__BackingField: {fileID: 11400000, guid: 7ac8dd92711eb5e49940f3262b69ea24, type: 2}
   _initialEvents:
   - {fileID: 11400000, guid: 8ac3d058511d4904b931e4f4363606e1, type: 2}
   - {fileID: 11400000, guid: 9ba4ab266edcf2847b46a8319ce43542, type: 2}
