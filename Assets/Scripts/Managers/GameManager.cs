@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
+
     #region Attributes
 
     public static GameManager Instance { get; private set; } //referencia al Singleton
@@ -17,14 +18,21 @@ public class GameManager : MonoBehaviour
         OnPause
     }
 
-    public GameState CurrentGameState { get; set; } = GameState.OnPlay;
+    [field:SerializeField]public GameState CurrentGameState { get; set; } = GameState.OnPlay;
     public GameInfo GameInfo { get => _gameInfo; } //archivo de config del juego (ScriptableObject)
     
     [SerializeField] private GameInfo _gameInfo;
-    
-    private Dictionary<string, IService> _services;
-    
 
+   [SerializeField] private bool gameStarted, gameEnded;
+
+
+    private Dictionary<string, IService> _services;
+
+    private void LoseGame()
+    {
+        gameEnded = true;
+        Get<IStartLoseUIService>().SetLoseScreen(true);
+    }
     #endregion
 
     #region UnityCallbacks
@@ -34,17 +42,54 @@ public class GameManager : MonoBehaviour
         if(Instance is not null && Instance != this) Destroy(gameObject);
         Instance = this;
         GetComponent<ServicesBootstrapper>().Bootstrap();
+        gameStarted = gameEnded = false;
+        Get<IStartLoseUIService>().SetStartScreen(true);
+        Get<IStartLoseUIService>().SetLoseScreen(false);
+        CurrentGameState = GameState.OnPause;
+
     }
 
-    private IEnumerator Start()
+    private IEnumerator StartGame()
     {
+        print(gameObject.name);
         yield return null; //para que todos se inicialicen en el frame del start
+        gameStarted = true;
         Get<IEventService>().StartEvent(GameInfo.GameStartEvent, null);
         Get<IEventSpawnService>().StartSpawn();
+        Get<IPeopleService>().OnZeroPeople.AddListener(LoseGame);
+        Get<IStartLoseUIService>().SetStartScreen(false);
+       // CurrentGameState = GameState.OnPlay;
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0) && (!gameStarted || gameEnded))
+        {
+            if(!gameStarted)
+            StartCoroutine(StartGame());
+
+            if (gameEnded)
+            {
+                Restart();
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (CurrentGameState == GameState.OnPlay)
+            {
+                Pause(true);
+
+            }
+            else if(CurrentGameState == GameState.OnPause)
+            {
+                Pause(false);
+
+            }
+        }
     }
 
     #endregion
-
     public T Get<T>() where T : IService //Para acceder a los servicios (managers)
     {
         _services ??= new();
@@ -60,4 +105,14 @@ public class GameManager : MonoBehaviour
                        $"due to service {_services[k]} already registered as {k}.");
     }
     
+    public void Restart()
+    {
+        Instance = null;
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+    }
+    public void Pause(bool setPause)
+    {
+        CurrentGameState = setPause ? GameState.OnPause : GameState.OnPlay;
+        Get<IStartLoseUIService>().SetPauseScreen(setPause);
+    }
 }

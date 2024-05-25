@@ -39,6 +39,7 @@ public class EventManager : MonoBehaviour, IEventService
     public void StartEvent(IGameEvent e, IBuilding building)
     {
         GameManager.Instance.CurrentGameState = GameManager.GameState.OnEvent;
+        print("evento");
         switch (e)
         {
             case ChoiceEvent choiceEvent:
