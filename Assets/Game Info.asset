@@ -31,3 +31,5 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ba4ab266edcf2847b46a8319ce43542, type: 2}
   <RouletteSpinSpeed>k__BackingField: 260
   <RouletteHideDelay>k__BackingField: 1.5
+  <WallFirstPeopleThreshold>k__BackingField: 150
+  <WallSecondPeopleThreshold>k__BackingField: 300
