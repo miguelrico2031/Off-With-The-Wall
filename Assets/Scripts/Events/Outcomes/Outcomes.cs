@@ -9,7 +9,7 @@ public class Outcomes //clase serializable para agrupar outcomes
     [SerializeField] private PeopleIncrease[] _peopleIncreases;
     [SerializeField] private PeopleDecrease[] _peopleDecreases;
     [SerializeField] private RewardMultiplier[] _rewardMultipliers;
-    //[SerializeField] private PopUpMultiplier[] _popUpMultipliers;
+    [SerializeField] private PopUpMultiplier[] _popUpMultipliers;
     [SerializeField] private HouseBurn[] _houseBurns;
     [SerializeField] private EventAdd[] _eventAdds;
 
@@ -62,20 +62,20 @@ public class RewardMultiplier : IOutcome
 
 }
 
-// [Serializable]
-// public class PopUpMultiplier : IOutcome
-// {
-//     [field:SerializeField] public string DisplayText { get; private set; }
-//     [Range(.1f, 3f)] public float Multiplier;
-//     public string MultiplierName;
-//     public bool IsPermanent;
-//     public float Duration;
-//
-//     public void Execute(IBuilding building = null)
-//     {
-//         
-//     }
-// }
+[Serializable]
+public class PopUpMultiplier : IOutcome
+{
+    [field: SerializeField] public string DisplayText { get; private set; }
+    [Range(.1f, 3f)] public float Multiplier;
+    public string MultiplierName;
+    public bool IsPermanent;
+    public float Duration;
+
+    public void Execute(IBuilding building = null)
+    {
+
+    }
+}
 
 [Serializable]
 public class PeopleDecrease : IOutcome

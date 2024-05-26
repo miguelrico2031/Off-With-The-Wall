@@ -20,18 +20,13 @@ MonoBehaviour:
   <EndDialogueB>k__BackingField: {fileID: 11400000, guid: 18386dc93823ac440aa574ebcf006f55, type: 2}
   <OutcomesA>k__BackingField:
     _peopleIncreases: []
-    _peopleDecreases:
-    - People: 10
+    _peopleDecreases: []
     _rewardMultipliers: []
     _houseBurns: []
     _eventAdds: []
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
-    _rewardMultipliers:
-    - Multiplier: 0
-      MultiplierName: 
-      IsPermanent: 0
-      Duration: 0
+    _rewardMultipliers: []
     _houseBurns: []
     _eventAdds: []

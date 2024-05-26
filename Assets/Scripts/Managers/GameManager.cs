@@ -55,7 +55,7 @@ public class GameManager : MonoBehaviour
         yield return null; //para que todos se inicialicen en el frame del start
         gameStarted = true;
         Get<IEventService>().StartEvent(GameInfo.GameStartEvent, null);
-        Get<IEventSpawnService>().StartSpawn();
+        //Get<IEventSpawnService>().StartSpawn();
         Get<IPeopleService>().OnZeroPeople.AddListener(LoseGame);
         Get<IStartLoseUIService>().SetStartScreen(false);
        // CurrentGameState = GameState.OnPlay;

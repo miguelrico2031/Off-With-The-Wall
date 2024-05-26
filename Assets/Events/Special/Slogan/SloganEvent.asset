@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: SloganEvent
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
-  <StartDialogue>k__BackingField: {fileID: 0}
-  <RequestPhrase>k__BackingField: 
-  <CharLimit>k__BackingField: 0
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 1e5c19ce014b5ab41b129305858c33f1, type: 2}
+  <RequestPhrase>k__BackingField: 'Choose a slogan for the movement:'
+  <CharLimit>k__BackingField: 60

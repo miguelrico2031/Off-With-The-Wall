@@ -42,9 +42,11 @@ public class BuildingManager : IBuildingService
 
     public bool SetEvent(IGameEvent buildingEvent)
     {
+        Debug.Log("setear");
         var availables = GetAvailableBuildings(buildingEvent.BuildingType);
         if (availables is null) return false;
         _eventCount++;
+        Debug.Log("ponerevento");
         availables[Random.Range(0, availables.Count)].SetEvent(buildingEvent, () => _eventCount--); //elijo uno random
         return true;
     }
@@ -59,6 +61,7 @@ public class BuildingManager : IBuildingService
     private List<Building> GetAvailableBuildings(IBuilding.BuildingType target)
     {
         //elijo la lista segun el tipo de edificio (any es todos los edificios)
+        Debug.Log(_buildings.Count);
         var availables = _buildings[target];
         //filtro la lista para quedarme con los edificios que esten en idle
         availables = availables.FindAll(b => b.CurrentState is IBuilding.State.Idle).ToList();

@@ -39,6 +39,8 @@ public class EventManager : MonoBehaviour, IEventService
         };
         
         HideChoiceButtons();
+
+        hasDrawn = hasSlogan = false;
     }
 
     public void StartEvent(IGameEvent e, IBuilding building)
@@ -77,6 +79,14 @@ public class EventManager : MonoBehaviour, IEventService
                 _dialogueService.SendDialogue(drawEvent.StartDialogue, true, () =>
                 {
                     _drawUI.Display(() => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
+                    if (!hasDrawn)
+                    {
+                        hasDrawn = true;
+                        if (hasSlogan)
+                        {
+                            GameManager.Instance.Get<IEventSpawnService>().StartSpawn();
+                        }
+                    }
                 });
                 
                 break;
@@ -89,6 +99,7 @@ public class EventManager : MonoBehaviour, IEventService
                     {
                         GameManager.Instance.GameInfo.OrgName = chosenName;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+                        GameManager.Instance.Get<IEventSpawnService>().SpawnSetUpEvents();
                         GameManager.Instance.Get<IPeopleService>()
                             .AddPeople(GameManager.Instance.GameInfo.InitialPeople);
                     });
@@ -102,6 +113,14 @@ public class EventManager : MonoBehaviour, IEventService
                 {
                     _textInputUI.Display(chooseSloganEvent.RequestPhrase, chooseSloganEvent.CharLimit, (chosenSlogan) =>
                     {
+                        if (!hasSlogan)
+                        {
+                            hasSlogan = true;
+                            if (hasDrawn)
+                            {
+                                GameManager.Instance.Get<IEventSpawnService>().StartSpawn();
+                            }
+                        }
                         GameManager.Instance.GameInfo.OrgSlogan = chosenSlogan;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
                     });
