@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: DrawEventStart
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 21
+    Text: "Hey, I\u2019ve been thinking and we need a symbol to represent our movement.
+      Something to draw on signs and graffiti on the walls. Something that will strike
+      fear on the hearts of our oppressors and give hope to the people.\r\n"
+  - Speaker: 21
+    Text: "The thing is I couldn\u2019t draw something decent if I had a gun to my
+      head, so I think you should be the one to do it.\r\n"

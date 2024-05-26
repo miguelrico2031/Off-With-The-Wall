@@ -1,0 +1,37 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7993c619dbc2064bb05906398f12c07, type: 3}
+  m_Name: ConWall
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 0
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 809e9ac2a28700647822a636b0ceeaa6, type: 2}
+  <ChoiceTextA>k__BackingField: Go for it
+  <ChoiceTextB>k__BackingField: I don't think you should
+  <EndDialogueA>k__BackingField: {fileID: 11400000, guid: 7efaf162faf0a5841b52e9c0bc43ac9a, type: 2}
+  <EndDialogueB>k__BackingField: {fileID: 11400000, guid: 18386dc93823ac440aa574ebcf006f55, type: 2}
+  <OutcomesA>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases:
+    - People: 10
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds: []
+  <OutcomesB>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers:
+    - Multiplier: 0
+      MultiplierName: 
+      IsPermanent: 0
+      Duration: 0
+    _houseBurns: []
+    _eventAdds: []

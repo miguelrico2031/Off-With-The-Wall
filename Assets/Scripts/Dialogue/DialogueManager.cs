@@ -118,10 +118,12 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         // _dialogueText.text = $"{sd.Name}:\n";
         _dialogueText.text = "";
         _speakerImg.sprite = sd.Sprite;
-
+        _dialogueText.text = phrase.Text;
+        _dialogueText.maxVisibleCharacters = 0;
         foreach (var c in phrase.Text)
         {
-            _dialogueText.text += c;
+            //_dialogueText.text += c;
+            _dialogueText.maxVisibleCharacters++;
             if (!_skip) yield return new WaitForSeconds(_typeDelay);
         }
 

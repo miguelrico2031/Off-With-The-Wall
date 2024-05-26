@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: TunelDialogueChoice2
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 23
+    Text: "You are too naive kid, there is literally no other explanation. I don't
+      care, I\u2019m going anyway.\r\nI\u2019ll write you a letter from the other
+      side.\r\n"
+  - Speaker: 13
+    Text: '*Mad Man assaults town hall* Yesterday, the town hall was attacked by
+      an unidentified lunatic believed to be a collaborator of the radical group
+      <Nombre Grupo>. He suffered the consequences of his dangerous actions thanks
+      to the police present at the scene. He is currently on the run.'
+  - Speaker: 23
+    Text: "You\u2019ll never take me alive. I WON'T STOP UNTIL I CAN PROVE THE TRUTH
+      SLOGAN\r\n"
+  - Speaker: 21
+    Text: "Good news, the police are so focused on catching our insane friend that
+      they don\u2019t have as much time to focus on us. They should be off our backs
+      for a couple of days.\r\n"

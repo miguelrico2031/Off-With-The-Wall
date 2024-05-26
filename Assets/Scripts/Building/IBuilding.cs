@@ -19,7 +19,8 @@ public interface IBuilding : IPointerClickHandler//, IPointerEnterHandler, IPoin
         School,
         PoliceStation,
         FuckDonalds,
-        Wall
+        Wall,
+        TownHall
     }
     
 }

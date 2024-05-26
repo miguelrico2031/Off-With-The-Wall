@@ -34,9 +34,27 @@ MonoBehaviour:
   - _speaker: 12
     _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
   - _speaker: 20
-    _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
+    _sprite: {fileID: 21300000, guid: 55c13eabc41be35418a0618a59b72bd6, type: 3}
   - _speaker: 21
-    _sprite: {fileID: 21300000, guid: 0f97c3a79e0b22944940f1ddebb5417d, type: 3}
+    _sprite: {fileID: 21300000, guid: 647e3c32b7f8c534cb190b4265bf26f8, type: 3}
+  - _speaker: 22
+    _sprite: {fileID: 21300000, guid: 786b11886d7aaac42b03f64c11eb5b62, type: 3}
+  - _speaker: 23
+    _sprite: {fileID: 21300000, guid: 321ac03f7c492da4ea4951eaebeb3b6c, type: 3}
+  - _speaker: 24
+    _sprite: {fileID: 21300000, guid: 13fa92af2d0809f4394df9c613110d0b, type: 3}
+  - _speaker: 16
+    _sprite: {fileID: 21300000, guid: 1d46b86eb5d055c4ea6bd68a85aab627, type: 3}
+  - _speaker: 15
+    _sprite: {fileID: 21300000, guid: 3e1f7cb90e55b634d8fdf1dba2795ebe, type: 3}
+  - _speaker: 18
+    _sprite: {fileID: 21300000, guid: c095ff34c57d6a543a685ce73f2a254c, type: 3}
+  - _speaker: 14
+    _sprite: {fileID: 21300000, guid: 011a38d7f004816498e28b0d612ce450, type: 3}
+  - _speaker: 19
+    _sprite: {fileID: 21300000, guid: ccbfb16b3fb863b4b898545d7c9aa61f, type: 3}
+  - _speaker: 17
+    _sprite: {fileID: 21300000, guid: f09532c3823934144a529e085ea54013, type: 3}
   _placeholders:
   - Placeholder: NOMBREVVV
     Replace: BBB [Tripin' them]

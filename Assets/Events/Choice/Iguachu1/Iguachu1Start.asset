@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Iguachu1Start
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 22
+    Text: "Hey, nice to meet you! I've seen you've been involved in some events happening
+      around the neighborhood recently. I wanted to talk to you because I've been
+      thinking about setting up an organization to fight for our cause in a more...
+      effective way. Not sure if you've heard about the recent cause of police brutality.This
+      is unbearable\u2026 You know, the toxicity of our city. "
+  - Speaker: 22
+    Text: "I mean, this can\u2019t keep going on, we can't afford to be neutral on
+      a moving train.\r\nSo, come on, wake up, grab a brush and put on a little makeup
+      and let\u2019s get started!\r\n"

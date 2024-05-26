@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b7993c619dbc2064bb05906398f12c07, type: 3}
+  m_Name: Tunel
+  m_EditorClassIdentifier: 
+  <BuildingType>k__BackingField: 0
+  <StartDialogue>k__BackingField: {fileID: 0}
+  <ChoiceTextA>k__BackingField: "Let\u2019s go check those tunnels"
+  <ChoiceTextB>k__BackingField: I doubt there is a secret tunnel
+  <EndDialogueA>k__BackingField: {fileID: 11400000, guid: 7b54fc54aff941e4181c818ce300d295, type: 2}
+  <EndDialogueB>k__BackingField: {fileID: 11400000, guid: 9e92e121b59e241468ab1c50b5da693c, type: 2}
+  <OutcomesA>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds: []
+  <OutcomesB>k__BackingField:
+    _peopleIncreases: []
+    _peopleDecreases: []
+    _rewardMultipliers: []
+    _houseBurns: []
+    _eventAdds: []

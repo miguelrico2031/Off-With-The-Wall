@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: TunelDialogueChoice1
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 23
+    Text: I knew I could count on you kid.
+  - Speaker: 13
+    Text: '*Massive protest at town hall* Yesterday, the radical group <Nombre Grupo>
+      made a violent riot in front of the town hall. Thankfully the brave police
+      officers and guards took care of the dangerous rioters.
+
+'
+  - Speaker: 23
+    Text: I did it! The tunnels are real! Well mostly, I discovered there are building
+      them as we speak. And the workers there are so nice, after I talked with them
+      they gave me some water and said they were willing to help us. The foreman
+      even drove me back here.
+  - Speaker: 25
+    Text: Oi
+  - Speaker: 23
+    Text: 'The moment they finish the tunnel, we can use it to pass through the wall!
+
+'
+  - Speaker: 23
+    Text: "Well y'know after the riots near the town hall n\u2019all, the tunneling
+      has been delayed indefinitely. But y'know if you need help fixing a window
+      or something, we can help you.\r\n\r\n"

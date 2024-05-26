@@ -11,13 +11,14 @@ public class BuildingInitializer : MonoBehaviour
     private void Awake()
     {
         var buildingSprites = GetComponentsInChildren<SpriteRenderer>();
-
+        print(buildingSprites.Length);
         foreach (var sprite in buildingSprites)
         {
-            var building = 
-                Instantiate(_buildingPrefab, sprite.transform.position, Quaternion.identity, transform);
-            building.GetComponent<SpriteRenderer>().sprite = sprite.sprite;
+               var building = 
+                    Instantiate(_buildingPrefab, sprite.transform.position, Quaternion.identity, transform);
+                building.GetComponentInChildren<SpriteRenderer>().sprite = sprite.sprite;
             sprite.gameObject.SetActive(false);
-        }
+            print("Hola");
+       }
     }
 }

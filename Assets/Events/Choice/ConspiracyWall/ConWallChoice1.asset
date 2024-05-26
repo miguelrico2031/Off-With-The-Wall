@@ -1,0 +1,36 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: ConWallChoice1
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 13
+    Text: "*Car crash against the Wall* Yesterday, a mad man going 50 km/h crashed
+      a car against the wall while shouting indecipherable phrases. It is likely
+      that this is an act of a terrorist organization looking to cause havoc among
+      our society.  \r\n"
+  - Speaker: 15
+    Text: "Wow, I can\u2019t believe someone would express their hate and dissatisfaction
+      with the wall and everyone that it represents in such a way.\r\n"
+  - Speaker: 22
+    Text: ' We must trust his self-righteous suicide helps our cause, but why did
+      he deserve to die?
+
+'
+  - Speaker: 21
+    Text: 'He will serve as a martyr for our movement, always remembered for his
+      symbolic actions.
+
+'
+  - Speaker: 23
+    Text: "Those fuckers are quick! Don't worry kid, i\u2019ll get em next time,
+      but i'm gonna need something faster. We can probably hijack a plane or something."

@@ -30,7 +30,11 @@ public class DialogueInfo : ScriptableObject
         Guillotine,
         Treasurer,
         EatenCop,
-        Pana
+        Pana,
+        Iguachu,
+        Conspiranoico,
+        AbrigoSeñora,
+        Capataz
     }
 
     [Serializable]

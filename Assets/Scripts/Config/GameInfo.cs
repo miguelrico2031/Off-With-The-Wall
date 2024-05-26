@@ -28,6 +28,9 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public uint MaxHouseRewardCount { get; private set; }
 
     [field: SerializeField] public ChooseNameEvent GameStartEvent { get; private set; }
+    [SerializeField] private ScriptableObject[] _gameSetUpEvents;
+
+
     [SerializeField] private ScriptableObject[] _initialEvents;
 
     [field: Header("Events custom stuff")]
@@ -50,6 +53,7 @@ public class GameInfo : ScriptableObject
 
 
     private IGameEvent[] _initEvents;
+    private IGameEvent[] _setUpEvents;
 
     public IEnumerable<IGameEvent> GetInitEvents()
     {
@@ -60,6 +64,20 @@ public class GameInfo : ScriptableObject
             {
                 _initEvents[i] = _initialEvents[i] as IGameEvent;
                 Assert.IsNotNull(_initEvents[i], "Espina");
+            }
+        }
+        return _initEvents;
+    }
+
+    public IEnumerable<IGameEvent> GetSetUpEvents()
+    {
+        if (_setUpEvents == null)
+        {
+            _setUpEvents = new IGameEvent[_gameSetUpEvents.Length];
+            for (int i = 0; i < _setUpEvents.Length; i++)
+            {
+                _setUpEvents[i] = _gameSetUpEvents[i] as IGameEvent;
+                Assert.IsNotNull(_setUpEvents[i], "Espina");
             }
         }
         return _initEvents;

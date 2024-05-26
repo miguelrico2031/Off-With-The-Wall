@@ -23,6 +23,11 @@ public class EventManager : MonoBehaviour, IEventService
     private int _currentSpin;
 
     [SerializeField] private GameObject _wheel;
+
+
+    private bool hasDrawn;
+    private bool hasSlogan;
+
     private void Start()
     {
         _dialogueService = GameManager.Instance.Get<IDialogueService>();

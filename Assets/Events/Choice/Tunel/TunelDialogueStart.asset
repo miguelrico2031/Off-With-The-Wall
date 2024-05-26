@@ -1,0 +1,34 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: TunelDialogueStart
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 23
+    Text: "Of course yes! Why didn\u2019t I think of that! We should use the tunnels!
+      \nYou know, the secret underground tunnels that connect the town hall with
+      the inside of the wall? Everybody knows about them! \r\n\r\n"
+  - Speaker: 23
+    Text: 'They say years ago there was a massive protest that blocked the entrance
+      to the town hall, but the mayor was able to go back to the wall without being
+      seen. That can only mean one thing, a secret network of secret tunnels!
+
+'
+  - Speaker: 23
+    Text: 'If only I could enter the town hall without being seen I would find the
+      tunnels and then we could pass to the other side without problem.
+
+      I
+      just need you to make a big enough protest so that they are too distracted
+      to notice me.
+
+'
