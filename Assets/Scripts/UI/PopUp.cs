@@ -35,7 +35,7 @@ public class PopUp : MonoBehaviour, IPoolObject
     public void SetHouse(Building building, Sprite sprite)
     {
         _activeBuilding = building;
-        _rectTransform.position = building.transform.position + building.PopUpOffset;
+        _rectTransform.position = building.PopUpPos.position;
         _button.image.sprite = sprite;
     }
 

@@ -9,7 +9,7 @@ public class Building : MonoBehaviour, IBuilding
     public IBuilding.State CurrentState { get; private set; }
     public IBuilding.BuildingType Type { get => _type; }
     public bool CanClick { get; set; } = true;
-    [field:SerializeField] public Vector3 PopUpOffset { get; private set; }
+    public Transform PopUpPos { get; private set; }
 
     [SerializeField] private IBuilding.BuildingType _type;
 
@@ -34,6 +34,7 @@ public class Building : MonoBehaviour, IBuilding
         _eventService = GameManager.Instance.Get<IEventService>();
         _buildingService.AddBuilding(this);
         _buildingClick = GetComponentInChildren<BuildingClick>();
+        PopUpPos = transform.Find("PopUpOffset");
     }
 
     #endregion

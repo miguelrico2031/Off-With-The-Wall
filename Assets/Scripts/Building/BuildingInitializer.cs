@@ -18,7 +18,6 @@ public class BuildingInitializer : MonoBehaviour
                     Instantiate(_buildingPrefab, sprite.transform.position, Quaternion.identity, transform);
                 building.GetComponentInChildren<SpriteRenderer>().sprite = sprite.sprite;
             sprite.gameObject.SetActive(false);
-            print("Hola");
        }
     }
 }
