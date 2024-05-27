@@ -69,14 +69,14 @@ public class AIManager : MonoBehaviour, IAIService
     private void SpawnPedestrian(AIWaypoint spawnPoint, AIWaypoint target)
     {
         var pedestrian = _objectPool.Get();
-        StartCoroutine(pedestrian.Spawn(spawnPoint, target, Random.Range(_gameInfo.MinAgentSpeed, _gameInfo.MaxAgentSpeed)));
+        StartCoroutine(pedestrian.Spawn(spawnPoint, target));
         pedestrian.OnTargetReached.AddListener(OnTargetReached);
     }
 
     private void OnTargetReached(PedestrianAI pedestrian)
     {
         _lastTarget = pedestrian.Target;
-        if (Random.Range(0f, 1f) <= _gameInfo.DespawnProbability)
+        if (!_lastTarget.IsOnlyWaypoint && Random.Range(0f, 1f) <= _gameInfo.PedDespawnProbability)
         { //despawn y spawn en otro sitio
             pedestrian.OnTargetReached.RemoveListener(OnTargetReached);
             StartCoroutine(pedestrian.Despawn(() =>

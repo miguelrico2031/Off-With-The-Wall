@@ -13,10 +13,14 @@ MonoBehaviour:
   m_Name: Game Info
   m_EditorClassIdentifier: 
   <InitialPeople>k__BackingField: 5
-  <InitialPedestrians>k__BackingField: 10
-  <DespawnProbability>k__BackingField: 0.9
-  <MinAgentSpeed>k__BackingField: 0.4
-  <MaxAgentSpeed>k__BackingField: 1.3
+  <InitialPedestrians>k__BackingField: 18
+  <PedDespawnProbability>k__BackingField: 0.65
+  <MinAgentSpeed>k__BackingField: 0.3
+  <MaxAgentSpeed>k__BackingField: 1
+  <PedTryIdleDelay>k__BackingField: 2
+  <PedTryIdleProbability>k__BackingField: 0.3
+  <PedIdleMinTime>k__BackingField: 0.5
+  <PedIdleMaxTime>k__BackingField: 3
   <PopUpPoolSize>k__BackingField: 10
   <RewardMinWaitTime>k__BackingField: 1.5
   <RewardMaxWaitTime>k__BackingField: 3.5

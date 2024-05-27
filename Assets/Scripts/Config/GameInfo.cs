@@ -10,9 +10,13 @@ public class GameInfo : ScriptableObject
 
     [field:Header("Pedestrian AI")]
     [field:SerializeField] public uint InitialPedestrians { get; private set; }
-    [field:SerializeField][field:Range(0f, 1f)] public float DespawnProbability { get; private set; }
+    [field:SerializeField][field:Range(0f, 1f)] public float PedDespawnProbability { get; private set; }
     [field:SerializeField] public float MinAgentSpeed { get; private set; }
     [field:SerializeField] public float MaxAgentSpeed { get; private set; }
+    [field:SerializeField] public float PedTryIdleDelay { get; private set; }
+    [field:SerializeField][field:Range(0f, 1f)] public float PedTryIdleProbability { get; private set; }
+    [field:SerializeField] public float PedIdleMinTime { get; private set; }
+    [field:SerializeField] public float PedIdleMaxTime { get; private set; }
     
     [field:Header("Pop Ups")]
     [field:SerializeField] public int PopUpPoolSize { get; private set; }
@@ -43,6 +47,8 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public float RouletteSpinSpeed { get; private set; }
     [field: SerializeField] public float RouletteHideDelay { get; private set; }
     
+    
+    [field:Header("Wall")]
     [field: SerializeField] public uint WallFirstPeopleThreshold { get; private set; }
     [field: SerializeField] public uint WallSecondPeopleThreshold { get; private set; }
     
