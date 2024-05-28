@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Centrist3D
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 21
+    Text: "Today\u2019s the day, the biggest protest we\u2019ve ever done yet. All
+      the fighting, suffering and violence has led us to this moment. I don't know
+      if this will be the end but it definitely feels like one, I cant believe we\u2019ve
+      come this far.\r\n"
+  - Speaker: 16
+    Text: "Haven\u2019t you heard? \u201CA Better Tomorrow\u201D is doing a rally
+      too, I heard a lot of people are gonna go there to hear what they have to say.
+      I don\u2019t think ours is gonna be as big as we thought.\r\n"
+  - Speaker: 21
+    Text: 'That piece of shit. I hope for his own safety he never dares see us again.
+
+'
+  - Speaker: 13
+    Text: "*Massive Politic-Free Rally* The organization \u201CA better Tomorrow\u201D
+      has recently done a politico-free rally which the intention of improving the
+      living conditions of the city. \r\n"

@@ -20,9 +20,9 @@ MonoBehaviour:
   <PopUpPoolSize>k__BackingField: 10
   <RewardMinWaitTime>k__BackingField: 4
   <RewardMaxWaitTime>k__BackingField: 8
-  <EventMinWaitTime>k__BackingField: 10
-  <EventMaxWaitTime>k__BackingField: 20
-  <RewardValue>k__BackingField: 1
+  <EventMinWaitTime>k__BackingField: 15
+  <EventMaxWaitTime>k__BackingField: 25
+  <RewardValue>k__BackingField: 5
   <MaxEventCount>k__BackingField: 3
   <MaxHouseRewardCount>k__BackingField: 10
   <GameStartEvent>k__BackingField: {fileID: 11400000, guid: 7ac8dd92711eb5e49940f3262b69ea24, type: 2}
@@ -30,7 +30,7 @@ MonoBehaviour:
   <GameDrawEvent>k__BackingField: {fileID: 11400000, guid: 06d99ff0d90f04e488fad73786dea545, type: 2}
   _initialEvents:
   - {fileID: 11400000, guid: e2d061ac13de1d946876a7a52e540589, type: 2}
-  <RouletteSpinSpeed>k__BackingField: 260
+  <RouletteSpinSpeed>k__BackingField: 2000
   <RouletteHideDelay>k__BackingField: 1.5
   <WallFirstPeopleThreshold>k__BackingField: 150
   <WallSecondPeopleThreshold>k__BackingField: 1000

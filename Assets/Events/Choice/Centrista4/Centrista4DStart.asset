@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Centrista4DStart
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 21
+    Text: "Hey man, you know that \u201CWall Day\u201D is coming up soon, right?
+      I can\u2019t believe they try to make us celebrate our own oppression. But
+      it is an opportunity to really shake things up-\r\nI think we should try to
+      hold the biggest protest we\u2019ve done yet.\r\n"
+  - Speaker: 8
+    Text: "As a representative of  \u201CA Better Tomorrow\u201D I couldn\u2019t
+      disagree more. \u201CWall Day\u201D does not represent our oppression, it is
+      a celebration of our country. We shouldn\u2019t try to cause chaos on such
+      a relevant day, it would only be detrimental for our organizations. \r\n"
+  - Speaker: 21
+    Text: 'You are not gonna listen to this cunt, right?
+
+'
