@@ -16,6 +16,7 @@ public class ServicesBootstrapper : MonoBehaviour
         GameManager.Instance.Register<IEventService>(FindObjectOfType<EventManager>());
         GameManager.Instance.Register<IAudioService>(FindObjectOfType<AudioManager>());
         GameManager.Instance.Register<IStartLoseUIService>(FindObjectOfType<StartLoseUIManager>());
+        GameManager.Instance.Register<IMultUIService>(FindObjectOfType<MultUIManager>());
 
 
     }

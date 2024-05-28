@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: Centrista4DChoice1
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 8
+    Text: ' Great, I knew you would realize that we should follow a path of unity
+      and equality between everybody. We have a brighter future ahead of us, now
+      if you excuse me I have an important dinner to attend to.
+
+'
+  - Speaker: 21
+    Text: 'Well, I hope this doesn''t come back to bite us in the ass.
+
+'

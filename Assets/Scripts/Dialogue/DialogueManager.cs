@@ -11,7 +11,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 {
     [SerializeField] private DialogueInfo _dialogueInfo;
     [SerializeField] private TextMeshProUGUI _dialogueText, _newspaperText;
-    [SerializeField] private Image _speakerImg, _newspaperCover;
+    [SerializeField] private Image _speakerframe,_speakerImg, _newspaperCover;
     [SerializeField] private float _typeSpeed;
     [SerializeField] private CanvasGroup _canvasGroup;
     [SerializeField] private Button _continueButton;
@@ -104,6 +104,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     private IEnumerator TypePhrase(Dialogue.Phrase phrase)
     {
         phrase = _dialogueInfo.ProcessPhrase(phrase);
+        _speakerImg.enabled = true;
+        _speakerframe.enabled = true;
         if (phrase.Speaker is DialogueInfo.Speaker.Newspaper)
         {
             StartCoroutine(DisplayNewspaper(phrase));
@@ -141,6 +143,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _newspaperCover.enabled = _currentCover is not null;
         _dialoguePanel.SetActive(false);
         _speakerImg.enabled = false;
+        _speakerframe.enabled = false;
         _newspaperText.text = phrase.Text;
         _continueButton.gameObject.SetActive(false);
         

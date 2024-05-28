@@ -58,6 +58,8 @@ public class RewardMultiplier : IOutcome
         var peopleService = GameManager.Instance.Get<IPeopleService>();
         if (IsPermanent) peopleService.AddMultiplier(MultiplierName, Multiplier);
         else peopleService.AddMultiplier(MultiplierName, Multiplier, Duration);
+
+        GameManager.Instance.Get<IMultUIService>().AddPeopleMult(IsPermanent);
     }
 
 }
@@ -73,7 +75,11 @@ public class PopUpMultiplier : IOutcome
 
     public void Execute(IBuilding building = null)
     {
+        var popUPService = GameManager.Instance.Get<IEventSpawnService>();
+        if (IsPermanent) popUPService.AddMultiplier(MultiplierName, Multiplier);
+        else popUPService.AddMultiplier(MultiplierName, Multiplier, Duration);
 
+        GameManager.Instance.Get<IMultUIService>().AddPopUpMult(IsPermanent);
     }
 }
 
