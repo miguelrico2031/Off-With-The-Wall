@@ -78,6 +78,33 @@ MonoBehaviour:
   IsGlobal: 0
   Labels: []
   Exists: 1
+--- !u!114 &-3838712311829916051
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SOUND EFFECTS/pop
+  m_EditorClassIdentifier: 
+  Path: event:/SOUND EFFECTS/pop
+  Guid:
+    Data1: 174725364
+    Data2: 1181447072
+    Data3: -1256108138
+    Data4: 729089981
+  Banks:
+  - {fileID: 3037095210142893312}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 1500
 --- !u!114 &-2735159535053697842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -213,13 +240,42 @@ MonoBehaviour:
   - {fileID: -453188161594088812}
   - {fileID: 7569504926357652090}
   - {fileID: -2735159535053697842}
+  - {fileID: 1441095548581185103}
+  - {fileID: -3838712311829916051}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4069515525310895951}
   StringsBanks:
   - {fileID: 4213286632618152527}
-  cacheTime: 638523201327371855
+  cacheTime: 638525375234717399
   cacheVersion: 131608
+--- !u!114 &1441095548581185103
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SOUND EFFECTS/loseMulti
+  m_EditorClassIdentifier: 
+  Path: event:/SOUND EFFECTS/loseMulti
+  Guid:
+    Data1: 1266709939
+    Data2: 1111156743
+    Data3: -19309410
+    Data4: 1700501039
+  Banks:
+  - {fileID: 3037095210142893312}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 3369
 --- !u!114 &3037095210142893312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -235,7 +291,7 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/sounds.bank
   Name: sounds
   StudioPath: bank:/sounds
-  lastModified: 638523201327371855
+  lastModified: 638525375234717399
   FileSizes: []
   Exists: 1
 --- !u!114 &3187639471413018187
@@ -253,7 +309,7 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/music.bank
   Name: music
   StudioPath: bank:/music
-  lastModified: 638523201327185648
+  lastModified: 638525351249058147
   FileSizes: []
   Exists: 1
 --- !u!114 &4069515525310895951
@@ -271,7 +327,7 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638523201325925313
+  lastModified: 638525373372670794
   FileSizes: []
   Exists: 1
 --- !u!114 &4213286632618152527
@@ -289,10 +345,10 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638523201325965310
+  lastModified: 638525373372680790
   FileSizes:
   - Name: 
-    Value: 1232
+    Value: 1306
   Exists: 1
 --- !u!114 &5011422451569209387
 MonoBehaviour:
