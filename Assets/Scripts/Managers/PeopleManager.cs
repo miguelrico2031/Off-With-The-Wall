@@ -20,7 +20,8 @@ public class PeopleManager : IPeopleService
 
     public uint AddPeople(uint people)
     {
-        uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current * m));
+        uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current + (m-1)));
+        Debug.Log(total);
         People += people * total;
         OnPeopleChanged.Invoke(People);
         return people * total;
@@ -58,7 +59,16 @@ public class PeopleManager : IPeopleService
         GameManager.Instance.StartCoroutine(RemoveMultiplierAfterDuration(key, duration));
     }
 
-    public bool RemoveMultiplier(string key) => _multipliers.Remove(key);
+    public bool RemoveMultiplier(string key)
+    {
+        if (_multipliers.Remove(key))
+        {
+
+            GameManager.Instance.Get<IMultUIService>().RemovePeopleMult();
+            return true;
+        }
+        return false;
+    }
 
     private IEnumerator RemoveMultiplierAfterDuration(string key, float duration)
     {
@@ -69,7 +79,7 @@ public class PeopleManager : IPeopleService
             if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
                 yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
         }
-
+        GameManager.Instance.Get<IMultUIService>().RemovePeopleMult();
         RemoveMultiplier(key);
 
     }

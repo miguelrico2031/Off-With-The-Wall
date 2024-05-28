@@ -147,6 +147,8 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
         {
             dividervalue *= _multipliers[key];
             _multipliers.Remove(key);
+            GameManager.Instance.Get<IMultUIService>().RemovePopUpMult();
+
             return true;
         }
         else

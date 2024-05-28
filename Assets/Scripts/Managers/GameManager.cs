@@ -18,12 +18,12 @@ public class GameManager : MonoBehaviour
         OnPause
     }
 
-    [field:SerializeField]public GameState CurrentGameState { get; set; } = GameState.OnPlay;
+    [field: SerializeField] public GameState CurrentGameState { get; set; } = GameState.OnPlay;
     public GameInfo GameInfo { get => _gameInfo; } //archivo de config del juego (ScriptableObject)
-    
+
     [SerializeField] private GameInfo _gameInfo;
 
-   [SerializeField] private bool gameStarted, gameEnded;
+    [SerializeField] private bool gameStarted, gameEnded;
 
 
     private Dictionary<string, IService> _services;
@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     private void Awake() //se llama antes que cualquier awake
     {
-        if(Instance is not null && Instance != this) Destroy(gameObject);
+        if (Instance is not null && Instance != this) Destroy(gameObject);
         Instance = this;
         GetComponent<ServicesBootstrapper>().Bootstrap();
         gameStarted = gameEnded = false;
@@ -58,7 +58,7 @@ public class GameManager : MonoBehaviour
         //Get<IEventSpawnService>().StartSpawn();
         Get<IPeopleService>().OnZeroPeople.AddListener(LoseGame);
         Get<IStartLoseUIService>().SetStartScreen(false);
-       // CurrentGameState = GameState.OnPlay;
+        // CurrentGameState = GameState.OnPlay;
 
     }
 
@@ -66,8 +66,8 @@ public class GameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Mouse0) && (!gameStarted || gameEnded))
         {
-            if(!gameStarted)
-            StartCoroutine(StartGame());
+            if (!gameStarted)
+                StartCoroutine(StartGame());
 
             if (gameEnded)
             {
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
                 Pause(true);
 
             }
-            else if(CurrentGameState == GameState.OnPause)
+            else if (CurrentGameState == GameState.OnPause)
             {
                 Pause(false);
 
@@ -95,7 +95,7 @@ public class GameManager : MonoBehaviour
         _services ??= new();
         return (T)_services.GetValueOrDefault(typeof(T).Name);
     }
-    
+
     public void Register<T>(IService service) where T : IService
     {
         _services ??= new();
@@ -104,7 +104,7 @@ public class GameManager : MonoBehaviour
         Debug.LogError($"Service {nameof(service)} not registered " +
                        $"due to service {_services[k]} already registered as {k}.");
     }
-    
+
     public void Restart()
     {
         Instance = null;

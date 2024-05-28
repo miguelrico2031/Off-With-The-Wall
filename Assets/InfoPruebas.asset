@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: cdd265020ef25cb4ba21101e48e4c405, type: 3}
-  m_Name: Game Info
+  m_Name: InfoPruebas
   m_EditorClassIdentifier: 
   <InitialPeople>k__BackingField: 5
   <InitialPedestrians>k__BackingField: 10
@@ -22,7 +22,7 @@ MonoBehaviour:
   <RewardMaxWaitTime>k__BackingField: 8
   <EventMinWaitTime>k__BackingField: 10
   <EventMaxWaitTime>k__BackingField: 20
-  <RewardValue>k__BackingField: 10
+  <RewardValue>k__BackingField: 1
   <MaxEventCount>k__BackingField: 3
   <MaxHouseRewardCount>k__BackingField: 10
   <GameStartEvent>k__BackingField: {fileID: 11400000, guid: 7ac8dd92711eb5e49940f3262b69ea24, type: 2}
@@ -30,12 +30,7 @@ MonoBehaviour:
   <GameDrawEvent>k__BackingField: {fileID: 11400000, guid: 06d99ff0d90f04e488fad73786dea545, type: 2}
   _initialEvents:
   - {fileID: 11400000, guid: e2d061ac13de1d946876a7a52e540589, type: 2}
-  - {fileID: 11400000, guid: 757bd1ef9c3ac4440b21ac2df674a55a, type: 2}
-  - {fileID: 11400000, guid: ebecd945aca8b6a408bca95d94b17124, type: 2}
-  - {fileID: 11400000, guid: ee05660a5103f1a42b686764a556d809, type: 2}
-  - {fileID: 11400000, guid: 3d0906c1e409a274985c980192f79f57, type: 2}
-  - {fileID: 11400000, guid: 8ac3d058511d4904b931e4f4363606e1, type: 2}
   <RouletteSpinSpeed>k__BackingField: 260
   <RouletteHideDelay>k__BackingField: 1.5
-  <WallFirstPeopleThreshold>k__BackingField: 500
+  <WallFirstPeopleThreshold>k__BackingField: 150
   <WallSecondPeopleThreshold>k__BackingField: 1000

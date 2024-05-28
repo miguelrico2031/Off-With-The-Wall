@@ -2,12 +2,15 @@
 [LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
 [LOG] SystemI::init                            : Initialize version=20218 (137105), maxchannels=256, flags=0x00020000
 [LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.67ms, DSP buffer: 1024 * 4
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=1, nSamplesPerSec=16000, nAvgBytesPerSec=64000, nBlockAlign=4, wBitsPerSample=32, cbSize=22.
+[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000004, SubFormat=00000003-0000-0010-8000-00AA00389B71.
+[LOG] OutputWASAPI::init                       : Output buffer size: 1364 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
+[LOG] SystemI::init                            : Output requires a sample rate of 16000Hz, resampling will occur.
+[LOG] DownMix::init                            : dspbuffersize: 1024  rate: 48000. output speaker mode: 2, input speaker mode 3
+[LOG] DownMix::init                            : done.
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x4000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000208B6A53868 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000002450CF46D08 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x4000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -20,207 +23,6 @@
 [LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
 [LOG] Manager::readBank                        : fileversion = 142, compatVersion = 140 (oldest = 44, newest = 142)
-[LOG] SystemI::mixerSuspend                    : Suspending output.
-[LOG] SystemI::mixerResume                     : Resuming output.
-[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000207C9FE3F18, queue head = 0000020815100308, queue count = 0
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000207C9FE3F18
-[LOG] AsyncThread::add                         : add sound to async queue : soundi = 00000207C9FE20B8, queue head = 0000020815100308, queue count = 0
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000207C9FE3F18
-[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 00000207C9FE20B8
-[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 00000207C9FE20B8
-[LOG] SoundI::release                          : Simulador Podemita-Soprano_2 (00000207C9FE0FD8)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano_2 (0000020884D2C488)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano_2 (00000207CA192608)
-[LOG] SoundI::release                          : Simulador Podemita-Bajo_acústico (00000207C9FE00A8)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo_acústico (0000020884D29568)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo_acústico (00000207CA1936E8)
-[LOG] SoundI::release                          : Simulador Podemita-Glockenspiel (00000207C9FDFEF8)
-[LOG] SoundI::release                          :     Simulador Podemita-Glockenspiel (0000020884D2AA88)
-[LOG] SoundI::release                          :     Simulador Podemita-Glockenspiel (00000207CA191888)
-[LOG] SoundI::release                          : Simulador Podemita-Oboe (00000207C9FE1338)
-[LOG] SoundI::release                          :     Simulador Podemita-Oboe (0000020884D2B5E8)
-[LOG] SoundI::release                          :     Simulador Podemita-Oboe (00000207CA191D98)
-[LOG] SoundI::release                          : Simulador Podemita-Cuica (00000207C9FDDB88)
-[LOG] SoundI::release                          :     Simulador Podemita-Cuica (0000020884D2AC28)
-[LOG] SoundI::release                          :     Simulador Podemita-Cuica (00000207CA1920F8)
-[LOG] SoundI::release                          : Simulador Podemita-Caja_clara (00000207C9FE2FE8)
-[LOG] SoundI::release                          :     Simulador Podemita-Caja_clara (0000020884D27EA8)
-[LOG] SoundI::release                          :     Simulador Podemita-Caja_clara (00000207CA191BE8)
-[LOG] SoundI::release                          : Simulador Podemita-Violines (00000207C9FDEFC8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines (0000020884D2BE08)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines (00000207CA191018)
-[LOG] SoundI::release                          : Simulador Podemita-Violín (00000207C9FDE248)
-[LOG] SoundI::release                          :     Simulador Podemita-Violín (0000020884D2BAC8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violín (00000207CA190CB8)
-[LOG] SoundI::release                          : Simulador Podemita-Flauta (00000207C9FE0918)
-[LOG] SoundI::release                          :     Simulador Podemita-Flauta (0000020884D2C628)
-[LOG] SoundI::release                          :     Simulador Podemita-Flauta (00000207CA193028)
-[LOG] SoundI::release                          : Simulador Podemita-Carrillón (00000207C9FDF688)
-[LOG] SoundI::release                          :     Simulador Podemita-Carrillón (0000020884D2CCA8)
-[LOG] SoundI::release                          :     Simulador Podemita-Carrillón (00000207CA192E78)
-[LOG] SoundI::release                          : Simulador Podemita-Bombo (00000207C9E804A8)
-[LOG] SoundI::release                          :     Simulador Podemita-Bombo (0000020884D27828)
-[LOG] SoundI::release                          :     Simulador Podemita-Bombo (00000207CA192CC8)
-[LOG] SoundI::release                          : Simulador Podemita-Marimba (00000207C9E7F218)
-[LOG] SoundI::release                          :     Simulador Podemita-Marimba (0000020884CFD1F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Marimba (00000207CA18FD88)
-[LOG] SoundI::release                          : Simulador Podemita-Timbales (00000207C9E82D28)
-[LOG] SoundI::release                          :     Simulador Podemita-Timbales (0000020884CFD058)
-[LOG] SoundI::release                          :     Simulador Podemita-Timbales (00000207CA193538)
-[LOG] SoundI::release                          : Simulador Podemita-Vibráfono (00000207C9E7FDE8)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibráfono (0000020884CFCD18)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibráfono (00000207CA18FF38)
-[LOG] SoundI::release                          : Simulador Podemita-Xilófono (00000207C9E82B78)
-[LOG] SoundI::release                          :     Simulador Podemita-Xilófono (0000020884CFE238)
-[LOG] SoundI::release                          :     Simulador Podemita-Xilófono (00000207C9FE2778)
-[LOG] SoundI::release                          : Simulador Podemita-Bajo (00000207C9E82158)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo (0000020884CFCB78)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo (00000207C9FDD4C8)
-[LOG] SoundI::release                          : Simulador Podemita-Violines_2 (00000207C9E81A98)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines_2 (0000020884CFBCD8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines_2 (00000207C9FE40C8)
-[LOG] SoundI::release                          : Simulador Podemita-Alto (00000207C9E81228)
-[LOG] SoundI::release                          :     Simulador Podemita-Alto (0000020884CFB998)
-[LOG] SoundI::release                          :     Simulador Podemita-Alto (00000207C9FE3858)
-[LOG] SoundI::release                          : Simulador Podemita-Violas (00000207C9E7F3C8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violas (0000020884CFB7F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violas (00000207C9FE36A8)
-[LOG] SoundI::release                          : Simulador Podemita-Platillos (00000207C9E81C48)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillos (0000020884CFA478)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillos (00000207C9FE4788)
-[LOG] SoundI::release                          : Simulador Podemita-Tenor (00000207C9E80658)
-[LOG] SoundI::release                          :     Simulador Podemita-Tenor (0000020884CFC018)
-[LOG] SoundI::release                          :     Simulador Podemita-Tenor (00000207C9FE3D68)
-[LOG] SoundI::release                          : Simulador Podemita-Trompa_en_Fa (00000207C9E82818)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompa_en_Fa (0000020884CF80B8)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompa_en_Fa (00000207C9FE3BB8)
-[LOG] SoundI::release                          : Simulador Podemita-Vibraslap (000002081D2FDC48)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibraslap (0000020884CFAAF8)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibraslap (00000207C9FE2418)
-[LOG] SoundI::release                          : Simulador Podemita-Flautín (00000207A475C748)
-[LOG] SoundI::release                          :     Simulador Podemita-Flautín (0000020884CF7078)
-[LOG] SoundI::release                          :     Simulador Podemita-Flautín (00000207C9FDD168)
-[LOG] SoundI::release                          : Simulador Podemita-Trompeta_en_Sib (00000207A475CC58)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompeta_en_Sib (0000020884CF7BD8)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompeta_en_Sib (00000207C9FE2268)
-[LOG] SoundI::release                          : Simulador Podemita-Soprano (00000207A475C238)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano (0000020884CF90F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano (00000207C9FDEE18)
-[LOG] SoundI::release                          : Simulador Podemita-Clarinete_en_Sib (000002081DA4E668)
-[LOG] SoundI::release                          :     Simulador Podemita-Clarinete_en_Sib (0000020884CFA618)
-[LOG] SoundI::release                          :     Simulador Podemita-Clarinete_en_Sib (00000207C9FDCC58)
-[LOG] SoundI::release                          : Simulador Podemita-Platillo_crash (000002081E072818)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillo_crash (0000020884CFB658)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillo_crash (00000207C9FE05B8)
-[LOG] SoundI::release                          : Simulador Podemita-Corneta_en_Sib (000002081E0718E8)
-[LOG] SoundI::release                          :     Simulador Podemita-Corneta_en_Sib (0000020884CF6ED8)
-[LOG] SoundI::release                          :     Simulador Podemita-Corneta_en_Sib (00000207C9FE0408)
-[LOG] SoundI::release                          : Simulador Podemita-Contrabajos (00000207A475D318)
-[LOG] SoundI::release                          :     Simulador Podemita-Contrabajos (0000020884CFA138)
-[LOG] SoundI::release                          :     Simulador Podemita-Contrabajos (00000207C9FE20B8)
-[LOG] SoundI::release                          : Simulador Podemita-Bombo (00000207C9FE1698)
-[LOG] SoundI::release                          :     Simulador Podemita-Bombo (0000020884D28BA8)
-[LOG] SoundI::release                          :     Simulador Podemita-Bombo (00000207CA190448)
-[LOG] SoundI::release                          : Simulador Podemita-Flauta (00000207C9FDCAA8)
-[LOG] SoundI::release                          :     Simulador Podemita-Flauta (0000020884D28A08)
-[LOG] SoundI::release                          :     Simulador Podemita-Flauta (00000207CA1900E8)
-[LOG] SoundI::release                          : Simulador Podemita-Violonchelos (00000207C9FE34F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violonchelos (0000020884D2D9A8)
-[LOG] SoundI::release                          :     Simulador Podemita-Violonchelos (00000207CA193898)
-[LOG] SoundI::release                          : Simulador Podemita-Cuica (00000207C9FE1D58)
-[LOG] SoundI::release                          :     Simulador Podemita-Cuica (0000020884D2B2A8)
-[LOG] SoundI::release                          :     Simulador Podemita-Cuica (00000207CA191528)
-[LOG] SoundI::release                          : Simulador Podemita-Vibráfono (00000207C9FE0C78)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibráfono (0000020884D28868)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibráfono (00000207CA1911C8)
-[LOG] SoundI::release                          : Simulador Podemita-Trompeta_en_Sib (00000207C9FDF178)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompeta_en_Sib (0000020884D2B788)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompeta_en_Sib (00000207CA1931D8)
-[LOG] SoundI::release                          : Simulador Podemita-Trompa_en_Fa (00000207C9FE19F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompa_en_Fa (0000020884D298A8)
-[LOG] SoundI::release                          :     Simulador Podemita-Trompa_en_Fa (00000207CA191A38)
-[LOG] SoundI::release                          : Simulador Podemita-Vibraslap (00000207C9FDFB98)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibraslap (0000020884D2A408)
-[LOG] SoundI::release                          :     Simulador Podemita-Vibraslap (00000207CA1922A8)
-[LOG] SoundI::release                          : Simulador Podemita-Oboe (00000207C9FE0AC8)
-[LOG] SoundI::release                          :     Simulador Podemita-Oboe (0000020884D28528)
-[LOG] SoundI::release                          :     Simulador Podemita-Oboe (00000207CA193A48)
-[LOG] SoundI::release                          : Simulador Podemita-Bajo (00000207C9FDEC68)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo (0000020884D2AF68)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo (00000207CA190298)
-[LOG] SoundI::release                          : Simulador Podemita-Timbales (00000207C9FE1848)
-[LOG] SoundI::release                          :     Simulador Podemita-Timbales (0000020884D2BC68)
-[LOG] SoundI::release                          :     Simulador Podemita-Timbales (00000207CA190958)
-[LOG] SoundI::release                          : Simulador Podemita-Tenor (00000207C9E7FA88)
-[LOG] SoundI::release                          :     Simulador Podemita-Tenor (0000020884CFD878)
-[LOG] SoundI::release                          :     Simulador Podemita-Tenor (00000207CA192458)
-[LOG] SoundI::release                          : Simulador Podemita-Xilófono (00000207C9E7F578)
-[LOG] SoundI::release                          :     Simulador Podemita-Xilófono (0000020884CFDD58)
-[LOG] SoundI::release                          :     Simulador Podemita-Xilófono (00000207CA191F48)
-[LOG] SoundI::release                          : Simulador Podemita-Violas (00000207C9E81738)
-[LOG] SoundI::release                          :     Simulador Podemita-Violas (0000020884CFDA18)
-[LOG] SoundI::release                          :     Simulador Podemita-Violas (00000207CA193388)
-[LOG] SoundI::release                          : Simulador Podemita-Corneta_en_Sib (00000207C9E80D18)
-[LOG] SoundI::release                          :     Simulador Podemita-Corneta_en_Sib (0000020884CFC838)
-[LOG] SoundI::release                          :     Simulador Podemita-Corneta_en_Sib (00000207C9FE25C8)
-[LOG] SoundI::release                          : Simulador Podemita-Platillo_crash (00000207C9E80B68)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillo_crash (0000020884CFC1B8)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillo_crash (00000207C9FE3A08)
-[LOG] SoundI::release                          : Simulador Podemita-Violines_2 (00000207C9E80808)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines_2 (0000020884CF6518)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines_2 (00000207C9FE45D8)
-[LOG] SoundI::release                          : Simulador Podemita-Contrabajos (00000207C9E81588)
-[LOG] SoundI::release                          :     Simulador Podemita-Contrabajos (0000020884CF9C58)
-[LOG] SoundI::release                          :     Simulador Podemita-Contrabajos (00000207C9FE3F18)
-[LOG] SoundI::release                          : Simulador Podemita-Caja_clara (00000208AA03FF48)
-[LOG] SoundI::release                          :     Simulador Podemita-Caja_clara (0000020884CF7558)
-[LOG] SoundI::release                          :     Simulador Podemita-Caja_clara (00000207C9FE4428)
-[LOG] SoundI::release                          : Simulador Podemita-Marimba (000002061413F4F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Marimba (0000020884CF7D78)
-[LOG] SoundI::release                          :     Simulador Podemita-Marimba (00000207C9FE4278)
-[LOG] SoundI::release                          : Simulador Podemita-Alto (0000020884E50928)
-[LOG] SoundI::release                          :     Simulador Podemita-Alto (0000020884CF73B8)
-[LOG] SoundI::release                          :     Simulador Podemita-Alto (00000207C9FDD318)
-[LOG] SoundI::release                          : Simulador Podemita-Flautín (000002081D2FF3E8)
-[LOG] SoundI::release                          :     Simulador Podemita-Flautín (0000020884CF9AB8)
-[LOG] SoundI::release                          :     Simulador Podemita-Flautín (00000207C9FE2E38)
-[LOG] SoundI::release                          : Simulador Podemita-Violín (000002081D2FEB78)
-[LOG] SoundI::release                          :     Simulador Podemita-Violín (0000020884CF9778)
-[LOG] SoundI::release                          :     Simulador Podemita-Violín (00000207C9FDCFB8)
-[LOG] SoundI::release                          : Simulador Podemita-Violines (000002081DA4B578)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines (0000020884CF9438)
-[LOG] SoundI::release                          :     Simulador Podemita-Violines (00000207C9FDCE08)
-[LOG] SoundI::release                          : Simulador Podemita-Carrillón (000002081DA4D3D8)
-[LOG] SoundI::release                          :     Simulador Podemita-Carrillón (0000020884CF83F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Carrillón (00000207C9FE2C88)
-[LOG] SoundI::release                          : Simulador Podemita-Clarinete_en_Sib (00000207D7A822F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Clarinete_en_Sib (0000020884CFAFD8)
-[LOG] SoundI::release                          :     Simulador Podemita-Clarinete_en_Sib (00000207C9FE3198)
-[LOG] SoundI::release                          : Simulador Podemita-Soprano_2 (00000207D7A82148)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano_2 (0000020884CF66B8)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano_2 (00000207C9FDEAB8)
-[LOG] SoundI::release                          : Simulador Podemita-Bajo_acústico (00000207D7A81DE8)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo_acústico (0000020884CFC4F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Bajo_acústico (00000207C9FDE5A8)
-[LOG] SoundI::release                          : Simulador Podemita-Platillos (00000207D7A82658)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillos (0000020884CF7218)
-[LOG] SoundI::release                          :     Simulador Podemita-Platillos (00000207C9FDE908)
-[LOG] SoundI::release                          : Simulador Podemita-Glockenspiel (000002081E072B78)
-[LOG] SoundI::release                          :     Simulador Podemita-Glockenspiel (0000020884CF69F8)
-[LOG] SoundI::release                          :     Simulador Podemita-Glockenspiel (00000207C9FE1F08)
-[LOG] SoundI::release                          : Simulador Podemita-Soprano (000002081E06F068)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano (00000207D85DB918)
-[LOG] SoundI::release                          :     Simulador Podemita-Soprano (00000207C9FE2AD8)
-[LOG] Thread::callback                         : FMOD Studio update thread finished.
-[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
-[LOG] LiveUpdate::release                      : 
-[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
-[LOG] Thread::callback                         : FMOD stream thread finished.
-[LOG] Thread::callback                         : FMOD mixer thread finished.
-[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] SystemI::close                           : Closed.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
@@ -228,5 +30,3 @@
 [LOG] Thread::callback                         : FMOD stream thread finished.
 [LOG] Thread::callback                         : FMOD mixer thread finished.
 [LOG] SystemI::close                           : Closed.
-[LOG] Thread::callback                         : FMOD nonblocking thread (0) finished.
-[LOG] Thread::callback                         : FMOD file thread finished.
