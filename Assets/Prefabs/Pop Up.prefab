@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 8852956257246689335}
   - component: {fileID: 1605536808171906687}
   - component: {fileID: 4114016160879693477}
+  - component: {fileID: 8295365179498238091}
   m_Layer: 5
   m_Name: Pop Up
   m_TagString: Untagged
@@ -146,6 +147,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8ccf5b6c816c11144a272392aec8ba52, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &8295365179498238091
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6491244050187393347}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: a1d325c756841ab42b85ea84b312e9e4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &7964103913904124087
 GameObject:
   m_ObjectHideFlags: 0
