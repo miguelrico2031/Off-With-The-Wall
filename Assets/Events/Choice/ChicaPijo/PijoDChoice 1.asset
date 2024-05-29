@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: PijoDChoice 1
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 9
+    Text: "I asked him out but he rejected me because I\u2019m a \u201Ccommunist\u201D.
+      I got so desperate, I told him I\u2019d leave the group for him. To be honest,
+      I wasn\u2019t being serious, but some of our mates overheard it and they left
+      too. It seems they were there just to hit on me\u2026\r\n"
+  - Speaker: 21
+    Text: "That\u2019s messed up. Guess you found out who was real.\r\n"

@@ -15,14 +15,14 @@ MonoBehaviour:
   <BuildingType>k__BackingField: 0
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 9118a3a0548fe7445a75c45c4a52a4b1, type: 2}
   <ChoiceTextA>k__BackingField: "Okay, let\u2019s get to it"
-  <ChoiceTextB>k__BackingField: "I don\u2019t think setting up some organization
-    would have any effect\u2026"
+  <ChoiceTextB>k__BackingField: "I don\u2019t think that would have any effect\u2026"
   <EndDialogueA>k__BackingField: {fileID: 11400000, guid: 8245a0e604465374eb67be24766abf61, type: 2}
   <EndDialogueB>k__BackingField: {fileID: 11400000, guid: 2c0611383a2c6a54d86afa71e3dcab75, type: 2}
   <OutcomesA>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 84772bb3c379c9843aef46f81b8a4f61, type: 2}
@@ -31,6 +31,7 @@ MonoBehaviour:
     _peopleDecreases:
     - People: 15
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 84772bb3c379c9843aef46f81b8a4f61, type: 2}

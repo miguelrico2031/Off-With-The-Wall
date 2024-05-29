@@ -1,0 +1,40 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
+  m_Name: PijoDStart
+  m_EditorClassIdentifier: 
+  _phrases:
+  - Speaker: 15
+    Text: "Yo, what\u2019s up with you lately? I see you getting way too close to
+      the rich kid. You even smiled at him the other day. Smiling! At a rich kid!
+      You know you\u2019re supposed to spit on them, right?\r\n"
+  - Speaker: 9
+    Text: Chill, it's not that deep. I just greeted him 'cause we crossed paths.
+  - Speaker: 15
+    Text: "Are you sure there\u2019s nothing else going on? You\u2019re acting weird.\r\n"
+  - Speaker: 9
+    Text: "Okay, okay. Don\u2019t freak out, but I think I might kinda like him.
+      Just a bit.\r\n"
+  - Speaker: 15
+    Text: " What?! You\u2019re crushing on the rich kid? The son of those corporate
+      moguls? I heard he doesn\u2019t even know how to tie his own shoes.\r\n"
+  - Speaker: 9
+    Text: "Don\u2019t believe everything you hear. He\u2019s not like his parents.
+      He seems... nice.\r\n"
+  - Speaker: 9
+    Text: ' Nice? Come on, you know what you should do? Spit in his face for being
+      such a privileged prick.
+
+'
+  - Speaker: 15
+    Text: " I don\u2019t know\u2026 Maybe I should talk to him and tell him how I
+      feel?\r\n"
