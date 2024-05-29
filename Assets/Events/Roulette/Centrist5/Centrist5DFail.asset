@@ -12,4 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Centrist5DFail
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 6
+    Text: 'Sir, get down! YOU Put your hands up in the air!
+
+'
+  - Speaker: 13
+    Text: "*Violent Attempt on Counselor\u2019s life* An attempt on the life of the
+      new counselor for the municipal government was made yesterday during his speech
+      at the square. In the ensuing brawl the attacker was able to escape.\r\n"

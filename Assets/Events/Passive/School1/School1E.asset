@@ -17,8 +17,10 @@ MonoBehaviour:
   <Outcomes>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
-    - People: 5
+    - People: 15
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: ca86e496660a7914a8f61966086ca2bc, type: 2}

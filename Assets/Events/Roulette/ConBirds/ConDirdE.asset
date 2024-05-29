@@ -14,39 +14,53 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 18f9f17e81d57e447aa883da84102d08, type: 2}
-  <ChoiceTextAccept>k__BackingField: 
-  <ChoiceTextRefuse>k__BackingField: 
-  <EndDialogueRefuse>k__BackingField: {fileID: 0}
-  <EndDialogueLose>k__BackingField: {fileID: 0}
-  <EndDialogueWin>k__BackingField: {fileID: 0}
-  <EndDialogueCrit>k__BackingField: {fileID: 0}
+  <ChoiceTextAccept>k__BackingField: Let's get those "birds"
+  <ChoiceTextRefuse>k__BackingField: Refuse
+  <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: 369823832de921f40adee43c0973ce63, type: 2}
+  <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: aa524ce244f1b7d4a91c96f3b18fe742, type: 2}
+  <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: b0f40dd1b83d30241b079d5d9e452a44, type: 2}
+  <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: 5c4b19ab6d5ef2d4da0441db641adf83, type: 2}
   <OutcomesRefuse>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesLose>k__BackingField:
     _peopleIncreases: []
-    _peopleDecreases: []
+    _peopleDecreases:
+    - People: 30
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesWin>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
-    _rewardMultipliers: []
+    _rewardMultipliers:
+    - Multiplier: 2
+      MultiplierName: 
+      IsPermanent: 0
+      Duration: 0
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesCrit>k__BackingField:
-    _peopleIncreases: []
+    _peopleIncreases:
+    - People: 20
     _peopleDecreases: []
-    _rewardMultipliers: []
+    _rewardMultipliers:
+    - Multiplier: 2
+      MultiplierName: 
+      IsPermanent: 0
+      Duration: 0
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
-  <CritChance>k__BackingField: 0
-  <SucessChance>k__BackingField: 0
+  <CritChance>k__BackingField: 0.121
+  <SucessChance>k__BackingField: 0.304

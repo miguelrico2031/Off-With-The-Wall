@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Police3DWin
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 17
+    Text: ' All units, all units! We have a highly dangerous protest escalating at
+      Main and 5th. Immediate backup is required! Over.
+
+'
+  - Speaker: 5
+    Text: 'Copy that, Officer. All units, respond immediately to Main and 5th. Repeat,
+      all available units to Main and 5th. Move in with extreme caution. Over.
+
+'
+  - Speaker: 13
+    Text: '*Police station wrecked by crazy communists* The interior and exterior
+      of the police station have been ravaged by a group of NOMBRECOSA terrorists.
+      They hatched a plan to distract most of the officers, using an undercover cop
+      they managed to brainwash into betraying their own. The police station is temporarily
+      moved to tents on the wall.
+
+'

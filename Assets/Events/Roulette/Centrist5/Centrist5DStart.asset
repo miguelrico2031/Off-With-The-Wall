@@ -12,4 +12,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Centrist5DStart
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 13
+    Text: "*From activist to councilor*. The new counselors for the municipal government
+      have been revealed. In a surprising turn of events, the leader of the organization
+      \u201CA Better Tomorrow\u201D has been elected as a counselor. We hope this
+      will mean a decrease in violent acts and radical protests.\r\nIn addition,
+      the new counselor has announced that the organization will stop doing rallies
+      and demonstrations against the government.\r\n"
+  - Speaker: 21
+    Text: "That traitor fucker, I cant believe he\u2019ll bail out and leave thye
+      moment he gets a cosy job at the government. He is giving a speech right now
+      at the square. We should go to tell him off, or beat the living shit out of
+      that piece of shit.\r\n"
+  - Speaker: 8
+    Text: ' Oh hello there, I know you may be upset but you have to understand that
+      this is the best way of getting something done. I know we have had our fair
+      share of differences in the past, but I ask you to trust me on this one.
+
+      
+
+'

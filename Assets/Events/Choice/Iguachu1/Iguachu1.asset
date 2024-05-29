@@ -21,17 +21,23 @@ MonoBehaviour:
   <OutcomesA>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
-    _rewardMultipliers: []
+    _rewardMultipliers:
+    - Multiplier: 2
+      MultiplierName: iguachu1
+      IsPermanent: 0
+      Duration: 10
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 84772bb3c379c9843aef46f81b8a4f61, type: 2}
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
-    - People: 15
+    - People: 20
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 84772bb3c379c9843aef46f81b8a4f61, type: 2}

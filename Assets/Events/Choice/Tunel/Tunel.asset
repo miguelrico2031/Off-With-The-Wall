@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Tunel
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
-  <StartDialogue>k__BackingField: {fileID: 0}
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 7679b33bfcf096144b831e60d29d8daf, type: 2}
   <ChoiceTextA>k__BackingField: "Let\u2019s go check those tunnels"
   <ChoiceTextB>k__BackingField: I doubt there is a secret tunnel
   <EndDialogueA>k__BackingField: {fileID: 11400000, guid: 7b54fc54aff941e4181c818ce300d295, type: 2}
@@ -22,11 +22,15 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []

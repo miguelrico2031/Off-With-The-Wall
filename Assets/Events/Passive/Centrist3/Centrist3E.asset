@@ -17,7 +17,13 @@ MonoBehaviour:
   <Outcomes>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
-    _rewardMultipliers: []
+    _rewardMultipliers:
+    - Multiplier: 1.01
+      MultiplierName: 
+      IsPermanent: 0
+      Duration: 0
     _popUpMultipliers: []
     _houseBurns: []
-    _eventAdds: []
+    _customText: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: be63c4042d689a04ca882f641308f9a3, type: 2}

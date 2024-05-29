@@ -11,6 +11,7 @@ public class Outcomes //clase serializable para agrupar outcomes
     [SerializeField] private RewardMultiplier[] _rewardMultipliers;
     [SerializeField] private PopUpMultiplier[] _popUpMultipliers;
     [SerializeField] private HouseBurn[] _houseBurns;
+    [SerializeField] private CustomText[] _customText;
     [SerializeField] private EventAdd[] _eventAdds;
 
 
@@ -47,7 +48,7 @@ public class RewardMultiplier : IOutcome
 {
     public string DisplayText
     {
-        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier.";
+        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. You get x{Multiplier} {(Multiplier >= 1f ? "more" : "less")} people";
     }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;
@@ -67,7 +68,10 @@ public class RewardMultiplier : IOutcome
 [Serializable]
 public class PopUpMultiplier : IOutcome
 {
-    [field: SerializeField] public string DisplayText { get; private set; }
+    public string DisplayText
+    {
+        get => $"You receive a {(IsPermanent ? "permanent" : "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. PopUps appear x{Multiplier} times {(Multiplier >= 1f ? "faster" : "slower")}";
+    }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;
     public bool IsPermanent;
@@ -93,7 +97,16 @@ public class PeopleDecrease : IOutcome
         GameManager.Instance.Get<IPeopleService>().RemovePeople(People);
     }
 }
+[Serializable]
+public class CustomText : IOutcome
+{
+    public string DisplayText { get => $"{text}"; }
+    public string text;
+    public void Execute(IBuilding building = null)
+    {
 
+    }
+}
 [Serializable]
 public class EventAdd : IOutcome
 {

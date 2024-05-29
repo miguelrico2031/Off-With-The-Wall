@@ -23,10 +23,12 @@ public class PopUp : MonoBehaviour, IPoolObject
         if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay) return;
         if (_activeBuilding.CurrentState is IBuilding.State.HasReward)
         {
+            AudioManager.Instance.PlaySound("pop");
             _activeBuilding.CollectReward();
         }
         else if(_activeBuilding.CurrentState is IBuilding.State.HasEvent)
         {
+            AudioManager.Instance.PlaySound("pop");
             _activeBuilding.StartEvent();
         }
 

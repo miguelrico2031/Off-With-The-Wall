@@ -35,6 +35,7 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public ChooseSloganEvent GameSloganEvent { get; private set; }
     [field: SerializeField] public DrawEvent GameDrawEvent { get; private set; }
 
+    [field:SerializeField] public Dialogue TutorialDialogue { get; private set; }
 
     [SerializeField] private ScriptableObject[] _initialEvents;
 
@@ -51,12 +52,14 @@ public class GameInfo : ScriptableObject
     [field:Header("Wall")]
     [field: SerializeField] public uint WallFirstPeopleThreshold { get; private set; }
     [field: SerializeField] public uint WallSecondPeopleThreshold { get; private set; }
-    
-    
-    
-    
-    
-    
+
+
+    [field: Header("Houses")]
+    [field: SerializeField] public Color[] buildingColors { get; private set; }
+
+
+
+
 
 
     private IGameEvent[] _initEvents;

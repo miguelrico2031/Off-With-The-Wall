@@ -145,6 +145,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     {
         if (_multipliers.ContainsKey(key))
         {
+            AudioManager.Instance.PlaySound("loseMulti");
             dividervalue *= _multipliers[key];
             _multipliers.Remove(key);
             GameManager.Instance.Get<IMultUIService>().RemovePopUpMult();

@@ -13,40 +13,54 @@ MonoBehaviour:
   m_Name: Police3E
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
-  <StartDialogue>k__BackingField: {fileID: 0}
-  <ChoiceTextAccept>k__BackingField: 
-  <ChoiceTextRefuse>k__BackingField: 
-  <EndDialogueRefuse>k__BackingField: {fileID: 0}
-  <EndDialogueLose>k__BackingField: {fileID: 0}
-  <EndDialogueWin>k__BackingField: {fileID: 0}
-  <EndDialogueCrit>k__BackingField: {fileID: 0}
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 05652815ace745e48aa88d014b563d20, type: 2}
+  <ChoiceTextAccept>k__BackingField: We can try.
+  <ChoiceTextRefuse>k__BackingField: I can't trust you.
+  <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: c0e9686c882b1fa4e864b4906fa2db63, type: 2}
+  <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: 5e5994b5d932dac42ae35a26a101dedd, type: 2}
+  <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: a5ec4ba2e6b561649929311076ad1040, type: 2}
+  <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: a5ec4ba2e6b561649929311076ad1040, type: 2}
   <OutcomesRefuse>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesLose>k__BackingField:
     _peopleIncreases: []
-    _peopleDecreases: []
+    _peopleDecreases:
+    - People: 30
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesWin>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
-    _rewardMultipliers: []
+    _rewardMultipliers:
+    - Multiplier: 3
+      MultiplierName: policia3
+      IsPermanent: 0
+      Duration: 15
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesCrit>k__BackingField:
-    _peopleIncreases: []
+    _peopleIncreases:
+    - People: 20
     _peopleDecreases: []
-    _rewardMultipliers: []
+    _rewardMultipliers:
+    - Multiplier: 3
+      MultiplierName: policia3
+      IsPermanent: 0
+      Duration: 20
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
-  <CritChance>k__BackingField: 0
-  <SucessChance>k__BackingField: 0
+  <CritChance>k__BackingField: 0.258
+  <SucessChance>k__BackingField: 0.405

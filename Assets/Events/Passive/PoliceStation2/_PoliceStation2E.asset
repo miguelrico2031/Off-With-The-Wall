@@ -18,5 +18,8 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
-    _eventAdds: []
+    _customText: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: f2937e978332dd84f84439c256f3141d, type: 2}

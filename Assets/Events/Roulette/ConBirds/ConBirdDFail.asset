@@ -12,4 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: ConBirdDFail
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 13
+    Text: '*A group of citizens was attacked from the sky by a flock of pigeons*.
+      The group, apparently vandals, had embarked on an unusual bird-hunting campaign
+      with an unknown objective. It is hoped that the birds have taught the would-be
+      hunters a lesson.
+
+'
+  - Speaker: 23
+    Text: "I\u2019m sorry the plan didn\u2019t go as I thought it would. It seems
+      we have several casualties... Apparently, they\u2019ve upgraded the hardware
+      on those birds, and now they\u2019re equipped with more dangerous weapons.
+      We couldn\u2019t stand a chance against them.\r\n"

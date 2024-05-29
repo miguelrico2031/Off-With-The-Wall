@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: ConBirdDRefuse
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 23
+    Text: 'Well, it''s up to you. If I were you, I''d keep the windows shut. Keep
+      an eye on the sky, kid.
+
+      
+
+'

@@ -22,16 +22,13 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers:
-    - Multiplier: 1.43
+    - Multiplier: 2
       MultiplierName: pedrito
-      IsPermanent: 0
-      Duration: 10
-    - Multiplier: 1.32
-      MultiplierName: pau
       IsPermanent: 0
       Duration: 10
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
@@ -39,4 +36,5 @@ MonoBehaviour:
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []

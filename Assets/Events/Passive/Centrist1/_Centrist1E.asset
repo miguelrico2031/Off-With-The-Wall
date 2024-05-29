@@ -21,4 +21,6 @@ MonoBehaviour:
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
-    _eventAdds: []
+    _customText: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 80994679fdbc50b4db6cb5ca78d1bc82, type: 2}

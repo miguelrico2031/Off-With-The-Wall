@@ -13,21 +13,18 @@ MonoBehaviour:
   m_Name: ConBirdDWin
   m_EditorClassIdentifier: 
   _phrases:
+  - Speaker: 13
+    Text: '*Illegal barbecue in main square*. A group of hunters has held an illegal
+      barbecue in the plaza. The smell of fried pigeon is wafting through the streets.
+      The police have been unable to arrest the cooks due to fears of contracting
+      some disease.'
   - Speaker: 23
-    Text: 'This is unbearable... I can''t take another day knowing the government
-      is spying on us so blatantly. Do they really think we''re that stupid?
+    Text: 'Everything went well! Well... the hunt went well. It turns out the drones
+      have been upgraded for increased realism and now even have flesh and blood!
+      It''s impressive how robotics are advancing these days... Anyway, we had a
+      delicious barbecue with the drones we managed to catch, and the smell of the
+      roast attracted some citizens who are now interested in the cause!
 
-'
-  - Speaker: 23
-    Text: 'What do I mean? Do you seriously believe those drones with plastic feathers
-      are pigeons, sparrows, or crows? Come on... the ignorance of people is just
-      incredible.
-
-'
-  - Speaker: 23
-    Text: 'Forgive me, but if you truly want to rebel against the system, you''re
-      going to have to do something about this situation. You need to get rid of
-      them. I propose we start a campaign to take down those watching our neighborhood
-      so we can operate more freely.
+      
 
 '

@@ -59,18 +59,24 @@ public class Building : MonoBehaviour, IBuilding
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay || !CanClick) return;
+        if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay) return;
+        if (!CanClick)
+        {
+            AudioManager.Instance.PlayClick2();
+            return;
+        }
         if (_buildingClick.Click())
         {
+            AudioManager.Instance.PlayClick1();
             _buildingService.RegisterBuildingClick(this); //para q no se pueda clickar 2 veces el mismo edificio
-            _peopleService.AddPeople(1);
+            GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(_peopleService.AddPeople(1));
         }
     }
     
     public void CollectReward()
     {
         //llamar al manager que corresponda para sumar la reward
-        _peopleService.AddPeople(_currentReward);
+        GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(_peopleService.AddPeople(_currentReward));
         _currentReward = 0;
         CurrentState = IBuilding.State.Idle;   
         _popUpService.HidePopUp(this);
@@ -97,5 +103,29 @@ public class Building : MonoBehaviour, IBuilding
             _currentEvent = null;
         }
         CurrentState = IBuilding.State.Burned;
+    }
+
+    public void setColor(int type)
+    {
+        foreach(SpriteRenderer spr in GetComponentsInChildren<SpriteRenderer>())
+        {
+            spr.color = GameManager.Instance.GameInfo.buildingColors[type];
+        }
+
+    }
+    public void OnPointerEnter(PointerEventData eventData)
+    {
+        if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick)
+        {
+            setColor(1);
+        }
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick)
+        {
+            setColor(0);
+        }
     }
 }

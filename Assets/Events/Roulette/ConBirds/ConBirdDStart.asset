@@ -13,7 +13,18 @@ MonoBehaviour:
   m_Name: ConBirdDStart
   m_EditorClassIdentifier: 
   _phrases:
-  - Speaker: 0
+  - Speaker: 23
+    Text: 'This is unbearable... I can''t take another day knowing the government
+      is spying on us so blatantly. Do they really think we''re that stupid?
+
+'
+  - Speaker: 23
+    Text: 'What do I mean? Do you seriously believe those drones with plastic feathers
+      are pigeons, sparrows, or crows? Come on... the ignorance of people is just
+      incredible.
+
+'
+  - Speaker: 23
     Text: 'Forgive me, but if you truly want to rebel against the system, you''re
       going to have to do something about this situation. You need to get rid of
       them. I propose we start a campaign to take down those watching our neighborhood

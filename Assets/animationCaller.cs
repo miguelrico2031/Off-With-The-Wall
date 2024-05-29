@@ -10,6 +10,11 @@ public class animationCaller : MonoBehaviour
 
         GameManager.Instance.Get<IDialogueService>().TypePhraseAnim();
     }
+
+    public void scoreIncreaseEnd()
+    {
+        GameManager.Instance.Get<IScoreIncreaseUIService>().endIncrease(GetComponentInParent<ScoreIncrease>());
+    }
     // Start is called before the first frame update
     void Start()
     {

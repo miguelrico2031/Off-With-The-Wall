@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public interface IBuilding : IPointerClickHandler//, IPointerEnterHandler, IPointerExitHandler 
+public interface IBuilding : IPointerClickHandler, IPointerEnterHandler, IPointerExitHandler 
 {
     public enum State
     {

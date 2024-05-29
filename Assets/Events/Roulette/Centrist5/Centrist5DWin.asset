@@ -12,4 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Centrist5DWin
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 13
+    Text: 'NEWSPAPER: *Violent Attack at Counselor Speech*  A massive riot was started
+      in the square after the new counselor for the municipal government was assaulted
+      by a member of the radical group NOMBRE.The police were able to contain the
+      attacks of the rioters.
+
+'

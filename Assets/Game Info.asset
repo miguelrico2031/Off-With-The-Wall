@@ -32,6 +32,7 @@ MonoBehaviour:
   <GameStartEvent>k__BackingField: {fileID: 11400000, guid: 7ac8dd92711eb5e49940f3262b69ea24, type: 2}
   <GameSloganEvent>k__BackingField: {fileID: 11400000, guid: 1034b265698683247bd6eb4774474336, type: 2}
   <GameDrawEvent>k__BackingField: {fileID: 11400000, guid: 06d99ff0d90f04e488fad73786dea545, type: 2}
+  <TutorialDialogue>k__BackingField: {fileID: 11400000, guid: 2b37474a5d466c141aa409b8482b4a7c, type: 2}
   _initialEvents:
   - {fileID: 11400000, guid: e2d061ac13de1d946876a7a52e540589, type: 2}
   - {fileID: 11400000, guid: 757bd1ef9c3ac4440b21ac2df674a55a, type: 2}
@@ -39,7 +40,13 @@ MonoBehaviour:
   - {fileID: 11400000, guid: ee05660a5103f1a42b686764a556d809, type: 2}
   - {fileID: 11400000, guid: 3d0906c1e409a274985c980192f79f57, type: 2}
   - {fileID: 11400000, guid: 8ac3d058511d4904b931e4f4363606e1, type: 2}
-  <RouletteSpinSpeed>k__BackingField: 260
+  - {fileID: 11400000, guid: 264edeb76f8a94b4dbca4a2519e25c1f, type: 2}
+  - {fileID: 11400000, guid: 2282711a9c7fb454a95d305917a7d228, type: 2}
+  <RouletteSpinSpeed>k__BackingField: 800
   <RouletteHideDelay>k__BackingField: 1.5
   <WallFirstPeopleThreshold>k__BackingField: 500
   <WallSecondPeopleThreshold>k__BackingField: 1000
+  <buildingColors>k__BackingField:
+  - {r: 1, g: 1, b: 1, a: 1}
+  - {r: 0.754717, g: 0.754717, b: 0.754717, a: 1}
+  - {r: 0.33962262, g: 0.33962262, b: 0.33962262, a: 1}

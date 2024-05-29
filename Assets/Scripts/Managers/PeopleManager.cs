@@ -21,8 +21,9 @@ public class PeopleManager : IPeopleService
     public uint AddPeople(uint people)
     {
         uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current + (m-1)));
-        Debug.Log(total);
         People += people * total;
+        AudioManager.Instance.AddPeople(people* total);
+
         OnPeopleChanged.Invoke(People);
         return people * total;
     }
@@ -63,7 +64,7 @@ public class PeopleManager : IPeopleService
     {
         if (_multipliers.Remove(key))
         {
-
+            AudioManager.Instance.PlaySound("loseMulti");
             GameManager.Instance.Get<IMultUIService>().RemovePeopleMult();
             return true;
         }

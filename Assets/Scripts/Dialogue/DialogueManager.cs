@@ -23,8 +23,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     private float _typeDelay;
     private Dialogue _currentDialogue;
     private int _phraseIndex = -1;
-    private int currentPhraseCount;
-    private bool _phraseFinished, _skip, _hideOnFinish = true, _isInfo;
+   // private int currentPhraseCount;
+    private bool _phraseFinished, _skip, _hideOnFinish = true, _isInfo,onAnimation;
     private TextMeshProUGUI _continueButtonText;
     private Sprite _currentCover = null;
 
@@ -103,7 +103,18 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     public void SkipOrContinue()
     {
+        print("try");
         if (_phraseIndex == -1 && !_isInfo) return;
+        if (onAnimation)
+        {
+            print("do");
+
+            onAnimation = false;
+            _textAnimator.Play("New State", 0);
+            _portraitAnimator.Play("New State", 0);
+            StartCoroutine(writeLetters());
+
+        }
         if (!_phraseFinished) _skip = true;
         else DisplayNextPhrase();
     }
@@ -128,13 +139,13 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _dialoguePanel.SetActive(true);
         var sd = _dialogueInfo.GetSpeakerData(phrase.Speaker);
         _phraseFinished = false;
-        _continueButtonText.text = "Skip";  
+        _continueButtonText.text = "Skip";
         // _dialogueText.text = $"{sd.Name}:\n";
         _dialogueText.text = "";
         _speakerImg.sprite = sd.Sprite;
         _dialogueText.text = phrase.Text;
         _dialogueText.maxVisibleCharacters = 0;
-        currentPhraseCount = phrase.Text.Length;
+       // currentPhraseCount = phrase.Text.Length;
         if (!isFirst)
         {
             StartCoroutine(writeLetters());
@@ -142,18 +153,32 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         else
         {
             print("playanim");
-            _textAnimator.Play("UIdialog", 0);
-            _portraitAnimator.Play("UIface", 0);
+            onAnimation = true;
+            float time = _speakerImg.enabled ? 0 : 0.5f;
+                _textAnimator.Play("UIdialog", 0,time);
+                _portraitAnimator.Play("UIface",0, time);
+            
         }
 
 
     }
     IEnumerator writeLetters()
     {
-        for (int i=0;i< currentPhraseCount;i++)
+
+        for (int i = 0; i < _dialogueText.textInfo.characterCount; i++)
         {
+            if (i % 5 == 0) AudioManager.Instance.PlayTalkSound();
+
             _dialogueText.maxVisibleCharacters++;
-            if (!_skip) yield return new WaitForSeconds(_typeDelay);
+            if (!_skip)
+            {
+                yield return new WaitForSeconds(_typeDelay);
+            }
+            else
+            {
+                _dialogueText.maxVisibleCharacters = _dialogueText.textInfo.characterCount;
+                break;
+            }
         }
 
         _skip = false;
@@ -184,7 +209,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     }
     public void TypePhraseAnim()
     {
-        print("hada");
+        onAnimation = false;
         StartCoroutine(writeLetters());
     }
 

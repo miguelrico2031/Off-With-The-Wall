@@ -12,4 +12,22 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: ConBirdDCrit
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 13
+    Text: '*Bird attack in police station*.  A flock of rabid pigeons attack local
+      police officers. It is suspected that the birds were bribed with bread crumbs
+      and cookies by some conspiracy theorist  mob. Our city heroes are now being
+      treated and recovering from the attack.
+
+'
+  - Speaker: 23
+    Text: "Have you read the latest news? We made it! The plan didn't go as expected,
+      but we surely helped the cause. We managed to talk with the \u201Cbirds\u201D
+      and bribed them with some leftover bread. They seemed pretty satisfied and
+      have joined the cause! They complained about how the government only treated
+      them as drones and didn\u2019t put much attention to their happiness."
+  - Speaker: 23
+    Text: "If you ask me, I was a little bit frightened when I saw the level of self
+      awareness these robot birds have acquired in the last few years\u2026 But they
+      are on our side now!... I hope. At least as long as we have enough bread for
+      them.\r\n\r\n"

@@ -46,7 +46,8 @@ public class GameManager : MonoBehaviour
         Get<IStartLoseUIService>().SetStartScreen(true);
         Get<IStartLoseUIService>().SetLoseScreen(false);
         CurrentGameState = GameState.OnPause;
-
+        AudioManager.Instance.StartGameplayMusic("Level");
+        AudioManager.Instance.PlayAmbience();
     }
 
     private IEnumerator StartGame()

@@ -12,4 +12,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Police3DFail
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 17
+    Text: 'All units, all units! We have a highly dangerous protest escalating at
+      Main and 5th. Immediate backup is required! Over.
+
+'
+  - Speaker: 5
+    Text: ' Hahahahahahahaha! Did you really think we were going to fall for that?
+      All units to the station! Over!
+
+'
+  - Speaker: 13
+    Text: '*Attempted assault on the police station foiled* Once again the police
+      triumphed against the NOMBRECOSA coup plotters, who tried to storm the police
+      station armed with crowbars and bats. According to sources close to the police,
+      the terrorist communist organization had an infiltrator inside the police,
+      who was going to help them distract most of the agents, but the operation went
+      wrong due to the lack of credibility of the infiltrator.
+
+'

@@ -12,4 +12,27 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Police3DStart
   m_EditorClassIdentifier: 
-  _phrases: []
+  _phrases:
+  - Speaker: 13
+    Text: "Hey, I don't know if you remember me. I'm the cop who wants to screw every
+      cop in this town. I've come up with a plan, somewhat risky but very rewarding.
+      I've been assigned as a patrolman, to alert of manifestations and congregations
+      of \u201Csuspicious\u201D people in public spaces. How about I make a false
+      alarm, alerting of a very dangerous protest, and ask for support from all available
+      units. That would leave the police station practically empty, and a mob of
+      NOMBRECOSA people could enter and destroy it.\r\n"
+  - Speaker: 12
+    Text: "Sorry to intrude, but I couldn't help but overhear this guy's plan, and
+      as tempting as it sounds, we don't know him at all, and it could be a police
+      trap to weaken us. Besides, wouldn't it be too risky for you, Mr. \u201Cgood
+      cop\u201D? They will kill you when they find out you betrayed them.\r\n"
+  - Speaker: 17
+    Text: 'I have it in mind. My plan is to escape, and finally get the hell out
+      of this rotten city. I''ve been wanting to do it for a long time, but I want
+      to do a good deed for once, before I leave.
+
+'
+  - Speaker: 17
+    Text: 'I wouldn''t do it, I don''t trust him. You have the last word, tho...
+
+'

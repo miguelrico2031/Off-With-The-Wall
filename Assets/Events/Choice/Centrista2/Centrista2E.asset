@@ -25,12 +25,19 @@ MonoBehaviour:
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []
-    _eventAdds: []
+    _customText: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 6c15db888105a1d47b4cf57622f22dc5, type: 2}
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
-    _peopleDecreases:
-    - People: 30
+    _peopleDecreases: []
     _rewardMultipliers: []
-    _popUpMultipliers: []
+    _popUpMultipliers:
+    - Multiplier: 0.5
+      MultiplierName: 
+      IsPermanent: 0
+      Duration: 20
     _houseBurns: []
-    _eventAdds: []
+    _customText: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: 856df9258de21564d83900a971d10744, type: 2}
