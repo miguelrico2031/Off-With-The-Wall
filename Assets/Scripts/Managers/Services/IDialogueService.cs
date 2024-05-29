@@ -8,4 +8,6 @@ public interface IDialogueService :IService
     public void SendInfoText(string text, Action nextAction);
     public void SkipOrContinue();
     public void Hide();
+
+    public void TypePhraseAnim();
 }

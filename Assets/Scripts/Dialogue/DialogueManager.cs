@@ -23,11 +23,16 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     private float _typeDelay;
     private Dialogue _currentDialogue;
     private int _phraseIndex = -1;
+    private int currentPhraseCount;
     private bool _phraseFinished, _skip, _hideOnFinish = true, _isInfo;
     private TextMeshProUGUI _continueButtonText;
     private Sprite _currentCover = null;
 
     private Action _finishDialogueAction;
+
+    [SerializeField] private Animator _textAnimator;
+    [SerializeField] private Animator _portraitAnimator;
+
 
     private void Awake()
     {
@@ -45,8 +50,11 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _hideOnFinish = hideOnFinish;
         _continueButton.gameObject.SetActive(true);
         _finishDialogueAction = nextAction;
-        _canvasGroup.alpha = 1;
-        _canvasGroup.blocksRaycasts = true;
+        //_canvasGroup.alpha = 1;
+        //_canvasGroup.blocksRaycasts = true;
+        print("hola");
+        
+
         DisplayNextPhrase();
     }
 
@@ -56,10 +64,11 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _hideOnFinish = true;
         _continueButton.gameObject.SetActive(true);
         _finishDialogueAction = nextAction;
-        _canvasGroup.alpha = 1;
-        _canvasGroup.blocksRaycasts = true;
+        //_canvasGroup.alpha = 1;
+        //_canvasGroup.blocksRaycasts = true;
         _speakerImg.enabled = false;
         var p = new Dialogue.Phrase { Speaker = DialogueInfo.Speaker.Info, Text = text };
+
         StartCoroutine(TypePhrase(p));
     }
 
@@ -89,7 +98,6 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             _finishDialogueAction();
             return;
         }
-
         StartCoroutine(TypePhrase(_currentDialogue.Phrases[_phraseIndex]));
     }
 
@@ -103,15 +111,19 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     private IEnumerator TypePhrase(Dialogue.Phrase phrase)
     {
+        bool isFirst = (_canvasGroup.alpha == 0 || !_dialogueText.IsActive());
+        _canvasGroup.alpha = 1;
+        _canvasGroup.blocksRaycasts = true;
         phrase = _dialogueInfo.ProcessPhrase(phrase);
-        _speakerImg.enabled = true;
-        _speakerframe.enabled = true;
         if (phrase.Speaker is DialogueInfo.Speaker.Newspaper)
         {
             StartCoroutine(DisplayNewspaper(phrase));
             yield break;
         }
-        
+
+
+        _speakerImg.enabled = _speakerframe.enabled = !(phrase.Speaker is DialogueInfo.Speaker.Info);
+
         _newspaper.SetActive(false);
         _dialoguePanel.SetActive(true);
         var sd = _dialogueInfo.GetSpeakerData(phrase.Speaker);
@@ -122,9 +134,24 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _speakerImg.sprite = sd.Sprite;
         _dialogueText.text = phrase.Text;
         _dialogueText.maxVisibleCharacters = 0;
-        foreach (var c in phrase.Text)
+        currentPhraseCount = phrase.Text.Length;
+        if (!isFirst)
         {
-            //_dialogueText.text += c;
+            StartCoroutine(writeLetters());
+        }
+        else
+        {
+            print("playanim");
+            _textAnimator.Play("UIdialog", 0);
+            _portraitAnimator.Play("UIface", 0);
+        }
+
+
+    }
+    IEnumerator writeLetters()
+    {
+        for (int i=0;i< currentPhraseCount;i++)
+        {
             _dialogueText.maxVisibleCharacters++;
             if (!_skip) yield return new WaitForSeconds(_typeDelay);
         }
@@ -132,9 +159,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _skip = false;
         _phraseFinished = true;
         _continueButtonText.text = "Continue";
-
     }
-
     private IEnumerator DisplayNewspaper(Dialogue.Phrase phrase)
     {
         _phraseFinished = true;
@@ -157,4 +182,10 @@ public class DialogueManager : MonoBehaviour, IDialogueService
         _skip = false;
 
     }
+    public void TypePhraseAnim()
+    {
+        print("hada");
+        StartCoroutine(writeLetters());
+    }
+
 }

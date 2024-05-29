@@ -2610,6 +2610,7 @@ MonoBehaviour:
   _dialogueInfo: {fileID: 11400000, guid: 8877a1b1a6034e547a06b877f1acafe9, type: 2}
   _dialogueText: {fileID: 7415273550949032987}
   _newspaperText: {fileID: 5601866803299295847}
+  _speakerframe: {fileID: 6998021337936923122}
   _speakerImg: {fileID: 5527745400270745502}
   _newspaperCover: {fileID: 957569482137833669}
   _typeSpeed: 50
@@ -2618,6 +2619,8 @@ MonoBehaviour:
   _newspaper: {fileID: 8968149891638567254}
   _dialoguePanel: {fileID: 5594634222744959311}
   _newspaperEntryDuration: 1
+  _textAnimator: {fileID: 696312716448912300}
+  _portraitAnimator: {fileID: 2505347116888262018}
 --- !u!1 &3723526985077114623
 GameObject:
   m_ObjectHideFlags: 0
@@ -3955,6 +3958,7 @@ GameObject:
   - component: {fileID: 8706837216411469445}
   - component: {fileID: 4460492583609216757}
   - component: {fileID: 696312716448912300}
+  - component: {fileID: 3015370701769949826}
   m_Layer: 5
   m_Name: Dialogue Panel
   m_TagString: Untagged
@@ -3979,7 +3983,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.65}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 92, y: -185}
+  m_AnchoredPosition: {x: 92, y: -148}
   m_SizeDelta: {x: -241.5594, y: 10}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8706837216411469445
@@ -4041,6 +4045,18 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &3015370701769949826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5594634222744959311}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 93e4ae48c89fb104fbf8fee7616b7e58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5594953590945375192
 GameObject:
   m_ObjectHideFlags: 0
