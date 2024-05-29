@@ -51,9 +51,8 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     private void OnDestroy()
     {
-        gameplayMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-        gameplayMusic.release();
-        StopAmbience();
+        StopAndReleaseInstance(ref gameplayMusic);
+        StopAndReleaseInstance(ref ambience);
     }
 
     private void OnApplicationFocus(bool hasFocus)
@@ -64,10 +63,15 @@ public class AudioManager : MonoBehaviour, IAudioService
         }
     }
 
-
-
-
-
+    private void StopAndReleaseInstance(ref FMOD.Studio.EventInstance instance)
+    {
+        if (instance.isValid())
+        {
+            instance.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
+            instance.release();
+            instance.clearHandle();
+        }
+    }
 
     public void PlaySound(string key)
     {
@@ -78,20 +82,15 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     public void StartGameplayMusic(string key)
     {
-        if (!gameplayMusic.isValid())
-        {
-            gameplayMusic = RuntimeManager.CreateInstance("event:/MUSIC/"+key);
-            gameplayMusic.start();
-        }
+        StopAndReleaseInstance(ref gameplayMusic);
+
+        gameplayMusic = RuntimeManager.CreateInstance("event:/MUSIC/" + key);
+        gameplayMusic.start();
     }
 
     public void ChangeMusic(string key)
     {
-        if (gameplayMusic.isValid())
-        {
-            gameplayMusic.stop(FMOD.Studio.STOP_MODE.IMMEDIATE);
-            gameplayMusic.release();
-        }
+        StopAndReleaseInstance(ref gameplayMusic);
 
         gameplayMusic = RuntimeManager.CreateInstance("event:/MUSIC/" + key);
         gameplayMusic.start();
@@ -99,12 +98,15 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     public void StopMusic()
     {
-        gameplayMusic.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
+        StopAndReleaseInstance(ref gameplayMusic);
     }
 
     public void ResumeMusic()
     {
-        gameplayMusic.start();
+        if (gameplayMusic.isValid())
+        {
+            gameplayMusic.start();
+        }
     }
 
     private void OnPeopleChanged(uint people)
@@ -120,6 +122,7 @@ public class AudioManager : MonoBehaviour, IAudioService
     {
         people += amount;
         OnPeopleChanged(people);
+        PlaySound("subeGente");
     }
 
     private void UpdateMusicParameter()
@@ -157,21 +160,16 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     public void PlayAmbience()
     {
-        if (!ambience.isValid())
-        {
-            ambience = RuntimeManager.CreateInstance("event:/ambience");
-            ambience.start();
-            Debug.Log("Ambience started");
-        }
+        StopAndReleaseInstance(ref ambience);
+
+        ambience = RuntimeManager.CreateInstance("event:/ambience");
+        ambience.start();
+        Debug.Log("Ambience started");
     }
 
     public void StopAmbience()
     {
-        if (ambience.isValid())
-        {
-            ambience.stop(FMOD.Studio.STOP_MODE.ALLOWFADEOUT);
-            ambience.release();
-            Debug.Log("Ambience stopped");
-        }
+        StopAndReleaseInstance(ref ambience);
+        Debug.Log("Ambience stopped");
     }
 }

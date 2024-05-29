@@ -2,14 +2,19 @@ using UnityEngine;
 
 public class AudioPrueba : MonoBehaviour
 {
+    private void Start()
+    {
+        AudioManager.Instance.StartGameplayMusic("Level");
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             //AudioManager.Instance.PlayTalkSound();
             //AudioManager.Instance.AddPeople(1);
-            AudioManager.Instance.StartGameplayMusic("Lose");
-            AudioManager.Instance.ResumeMusic();
+            //AudioManager.Instance.ResumeMusic();
+            AudioManager.Instance.AddPeople(1);
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
