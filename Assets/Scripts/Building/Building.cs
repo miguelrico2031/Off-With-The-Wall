@@ -68,6 +68,7 @@ public class Building : MonoBehaviour, IBuilding
         if (_buildingClick.Click())
         {
             AudioManager.Instance.PlayClick1();
+            SetColor(2);
             _buildingService.RegisterBuildingClick(this); //para q no se pueda clickar 2 veces el mismo edificio
             uint value = _peopleService.AddPeople(1);
             GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(value, value != 1);
@@ -107,7 +108,7 @@ public class Building : MonoBehaviour, IBuilding
         CurrentState = IBuilding.State.Burned;
     }
 
-    public void setColor(int type)
+    public void SetColor(int type)
     {
         foreach(SpriteRenderer spr in GetComponentsInChildren<SpriteRenderer>())
         {
@@ -119,7 +120,7 @@ public class Building : MonoBehaviour, IBuilding
     {
         if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick)
         {
-            setColor(1);
+            SetColor(1);
         }
     }
 
@@ -127,7 +128,7 @@ public class Building : MonoBehaviour, IBuilding
     {
         if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick)
         {
-            setColor(0);
+            SetColor(0);
         }
     }
 }

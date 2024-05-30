@@ -26,6 +26,7 @@ public class DrawUI : MonoBehaviour
         }
         Drawable.Pen_Colour = Color.white;
         Drawable.Pen_Width = 0;
+        FindAnyObjectByType<Drawable>(FindObjectsInactive.Include).ResetCanvas();
     }
 
     public void Display(Action callback)

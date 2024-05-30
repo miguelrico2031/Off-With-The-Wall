@@ -56,10 +56,9 @@ public class BuildingManager : IBuildingService
         if (_lastClicked is not null)
         {
             _lastClicked.CanClick = true;
-            _lastClicked.setColor(0);
+            _lastClicked.SetColor(0);
         }
         building.CanClick = false;
-        building.setColor(2);
         _lastClicked = building;
     }
     

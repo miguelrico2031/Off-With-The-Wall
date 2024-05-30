@@ -6,8 +6,6 @@ using UnityEngine.EventSystems;
 
 public class Wall : MonoBehaviour, IBuilding
 {
-    public IBuilding.BuildingType Type { get => IBuilding.BuildingType.Wall; }
-
     [SerializeField] private PassiveEvent _wallEvent0;
     [SerializeField] private RouletteEvent _wallEvent1;
     [SerializeField] private RouletteEvent _wallEvent2;
@@ -23,20 +21,22 @@ public class Wall : MonoBehaviour, IBuilding
 
         GameManager.Instance.Get<IEventService>().StartEvent(wallEvent, this);
     }
-    public void setColor(int type)
+    
+    public void SetColor(int type)
     {
         foreach (SpriteRenderer spr in GetComponentsInChildren<SpriteRenderer>())
         {
             spr.color = GameManager.Instance.GameInfo.buildingColors[type];
         }
     }
+    
     public void OnPointerEnter(PointerEventData eventData)
     { 
-        setColor(1);
+        SetColor(1);
     }
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        setColor(0);
+        SetColor(0);
     }
 }
