@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using UnityEngine;
 using UnityEngine.EventSystems;
@@ -306,6 +307,11 @@ namespace FreeDraw
             // Should we reset our canvas image when we hit play in the editor?
             if (Reset_Canvas_On_Play)
                 ResetCanvas();
+        }
+
+        private void OnDestroy()
+        {
+            ResetCanvas();
         }
     }
 }

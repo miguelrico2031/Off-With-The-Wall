@@ -55,13 +55,13 @@ public class GameManager : MonoBehaviour
 
     private IEnumerator StartGame()
     {
-        print(gameObject.name);
         yield return null; //para que todos se inicialicen en el frame del start
         gameStarted = true;
         Get<IEventService>().StartEvent(GameInfo.GameStartEvent, null);
         //Get<IEventSpawnService>().StartSpawn();
         Get<IPeopleService>().OnZeroPeople.AddListener(LoseGame);
         Get<IStartLoseUIService>().SetStartScreen(false);
+        Get<IHUDService>().ShowHUD();
         // CurrentGameState = GameState.OnPlay;
 
     }

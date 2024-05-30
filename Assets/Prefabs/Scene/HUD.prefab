@@ -98,6 +98,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 37368cd77e7d407c884854cf09698049, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _logoUI: {fileID: 3328897867882082056}
   _peopleCountText: {fileID: 14997130327255807}
   _peopleCountAnimationDuration: 0.5
 --- !u!1 &3328897867882082056

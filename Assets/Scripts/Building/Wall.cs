@@ -22,21 +22,21 @@ public class Wall : MonoBehaviour, IBuilding
         GameManager.Instance.Get<IEventService>().StartEvent(wallEvent, this);
     }
     
-    public void SetColor(int type)
-    {
-        foreach (SpriteRenderer spr in GetComponentsInChildren<SpriteRenderer>())
-        {
-            spr.color = GameManager.Instance.GameInfo.buildingColors[type];
-        }
-    }
-    
+    // private void SetColor(int type)
+    // {
+    //     foreach (SpriteRenderer spr in GetComponentsInChildren<SpriteRenderer>())
+    //     {
+    //         spr.color = GameManager.Instance.GameInfo.buildingColors[type];
+    //     }
+    // }
+
     public void OnPointerEnter(PointerEventData eventData)
     { 
-        SetColor(1);
+        // SetColor(1);
     }
-
+    
     public void OnPointerExit(PointerEventData eventData)
     {
-        SetColor(0);
+        // SetColor(0);
     }
 }
