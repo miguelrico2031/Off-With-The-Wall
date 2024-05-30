@@ -174,13 +174,14 @@ public class EventManager : MonoBehaviour, IEventService
 
     public void AButtonClick()
     {
+        AudioManager.Instance.PlayClick1();
         HideChoiceButtons();
         _buttonActions[_buttonA]();
-        
     }
 
     public void BButtonClick()
     {
+        AudioManager.Instance.PlayClick1();
         HideChoiceButtons();
         _buttonActions[_buttonB]();
     }
