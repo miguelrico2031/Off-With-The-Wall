@@ -187,33 +187,6 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 51200
---- !u!114 &-453188161594088812
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
-  m_Name: event:/SOUND EFFECTS/clickNo
-  m_EditorClassIdentifier: 
-  Path: event:/SOUND EFFECTS/clickNo
-  Guid:
-    Data1: -452409001
-    Data2: 1080543303
-    Data3: 568787342
-    Data4: 1319716291
-  Banks:
-  - {fileID: 3037095210142893312}
-  IsStream: 0
-  Is3D: 0
-  IsOneShot: 1
-  Parameters: []
-  MinDistance: 1
-  MaxDistance: 20
-  Length: 5067
 --- !u!114 &11400000
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -237,18 +210,18 @@ MonoBehaviour:
   - {fileID: -2547766590933625308}
   - {fileID: -748318642726158853}
   - {fileID: -8483215384294017298}
-  - {fileID: -453188161594088812}
   - {fileID: 7569504926357652090}
   - {fileID: -2735159535053697842}
   - {fileID: 1441095548581185103}
   - {fileID: -3838712311829916051}
   - {fileID: 3974436745656957593}
+  - {fileID: 6017562917287701046}
   EditorParameters: []
   MasterBanks:
   - {fileID: 4069515525310895951}
   StringsBanks:
   - {fileID: 4213286632618152527}
-  cacheTime: 638526229009961631
+  cacheTime: 638526581345783307
   cacheVersion: 131608
 --- !u!114 &1441095548581185103
 MonoBehaviour:
@@ -292,7 +265,7 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/sounds.bank
   Name: sounds
   StudioPath: bank:/sounds
-  lastModified: 638526229009961631
+  lastModified: 638526581345783307
   FileSizes: []
   Exists: 1
 --- !u!114 &3187639471413018187
@@ -310,7 +283,7 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/music.bank
   Name: music
   StudioPath: bank:/music
-  lastModified: 638526229009513098
+  lastModified: 638526574141086756
   FileSizes: []
   Exists: 1
 --- !u!114 &3974436745656957593
@@ -355,7 +328,7 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 638523663786861696
+  lastModified: 638526580996515990
   FileSizes: []
   Exists: 1
 --- !u!114 &4213286632618152527
@@ -373,10 +346,10 @@ MonoBehaviour:
   Path: BUILDFMOD/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 638526229006471588
+  lastModified: 638526580996526022
   FileSizes:
   - Name: 
-    Value: 1346
+    Value: 1348
   Exists: 1
 --- !u!114 &5011422451569209387
 MonoBehaviour:
@@ -405,6 +378,33 @@ MonoBehaviour:
   MinDistance: 1
   MaxDistance: 20
   Length: 92352
+--- !u!114 &6017562917287701046
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ceb653cd98e289a4e8697a1af55201f2, type: 3}
+  m_Name: event:/SOUND EFFECTS/click no
+  m_EditorClassIdentifier: 
+  Path: event:/SOUND EFFECTS/click no
+  Guid:
+    Data1: -452409001
+    Data2: 1080543303
+    Data3: 568787342
+    Data4: 1319716291
+  Banks:
+  - {fileID: 3037095210142893312}
+  IsStream: 0
+  Is3D: 0
+  IsOneShot: 1
+  Parameters: []
+  MinDistance: 1
+  MaxDistance: 20
+  Length: 5067
 --- !u!114 &7569504926357652090
 MonoBehaviour:
   m_ObjectHideFlags: 0

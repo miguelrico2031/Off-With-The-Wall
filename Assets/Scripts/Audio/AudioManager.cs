@@ -28,7 +28,7 @@ public class AudioManager : MonoBehaviour, IAudioService
     private FMOD.Studio.EventInstance ambience;
     private FMOD.Studio.Bus masterBus;
 
-    private uint maxGente = 100;
+    private uint maxGente = 300;
     private uint people = 0;
 
     private void Awake()
