@@ -6,6 +6,7 @@ using UnityEngine;
 public class BuildingClick : MonoBehaviour
 {
     private Animator _animator;
+   [SerializeField] private Animator[] extraAnimators;
     private bool _canClick = true;
 
     private void Awake()
@@ -18,6 +19,10 @@ public class BuildingClick : MonoBehaviour
         if (!_canClick) return false;
         _canClick = false;
         _animator.Play("Click");
+        foreach (Animator anim in extraAnimators)
+        {
+            anim.Play("Click");
+        }
         return true;
     }
 

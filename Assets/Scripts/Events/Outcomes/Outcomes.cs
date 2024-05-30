@@ -35,7 +35,7 @@ public class Outcomes //clase serializable para agrupar outcomes
 public class PeopleIncrease : IOutcome
 {
     public uint People;
-    public string DisplayText { get => $"{_people} people gained."; }
+    public string DisplayText { get => $"{People} people gained."; }
     private uint _people;
     public void Execute(IBuilding building = null)
     {
@@ -48,7 +48,7 @@ public class RewardMultiplier : IOutcome
 {
     public string DisplayText
     {
-        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. You get x{Multiplier} {(Multiplier >= 1f ? "more" : "less")} people{(IsPermanent ? "" : " for " + Duration + "seconds")}.";
+        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. You get x{Multiplier} {(Multiplier >= 1f ? "more" : "less")} people{(IsPermanent ? "" : " for " + Duration + " seconds")}.";
     }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;
@@ -60,7 +60,7 @@ public class RewardMultiplier : IOutcome
         if (IsPermanent) peopleService.AddMultiplier(MultiplierName, Multiplier);
         else peopleService.AddMultiplier(MultiplierName, Multiplier, Duration);
 
-        GameManager.Instance.Get<IMultUIService>().AddPeopleMult(IsPermanent);
+        GameManager.Instance.Get<IMultUIService>().AddPeopleMult(IsPermanent,Multiplier);
     }
 
 }
@@ -70,7 +70,7 @@ public class PopUpMultiplier : IOutcome
 {
     public string DisplayText
     {
-        get => $"You receive a {(IsPermanent ? "permanent" : "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. PopUps appear x{Multiplier} times {(Multiplier >= 1f ? "faster" : "slower")}{(IsPermanent ? "" : " for " + Duration + "seconds")}.";
+        get => $"You receive a {(IsPermanent ? "permanent" : "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. PopUps appear x{Multiplier} times {(Multiplier >= 1f ? "faster" : "slower")}{(IsPermanent ? "" : " for " + Duration + " seconds")}.";
     }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;
@@ -83,7 +83,7 @@ public class PopUpMultiplier : IOutcome
         if (IsPermanent) popUPService.AddMultiplier(MultiplierName, Multiplier);
         else popUPService.AddMultiplier(MultiplierName, Multiplier, Duration);
 
-        GameManager.Instance.Get<IMultUIService>().AddPopUpMult(IsPermanent);
+        GameManager.Instance.Get<IMultUIService>().AddPopUpMult(IsPermanent,Multiplier);
     }
 }
 

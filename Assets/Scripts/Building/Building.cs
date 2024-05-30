@@ -69,14 +69,16 @@ public class Building : MonoBehaviour, IBuilding
         {
             AudioManager.Instance.PlayClick1();
             _buildingService.RegisterBuildingClick(this); //para q no se pueda clickar 2 veces el mismo edificio
-            GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(_peopleService.AddPeople(1));
+            uint value = _peopleService.AddPeople(1);
+            GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(value, value != 1);
         }
     }
     
     public void CollectReward()
     {
         //llamar al manager que corresponda para sumar la reward
-        GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(_peopleService.AddPeople(_currentReward));
+        uint value = _peopleService.AddPeople(_currentReward);
+        GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(value, value != _currentReward);
         _currentReward = 0;
         CurrentState = IBuilding.State.Idle;   
         _popUpService.HidePopUp(this);

@@ -190,15 +190,15 @@ public class AudioManager : MonoBehaviour, IAudioService
         ruleta.start();
     }
 
-    public void FinalizaRuleta(int resultado)
+    public void FinalizaRuleta(RouletteUI.Result resultado)
     {
         StopAndReleaseInstance(ref ruleta);
 
         string resultadoSound = resultado switch
         {
-            0 => "ganaRuleta",
-            1 => "pierdeRuleta",
-            2 => "criticoRuleta",
+            RouletteUI.Result.Success=> "ganaRuleta",
+            RouletteUI.Result.Fail=> "pierdeRuleta",
+            RouletteUI.Result.Crit => "criticoRuleta",
             _ => throw new ArgumentOutOfRangeException(nameof(resultado), "Valor no válido para resultado de la ruleta")
         };
 

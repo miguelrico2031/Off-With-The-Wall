@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 8b8002b8515e54c4e9a426cfb59107ea
+guid: 7b028a309ecd070408d6500cf371d518
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,7 +69,7 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 16384
+    maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
@@ -110,7 +110,7 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: uiDialogos_0
+      name: uiDialogos 1_0
       rect:
         serializedVersion: 2
         x: 19
@@ -124,14 +124,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 834891ff13ff4e34e975cceabd551d0e
-      internalID: -231655916
+      spriteID: 0bf3950b2db75514c9f718210af80e22
+      internalID: 763862606
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_1
+      name: uiDialogos 1_1
       rect:
         serializedVersion: 2
         x: 66
@@ -145,14 +145,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f1456e44b5bdf344aa23d852ffd22c2a
-      internalID: -571715867
+      spriteID: cf5740bf78ae466488a6dac84cf18ce4
+      internalID: -867561377
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_2
+      name: uiDialogos 1_2
       rect:
         serializedVersion: 2
         x: 146
@@ -166,14 +166,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7e9b5e2e593f62a4fa783800da41d11a
-      internalID: -1041489656
+      spriteID: c28678828cac62e4a940dbc50c166505
+      internalID: -604290010
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_3
+      name: uiDialogos 1_3
       rect:
         serializedVersion: 2
         x: 210
@@ -187,14 +187,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6dd39e79466441a43b2ac46b34a7a5df
-      internalID: 265009422
+      spriteID: c9b0fe9fb783ac54a9f2c2dfd13208f6
+      internalID: 1713289312
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_4
+      name: uiDialogos 1_4
       rect:
         serializedVersion: 2
         x: 274
@@ -208,14 +208,35 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1e2c0180be0eca04b970b38386eb1eda
-      internalID: -961342407
+      spriteID: 239698957f06a26469282be807b65efb
+      internalID: -1942891277
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_5
+      name: uiDialogos 1_5
+      rect:
+        serializedVersion: 2
+        x: 328
+        y: 24
+        width: 80
+        height: 159
+      alignment: 6
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86a890ea9eac60c4f84621da3321b9d0
+      internalID: -392772471
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: uiDialogos 1_6
       rect:
         serializedVersion: 2
         x: 18
@@ -229,14 +250,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 43646ed878d1e5b4386da5b13f1dc55b
-      internalID: -2075021561
+      spriteID: 3811ddad123d82540b553838af230705
+      internalID: -1079463908
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_6
+      name: uiDialogos 1_7
       rect:
         serializedVersion: 2
         x: 82
@@ -250,14 +271,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: f2f8cb9e964e043458839c3d78bac350
-      internalID: -819120676
+      spriteID: 11093b4be3c419f42a598aeddde5f60f
+      internalID: -1123189316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_7
+      name: uiDialogos 1_8
       rect:
         serializedVersion: 2
         x: 146
@@ -271,14 +292,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1d5b97c20b2e5184f882a67cfaaf16b1
-      internalID: 1681734817
+      spriteID: fd8010d30f914554ca0850c050d5417e
+      internalID: -623173782
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_8
+      name: uiDialogos 1_9
       rect:
         serializedVersion: 2
         x: 210
@@ -292,20 +313,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6420062ad457e7c4aaaa9cf7e5ddae5c
-      internalID: -571966025
+      spriteID: f3e9df7ba084d214eaf99e1773045f86
+      internalID: 507001464
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_9
+      name: uiDialogos 1_10
       rect:
         serializedVersion: 2
         x: 274
         y: 85
         width: 50
-        height: 49
+        height: 58
       alignment: 6
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -313,14 +334,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 24752ecc31a90fc4fb65ede1ef824195
-      internalID: -1761288964
+      spriteID: b5152bbe72f96354e8a313b571af982e
+      internalID: -1877154743
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_10
+      name: uiDialogos 1_11
       rect:
         serializedVersion: 2
         x: 18
@@ -334,14 +355,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 833374554b89a0e4bbb02bc513aea2b0
-      internalID: 1070711210
+      spriteID: 6c216a911f8158f459b6ff07a981b596
+      internalID: 2082916148
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_11
+      name: uiDialogos 1_12
       rect:
         serializedVersion: 2
         x: 82
@@ -355,14 +376,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d51540cbc049b32428aa5f2beac72b85
-      internalID: 1523839545
+      spriteID: 34a46d218f6dae4449adcea67f311ace
+      internalID: 357262764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_12
+      name: uiDialogos 1_13
       rect:
         serializedVersion: 2
         x: 146
@@ -376,14 +397,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a7481e63eb6706348849ddbb26a36d58
-      internalID: -484130842
+      spriteID: b0c83e13674d39f4fa78897816a4eedd
+      internalID: 1786937571
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_13
+      name: uiDialogos 1_14
       rect:
         serializedVersion: 2
         x: 210
@@ -397,14 +418,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: c3442ade656b8f54a8552609d9454248
-      internalID: -1661810523
+      spriteID: 3af69f5fc1ef974458444a45d1e82dbf
+      internalID: 927584847
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: uiDialogos_14
+      name: uiDialogos 1_15
       rect:
         serializedVersion: 2
         x: 274
@@ -418,8 +439,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: af9f347457762f04494e0ea4c9614c7d
-      internalID: 475879647
+      spriteID: fa3aaed21987fd2468aed0146aa28ec6
+      internalID: -956948998
       vertices: []
       indices: 
       edges: []
@@ -435,21 +456,22 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      uiDialogos_0: -231655916
-      uiDialogos_1: -571715867
-      uiDialogos_10: 1070711210
-      uiDialogos_11: 1523839545
-      uiDialogos_12: -484130842
-      uiDialogos_13: -1661810523
-      uiDialogos_14: 475879647
-      uiDialogos_2: -1041489656
-      uiDialogos_3: 265009422
-      uiDialogos_4: -961342407
-      uiDialogos_5: -2075021561
-      uiDialogos_6: -819120676
-      uiDialogos_7: 1681734817
-      uiDialogos_8: -571966025
-      uiDialogos_9: -1761288964
+      uiDialogos 1_0: 763862606
+      uiDialogos 1_1: -867561377
+      uiDialogos 1_10: -1877154743
+      uiDialogos 1_11: 2082916148
+      uiDialogos 1_12: 357262764
+      uiDialogos 1_13: 1786937571
+      uiDialogos 1_14: 927584847
+      uiDialogos 1_15: -956948998
+      uiDialogos 1_2: -604290010
+      uiDialogos 1_3: 1713289312
+      uiDialogos 1_4: -1942891277
+      uiDialogos 1_5: -392772471
+      uiDialogos 1_6: -1079463908
+      uiDialogos 1_7: -1123189316
+      uiDialogos 1_8: -623173782
+      uiDialogos 1_9: 507001464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1,18 +1,23 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using TMPro;
 public class ScoreIncrease : MonoBehaviour, IPoolObject
 {
     [SerializeField] private  TMP_Text _text;
     [SerializeField] private Animator _anim;
+    [SerializeField] private Color _specialcolor;
+    [SerializeField] private Color _normalcolor;
+
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
 
     public void Clean()
     {
     }
-    public void startAnim(uint value)
+    public void startAnim(uint value,bool mult)
     {
+        GetComponentInChildren<TMP_Text>().color = mult ? _specialcolor : _normalcolor;
         _text.text = value.ToString();
         _anim.Play("ScoreUp", 0);
     }
