@@ -4,8 +4,8 @@ using UnityEngine;
 
 public interface IMultUIService : IService
 {
-    public void AddPeopleMult(bool perm);
-    public void AddPopUpMult(bool perm);
-    public void RemovePeopleMult();
-    public void RemovePopUpMult();
+    public void AddPeopleMult(bool perm,float value);
+    public void AddPopUpMult(bool perm,float value);
+    public void RemovePeopleMult(float value);
+    public void RemovePopUpMult(float value);
 }

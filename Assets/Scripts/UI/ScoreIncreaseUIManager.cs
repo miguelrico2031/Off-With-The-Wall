@@ -13,11 +13,11 @@ public class ScoreIncreaseUIManager : MonoBehaviour,IScoreIncreaseUIService
         _objectPool.Return(increase);
     }
 
-    public void setIncrease(uint value)
+    public void setIncrease(uint value,bool mult)
     {
         var increase = _objectPool.Get();
         increase.transform.position = Input.mousePosition;
-        increase.startAnim(value);
+        increase.startAnim(value,mult);
     }
     // Start is called before the first frame update
     void Start()

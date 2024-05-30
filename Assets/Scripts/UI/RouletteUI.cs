@@ -43,7 +43,9 @@ public class RouletteUI : MonoBehaviour
 
    public void StartSpin()
    {
-      _startButton.enabled = false;
+        AudioManager.Instance.IniciaRuleta();
+
+        _startButton.enabled = false;
       _stopButton.enabled = true;
       _needleRb.angularVelocity = -GameManager.Instance.GameInfo.RouletteSpinSpeed;
    }
@@ -56,8 +58,9 @@ public class RouletteUI : MonoBehaviour
       var result = Result.Fail;
       if (angle <= _critAngle) result = Result.Crit;
       else if (angle <= _successAngle) result = Result.Success;
+        AudioManager.Instance.FinalizaRuleta(result);
 
-      StartCoroutine(WaitAndHide(result));
+        StartCoroutine(WaitAndHide(result));
    }
 
    private IEnumerator WaitAndHide(Result r)

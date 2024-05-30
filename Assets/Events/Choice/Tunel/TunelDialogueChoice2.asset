@@ -20,8 +20,8 @@ MonoBehaviour:
   - Speaker: 13
     Text: '*Mad Man assaults town hall* Yesterday, the town hall was attacked by
       an unidentified lunatic believed to be a collaborator of the radical group
-      <Nombre Grupo>. He suffered the consequences of his dangerous actions thanks
-      to the police present at the scene. He is currently on the run.'
+      NOMBRECOSA. He suffered the consequences of his dangerous actions thanks to
+      the police present at the scene. He is currently on the run.'
   - Speaker: 23
     Text: "You\u2019ll never take me alive. I WON'T STOP UNTIL I CAN PROVE THE TRUTH.
       SLOGAN!\r\n"

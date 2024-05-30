@@ -14,14 +14,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phrases:
   - Speaker: 4
-    Text: Click on houses <sprite name="uiDialogos_0"> to gain members for NOMBRECOSA.
+    Text: Click on houses <sprite name="uiDialogos 1_0"> to gain members for NOMBRECOSA.
   - Speaker: 4
-    Text: 'PopUps with extra rewards <sprite name="uiDialogos_3"> will spawn.
+    Text: 'PopUps with extra rewards <sprite name="uiDialogos 1_6"> will spawn.
 
       Some
-      PopUps will triggers special events <sprite name="uiDialogos_8"> <sprite name="uiDialogos_9">.'
+      PopUps will triggers special events <sprite name="uiDialogos 1_9"> <sprite
+      name="uiDialogos 1_10">.'
   - Speaker: 4
-    Text: 'You need many people to destroy the wall <sprite name="UI_Sprites_1">.
+    Text: 'You need many people to destroy the wall <sprite name="uiDialogos 1_5">.
 
       Good
       luck and SLOGAN.'

@@ -22,9 +22,9 @@ MonoBehaviour:
   - _speaker: 8
     _sprite: {fileID: 21300000, guid: a5a46f95663d15e48902badc0c968ad1, type: 3}
   - _speaker: 5
-    _sprite: {fileID: 21300000, guid: 225bfeabc20d10742bd352cbd3d6d91a, type: 3}
-  - _speaker: 6
     _sprite: {fileID: 21300000, guid: 7891d7826819d934bb171fc395449e36, type: 3}
+  - _speaker: 6
+    _sprite: {fileID: 21300000, guid: 225bfeabc20d10742bd352cbd3d6d91a, type: 3}
   - _speaker: 9
     _sprite: {fileID: 21300000, guid: ba055ab1a4b101b4b8a08c4b96bac9d2, type: 3}
   - _speaker: 10
@@ -55,6 +55,8 @@ MonoBehaviour:
     _sprite: {fileID: 21300000, guid: ccbfb16b3fb863b4b898545d7c9aa61f, type: 3}
   - _speaker: 17
     _sprite: {fileID: 21300000, guid: f09532c3823934144a529e085ea54013, type: 3}
+  - _speaker: 25
+    _sprite: {fileID: 21300000, guid: 12e309a4ca6e48945a0220d30f2ef7df, type: 3}
   _placeholders:
   - Placeholder: NOMBREVVV
     Replace: BBB [Tripin' them]

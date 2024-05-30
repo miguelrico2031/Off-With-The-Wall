@@ -4,7 +4,7 @@ using UnityEngine;
 
 public interface IScoreIncreaseUIService : IService
 {
-    public void setIncrease(uint value);
+    public void setIncrease(uint value,bool mult);
 
     public void endIncrease(ScoreIncrease increase);
 }

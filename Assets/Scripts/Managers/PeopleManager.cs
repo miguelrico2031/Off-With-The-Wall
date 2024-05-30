@@ -20,7 +20,9 @@ public class PeopleManager : IPeopleService
 
     public uint AddPeople(uint people)
     {
-        uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current + (m-1)));
+        //uint total = (uint) Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current + (m-1)));
+        uint total = (uint)Mathf.RoundToInt(_multipliers.Values.Aggregate(1f, (current, m) => current * m ));
+
         People += people * total;
         AudioManager.Instance.AddPeople(people* total);
 
@@ -36,8 +38,8 @@ public class PeopleManager : IPeopleService
             OnPeopleChanged.Invoke(People);
             return;
         }
-
-        People = 0;
+        AudioManager.Instance.RemovePeople(people);
+      People = 0;
         OnPeopleChanged.Invoke(People);
         OnZeroPeople.Invoke();
     }
@@ -62,10 +64,11 @@ public class PeopleManager : IPeopleService
 
     public bool RemoveMultiplier(string key)
     {
+        float v = _multipliers[key];
         if (_multipliers.Remove(key))
         {
             AudioManager.Instance.PlaySound("loseMulti");
-            GameManager.Instance.Get<IMultUIService>().RemovePeopleMult();
+            GameManager.Instance.Get<IMultUIService>().RemovePeopleMult(v);
             return true;
         }
         return false;
@@ -80,7 +83,6 @@ public class PeopleManager : IPeopleService
             if(GameManager.Instance.CurrentGameState != GameManager.GameState.OnPlay)
                 yield return new WaitUntil(() => GameManager.Instance.CurrentGameState == GameManager.GameState.OnPlay);
         }
-        GameManager.Instance.Get<IMultUIService>().RemovePeopleMult();
         RemoveMultiplier(key);
 
     }

@@ -187,6 +187,7 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     }
     private IEnumerator DisplayNewspaper(Dialogue.Phrase phrase)
     {
+        AudioManager.Instance.PlaySound("periodico");
         _phraseFinished = true;
         _newspaper.SetActive(true);
         _newspaperCover.sprite = _currentCover;

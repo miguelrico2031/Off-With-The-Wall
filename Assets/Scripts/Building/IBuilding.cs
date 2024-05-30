@@ -20,7 +20,8 @@ public interface IBuilding : IPointerClickHandler, IPointerEnterHandler, IPointe
         PoliceStation,
         FuckDonalds,
         Wall,
-        TownHall
+        TownHall,
+        NoEvent
     }
     
 }
