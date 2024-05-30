@@ -22,7 +22,7 @@ MonoBehaviour:
       PopUps will triggers special events <sprite name="uiDialogos 1_9"> <sprite
       name="uiDialogos 1_10">.'
   - Speaker: 4
-    Text: 'You need many people to destroy the wall <sprite name="uiDialogos 1_5">.
+    Text: 'When you have enough people click on the wall <sprite name="uiDialogos
+      1_5"> and try to destroy it.
 
-      Good
-      luck and SLOGAN.'
+      Good luck and SLOGAN.'

@@ -2805,6 +2805,8 @@ MonoBehaviour:
   _newspaper: {fileID: 8968149891638567254}
   _dialoguePanel: {fileID: 5594634222744959311}
   _newspaperEntryDuration: 1
+  _defaultSourceImage: {fileID: 459538925, guid: 3415f649fac5a41498ff65f9c17f7b33, type: 3}
+  _infoSourceImage: {fileID: -970889217, guid: 3415f649fac5a41498ff65f9c17f7b33, type: 3}
   _textAnimator: {fileID: 696312716448912300}
   _portraitAnimator: {fileID: 2505347116888262018}
 --- !u!1 &3723526985077114623
