@@ -26,6 +26,7 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     private FMOD.Studio.EventInstance gameplayMusic;
     private FMOD.Studio.EventInstance ambience;
+    private FMOD.Studio.EventInstance ruleta;
     private FMOD.Studio.Bus masterBus;
 
     private uint maxGente = 300;
@@ -54,10 +55,12 @@ public class AudioManager : MonoBehaviour, IAudioService
         people = 0;
         maxGente = GameManager.Instance.GameInfo.WallSecondPeopleThreshold;
     }
+
     private void OnDestroy()
     {
         StopAndReleaseInstance(ref gameplayMusic);
         StopAndReleaseInstance(ref ambience);
+        StopAndReleaseInstance(ref ruleta);
     }
 
     private void OnApplicationFocus(bool hasFocus)
@@ -129,6 +132,12 @@ public class AudioManager : MonoBehaviour, IAudioService
         OnPeopleChanged(people);
         PlaySound("subeGente");
     }
+    public void RemovePeople(uint amount)
+    {
+        people -= amount;
+        OnPeopleChanged(people);
+        PlaySound("subeGente");
+    }
 
     private void UpdateMusicParameter()
     {
@@ -144,7 +153,6 @@ public class AudioManager : MonoBehaviour, IAudioService
         var talkSound = RuntimeManager.CreateInstance("event:/SOUND EFFECTS/talk");
         talkSound.start();
         talkSound.release();
-        Debug.Log("Talk");
     }
 
     public void PlayClick1()
@@ -152,7 +160,6 @@ public class AudioManager : MonoBehaviour, IAudioService
         var clickSound = RuntimeManager.CreateInstance("event:/SOUND EFFECTS/click");
         clickSound.start();
         clickSound.release();
-        Debug.Log("Click1");
     }
 
     public void PlayClick2()
@@ -160,7 +167,6 @@ public class AudioManager : MonoBehaviour, IAudioService
         var clickNoSound = RuntimeManager.CreateInstance("event:/SOUND EFFECTS/click no");
         clickNoSound.start();
         clickNoSound.release();
-        Debug.Log("Click2");
     }
 
     public void PlayAmbience()
@@ -169,12 +175,33 @@ public class AudioManager : MonoBehaviour, IAudioService
 
         ambience = RuntimeManager.CreateInstance("event:/ambience");
         ambience.start();
-        Debug.Log("Ambience started");
     }
 
     public void StopAmbience()
     {
         StopAndReleaseInstance(ref ambience);
-        Debug.Log("Ambience stopped");
+    }
+
+    public void IniciaRuleta()
+    {
+        StopAndReleaseInstance(ref ruleta);
+
+        ruleta = RuntimeManager.CreateInstance("event:/SOUND EFFECTS/ruleta");
+        ruleta.start();
+    }
+
+    public void FinalizaRuleta(int resultado)
+    {
+        StopAndReleaseInstance(ref ruleta);
+
+        string resultadoSound = resultado switch
+        {
+            0 => "ganaRuleta",
+            1 => "pierdeRuleta",
+            2 => "criticoRuleta",
+            _ => throw new ArgumentOutOfRangeException(nameof(resultado), "Valor no válido para resultado de la ruleta")
+        };
+
+        PlaySound(resultadoSound);
     }
 }

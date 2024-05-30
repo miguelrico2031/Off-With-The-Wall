@@ -15,23 +15,24 @@ public class AudioPrueba : MonoBehaviour
             //AudioManager.Instance.AddPeople(1);
             //AudioManager.Instance.ResumeMusic();
             AudioManager.Instance.AddPeople(1);
+
         }
 
         if (Input.GetKeyDown(KeyCode.RightArrow))
         {
             //AudioManager.Instance.PlayClick1();
-            AudioManager.Instance.ChangeMusic("Final");
+            AudioManager.Instance.IniciaRuleta();
         }
 
         if (Input.GetKeyDown(KeyCode.LeftArrow))
         {
-            AudioManager.Instance.StopMusic();
+            AudioManager.Instance.FinalizaRuleta(0);
             //AudioManager.Instance.PlayClick2();
         }
 
         if (Input.GetKeyDown(KeyCode.A))
         {
-            AudioManager.Instance.PlaySound("pop");
+            AudioManager.Instance.PlaySound("periodico");
         }
 
         if (Input.GetKeyDown(KeyCode.S))
