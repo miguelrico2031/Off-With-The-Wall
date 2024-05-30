@@ -14,21 +14,24 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phrases:
   - Speaker: 22
-    Text: "Hey, how's it going? Not sure if you saw the fight in the plaza yesterday.
+    Text: 'Hey, how''s it going? Not sure if you saw the fight in the plaza yesterday.
       Looks like those damn cops went overboard again with the first homeless folks
-      they found. We have to do something. No matter how much we disagree with police
-      brutality, if we don't act, you and me, we\u2019ll all go down in history with
-      a sad statue of liberty as a generation that didn't agree. What is in us that
-      turns a deaf ear to the cries of human suffering?\r\n"
+      they found. We have to do something. '
+  - Speaker: 22
+    Text: "No matter how much we disagree with police brutality, if we don't act,
+      you and me, we\u2019ll all go down in history with a sad statue of liberty
+      as a generation that didn't agree. What is in us that turns a deaf ear to the
+      cries of human suffering?\r\n"
   - Speaker: 22
     Text: 'You know, I''m a somewhat recognized artist in the city... I might be
       able to sneak into the police station and steal some of the few weapons those
-      fucking cops use to patrol our neighborhood. The folks at the place know me;
-      they don''t like me, but they know I have some media power, so they probably
-      won''t give me much trouble. As a recognized artist, I''d love to use my influence
-      to help the cause.
+      fucking cops use to patrol our neighborhood. '
+  - Speaker: 22
+    Text: 'The folks at the place know me; they don''t like me, but they know I have
+      some media power, so they probably won''t give me much trouble. As a recognized
+      artist, I''d love to use my influence to help the cause.
 
-      I doubt the rich district will send any new weapons
-      to this area.
+      I doubt the
+      rich district will send any new weapons to this area.
 
 '
