@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Centrist3E
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
-  <StartDialogue>k__BackingField: {fileID: 0}
+  <StartDialogue>k__BackingField: {fileID: 11400000, guid: 905358adbb92d0b45a8352f87f6b52d5, type: 2}
   <Outcomes>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []

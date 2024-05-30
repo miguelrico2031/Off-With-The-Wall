@@ -22,7 +22,8 @@ MonoBehaviour:
   <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: a5ec4ba2e6b561649929311076ad1040, type: 2}
   <OutcomesRefuse>k__BackingField:
     _peopleIncreases: []
-    _peopleDecreases: []
+    _peopleDecreases:
+    - People: 1
     _rewardMultipliers: []
     _popUpMultipliers: []
     _houseBurns: []

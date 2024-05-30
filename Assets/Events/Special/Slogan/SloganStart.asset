@@ -16,6 +16,8 @@ MonoBehaviour:
   - Speaker: 21
     Text: "Hey dude, I was preparing our very first protest and I realize we need
       a war cry. You know a motto, a slogan, something to shout and shit. Something
-      we can write on a banner and scream till their ears ring. I know you are good
-      at coming up with things so I think you should do this too. You know I\u2019d
-      do it but last time I came up with a catchphrase I was thrown out of a rally.\r\n"
+      we can write on a banner and scream till their ears ring. \r\n"
+  - Speaker: 21
+    Text: "I know you are good at coming up with things so I think you should do
+      this too. You know I\u2019d do it but last time I came up with a catchphrase
+      I was thrown out of a rally."

@@ -15,7 +15,8 @@ MonoBehaviour:
   <BuildingType>k__BackingField: 3
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: ca1dc73f328977e4992a4d841366c6be, type: 2}
   <Outcomes>k__BackingField:
-    _peopleIncreases: []
+    _peopleIncreases:
+    - People: 1
     _peopleDecreases: []
     _rewardMultipliers: []
     _popUpMultipliers: []

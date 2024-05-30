@@ -24,16 +24,20 @@ MonoBehaviour:
     _peopleDecreases:
     - People: 5
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
     - People: 5
-    _rewardMultipliers:
-    - Multiplier: 1.1
+    _rewardMultipliers: []
+    _popUpMultipliers:
+    - Multiplier: 1.2
       MultiplierName: school2b
       IsPermanent: 1
       Duration: 0
     _houseBurns: []
+    _customText: []
     _eventAdds: []

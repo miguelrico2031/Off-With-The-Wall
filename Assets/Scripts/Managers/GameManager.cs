@@ -31,6 +31,7 @@ public class GameManager : MonoBehaviour
     private void LoseGame()
     {
         gameEnded = true;
+        AudioManager.Instance.ChangeMusic("Lose");
         Get<IStartLoseUIService>().SetLoseScreen(true);
     }
     #endregion
@@ -48,6 +49,8 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.OnPause;
         AudioManager.Instance.StartGameplayMusic("Level");
         AudioManager.Instance.PlayAmbience();
+        AudioManager.Instance.startGame();
+
     }
 
     private IEnumerator StartGame()
@@ -109,7 +112,9 @@ public class GameManager : MonoBehaviour
     public void Restart()
     {
         Instance = null;
+        //AudioManager.Instance.startGame();
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+
     }
     public void Pause(bool setPause)
     {

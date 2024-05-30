@@ -63,5 +63,5 @@ MonoBehaviour:
     _houseBurns: []
     _customText: []
     _eventAdds: []
-  <CritChance>k__BackingField: 0.254
-  <SucessChance>k__BackingField: 0.455
+  <CritChance>k__BackingField: 0.198
+  <SucessChance>k__BackingField: 0.385

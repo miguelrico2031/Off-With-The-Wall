@@ -210,10 +210,16 @@ public class EventManager : MonoBehaviour, IEventService
         string text = "";
         foreach(var outcome in outcomeList)
         {
-            outcome.Execute(building);
+            //outcome.Execute(building);
             if (outcome.DisplayText != "") text += $"{outcome.DisplayText}\n";
         }
-        if(text != "") _dialogueService.SendInfoText(text, () => GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay);
+        if(text != "") _dialogueService.SendInfoText(text, () => {
+            foreach (var outcome in outcomeList)
+            {
+                outcome.Execute(building);
+            }
+            GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
+            });
         else GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
     }
     

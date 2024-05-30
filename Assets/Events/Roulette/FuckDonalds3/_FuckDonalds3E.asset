@@ -24,7 +24,9 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
   <OutcomesLose>k__BackingField:
@@ -32,7 +34,9 @@ MonoBehaviour:
     _peopleDecreases:
     - People: 5
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
   <OutcomesWin>k__BackingField:
@@ -40,24 +44,28 @@ MonoBehaviour:
     _peopleDecreases:
     - People: 5
     _rewardMultipliers:
-    - Multiplier: 1.2
+    - Multiplier: 2
       MultiplierName: fuckdonalds3sucess
       IsPermanent: 0
-      Duration: 30
+      Duration: 10
+    _popUpMultipliers: []
     _houseBurns:
     - <DisplayText>k__BackingField: FuckDonalds is destroyed.
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
   <OutcomesCrit>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers:
-    - Multiplier: 1.4
+    - Multiplier: 2
       MultiplierName: fuckdonalds3crit
       IsPermanent: 0
-      Duration: 30
+      Duration: 10
+    _popUpMultipliers: []
     _houseBurns:
     - <DisplayText>k__BackingField: FuckDonalds is destroyed.
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: 0763abdba5cfef54eb54bfe1f3f31bcf, type: 2}
   <CritChance>k__BackingField: 0.125

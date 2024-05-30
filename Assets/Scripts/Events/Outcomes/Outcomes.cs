@@ -48,7 +48,7 @@ public class RewardMultiplier : IOutcome
 {
     public string DisplayText
     {
-        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. You get x{Multiplier} {(Multiplier >= 1f ? "more" : "less")} people";
+        get => $"You receive a {(IsPermanent ? "permanent": "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. You get x{Multiplier} {(Multiplier >= 1f ? "more" : "less")} people{(IsPermanent ? "" : " for " + Duration + "seconds")}.";
     }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;
@@ -70,7 +70,7 @@ public class PopUpMultiplier : IOutcome
 {
     public string DisplayText
     {
-        get => $"You receive a {(IsPermanent ? "permanent" : "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. PopUps appear x{Multiplier} times {(Multiplier >= 1f ? "faster" : "slower")}";
+        get => $"You receive a {(IsPermanent ? "permanent" : "temporary")} {(Multiplier >= 1f ? "positive" : "negative")} multiplier. PopUps appear x{Multiplier} times {(Multiplier >= 1f ? "faster" : "slower")}{(IsPermanent ? "" : " for " + Duration + "seconds")}.";
     }
     [Range(.1f, 3f)] public float Multiplier;
     public string MultiplierName;

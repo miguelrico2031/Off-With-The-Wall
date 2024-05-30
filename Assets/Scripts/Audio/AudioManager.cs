@@ -49,6 +49,11 @@ public class AudioManager : MonoBehaviour, IAudioService
         masterBus = RuntimeManager.GetBus("bus:/");
     }
 
+    public void startGame()
+    {
+        people = 0;
+        maxGente = GameManager.Instance.GameInfo.WallSecondPeopleThreshold;
+    }
     private void OnDestroy()
     {
         StopAndReleaseInstance(ref gameplayMusic);

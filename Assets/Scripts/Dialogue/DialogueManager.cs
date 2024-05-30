@@ -103,8 +103,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
 
     public void SkipOrContinue()
     {
-        print("try");
         if (_phraseIndex == -1 && !_isInfo) return;
+        AudioManager.Instance.PlayClick1();
         if (onAnimation)
         {
             print("do");

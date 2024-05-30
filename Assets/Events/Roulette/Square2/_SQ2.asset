@@ -24,7 +24,9 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
   <OutcomesLose>k__BackingField:
@@ -32,7 +34,9 @@ MonoBehaviour:
     _peopleDecreases:
     - People: 10
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
   <OutcomesWin>k__BackingField:
@@ -40,11 +44,13 @@ MonoBehaviour:
     _peopleDecreases:
     - People: 10
     _rewardMultipliers:
-    - Multiplier: 1.3
+    - Multiplier: 2
       MultiplierName: sq2sucess
       IsPermanent: 0
-      Duration: 30
+      Duration: 15
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
   <OutcomesCrit>k__BackingField:
@@ -52,11 +58,13 @@ MonoBehaviour:
     - People: 10
     _peopleDecreases: []
     _rewardMultipliers:
-    - Multiplier: 1.3
+    - Multiplier: 2
       MultiplierName: sq2crit
       IsPermanent: 0
-      Duration: 30
+      Duration: 15
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds:
     - _gameEvent: {fileID: 11400000, guid: c8f684157e154ee4994bbed49187cfc2, type: 2}
   <CritChance>k__BackingField: 0.15

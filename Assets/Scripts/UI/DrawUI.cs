@@ -43,6 +43,8 @@ public class DrawUI : MonoBehaviour
         _group.blocksRaycasts = false;
         _draw.SetActive(false);
         _callback();
+        AudioManager.Instance.PlayClick1();
+
     }
 
 }
