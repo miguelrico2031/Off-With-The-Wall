@@ -18,7 +18,8 @@ public class DialogueManager : MonoBehaviour, IDialogueService
     [FormerlySerializedAs("_newsPaper")] [SerializeField] private GameObject _newspaper;
     [SerializeField] private GameObject _dialoguePanel;
     [SerializeField] private float _newspaperEntryDuration;
-    
+
+    [SerializeField] private Sprite _defaultSourceImage, _infoSourceImage;
 
     private float _typeDelay;
     private Dialogue _currentDialogue;
@@ -132,9 +133,9 @@ public class DialogueManager : MonoBehaviour, IDialogueService
             yield break;
         }
 
-
-        _speakerImg.enabled = _speakerframe.enabled = !(phrase.Speaker is DialogueInfo.Speaker.Info);
-
+        bool isInfo = phrase.Speaker is DialogueInfo.Speaker.Info;
+        _speakerImg.enabled = _speakerframe.enabled = !isInfo;
+        _dialoguePanel.GetComponent<Image>().sprite = !isInfo ? _defaultSourceImage : _infoSourceImage;
         _newspaper.SetActive(false);
         _dialoguePanel.SetActive(true);
         var sd = _dialogueInfo.GetSpeakerData(phrase.Speaker);

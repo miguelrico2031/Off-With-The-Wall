@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 18f9f17e81d57e447aa883da84102d08, type: 2}
-  <ChoiceTextAccept>k__BackingField: Let's get those "birds"
+  <ChoiceTextAccept>k__BackingField: Let's get some "birds"
   <ChoiceTextRefuse>k__BackingField: Refuse
   <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: 369823832de921f40adee43c0973ce63, type: 2}
   <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: aa524ce244f1b7d4a91c96f3b18fe742, type: 2}
