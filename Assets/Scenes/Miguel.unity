@@ -1431,8 +1431,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.07034999, y: 0.02850002, z: 0}
-    m_Extent: {x: 0.95415, y: 1.1138, z: 0}
+    m_Center: {x: 0.07405004, y: 0.030550003, z: 0}
+    m_Extent: {x: 0.94355, y: 1.10495, z: 0}
   m_PointLightInnerAngle: 135.20358
   m_PointLightOuterAngle: 175.9275
   m_PointLightInnerRadius: 0
@@ -5093,7 +5093,10 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 6473257821139959584, guid: f753bd534d05a694d9e147498ce272f5, type: 3}
       insertIndex: 0
       addedObject: {fileID: 42407544}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6973088880458167005, guid: f753bd534d05a694d9e147498ce272f5, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1634287266}
   m_SourcePrefab: {fileID: 100100000, guid: f753bd534d05a694d9e147498ce272f5, type: 3}
 --- !u!224 &589474375 stripped
 RectTransform:
@@ -17378,6 +17381,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <IsOnlyWaypoint>k__BackingField: 1
   _isEndWaypoint: 1
+--- !u!1 &1634287260 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6973088880458167005, guid: f753bd534d05a694d9e147498ce272f5, type: 3}
+  m_PrefabInstance: {fileID: 589474374}
+  m_PrefabAsset: {fileID: 0}
+--- !u!225 &1634287266
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1634287260}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 0
+  m_BlocksRaycasts: 0
+  m_IgnoreParentGroups: 0
 --- !u!1001 &1646661089
 PrefabInstance:
   m_ObjectHideFlags: 0
