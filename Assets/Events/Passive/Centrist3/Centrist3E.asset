@@ -15,13 +15,14 @@ MonoBehaviour:
   <BuildingType>k__BackingField: 0
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 905358adbb92d0b45a8352f87f6b52d5, type: 2}
   <Outcomes>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers:
     - Multiplier: 1.01
-      MultiplierName: 
+      MultiplierName: cent3
       IsPermanent: 0
-      Duration: 0
+      Duration: 10
     _popUpMultipliers: []
     _houseBurns: []
     _customText: []
