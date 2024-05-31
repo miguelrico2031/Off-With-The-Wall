@@ -31,12 +31,15 @@ public class Wall : MonoBehaviour, IBuilding
     // }
 
     public void OnPointerEnter(PointerEventData eventData)
-    { 
+    {
+        GetComponentInChildren<SpriteRenderer>().enabled = true;
         // SetColor(1);
     }
     
     public void OnPointerExit(PointerEventData eventData)
     {
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+
         // SetColor(0);
     }
 }

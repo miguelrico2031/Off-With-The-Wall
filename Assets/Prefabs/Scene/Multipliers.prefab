@@ -147,6 +147,7 @@ GameObject:
   - component: {fileID: 6167670404714384871}
   - component: {fileID: 4014398790331152025}
   - component: {fileID: 6211481067481120202}
+  - component: {fileID: 7553708173755217977}
   m_Layer: 5
   m_Name: Multipliers
   m_TagString: Untagged
@@ -263,6 +264,18 @@ MonoBehaviour:
   _popUpPermCount: 0
   _popUpCountText: {fileID: 6502654990611729850}
   _popUpMultCount: 0
+--- !u!225 &7553708173755217977
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1064350607447502149}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2595227096208855038
 GameObject:
   m_ObjectHideFlags: 0
