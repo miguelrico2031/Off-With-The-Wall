@@ -127,7 +127,7 @@ public class Building : MonoBehaviour, IBuilding
         SetColor(0);
         _buildingClick.gameObject.SetActive(false);
         _destroyedSprite.enabled = true;
-
+        _fires.SetActive(true);
         foreach (var wp in GetComponentsInChildren<AIWaypoint>()) wp.Valid = false;
     }
 

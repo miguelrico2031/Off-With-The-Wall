@@ -1431,8 +1431,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.07405004, y: 0.030550003, z: 0}
-    m_Extent: {x: 0.94355, y: 1.10495, z: 0}
+    m_Center: {x: 0.07375002, y: 0.033850014, z: 0}
+    m_Extent: {x: 0.94155, y: 1.1015501, z: 0}
   m_PointLightInnerAngle: 135.20358
   m_PointLightOuterAngle: 175.9275
   m_PointLightInnerRadius: 0
@@ -2081,7 +2081,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 1
+  m_SortingOrder: -1
   m_Sprite: {fileID: 21300000, guid: 6c7c7a5c4b444664fac48ffefdf042cb, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -15450,7 +15450,7 @@ Transform:
   m_GameObject: {fileID: 1401925402}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.8799999, y: 0.91999996, z: 0}
+  m_LocalPosition: {x: -1.86, y: 0.888, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15498,7 +15498,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 4cc22a273ba98114a9a9f4f58b4eb62b, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.58431375}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -19347,7 +19347,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 3
+  m_SortingOrder: 1
   m_Sprite: {fileID: 21300000, guid: 7adeceb3748edb84dab8e83bf1d49fc2, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -22239,6 +22239,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 35867982606463345, guid: 6a1f94aeb71db734cba33d56a5f944cf, type: 3}
+      propertyPath: _gameInfo
+      value: 
+      objectReference: {fileID: 11400000, guid: 7c0fdc980674f8942976de95fb211f82, type: 2}
     - target: {fileID: 110565877634768175, guid: 6a1f94aeb71db734cba33d56a5f944cf, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0

@@ -32,9 +32,10 @@ MonoBehaviour:
   <GameStartEvent>k__BackingField: {fileID: 11400000, guid: 7ac8dd92711eb5e49940f3262b69ea24, type: 2}
   <GameSloganEvent>k__BackingField: {fileID: 11400000, guid: 1034b265698683247bd6eb4774474336, type: 2}
   <GameDrawEvent>k__BackingField: {fileID: 11400000, guid: 06d99ff0d90f04e488fad73786dea545, type: 2}
+  <EndGameEvent>k__BackingField: {fileID: 0}
   <TutorialDialogue>k__BackingField: {fileID: 11400000, guid: 2b37474a5d466c141aa409b8482b4a7c, type: 2}
   _initialEvents:
-  - {fileID: 11400000, guid: e2d061ac13de1d946876a7a52e540589, type: 2}
+  - {fileID: 11400000, guid: ca86e496660a7914a8f61966086ca2bc, type: 2}
   <RouletteSpinSpeed>k__BackingField: 2000
   <RouletteHideDelay>k__BackingField: 1.5
   <WallFirstPeopleThreshold>k__BackingField: 150

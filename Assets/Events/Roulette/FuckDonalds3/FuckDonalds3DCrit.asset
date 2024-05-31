@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: FuckDonalds3DCrit
   m_EditorClassIdentifier: 
-  _key: fuckdonalds3crit
   _phrases:
   - Speaker: 13
     Text: '*FuckDonalds reduced to rubble by socialist/terrorist attack* The famous
@@ -20,7 +19,7 @@ MonoBehaviour:
       It''s suspected that the attack was carried out by members of NOMBRECOSA. Incredibly,
       the place was evacuated minutes before the incident, thanks to an anonymous
       warning. Authorities are investigating.'
-  - Speaker: 13
+  - Speaker: 14
     Text: "Holy shit, comrades! Now, that\u2019s what I call a motherfucking good
       explosion!  It was beautiful... And luckily, I remembered to tell the employees
       to get the hell out, so there were no casualties!"

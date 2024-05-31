@@ -9,7 +9,7 @@ public class Wall : MonoBehaviour, IBuilding
     [SerializeField] private PassiveEvent _wallEvent0;
     [SerializeField] private RouletteEvent _wallEvent1;
     [SerializeField] private RouletteEvent _wallEvent2;
-
+    private bool isend;
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -20,8 +20,10 @@ public class Wall : MonoBehaviour, IBuilding
         else if (people >= GameManager.Instance.GameInfo.WallFirstPeopleThreshold) wallEvent = _wallEvent1;
 
         GameManager.Instance.Get<IEventService>().StartEvent(wallEvent, this);
+        GetComponentInChildren<SpriteRenderer>().enabled = false;
+
     }
-    
+
     // private void SetColor(int type)
     // {
     //     foreach (SpriteRenderer spr in GetComponentsInChildren<SpriteRenderer>())
@@ -32,7 +34,7 @@ public class Wall : MonoBehaviour, IBuilding
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        GetComponentInChildren<SpriteRenderer>().enabled = true;
+        GetComponentInChildren<SpriteRenderer>().enabled = !isend;
         // SetColor(1);
     }
     
@@ -41,5 +43,14 @@ public class Wall : MonoBehaviour, IBuilding
         GetComponentInChildren<SpriteRenderer>().enabled = false;
 
         // SetColor(0);
+    }
+    private void Start()
+    {
+        isend = false;
+        GameManager.Instance.OnTearDownWall += ending;
+    }
+    private void ending()
+    {
+        isend = true;
     }
 }

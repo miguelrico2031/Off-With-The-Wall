@@ -35,6 +35,7 @@ public class GameInfo : ScriptableObject
     [field: SerializeField] public ChooseSloganEvent GameSloganEvent { get; private set; }
     [field: SerializeField] public DrawEvent GameDrawEvent { get; private set; }
 
+    [field:SerializeField] public PassiveEvent EndGameEvent { get; private set; }
     [field:SerializeField] public Dialogue TutorialDialogue { get; private set; }
 
     [SerializeField] private ScriptableObject[] _initialEvents;

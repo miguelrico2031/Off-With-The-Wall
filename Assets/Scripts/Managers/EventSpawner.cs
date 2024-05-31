@@ -20,6 +20,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     private void Start()
     {
         _buildingService = GameManager.Instance.Get<IBuildingService>();
+        GameManager.Instance.Get<IPeopleService>().OnPeopleChanged.AddListener(TryEndGameEvent);
         _gameInfo = GameManager.Instance.GameInfo;
         _eventPool.Clear();
         dividervalue = 1;
@@ -192,6 +193,32 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
             {
                 print(item.ToString());
             }
+        }
+    }
+    private void TryEndGameEvent(uint people)
+    {
+        print("olii+"+people);
+        if(people > GameManager.Instance.GameInfo.WallSecondPeopleThreshold)
+        {
+            PlayEndGameEvent();
+        }
+    }
+    private void PlayEndGameEvent()
+    {
+        print("jdr");
+        if (!_doneEvents.Contains(GameManager.Instance.GameInfo.EndGameEvent))
+        {
+            print("event");
+            if (_buildingService.SetEvent(GameManager.Instance.GameInfo.EndGameEvent))
+            {
+                _doneEvents.Add(GameManager.Instance.GameInfo.EndGameEvent);
+
+            }
+            else
+            {
+                print("imposible");
+            }
+
         }
     }
 }
