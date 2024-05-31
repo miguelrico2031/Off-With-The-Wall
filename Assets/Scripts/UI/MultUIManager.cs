@@ -83,8 +83,14 @@ public class MultUIManager :MonoBehaviour, IMultUIService
     {
         SetUI();
     }
+    private void HideUI()
+    {
+        GetComponent<CanvasGroup>().alpha = 0;
+    }
     private void SetUI()
     {
+        GetComponent<CanvasGroup>().alpha = 1;
+
         _popUpCount = _peopleCount = 0;
         _popUpMultCount = _peopleMultCount = 1;
         Vector3 peoplePos = _peopleMults.transform.localPosition;

@@ -151,6 +151,7 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     public void PlayTalkSound()
     {
+        print("hablando");
         var talkSound = RuntimeManager.CreateInstance("event:/SOUND EFFECTS/talk");
         talkSound.start();
         talkSound.release();
