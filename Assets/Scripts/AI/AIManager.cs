@@ -64,7 +64,17 @@ public class AIManager : MonoBehaviour, IAIService
         return (spawnPoint, target);
     }
 
-    private AIWaypoint GetRandomWaypoint() => _waypoints[Random.Range(0, _waypoints.Count)];
+    private AIWaypoint GetRandomWaypoint()
+    {
+        AIWaypoint wp = null;
+        while (wp is null)
+        {
+            wp = _waypoints[Random.Range(0, _waypoints.Count)];
+            if (!wp.Valid) wp = null;
+        }
+
+        return wp;
+    }
 
     private void SpawnPedestrian(AIWaypoint spawnPoint, AIWaypoint target)
     {

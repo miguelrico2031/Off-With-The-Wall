@@ -201,6 +201,13 @@ public class EventManager : MonoBehaviour, IEventService
     private void ResolveOutcomes(Outcomes outcomes, IBuilding building)
     {
         HideChoiceButtons();
+
+        if (outcomes.IsWallSuccess)
+        {
+            GameManager.Instance.TearDownWall();
+            return;
+        }
+        
         var outcomeList = outcomes.Get();
         if (outcomeList is null || !outcomeList.Any())
         {
