@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using UnityEngine.Serialization;
 using UnityEngine.UI;
@@ -51,4 +52,11 @@ public class PopUpManager : MonoBehaviour, IPopUpService
         popUp.RemoveHouse();
         _objectPool.Return(popUp);
     }
+
+    public void HideAllPopUps()
+    {
+        foreach(var b in _housePopUps.Keys.ToList()) HidePopUp(b);
+        
+    }
+
 }

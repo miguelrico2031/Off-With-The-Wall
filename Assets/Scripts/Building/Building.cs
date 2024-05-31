@@ -21,6 +21,8 @@ public class Building : MonoBehaviour, IBuilding
     private IGameEvent _currentEvent;
     private Action _currentCallback;
     private BuildingClick _buildingClick;
+    private SpriteRenderer _destroyedSprite;
+    private GameObject _fires;
     
     #endregion
 
@@ -35,6 +37,17 @@ public class Building : MonoBehaviour, IBuilding
         _buildingService.AddBuilding(this);
         _buildingClick = GetComponentInChildren<BuildingClick>();
         PopUpPos = transform.Find("PopUpOffset");
+
+        var dsTransform = transform.Find("Destroyed Sprite");
+        if (dsTransform is null) return;
+    
+        _destroyedSprite = dsTransform.GetComponent<SpriteRenderer>();
+        _destroyedSprite.enabled = false;
+        _fires = transform.Find("Fires").gameObject;
+        _fires.SetActive(false);
+    
+
+
     }
 
     #endregion
@@ -59,7 +72,7 @@ public class Building : MonoBehaviour, IBuilding
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay) return;
+        if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay || CurrentState is IBuilding.State.Burned) return;
         if (!CanClick)
         {
             AudioManager.Instance.PlayClick2();
@@ -106,6 +119,11 @@ public class Building : MonoBehaviour, IBuilding
             _currentEvent = null;
         }
         CurrentState = IBuilding.State.Burned;
+        SetColor(0);
+        _buildingClick.gameObject.SetActive(false);
+        _destroyedSprite.enabled = true;
+
+        foreach (var wp in GetComponentsInChildren<AIWaypoint>()) wp.Valid = false;
     }
 
     public void SetColor(int type)
@@ -118,7 +136,7 @@ public class Building : MonoBehaviour, IBuilding
     }
     public void OnPointerEnter(PointerEventData eventData)
     {
-        if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick)
+        if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick && CurrentState is not IBuilding.State.Burned)
         {
             SetColor(1);
         }
@@ -126,7 +144,7 @@ public class Building : MonoBehaviour, IBuilding
 
     public void OnPointerExit(PointerEventData eventData)
     {
-        if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick)
+        if (GameManager.Instance.CurrentGameState is GameManager.GameState.OnPlay && CanClick && CurrentState is not IBuilding.State.Burned)
         {
             SetColor(0);
         }

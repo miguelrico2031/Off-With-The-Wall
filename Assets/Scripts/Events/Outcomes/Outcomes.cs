@@ -6,6 +6,7 @@ using UnityEngine;
 [Serializable]
 public class Outcomes //clase serializable para agrupar outcomes
 {
+    [field:SerializeField] public bool IsWallSuccess { get; private set; }
     [SerializeField] private PeopleIncrease[] _peopleIncreases;
     [SerializeField] private PeopleDecrease[] _peopleDecreases;
     [SerializeField] private RewardMultiplier[] _rewardMultipliers;

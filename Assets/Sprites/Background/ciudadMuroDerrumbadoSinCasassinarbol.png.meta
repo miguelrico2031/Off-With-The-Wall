@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 0e8366bbbefa00e4dbc94b724ece0796
+guid: c83fbd78a5546e94cadbe9044ee42c76
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -69,10 +69,23 @@ TextureImporter:
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
-    maxTextureSize: 2048
+    maxTextureSize: 16384
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -106,102 +119,194 @@ TextureImporter:
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
-  - serializedVersion: 3
-    buildTarget: WebGL
-    maxTextureSize: 2048
-    resizeAlgorithm: 0
-    textureFormat: -1
-    textureCompression: 0
-    compressionQuality: 50
-    crunchedCompression: 0
-    allowsAlphaSplitting: 0
-    overridden: 0
-    ignorePlatformSupport: 0
-    androidETC2FallbackOverride: 0
-    forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: edificios destruidos_0
+      name: ciudadMuroDerrumbadoSinCasassinarbol_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 2
-        width: 105
-        height: 70
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c8c9537cf1727cf4da87a514ed8ac5ca
-      internalID: 1456338268
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: edificios destruidos_1
-      rect:
-        serializedVersion: 2
-        x: 120
         y: 0
-        width: 120
-        height: 100
+        width: 700
+        height: 270
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 31a5ba1e2751b89409536e579a316dbf
-      internalID: -1922872780
+      spriteID: 11e3e8d1e500a1046a8213b18ba61d9c
+      internalID: -11790539
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edificios destruidos_2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_1
       rect:
         serializedVersion: 2
-        x: 251
-        y: 3
-        width: 96
-        height: 74
+        x: 700
+        y: 0
+        width: 700
+        height: 270
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: e60d9dd20f4d285488a6cf5cf97aefc9
-      internalID: -1063067407
+      spriteID: d0484ea4993a08646bed01a3d78bf7d6
+      internalID: -215080461
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: edificios destruidos_3
+      name: ciudadMuroDerrumbadoSinCasassinarbol_2
       rect:
         serializedVersion: 2
-        x: 375
-        y: 2
-        width: 85
-        height: 73
+        x: 1400
+        y: 0
+        width: 700
+        height: 270
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: dfff6b28ba661c44daf6a673ceb1190c
-      internalID: -77733161
+      spriteID: e5ab93ad9902d9042a593caf3e28b128
+      internalID: 289569374
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_3
+      rect:
+        serializedVersion: 2
+        x: 2100
+        y: 0
+        width: 700
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a3f4da5ab7ad5e545afd835d8007ea02
+      internalID: -152573032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_4
+      rect:
+        serializedVersion: 2
+        x: 2800
+        y: 0
+        width: 700
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 95972e3bea529c9428531a3c301f9379
+      internalID: -1713880246
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_5
+      rect:
+        serializedVersion: 2
+        x: 3500
+        y: 0
+        width: 700
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f21e52da83e8f441bbf778330fb3049
+      internalID: 438607759
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_6
+      rect:
+        serializedVersion: 2
+        x: 4200
+        y: 0
+        width: 700
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b1d7f4ff2644872458bcedf04f43a646
+      internalID: 936983832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_7
+      rect:
+        serializedVersion: 2
+        x: 4900
+        y: 0
+        width: 700
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39a07bbca0fa8ce49bdeaa126c9ad211
+      internalID: -265191514
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ciudadMuroDerrumbadoSinCasassinarbol_8
+      rect:
+        serializedVersion: 2
+        x: 5600
+        y: 0
+        width: 700
+        height: 270
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 12b8233f65f4b43479575eda11146659
+      internalID: 1781688601
       vertices: []
       indices: 
       edges: []
@@ -217,10 +322,15 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      edificios destruidos_0: 1456338268
-      edificios destruidos_1: -1922872780
-      edificios destruidos_2: -1063067407
-      edificios destruidos_3: -77733161
+      ciudadMuroDerrumbadoSinCasassinarbol_0: -11790539
+      ciudadMuroDerrumbadoSinCasassinarbol_1: -215080461
+      ciudadMuroDerrumbadoSinCasassinarbol_2: 289569374
+      ciudadMuroDerrumbadoSinCasassinarbol_3: -152573032
+      ciudadMuroDerrumbadoSinCasassinarbol_4: -1713880246
+      ciudadMuroDerrumbadoSinCasassinarbol_5: 438607759
+      ciudadMuroDerrumbadoSinCasassinarbol_6: 936983832
+      ciudadMuroDerrumbadoSinCasassinarbol_7: -265191514
+      ciudadMuroDerrumbadoSinCasassinarbol_8: 1781688601
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

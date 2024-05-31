@@ -21,29 +21,41 @@ MonoBehaviour:
   <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: 7adefc8ed4dbd7c43b19cefe95c64b27, type: 2}
   <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: 7adefc8ed4dbd7c43b19cefe95c64b27, type: 2}
   <OutcomesRefuse>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesLose>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
     _peopleDecreases:
     - People: 50
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesWin>k__BackingField:
+    <IsWallSuccess>k__BackingField: 1
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <OutcomesCrit>k__BackingField:
+    <IsWallSuccess>k__BackingField: 1
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers: []
+    _popUpMultipliers: []
     _houseBurns: []
+    _customText: []
     _eventAdds: []
   <CritChance>k__BackingField: 0
   <SucessChance>k__BackingField: 0.1

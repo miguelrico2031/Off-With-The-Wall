@@ -15,8 +15,11 @@ public class GameManager : MonoBehaviour
     {
         OnEvent,
         OnPlay,
-        OnPause
+        OnPause,
+        OnEnd
     }
+
+    public event Action OnTearDownWall;
 
     [field: SerializeField] public GameState CurrentGameState { get; set; } = GameState.OnPlay;
     public GameInfo GameInfo { get => _gameInfo; } //archivo de config del juego (ScriptableObject)
@@ -118,7 +121,19 @@ public class GameManager : MonoBehaviour
     }
     public void Pause(bool setPause)
     {
+        if (CurrentGameState is GameState.OnEnd) return;
         CurrentGameState = setPause ? GameState.OnPause : GameState.OnPlay;
         Get<IStartLoseUIService>().SetPauseScreen(setPause);
+    }
+
+
+
+    public void TearDownWall()
+    {
+        Debug.Log("MURO");
+        OnTearDownWall?.Invoke();
+        CurrentGameState = GameState.OnEnd;
+        Get<IPopUpService>().HideAllPopUps();
+        Get<IHUDService>().HideHUD();
     }
 }

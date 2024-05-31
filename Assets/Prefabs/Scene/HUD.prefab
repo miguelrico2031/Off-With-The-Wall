@@ -100,6 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _logoUI: {fileID: 3328897867882082056}
+  _peopleIcon: {fileID: 2494923081631395566}
   _peopleCountText: {fileID: 14997130327255807}
   _peopleCountAnimationDuration: 0.5
 --- !u!1 &2494923081631395566
