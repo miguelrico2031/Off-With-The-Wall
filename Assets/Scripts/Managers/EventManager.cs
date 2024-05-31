@@ -14,6 +14,8 @@ public class EventManager : MonoBehaviour, IEventService
     [SerializeField] private DrawUI _drawUI;
     [SerializeField] private TextInputUI _textInputUI;
     [SerializeField] private RouletteUI _rouletteUI;
+
+    [SerializeField] private Image _rouletteChoiceSymbol;
     
     private IDialogueService _dialogueService;
 
@@ -50,7 +52,7 @@ public class EventManager : MonoBehaviour, IEventService
         switch (e)
         {
             case ChoiceEvent choiceEvent:
-                
+                _rouletteChoiceSymbol.enabled = false;
                 _dialogueService.SendDialogue(choiceEvent.StartDialogue, false, ShowChoiceButtons);
                 SetChoiceToButton(_buttonA, choiceEvent.ChoiceTextA, choiceEvent.EndDialogueA, 
                     () => ResolveOutcomes(choiceEvent.OutcomesA, building));
@@ -66,7 +68,8 @@ public class EventManager : MonoBehaviour, IEventService
                 break;
 
             case RouletteEvent rouletteEvent:
-                
+                _rouletteChoiceSymbol.enabled = true;
+
                 _dialogueService.SendDialogue(rouletteEvent.StartDialogue, false, ShowChoiceButtons);
                 SetRouletteToButton(_buttonA, rouletteEvent, building);
                 SetChoiceToButton(_buttonB, rouletteEvent.ChoiceTextRefuse, rouletteEvent.EndDialogueRefuse, 

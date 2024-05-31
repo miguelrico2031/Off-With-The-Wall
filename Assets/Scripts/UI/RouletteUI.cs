@@ -35,10 +35,10 @@ public class RouletteUI : MonoBehaviour
       _startButton.enabled = true;
       _stopButton.enabled = false;
 
-      _critImg.fillAmount = rouletteEvent.CritChance;
-      _critAngle = rouletteEvent.CritChance * 360f;
-      _successImg.fillAmount = rouletteEvent.SucessChance + rouletteEvent.CritChance;
-      _successAngle = _successImg.fillAmount * 360f;
+        _successImg.fillAmount = rouletteEvent.SucessChance;
+        _successAngle = rouletteEvent.SucessChance * 360f;
+      _critImg.fillAmount = rouletteEvent.CritChance + rouletteEvent.SucessChance;
+      _critAngle = _critImg.fillAmount * 360f;
    }
 
    public void StartSpin()
@@ -56,8 +56,8 @@ public class RouletteUI : MonoBehaviour
       _needleRb.angularVelocity = 0f;
       var angle = Mathf.Abs(_needleRb.rotation % 360);
       var result = Result.Fail;
-      if (angle <= _critAngle) result = Result.Crit;
-      else if (angle <= _successAngle) result = Result.Success;
+      if (angle <= _successAngle) result = Result.Success;
+      else if (angle <= _critAngle) result = Result.Crit;
         AudioManager.Instance.FinalizaRuleta(result);
 
         StartCoroutine(WaitAndHide(result));

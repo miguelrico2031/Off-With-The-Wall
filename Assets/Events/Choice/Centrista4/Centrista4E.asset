@@ -29,7 +29,8 @@ MonoBehaviour:
     _popUpMultipliers: []
     _houseBurns: []
     _customText: []
-    _eventAdds: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: be63c4042d689a04ca882f641308f9a3, type: 2}
   <OutcomesB>k__BackingField:
     _peopleIncreases: []
     _peopleDecreases:
@@ -38,4 +39,5 @@ MonoBehaviour:
     _popUpMultipliers: []
     _houseBurns: []
     _customText: []
-    _eventAdds: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: be63c4042d689a04ca882f641308f9a3, type: 2}

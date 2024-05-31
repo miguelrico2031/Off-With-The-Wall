@@ -42,9 +42,9 @@ MonoBehaviour:
     _peopleDecreases: []
     _rewardMultipliers:
     - Multiplier: 2
-      MultiplierName: 
+      MultiplierName: conBirds
       IsPermanent: 0
-      Duration: 0
+      Duration: 15
     _popUpMultipliers: []
     _houseBurns: []
     _customText: []
@@ -55,9 +55,9 @@ MonoBehaviour:
     _peopleDecreases: []
     _rewardMultipliers:
     - Multiplier: 2
-      MultiplierName: 
+      MultiplierName: conBirds
       IsPermanent: 0
-      Duration: 0
+      Duration: 20
     _popUpMultipliers: []
     _houseBurns: []
     _customText: []

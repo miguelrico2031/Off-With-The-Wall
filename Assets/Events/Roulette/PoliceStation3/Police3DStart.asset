@@ -17,10 +17,13 @@ MonoBehaviour:
     Text: "Hey, I don't know if you remember me. I'm the cop who wants to screw every
       cop in this town. I've come up with a plan, somewhat risky but very rewarding.
       I've been assigned as a patrolman, to alert of manifestations and congregations
-      of \u201Csuspicious\u201D people in public spaces. How about I make a false
-      alarm, alerting of a very dangerous protest, and ask for support from all available
-      units. That would leave the police station practically empty, and a mob of
-      NOMBRECOSA people could enter and destroy it.\r\n"
+      of \u201Csuspicious\u201D people in public spaces. "
+  - Speaker: 17
+    Text: 'How about I make a false alarm, alerting of a very dangerous protest,
+      and ask for support from all available units. That would leave the police station
+      practically empty, and a mob of NOMBRECOSA people could enter and destroy it.
+
+'
   - Speaker: 12
     Text: "Sorry to intrude, but I couldn't help but overhear this guy's plan, and
       as tempting as it sounds, we don't know him at all, and it could be a police
@@ -32,7 +35,7 @@ MonoBehaviour:
       to do a good deed for once, before I leave.
 
 '
-  - Speaker: 17
+  - Speaker: 12
     Text: 'I wouldn''t do it, I don''t trust him. You have the last word, tho...
 
 '

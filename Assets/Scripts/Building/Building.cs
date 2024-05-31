@@ -75,6 +75,7 @@ public class Building : MonoBehaviour, IBuilding
         if (GameManager.Instance.CurrentGameState is not GameManager.GameState.OnPlay || CurrentState is IBuilding.State.Burned) return;
         if (!CanClick)
         {
+            print("click2");
             AudioManager.Instance.PlayClick2();
             return;
         }
@@ -85,6 +86,10 @@ public class Building : MonoBehaviour, IBuilding
             _buildingService.RegisterBuildingClick(this); //para q no se pueda clickar 2 veces el mismo edificio
             uint value = _peopleService.AddPeople(1);
             GameManager.Instance.Get<IScoreIncreaseUIService>().setIncrease(value, value != 1);
+        }
+        else
+        {
+           // AudioManager.Instance.PlayClick2();
         }
     }
     

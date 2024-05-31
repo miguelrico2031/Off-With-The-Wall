@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: Square3Dchoice2
   m_EditorClassIdentifier: 
-  _key: square3choice2
   _phrases:
   - Speaker: 19
     Text: "NOOO PLEASE NOOO! I\u2019LL DO ANYTHING! PLEA-\r\r"
@@ -20,8 +19,6 @@ MonoBehaviour:
     Text: "*chomp*\r\r"
   - Speaker: 14
     Text: "Hell yeah!! Bon app\xE9tit my love!\r\r"
-  - Speaker: 14
-    Text: "Hell yeah!! Bon appetit my love!\r\r"
   - Speaker: 13
     Text: "*Treasurer loses his head* Yesterday, in the town square, a horrifying
       guillotine decapitation took place, medieval style, with our beloved City Treasurer
