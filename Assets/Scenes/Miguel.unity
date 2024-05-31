@@ -866,8 +866,8 @@ MonoBehaviour:
   m_ShadowVolumeIntensityEnabled: 0
   m_ShadowVolumeIntensity: 0.75
   m_LocalBounds:
-    m_Center: {x: 0.07364997, y: 0.029649973, z: 0}
-    m_Extent: {x: 0.94334996, y: 1.10665, z: 0}
+    m_Center: {x: 0.068700016, y: 0.032350004, z: 0}
+    m_Extent: {x: 0.9529, y: 1.1087501, z: 0}
   m_PointLightInnerAngle: 135.20358
   m_PointLightOuterAngle: 175.9275
   m_PointLightInnerRadius: 0
@@ -11231,6 +11231,7 @@ SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 519420032}
+  - {fileID: 991806276}
   - {fileID: 619394802}
   - {fileID: 8233885426421179046}
   - {fileID: 791138166515507030}
@@ -11246,4 +11247,3 @@ SceneRoots:
   - {fileID: 1600848623}
   - {fileID: 2081102795}
   - {fileID: 589474374}
-  - {fileID: 991806276}

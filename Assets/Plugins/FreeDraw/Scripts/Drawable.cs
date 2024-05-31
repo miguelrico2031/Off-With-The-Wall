@@ -299,6 +299,7 @@ namespace FreeDraw
             drawable_sprite = this.GetComponent<SpriteRenderer>().sprite;
             drawable_texture = drawable_sprite.texture;
 
+            Reset_Colour = new Color(1f, 1f, 1f, 0f);
             // Initialize clean pixels to use
             clean_colours_array = new Color[(int)drawable_sprite.rect.width * (int)drawable_sprite.rect.height];
             for (int x = 0; x < clean_colours_array.Length; x++)
