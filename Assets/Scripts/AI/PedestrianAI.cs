@@ -11,6 +11,12 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
     #region Attributes
 
     public bool Active { get => gameObject.activeSelf; set => gameObject.SetActive(value); }
+
+    public enum Mode
+    {
+        Wander, ToWall, ToRichHouses
+    }
+    public Mode CurrentMode { get; private set; }
     public AIWaypoint Target { get; private set; }
     public readonly UnityEvent<PedestrianAI> OnTargetReached = new();
 
@@ -42,20 +48,17 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
         _speedParam = Animator.StringToHash("Speed");
         _gameInfo = GameManager.Instance.GameInfo;
     }
-
-    private void Start()
-    {
-    }
+    
 
     private void Update()
     {
         if (_pathEnded) return;
         
         _tryIdleTimer += Time.deltaTime;
-        if (_tryIdleTimer >= _gameInfo.PedTryIdleDelay) TryIdle();
+        if (CurrentMode is Mode.Wander && _tryIdleTimer >= _gameInfo.PedTryIdleDelay) TryIdle();
 
         _posCheckTimer += Time.deltaTime;
-        if (_posCheckTimer >= _gameInfo.PedIdleMaxTime * 1.2f) CheckPositionChanged();
+        if (CurrentMode is Mode.Wander && _posCheckTimer >= _gameInfo.PedIdleMaxTime * 1.2f) CheckPositionChanged();
         
         _renderer.flipX = _agent.velocity.x < 0;
         _animator.SetFloat(_speedParam, _agent.velocity.magnitude);
@@ -70,13 +73,16 @@ public class PedestrianAI : MonoBehaviour, IPoolObject
 
     #endregion
 
-    public IEnumerator Spawn(AIWaypoint spawnPoint, AIWaypoint target)
+    public IEnumerator Spawn(Vector3 spawnPoint, AIWaypoint target, Mode mode = Mode.Wander)
     {
-        transform.position = spawnPoint.transform.position;
-        _agent.speed = Random.Range(_gameInfo.MinAgentSpeed, _gameInfo.MaxAgentSpeed);
-        _animator.Play(_spawnAnim);
+        OnTargetReached.RemoveAllListeners();
+        CurrentMode = mode;
+        transform.position = spawnPoint;
+        _agent.speed = mode is Mode.Wander ? Random.Range(_gameInfo.MinAgentSpeed, _gameInfo.MaxAgentSpeed) : _gameInfo.MaxAgentSpeed;
+        
+        if(mode is Mode.Wander) _animator.Play(_spawnAnim);
         yield return null;
-        yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
+        if(mode is Mode.Wander) yield return new WaitForSeconds(_animator.GetCurrentAnimatorClipInfo(0)[0].clip.length);
         Target = target;
         _agent.SetDestination(Target.transform.position);
         _pathEnded = false;

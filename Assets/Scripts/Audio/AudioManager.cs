@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using UnityEngine;
 using FMODUnity;
 
@@ -150,6 +151,7 @@ public class AudioManager : MonoBehaviour, IAudioService
 
     public void PlayTalkSound()
     {
+        print("hablando");
         var talkSound = RuntimeManager.CreateInstance("event:/SOUND EFFECTS/talk");
         talkSound.start();
         talkSound.release();
@@ -199,9 +201,35 @@ public class AudioManager : MonoBehaviour, IAudioService
             RouletteUI.Result.Success=> "ganaRuleta",
             RouletteUI.Result.Fail=> "pierdeRuleta",
             RouletteUI.Result.Crit => "criticoRuleta",
-            _ => throw new ArgumentOutOfRangeException(nameof(resultado), "Valor no v·lido para resultado de la ruleta")
+            _ => throw new ArgumentOutOfRangeException(nameof(resultado), "Valor no v√°lido para resultado de la ruleta")
         };
 
         PlaySound(resultadoSound);
+    }
+    
+    public void FadeOutGameplayMusic(float duration)
+    {
+        if (gameplayMusic.isValid())
+        {
+            StartCoroutine(FadeOutCoroutine(duration));
+        }
+    }
+
+    private IEnumerator FadeOutCoroutine(float duration)
+    {
+        float startVolume;
+        gameplayMusic.getVolume(out startVolume);
+        float elapsed = 0f;
+
+        while (elapsed < duration)
+        {
+            elapsed += Time.deltaTime;
+            float newVolume = Mathf.Lerp(startVolume, 0f, elapsed / duration);
+            gameplayMusic.setVolume(newVolume);
+            yield return null;
+        }
+
+        gameplayMusic.setVolume(0f);
+        StopAndReleaseInstance(ref gameplayMusic);
     }
 }

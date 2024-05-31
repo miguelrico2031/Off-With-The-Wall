@@ -7,6 +7,10 @@ public class ObjectPool<T> where T : IPoolObject
 {
     public int PoolSize { get; private set; }
     public int ActiveCount { get; private set; }
+    public IReadOnlyCollection<IPoolObject> Pool
+    {
+        get => _pool;
+    }
 
     private readonly IPoolObject _prototype;
     private readonly bool _allowAddNew;

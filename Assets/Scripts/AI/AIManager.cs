@@ -1,6 +1,8 @@
 using UnityEngine;
 using System.Collections.Generic;
 using System.Collections;
+using System.Linq;
+using NavMeshPlus.Components;
 
 public class AIManager : MonoBehaviour, IAIService
 {
@@ -9,6 +11,7 @@ public class AIManager : MonoBehaviour, IAIService
     [SerializeField] private PedestrianAI _pedestrianPrefab;
     [SerializeField] private Transform _pedsParent;
     [SerializeField] private float _delaybetweenSpawns;
+    [SerializeField] private GameObject _notWalkable, _notWalkableEnd;
     
     private ObjectPool<PedestrianAI> _objectPool;
     private GameInfo _gameInfo;
@@ -79,7 +82,7 @@ public class AIManager : MonoBehaviour, IAIService
     private void SpawnPedestrian(AIWaypoint spawnPoint, AIWaypoint target)
     {
         var pedestrian = _objectPool.Get();
-        StartCoroutine(pedestrian.Spawn(spawnPoint, target));
+        StartCoroutine(pedestrian.Spawn(spawnPoint.transform.position, target));
         pedestrian.OnTargetReached.AddListener(OnTargetReached);
     }
 
@@ -99,6 +102,45 @@ public class AIManager : MonoBehaviour, IAIService
         { //solo cambiar target sin despawnearlo
            pedestrian.SetTarget(GetRandomSpawnPointAndTarget().target);
         }
+    }
+
+
+    public void TargetWall()
+    {
+        var pool = _objectPool.Pool.Cast<PedestrianAI>().ToList();
+        var wallWp = FindAnyObjectByType<Wall>().GetComponentInChildren<AIWaypoint>();
+        foreach (var ped in pool)
+        {
+            if (!ped.Active)
+            {
+                ped.Active = true;
+            }
+
+            StartCoroutine(ped.Spawn(ped.transform.position, wallWp, PedestrianAI.Mode.ToWall));
+        }
+    }
+
+    public IEnumerator TargetHouses()
+    {
+        var nav = GetComponentInChildren<NavMeshSurface>();
+        _notWalkable.SetActive(false);
+        _notWalkableEnd.SetActive(true);
+        yield return nav.BuildNavMeshAsync();
+
+        var endWps = transform.Find("End Waypoints").GetComponentsInChildren<AIWaypoint>();
+        int wpI = 0;
+        var pool = _objectPool.Pool.Cast<PedestrianAI>().ToList();
+        foreach (var ped in pool)
+        {
+            if (!ped.Active)
+            {
+                ped.Active = true;
+            }
+
+            var wp = endWps[wpI++ % endWps.Length];
+            StartCoroutine(ped.Spawn(ped.transform.position, wp, PedestrianAI.Mode.ToRichHouses));
+        }
+        
     }
     
 }
