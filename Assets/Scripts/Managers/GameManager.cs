@@ -135,5 +135,6 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.OnEnd;
         Get<IPopUpService>().HideAllPopUps();
         Get<IHUDService>().HideHUD();
+        GetComponent<EndCinematic>().StartCinematic();
     }
 }
