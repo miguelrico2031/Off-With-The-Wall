@@ -29,7 +29,7 @@ public class MultUIManager :MonoBehaviour, IMultUIService
         _peopleMults.SetActive(true);
         _peopleMultCount *= value;
         _peopleCountText.text = "x" + _peopleMultCount;
-        if (_peopleCount < _peopleMults.transform.childCount)
+        if ((_peopleCount+1) < _peopleMults.transform.childCount)
         {
             _peopleMults.transform.GetChild(_peopleCount+1).GetComponent<Image>().enabled = true;
             _peopleCount++;
@@ -42,7 +42,7 @@ public class MultUIManager :MonoBehaviour, IMultUIService
         _popUpMults.SetActive(true);
         _popUpMultCount *= value;
         _popUpCountText.text = "x" + _popUpMultCount;
-        if (_popUpCount < _popUpMults.transform.childCount)
+        if ((_popUpCount+1) < _popUpMults.transform.childCount)
         {
             _popUpMults.transform.GetChild(_popUpCount+1).GetComponent<Image>().enabled = true;
             _popUpCount++;

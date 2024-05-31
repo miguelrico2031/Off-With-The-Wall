@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 7679b33bfcf096144b831e60d29d8daf, type: 2}
-  <ChoiceTextA>k__BackingField: "Let\u2019s go check those tunnels"
-  <ChoiceTextB>k__BackingField: I doubt there is a secret tunnel
+  <ChoiceTextA>k__BackingField: "Let\u2019s check those tunnels."
+  <ChoiceTextB>k__BackingField: You are insane.
   <EndDialogueA>k__BackingField: {fileID: 11400000, guid: 7b54fc54aff941e4181c818ce300d295, type: 2}
   <EndDialogueB>k__BackingField: {fileID: 11400000, guid: 9e92e121b59e241468ab1c50b5da693c, type: 2}
   <OutcomesA>k__BackingField:

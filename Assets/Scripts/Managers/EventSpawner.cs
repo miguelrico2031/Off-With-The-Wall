@@ -172,4 +172,26 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
         RemoveMultiplier(key);
 
     }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            print("Posibles: "+ _eventPool.Count+"Hechos: " +_doneEvents.Count);
+            
+        }
+        if (Input.GetKeyDown(KeyCode.T))
+        {
+            foreach (IGameEvent item in _doneEvents)
+            {
+                print(item.ToString());
+            }
+        }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            foreach (IGameEvent item in _eventPool)
+            {
+                print(item.ToString());
+            }
+        }
+    }
 }

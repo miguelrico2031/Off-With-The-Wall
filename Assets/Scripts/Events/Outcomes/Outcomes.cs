@@ -23,9 +23,11 @@ public class Outcomes //clase serializable para agrupar outcomes
         var l = _peopleIncreases.Cast<IOutcome>().ToList();
         l.AddRange(_peopleDecreases);
         l.AddRange(_rewardMultipliers);
-        //l.AddRange(_popUpMultipliers);
+        l.AddRange(_popUpMultipliers);
         l.AddRange(_houseBurns);
         l.AddRange(_eventAdds);
+        l.AddRange(_customText);
+
         _outcomes = l.ToArray();
         return _outcomes;
     }
@@ -79,6 +81,7 @@ public class PopUpMultiplier : IOutcome
 
     public void Execute(IBuilding building = null)
     {
+        Debug.Log("esecutado");
         var popUPService = GameManager.Instance.Get<IEventSpawnService>();
         if (IsPermanent) popUPService.AddMultiplier(MultiplierName, Multiplier);
         else popUPService.AddMultiplier(MultiplierName, Multiplier, Duration);

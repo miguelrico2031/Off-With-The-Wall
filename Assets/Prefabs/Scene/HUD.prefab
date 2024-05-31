@@ -102,6 +102,7 @@ MonoBehaviour:
   _logoUI: {fileID: 3328897867882082056}
   _peopleCountText: {fileID: 14997130327255807}
   _peopleCountAnimationDuration: 0.5
+  _peopleSymbolUI: {fileID: 2494923081631395566}
 --- !u!1 &2494923081631395566
 GameObject:
   m_ObjectHideFlags: 0

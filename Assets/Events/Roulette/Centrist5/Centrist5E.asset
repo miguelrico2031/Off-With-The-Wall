@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   <BuildingType>k__BackingField: 0
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 4d4b8cdd792e94345b0966f6254f2597, type: 2}
-  <ChoiceTextAccept>k__BackingField: Trust
-  <ChoiceTextRefuse>k__BackingField: Punch him in the nuts
+  <ChoiceTextAccept>k__BackingField: Punch him in the nuts
+  <ChoiceTextRefuse>k__BackingField: Trust
   <EndDialogueRefuse>k__BackingField: {fileID: 11400000, guid: c5219e6c169bf3841823db0820861e49, type: 2}
   <EndDialogueLose>k__BackingField: {fileID: 11400000, guid: 7e04d673df5a6c94dae8213a39c99df2, type: 2}
   <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: 719c9d148b0a1534180b2d78cbd85ec0, type: 2}

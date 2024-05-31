@@ -12,7 +12,8 @@ public class HUDManager : MonoBehaviour, IHUDService
     [SerializeField] private GameObject _logoUI;
     [SerializeField] private TextMeshProUGUI _peopleCountText;
     [SerializeField] private float _peopleCountAnimationDuration;
-    
+    [SerializeField] private GameObject _peopleSymbolUI;
+
     private int _currentPeople = 0;
         
     #endregion
@@ -21,6 +22,7 @@ public class HUDManager : MonoBehaviour, IHUDService
     public void ShowHUD()
     {
         _logoUI.SetActive(true);
+        _peopleSymbolUI.SetActive(true);
         _peopleCountText.enabled = true;
         _peopleCountText.text = "0";
     }
@@ -29,6 +31,8 @@ public class HUDManager : MonoBehaviour, IHUDService
         var peopleService = GameManager.Instance.Get<IPeopleService>(); 
         peopleService.OnPeopleChanged.AddListener(OnPeopleChanged);
         _logoUI.SetActive(false);
+        _peopleSymbolUI.SetActive(false);
+
         _peopleCountText.enabled = false;
     }
 
