@@ -44,7 +44,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 264edeb76f8a94b4dbca4a2519e25c1f, type: 2}
   - {fileID: 11400000, guid: 2282711a9c7fb454a95d305917a7d228, type: 2}
   - {fileID: 11400000, guid: 9ba4ab266edcf2847b46a8319ce43542, type: 2}
-  <RouletteSpinSpeed>k__BackingField: 200
+  <RouletteSpinSpeed>k__BackingField: 600
   <RouletteHideDelay>k__BackingField: 1.5
   <WallFirstPeopleThreshold>k__BackingField: 500
   <WallSecondPeopleThreshold>k__BackingField: 1200
