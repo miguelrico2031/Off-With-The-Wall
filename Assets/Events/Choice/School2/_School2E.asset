@@ -36,12 +36,20 @@ MonoBehaviour:
     _peopleIncreases: []
     _peopleDecreases:
     - People: 5
-    _rewardMultipliers: []
-    _popUpMultipliers:
-    - Multiplier: 1.2
-      MultiplierName: school2b
-      IsPermanent: 1
+    _rewardMultipliers:
+    - Multiplier: 2
+      MultiplierName: school
+      IsPermanent: 0
+      Duration: 15
+    - Multiplier: 0
+      MultiplierName: 
+      IsPermanent: 0
       Duration: 0
+    - Multiplier: 0
+      MultiplierName: 
+      IsPermanent: 0
+      Duration: 0
+    _popUpMultipliers: []
     _houseBurns: []
     _customText: []
     _eventAdds:

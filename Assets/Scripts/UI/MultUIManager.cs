@@ -85,6 +85,7 @@ public class MultUIManager :MonoBehaviour, IMultUIService
     private void Start()
     {
         SetUI();
+        GameManager.Instance.OnTearDownWall += HideUI;
     }
     private void HideUI()
     {

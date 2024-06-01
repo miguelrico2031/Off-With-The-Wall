@@ -110,6 +110,7 @@ public class EventManager : MonoBehaviour, IEventService
                         GameManager.Instance.GameInfo.OrgName = chosenName;
                         GameManager.Instance.CurrentGameState = GameManager.GameState.OnPlay;
                         GameManager.Instance.Get<IEventSpawnService>().SpawnSetUpEvents();
+                        GameManager.Instance.Get<IHUDService>().ShowHUD();
                         GameManager.Instance.Get<IPeopleService>()
                             .AddPeople(GameManager.Instance.GameInfo.InitialPeople);
                     });

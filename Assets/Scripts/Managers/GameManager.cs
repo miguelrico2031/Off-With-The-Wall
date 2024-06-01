@@ -64,7 +64,7 @@ public class GameManager : MonoBehaviour
         //Get<IEventSpawnService>().StartSpawn();
         Get<IPeopleService>().OnZeroPeople.AddListener(LoseGame);
         Get<IStartLoseUIService>().SetStartScreen(false);
-        Get<IHUDService>().ShowHUD();
+       // Get<IHUDService>().ShowHUD();
         // CurrentGameState = GameState.OnPlay;
 
     }
