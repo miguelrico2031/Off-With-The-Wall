@@ -29,7 +29,8 @@ MonoBehaviour:
     _houseBurns:
     - <DisplayText>k__BackingField: The School is Destroyed
     _customText: []
-    _eventAdds: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: fe48269f1bbf137409dd111e44165601, type: 2}
   <OutcomesB>k__BackingField:
     <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
@@ -43,4 +44,5 @@ MonoBehaviour:
       Duration: 0
     _houseBurns: []
     _customText: []
-    _eventAdds: []
+    _eventAdds:
+    - _gameEvent: {fileID: 11400000, guid: fe48269f1bbf137409dd111e44165601, type: 2}
