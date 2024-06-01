@@ -17,8 +17,8 @@ MonoBehaviour:
     Text: " I knew you would understand. Don\u2019t worry, you are right to trust
       me. Taking powerful positions is the faucet way of changing things.\r\n"
   - Speaker: 13
-    Text: "\u201CNew Councilor\u2019s Speech\u201D. The new counselor for the municipal
-      government and leader of the recently defunct association \u201CA Better Tomorrow\u201D
-      has given an speech at the square \u201CMy fellow citizens, I want to represent
-      the interests of the people outside the wall. With me in power many things
-      will start to change around here\u201D\r\n"
+    Text: "*New Councilor\u2019s Speech* The new councilor for the municipal government
+      and leader of the recently defunct association \u201CA Better Tomorrow\u201D
+      gave a speech at the square: \u201CMy fellow citizens, I want to represent
+      the interests of the people outside the wall. With me in power, many things
+      will start to change around here...\u201D.\r\n"

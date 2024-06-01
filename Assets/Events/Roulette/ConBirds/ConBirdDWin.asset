@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phrases:
   - Speaker: 13
-    Text: '*Illegal barbecue in main square*. A group of hunters has held an illegal
+    Text: '*Illegal barbecue in main square* A group of hunters has held an illegal
       barbecue in the plaza. The smell of fried pigeon is wafting through the streets.
       The police have been unable to arrest the cooks due to fears of contracting
       some disease.'

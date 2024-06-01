@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: House1D
   m_EditorClassIdentifier: 
-  _key: house1
   _phrases:
   - Speaker: 13
-    Text: " *City Treasury Plundered* This morning, the city woke up to the sad news
+    Text: "*City Treasury Plundered* This morning, the city woke up to the sad news
       that half of the funds in the treasury have disappeared. Our beloved city treasurer
       has refused to give a statement, and authorities have the known criminals of
       NOMBRECOSA as the prime suspects. In other news, the city treasurer unveils

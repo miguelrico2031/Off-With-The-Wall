@@ -6,11 +6,8 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/Miguel.unity
+    path: Assets/Scenes/Main.unity
     guid: 0c3d16a389304e144ba4bf284469255f
-  - enabled: 1
-    path: Assets/Scenes/Deigo.unity
-    guid: 8eb8a5af6231b844cb9a0f8ba9409084
   - enabled: 1
     path: Assets/Scenes/Credits.unity
     guid: 68491d5c5ce8a0e4599644ee30d3c86e

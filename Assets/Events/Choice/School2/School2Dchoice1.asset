@@ -12,10 +12,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9bef1c448e258c64a83aa36b132fb659, type: 3}
   m_Name: School2Dchoice1
   m_EditorClassIdentifier: 
-  _key: school2choice1
   _phrases:
   - Speaker: 13
-    Text: '*Indoctrinated students set fire to the school* The city''s only school
+    Text: '*Brainwashed students set fire to the school* The city''s only school
       fell victim to a fire caused by a group of students from NOMBRECOSA. Once again,
       it''s shown that the left hates intellectuality and critical thinking, and
       only wants uneducated people who swallow their revolution lies.'

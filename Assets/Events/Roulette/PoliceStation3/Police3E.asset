@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 588fed65d614b7249a83c801ade8ad3a, type: 3}
   m_Name: Police3E
   m_EditorClassIdentifier: 
-  <BuildingType>k__BackingField: 0
+  <BuildingType>k__BackingField: 3
   <StartDialogue>k__BackingField: {fileID: 11400000, guid: 05652815ace745e48aa88d014b563d20, type: 2}
   <ChoiceTextAccept>k__BackingField: We can try.
   <ChoiceTextRefuse>k__BackingField: I can't trust you.
@@ -21,6 +21,7 @@ MonoBehaviour:
   <EndDialogueWin>k__BackingField: {fileID: 11400000, guid: a5ec4ba2e6b561649929311076ad1040, type: 2}
   <EndDialogueCrit>k__BackingField: {fileID: 11400000, guid: a5ec4ba2e6b561649929311076ad1040, type: 2}
   <OutcomesRefuse>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
     _peopleDecreases:
     - People: 1
@@ -30,6 +31,7 @@ MonoBehaviour:
     _customText: []
     _eventAdds: []
   <OutcomesLose>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
     _peopleDecreases:
     - People: 30
@@ -39,6 +41,7 @@ MonoBehaviour:
     _customText: []
     _eventAdds: []
   <OutcomesWin>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases: []
     _peopleDecreases: []
     _rewardMultipliers:
@@ -47,10 +50,12 @@ MonoBehaviour:
       IsPermanent: 0
       Duration: 15
     _popUpMultipliers: []
-    _houseBurns: []
+    _houseBurns:
+    - <DisplayText>k__BackingField: The police station is Destroyed.
     _customText: []
     _eventAdds: []
   <OutcomesCrit>k__BackingField:
+    <IsWallSuccess>k__BackingField: 0
     _peopleIncreases:
     - People: 20
     _peopleDecreases: []
@@ -60,7 +65,8 @@ MonoBehaviour:
       IsPermanent: 0
       Duration: 20
     _popUpMultipliers: []
-    _houseBurns: []
+    _houseBurns:
+    - <DisplayText>k__BackingField: The police station is Destroyed.
     _customText: []
     _eventAdds: []
   <CritChance>k__BackingField: 0.188

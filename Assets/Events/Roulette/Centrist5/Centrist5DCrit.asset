@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _phrases:
   - Speaker: 13
-    Text: "NEWSPAPER: *Violent Attack at Counselor Speech* The new counselor for
-      the municipal government has been rushed to the hospital after being assaulted
-      by a member of the radical group NOMBRECOSA which started a massive uproar
-      in the square. The riot was also joined by some members of the recently disbanded
-      \u201CA Better Tomorrow\"\r\n"
+    Text: "*Violent Attack at Counselor Speech* The new counselor for the municipal
+      government has been rushed to the hospital after being assaulted by a member
+      of the radical group NOMBRECOSA which started a massive uproar in the square.
+      The riot was also joined by some members of the recently disbanded \u201CA
+      Better Tomorrow\".\r\n"
