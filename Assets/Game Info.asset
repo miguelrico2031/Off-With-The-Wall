@@ -46,8 +46,8 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 9ba4ab266edcf2847b46a8319ce43542, type: 2}
   <RouletteSpinSpeed>k__BackingField: 600
   <RouletteHideDelay>k__BackingField: 1.5
-  <WallFirstPeopleThreshold>k__BackingField: 500
-  <WallSecondPeopleThreshold>k__BackingField: 1200
+  <WallFirstPeopleThreshold>k__BackingField: 800
+  <WallSecondPeopleThreshold>k__BackingField: 1600
   <buildingColors>k__BackingField:
   - {r: 1, g: 1, b: 1, a: 1}
   - {r: 0.8679245, g: 0.8679245, b: 0.8679245, a: 1}

@@ -41,14 +41,6 @@ MonoBehaviour:
       MultiplierName: school
       IsPermanent: 0
       Duration: 15
-    - Multiplier: 0
-      MultiplierName: 
-      IsPermanent: 0
-      Duration: 0
-    - Multiplier: 0
-      MultiplierName: 
-      IsPermanent: 0
-      Duration: 0
     _popUpMultipliers: []
     _houseBurns: []
     _customText: []

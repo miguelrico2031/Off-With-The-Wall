@@ -58,4 +58,4 @@ MonoBehaviour:
     _customText: []
     _eventAdds: []
   <CritChance>k__BackingField: 0
-  <SucessChance>k__BackingField: 0.1
+  <SucessChance>k__BackingField: 0.05
