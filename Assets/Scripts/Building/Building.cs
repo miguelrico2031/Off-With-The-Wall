@@ -49,9 +49,17 @@ public class Building : MonoBehaviour, IBuilding
 
 
     }
+    private void Start()
+    {
+        GameManager.Instance.OnTearDownWall += isEnd;
+    }
+    private void isEnd()
+    {
+        SetColor(0);
 
+    }
     #endregion
-    
+
     public void SetReward(uint reward, Action onCollected)
     { //actualiza su estado y reward
         CurrentState = IBuilding.State.HasReward;

@@ -63,6 +63,7 @@ public class MultUIManager :MonoBehaviour, IMultUIService
         if (_peopleCount == 0)
         {
             _peopleMults.SetActive(false);
+            _peopleCountText.text = "";
         }
     }
     public void RemovePopUpMult(float value)
@@ -77,6 +78,8 @@ public class MultUIManager :MonoBehaviour, IMultUIService
         if (_peopleCount == 0)
         {
             _popUpMults.SetActive(false);
+            _popUpCountText.text = "";
+
         }
     }
     private void Start()

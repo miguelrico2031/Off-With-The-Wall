@@ -59,6 +59,10 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     {
         while (true)
         {
+            if(_eventPool.Count <= 0)
+            {
+                PlayEndGameEvent();
+            }
             for (int i = 0; i < 10; i++)
             {
                 var delay = Random.Range(_gameInfo.EventMinWaitTime, _gameInfo.EventMaxWaitTime);
@@ -104,7 +108,7 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
                 newEvent = null;
             }
             //_doneEvents.Add(newEvent);
-        } while (newEvent != null && tries < _doneEvents.Count + _eventPool.Count);
+        } while (newEvent != null && tries < 2*(_doneEvents.Count + _eventPool.Count));
         return newEvent;
     }
     private void RemoveEvent(IGameEvent _event)
@@ -175,25 +179,25 @@ public class EventSpawner : MonoBehaviour, IEventSpawnService
     }
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            print("Posibles: "+ _eventPool.Count+"Hechos: " +_doneEvents.Count);
+        //if (Input.GetKeyDown(KeyCode.R))
+        //{
+        //    print("Posibles: "+ _eventPool.Count+"Hechos: " +_doneEvents.Count);
             
-        }
-        if (Input.GetKeyDown(KeyCode.T))
-        {
-            foreach (IGameEvent item in _doneEvents)
-            {
-                print(item.ToString());
-            }
-        }
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            foreach (IGameEvent item in _eventPool)
-            {
-                print(item.ToString());
-            }
-        }
+        //}
+        //if (Input.GetKeyDown(KeyCode.T))
+        //{
+        //    foreach (IGameEvent item in _doneEvents)
+        //    {
+        //        print(item.ToString());
+        //    }
+        //}
+        //if (Input.GetKeyDown(KeyCode.Y))
+        //{
+        //    foreach (IGameEvent item in _eventPool)
+        //    {
+        //        print(item.ToString());
+        //    }
+        //}
     }
     private void TryEndGameEvent(uint people)
     {

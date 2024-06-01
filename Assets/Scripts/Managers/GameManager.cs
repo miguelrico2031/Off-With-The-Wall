@@ -127,7 +127,11 @@ public class GameManager : MonoBehaviour
     }
 
 
-
+    public void destroySelf()
+    {
+        Instance = null;
+        Destroy(gameObject);
+    }
     public void TearDownWall()
     {
         Debug.Log("MURO");
@@ -135,6 +139,7 @@ public class GameManager : MonoBehaviour
         CurrentGameState = GameState.OnEnd;
         Get<IPopUpService>().HideAllPopUps();
         Get<IHUDService>().HideHUD();
+        DontDestroyOnLoad(this);
         GetComponent<EndCinematic>().StartCinematic();
     }
 }

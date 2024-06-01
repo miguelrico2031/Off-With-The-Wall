@@ -35,7 +35,7 @@ MonoBehaviour:
   <EndGameEvent>k__BackingField: {fileID: 11400000, guid: a0c67168847e6fb4ebd29897526bbf6b, type: 2}
   <TutorialDialogue>k__BackingField: {fileID: 11400000, guid: 2b37474a5d466c141aa409b8482b4a7c, type: 2}
   _initialEvents:
-  - {fileID: 11400000, guid: ca86e496660a7914a8f61966086ca2bc, type: 2}
+  - {fileID: 11400000, guid: ee05660a5103f1a42b686764a556d809, type: 2}
   <RouletteSpinSpeed>k__BackingField: 200
   <RouletteHideDelay>k__BackingField: 1.5
   <WallFirstPeopleThreshold>k__BackingField: 0

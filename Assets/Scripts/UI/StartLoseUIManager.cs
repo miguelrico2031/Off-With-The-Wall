@@ -33,6 +33,7 @@ public class StartLoseUIManager : MonoBehaviour, IStartLoseUIService
     }
     public void QuitGame()
     {
+        print("quit");
         Application.Quit();
     }
     public void UnPause()
