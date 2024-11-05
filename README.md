@@ -1,4 +1,4 @@
-Play Off with the Wall in [miguelrico2031.itch.io/offwiththewall](https://miguelrico2031.itch.io/offwiththewall))!
+Play Off with the Wall in [miguelrico2031.itch.io/offwiththewall](https://miguelrico2031.itch.io/offwiththewall)!
 
 **Off with the Wall** is a Clicker game where your goal is to start a revolution and gather as many followers as possible to achieve a single objective: destroy the Wall.
 
